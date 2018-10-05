@@ -41,7 +41,6 @@
 		E406117721652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
 		E406117821652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
 		E406117921652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
-		E406117A21652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
 		E406117B21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
 		E406117C21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
 		E406117D21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
@@ -59,9 +58,6 @@
 		E406118921652A9B0084AC98 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115121652A9B0084AC98 /* OperationObserver.swift */; };
 		E406118A21652A9B0084AC98 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115121652A9B0084AC98 /* OperationObserver.swift */; };
 		E406118B21652A9B0084AC98 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115221652A9B0084AC98 /* NetworkObserver.swift */; };
-		E406118C21652A9B0084AC98 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115221652A9B0084AC98 /* NetworkObserver.swift */; };
-		E406118D21652A9B0084AC98 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115221652A9B0084AC98 /* NetworkObserver.swift */; };
-		E406118E21652A9B0084AC98 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115221652A9B0084AC98 /* NetworkObserver.swift */; };
 		E406118F21652A9B0084AC98 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115321652A9B0084AC98 /* BlockObserver.swift */; };
 		E406119021652A9B0084AC98 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115321652A9B0084AC98 /* BlockObserver.swift */; };
 		E406119121652A9B0084AC98 /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115321652A9B0084AC98 /* BlockObserver.swift */; };
@@ -745,7 +741,6 @@
 				E406119421652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117C21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E40611A221652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
-				E406118C21652A9B0084AC98 /* NetworkObserver.swift in Sources */,
 				E406115821652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115C21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E406117821652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
@@ -777,7 +772,6 @@
 				E406119521652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117D21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E40611A321652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
-				E406118D21652A9B0084AC98 /* NetworkObserver.swift in Sources */,
 				E406115921652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115D21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E406117921652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
@@ -809,10 +803,8 @@
 				E406119621652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117E21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E40611A421652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
-				E406118E21652A9B0084AC98 /* NetworkObserver.swift in Sources */,
 				E406115A21652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115E21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
-				E406117A21652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
 				E406118621652A9B0084AC98 /* OperationErrors.swift in Sources */,
 				E406119221652A9B0084AC98 /* BlockObserver.swift in Sources */,
 			);
@@ -1227,7 +1219,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1302,7 +1294,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1516,7 +1508,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1593,7 +1585,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.samad.AOperation-macOS";
@@ -1828,7 +1820,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1905,7 +1897,7 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};

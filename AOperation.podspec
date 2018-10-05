@@ -19,7 +19,8 @@ Pod::Spec.new do |s|
   	s.watchos.deployment_target = '2.0'
 
 	
-	s.source_files = 'Source/**/*.swift'
+	s.source_files = 'Source/Shared/**/*.swift'
+	s.ios.source_files = 'Source/iOS/**/*.swift'
 
 	s.swift_version = '4.2'
 end

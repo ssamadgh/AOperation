@@ -60,7 +60,8 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
 		print("Hello, totalBytesWritten, totalBytesExpectedToWrite ")
 		let progress: Progress
-		if #available(iOS 11, *) {
+		
+		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
 			progress = downloadTask.progress
 		} else {
 			progress = SimpleProgress(total: totalBytesExpectedToWrite, completed: totalBytesWritten)
@@ -86,7 +87,7 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		
 		print("uploading data didSendBodyData")
 		let progress: Progress
-		if #available(iOS 11, *) {
+		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
 			progress = task.progress
 		} else {
 			progress = SimpleProgress(total: totalBytesExpectedToSend, completed: totalBytesSent)

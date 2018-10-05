@@ -76,11 +76,15 @@ public class URLSessionTaskOperation: AOperation {
 			
 		})
 		
+		#if os(iOS) || os(macOS) || os(tvOS)
 		let reachabilityCondition = ReachabilityCondition(host: request.url!)
 		self.addCondition(reachabilityCondition)
-		
-		let networkObserver = NetworkObserver()
-		self.addObserver(networkObserver)
+		#endif
+
+		#if os(iOS)
+			let networkObserver = NetworkObserver()
+			self.addObserver(networkObserver)
+		#endif
 
 		
 		assert(task.state == .suspended, "Tasks must be suspended.")
