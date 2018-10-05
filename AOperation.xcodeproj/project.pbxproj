@@ -9,14 +9,10 @@
 /* Begin PBXBuildFile section */
 		E40610E6216517420084AC98 /* AOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40610DC216517420084AC98 /* AOperation.framework */; };
 		E40610EB216517420084AC98 /* AOperation_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40610EA216517420084AC98 /* AOperation_iOSTests.swift */; };
-		E40610ED216517420084AC98 /* AOperation_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E40610DF216517420084AC98 /* AOperation_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4061102216519340084AC98 /* AOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40610F9216519340084AC98 /* AOperation.framework */; };
 		E4061107216519340084AC98 /* AOperation_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4061106216519340084AC98 /* AOperation_tvOSTests.swift */; };
-		E4061109216519340084AC98 /* AOperation_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E40610FB216519340084AC98 /* AOperation_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E406111E216519840084AC98 /* AOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4061115216519840084AC98 /* AOperation.framework */; };
 		E4061123216519840084AC98 /* AOperation_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4061122216519840084AC98 /* AOperation_macOSTests.swift */; };
-		E4061125216519840084AC98 /* AOperation_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E4061117216519840084AC98 /* AOperation_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4061135216519CB0084AC98 /* AOperation_watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E4061133216519CB0084AC98 /* AOperation_watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E406115721652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114221652A9B0084AC98 /* NSLock+MyOperations.swift */; };
 		E406115821652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114221652A9B0084AC98 /* NSLock+MyOperations.swift */; };
 		E406115921652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114221652A9B0084AC98 /* NSLock+MyOperations.swift */; };
@@ -110,26 +106,20 @@
 
 /* Begin PBXFileReference section */
 		E40610DC216517420084AC98 /* AOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40610DF216517420084AC98 /* AOperation_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOperation_iOS.h; sourceTree = "<group>"; };
 		E40610E0216517420084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40610E5216517420084AC98 /* AOperation.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOperation.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40610EA216517420084AC98 /* AOperation_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOperation_iOSTests.swift; sourceTree = "<group>"; };
 		E40610EC216517420084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40610F9216519340084AC98 /* AOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40610FB216519340084AC98 /* AOperation_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOperation_tvOS.h; sourceTree = "<group>"; };
-		E40610FC216519340084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40610FC216519340084AC98 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		E4061101216519340084AC98 /* AOperation.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOperation.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4061106216519340084AC98 /* AOperation_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOperation_tvOSTests.swift; sourceTree = "<group>"; };
 		E4061108216519340084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4061115216519840084AC98 /* AOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4061117216519840084AC98 /* AOperation_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOperation_macOS.h; sourceTree = "<group>"; };
-		E4061118216519840084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E406111D216519840084AC98 /* AOperation.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOperation.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4061122216519840084AC98 /* AOperation_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOperation_macOSTests.swift; sourceTree = "<group>"; };
 		E4061124216519840084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4061131216519CB0084AC98 /* AOperation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AOperation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4061133216519CB0084AC98 /* AOperation_watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOperation_watchOS.h; sourceTree = "<group>"; };
-		E4061134216519CB0084AC98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E406113F216527260084AC98 /* AOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOperation.h; sourceTree = "<group>"; };
 		E406114221652A9B0084AC98 /* NSLock+MyOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+MyOperations.swift"; sourceTree = "<group>"; };
 		E406114321652A9B0084AC98 /* Foundation.Operation+Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation.Operation+Operation.swift"; sourceTree = "<group>"; };
@@ -212,9 +202,6 @@
 			children = (
 				E4061139216524000084AC98 /* Source */,
 				E406113C2165253D0084AC98 /* Tests */,
-				E40610FA216519340084AC98 /* AOperation tvOS */,
-				E4061116216519840084AC98 /* AOperation macOS */,
-				E4061132216519CB0084AC98 /* AOperation watchOS */,
 				E406113E216527140084AC98 /* Supporting Files */,
 				E40610DD216517420084AC98 /* Products */,
 			);
@@ -239,7 +226,6 @@
 			children = (
 				E40611F92165C7CD0084AC98 /* Operations */,
 				E4D599D42165CD0100BD7F66 /* Observers */,
-				E40611F82165C7C00084AC98 /* Supporting Files */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -253,15 +239,6 @@
 			path = "AOperation iOSTests";
 			sourceTree = "<group>";
 		};
-		E40610FA216519340084AC98 /* AOperation tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				E40610FB216519340084AC98 /* AOperation_tvOS.h */,
-				E40610FC216519340084AC98 /* Info.plist */,
-			);
-			path = "AOperation tvOS";
-			sourceTree = "<group>";
-		};
 		E4061105216519340084AC98 /* AOperation tvOSTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,15 +248,6 @@
 			path = "AOperation tvOSTests";
 			sourceTree = "<group>";
 		};
-		E4061116216519840084AC98 /* AOperation macOS */ = {
-			isa = PBXGroup;
-			children = (
-				E4061117216519840084AC98 /* AOperation_macOS.h */,
-				E4061118216519840084AC98 /* Info.plist */,
-			);
-			path = "AOperation macOS";
-			sourceTree = "<group>";
-		};
 		E4061121216519840084AC98 /* AOperation macOSTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,15 +255,6 @@
 				E4061124216519840084AC98 /* Info.plist */,
 			);
 			path = "AOperation macOSTests";
-			sourceTree = "<group>";
-		};
-		E4061132216519CB0084AC98 /* AOperation watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				E4061133216519CB0084AC98 /* AOperation_watchOS.h */,
-				E4061134216519CB0084AC98 /* Info.plist */,
-			);
-			path = "AOperation watchOS";
 			sourceTree = "<group>";
 		};
 		E4061139216524000084AC98 /* Source */ = {
@@ -321,6 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				E406113F216527260084AC98 /* AOperation.h */,
+				E40610E0216517420084AC98 /* Info.plist */,
+				E40610FC216519340084AC98 /* Info-tvOS.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -396,15 +357,6 @@
 			path = URLSessionTaskOperation;
 			sourceTree = "<group>";
 		};
-		E40611F82165C7C00084AC98 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E40610DF216517420084AC98 /* AOperation_iOS.h */,
-				E40610E0216517420084AC98 /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		E40611F92165C7CD0084AC98 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,7 +380,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40610ED216517420084AC98 /* AOperation_iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +387,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4061109216519340084AC98 /* AOperation_tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +394,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4061125216519840084AC98 /* AOperation_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +401,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4061135216519CB0084AC98 /* AOperation_watchOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,7 +849,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/iOS/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -977,7 +925,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/iOS/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1201,7 +1149,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "AOperation tvOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1277,7 +1225,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "AOperation tvOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1501,7 +1449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "AOperation macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1578,7 +1526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "AOperation macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1800,7 +1748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "AOperation watchOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1877,7 +1825,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "AOperation watchOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
