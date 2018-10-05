@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import AOperation_iOS
+@testable import AOperation
 
 class AOperation_iOSTests: XCTestCase {
 

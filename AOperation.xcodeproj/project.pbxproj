@@ -216,11 +216,8 @@
 			children = (
 				E4061139216524000084AC98 /* Source */,
 				E406113C2165253D0084AC98 /* Tests */,
-				E40610E9216517420084AC98 /* AOperation iOSTests */,
 				E40610FA216519340084AC98 /* AOperation tvOS */,
-				E4061105216519340084AC98 /* AOperation tvOSTests */,
 				E4061116216519840084AC98 /* AOperation macOS */,
-				E4061121216519840084AC98 /* AOperation macOSTests */,
 				E4061132216519CB0084AC98 /* AOperation watchOS */,
 				E406113E216527140084AC98 /* Supporting Files */,
 				E40610DD216517420084AC98 /* Products */,
@@ -317,6 +314,9 @@
 		E406113C2165253D0084AC98 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E40610E9216517420084AC98 /* AOperation iOSTests */,
+				E4061105216519340084AC98 /* AOperation tvOSTests */,
+				E4061121216519840084AC98 /* AOperation macOSTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
