@@ -105,7 +105,7 @@ public class AOperationTimer {
 
     //MARK: Initialiazation
 
-    init(interval: TimeInterval, handler: @escaping () -> Void) {
+    public init(interval: TimeInterval, handler: @escaping () -> Void) {
         let when = DispatchTime.now() + Double(Int64(interval * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
 
         DispatchQueue.main.asyncAfter(deadline: when) { [weak self] in
@@ -115,7 +115,7 @@ public class AOperationTimer {
         }
     }
 
-    func cancel() {
+    public func cancel() {
         isCancelled = true
     }
 }
