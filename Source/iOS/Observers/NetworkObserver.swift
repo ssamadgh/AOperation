@@ -47,7 +47,7 @@ private class NetworkIndicatorController {
 
     fileprivate var activityCount = 0
 
-    fileprivate var visibilityTimer: Timer?
+    fileprivate var visibilityTimer: AOperationTimer?
 
     // MARK: Methods
 
@@ -77,7 +77,7 @@ private class NetworkIndicatorController {
                  of the indicator by one second. This provides the chance to come in and
                  invalidate the timer before it fires.
             */
-            visibilityTimer = Timer(interval: 1.0) {
+            visibilityTimer = AOperationTimer(interval: 1.0) {
                 self.hideIndicator()
             }
         }
@@ -98,7 +98,7 @@ private class NetworkIndicatorController {
 
 
 /// Essentially a cancelable `dispatch_after`.
-class Timer {
+public class AOperationTimer {
     //MARK: Properties
 
     fileprivate var isCancelled = false
