@@ -45,7 +45,7 @@ public class URLSessionTaskOperation: AOperation {
 		self.init(kind: .download, for: request, progress: progress, urlCompletionHandler: completionHandler, dataCompletionHandler: {_,_,_ in })
 	}
 	
-	convenience init(uploadFor request: URLRequest, from localURL: URL, progress: ((Progress) -> Swift.Void)?, completionHandler: @escaping  ((Data?, URLResponse?, Error?) -> Swift.Void)) {
+	convenience init(uploadFor request: URLRequest, from localURL: URL?, progress: ((Progress) -> Swift.Void)?, completionHandler: @escaping  ((Data?, URLResponse?, Error?) -> Swift.Void)) {
 		self.init(kind: .upload, from: localURL, for: request, progress: progress, urlCompletionHandler: {_,_,_ in }, dataCompletionHandler: completionHandler)
 	}
 
