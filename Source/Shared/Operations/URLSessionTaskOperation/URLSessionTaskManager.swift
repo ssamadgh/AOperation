@@ -8,32 +8,6 @@
 
 import Foundation
 
-public protocol Progress {
-	
-	var completedUnitCount: Int64 { get set }
-	var totalUnitCount: Int64 { get set }
-	var fractionCompleted: Double { get }
-}
-
-public struct SimpleProgress: Progress {
-	
-	
-	public var completedUnitCount: Int64
-	public var totalUnitCount: Int64
-	public var fractionCompleted: Double {
-		return Double(completedUnitCount)/Double(totalUnitCount)
-	}
-	
-	init(total: Int64, completed: Int64) {
-		self.totalUnitCount = total
-		self.completedUnitCount = completed
-	}
-}
-
-extension Foundation.Progress: Progress {
-	
-}
-
 enum TaskKind {
 	case data, download, upload
 }
@@ -64,7 +38,8 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
 			progress = downloadTask.progress
 		} else {
-			progress = SimpleProgress(total: totalBytesExpectedToWrite, completed: totalBytesWritten)
+			progress = Progress(totalUnitCount: totalBytesExpectedToWrite)
+			progress.completedUnitCount = totalBytesWritten
 		}
 		
 		let taskProgress = self.taskProgressDic[downloadTask.taskIdentifier]
@@ -90,7 +65,9 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
 			progress = task.progress
 		} else {
-			progress = SimpleProgress(total: totalBytesExpectedToSend, completed: totalBytesSent)
+			progress = Progress(totalUnitCount: totalBytesExpectedToSend)
+			progress.completedUnitCount = totalBytesSent
+
 		}
 
 //		self.taskProgress?(progress)
