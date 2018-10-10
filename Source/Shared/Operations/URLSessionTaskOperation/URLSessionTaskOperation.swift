@@ -33,7 +33,7 @@ public class URLSessionTaskOperation: AOperation {
 		return URLSessionTaskOperation(downloadFor: request, progress: progress, completionHandler: completionHandler)
 	}
 	
-	public static func uploadTask(for request: URLRequest, from localURL: URL, progress: ((Progress) -> Swift.Void)? = nil, completionHandler: @escaping  ((Data?, URLResponse?, Error?) -> Swift.Void)) -> URLSessionTaskOperation {
+	public static func uploadTask(for request: URLRequest, from localURL: URL?, progress: ((Progress) -> Swift.Void)? = nil, completionHandler: @escaping  ((Data?, URLResponse?, Error?) -> Swift.Void)) -> URLSessionTaskOperation {
 		return URLSessionTaskOperation(uploadFor: request, from: localURL, progress: progress, completionHandler: completionHandler)
 	}
 	
