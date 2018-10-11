@@ -35,12 +35,13 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		print("Hello, totalBytesWritten, totalBytesExpectedToWrite ")
 		let progress: Progress
 		
-		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
-			progress = downloadTask.progress
-		} else {
-			progress = Progress(totalUnitCount: totalBytesExpectedToWrite)
-			progress.completedUnitCount = totalBytesWritten
-		}
+//		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
+//			progress = downloadTask.progress
+//		} else {
+		progress = Progress(totalUnitCount: totalBytesExpectedToWrite)
+		
+		progress.completedUnitCount = totalBytesWritten
+//		}
 		
 		let taskProgress = self.taskProgressDic[downloadTask.taskIdentifier]
 		taskProgress?(progress)

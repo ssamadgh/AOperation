@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 #
 	s.name = 'AOperation'
 	
-	s.version = '0.0.6'
+	s.version = '0.0.7'
 	s.license = { :type => "MIT", :file => 'LICENSE' }
 	s.summary = 'A Mediator Between Model (or Server) and View'
 
