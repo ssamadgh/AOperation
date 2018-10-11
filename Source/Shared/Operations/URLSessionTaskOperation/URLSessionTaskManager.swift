@@ -39,7 +39,6 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 //			progress = downloadTask.progress
 //		} else {
 		progress = Progress(totalUnitCount: totalBytesExpectedToWrite)
-		
 		progress.completedUnitCount = totalBytesWritten
 //		}
 		
@@ -63,15 +62,13 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		
 		print("uploading data didSendBodyData")
 		let progress: Progress
-		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
-			progress = task.progress
-		} else {
+//		if #available(iOS 11, tvOS 11.0, OSX 10.13, watchOSApplicationExtension 4.0, *) {
+//			progress = task.progress
+//		} else {
 			progress = Progress(totalUnitCount: totalBytesExpectedToSend)
 			progress.completedUnitCount = totalBytesSent
+//		}
 
-		}
-
-//		self.taskProgress?(progress)
 		let taskProgress = self.taskProgressDic[task.taskIdentifier]
 		taskProgress?(progress)
 	}
