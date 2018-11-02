@@ -78,6 +78,18 @@
 		E40611A721652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
 		E40611A821652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
 		E40611A921652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
+		E4235316217F983800888C92 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4235315217F983800888C92 /* LocationCondition.swift */; };
+		E4235317217F983800888C92 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4235315217F983800888C92 /* LocationCondition.swift */; };
+		E4235318217F983800888C92 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4235315217F983800888C92 /* LocationCondition.swift */; };
+		E4235319217F983800888C92 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4235315217F983800888C92 /* LocationCondition.swift */; };
+		E423531B217F9E1E00888C92 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423531A217F9E1E00888C92 /* SilentCondition.swift */; };
+		E423531C217F9E1E00888C92 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423531A217F9E1E00888C92 /* SilentCondition.swift */; };
+		E423531D217F9E1E00888C92 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423531A217F9E1E00888C92 /* SilentCondition.swift */; };
+		E423531E217F9E1E00888C92 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423531A217F9E1E00888C92 /* SilentCondition.swift */; };
+		E423535D217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
+		E423535E217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
+		E423535F217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
+		E4235360217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +151,9 @@
 		E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperation.swift; sourceTree = "<group>"; };
 		E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskManager.swift; sourceTree = "<group>"; };
 		E40611A521652B2A0084AC98 /* AOperatinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOperatinLogger.swift; sourceTree = "<group>"; };
+		E4235315217F983800888C92 /* LocationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCondition.swift; sourceTree = "<group>"; };
+		E423531A217F9E1E00888C92 /* SilentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentCondition.swift; sourceTree = "<group>"; };
+		E423535C217FC76D00888C92 /* DelayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +320,7 @@
 				E406114621652A9B0084AC98 /* GroupOperation.swift */,
 				E406114721652A9B0084AC98 /* AOperation.swift */,
 				E406114821652A9B0084AC98 /* BlockOperation.swift */,
+				E423535C217FC76D00888C92 /* DelayOperation.swift */,
 				E40611F72165BEF40084AC98 /* URLSessionTaskOperation */,
 			);
 			path = Operations;
@@ -317,6 +333,8 @@
 				E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */,
 				E406114E21652A9B0084AC98 /* OperationCondition.swift */,
 				E406114F21652A9B0084AC98 /* OperationErrors.swift */,
+				E4235315217F983800888C92 /* LocationCondition.swift */,
+				E423531A217F9E1E00888C92 /* SilentCondition.swift */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -651,7 +669,9 @@
 				E406119D21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406117F21652A9B0084AC98 /* OperationCondition.swift in Sources */,
 				E406118721652A9B0084AC98 /* OperationObserver.swift in Sources */,
+				E423531B217F9E1E00888C92 /* SilentCondition.swift in Sources */,
 				E406116321652A9B0084AC98 /* GroupOperation.swift in Sources */,
+				E4235316217F983800888C92 /* LocationCondition.swift in Sources */,
 				E40611A621652B2A0084AC98 /* AOperatinLogger.swift in Sources */,
 				E406116B21652A9B0084AC98 /* BlockOperation.swift in Sources */,
 				E406119321652A9B0084AC98 /* AOperationQueue.swift in Sources */,
@@ -663,6 +683,7 @@
 				E406117721652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
 				E406118321652A9B0084AC98 /* OperationErrors.swift in Sources */,
 				E406118F21652A9B0084AC98 /* BlockObserver.swift in Sources */,
+				E423535D217FC76D00888C92 /* DelayOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +700,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E406119821652A9B0084AC98 /* ExclusivityController.swift in Sources */,
+				E423535E217FC76D00888C92 /* DelayOperation.swift in Sources */,
+				E4235317217F983800888C92 /* LocationCondition.swift in Sources */,
 				E406116821652A9B0084AC98 /* AOperation.swift in Sources */,
 				E406119E21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406118021652A9B0084AC98 /* OperationCondition.swift in Sources */,
@@ -691,6 +714,7 @@
 				E40611A221652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115821652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115C21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
+				E423531C217F9E1E00888C92 /* SilentCondition.swift in Sources */,
 				E406117821652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
 				E406118421652A9B0084AC98 /* OperationErrors.swift in Sources */,
 				E406119021652A9B0084AC98 /* BlockObserver.swift in Sources */,
@@ -710,6 +734,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E406119921652A9B0084AC98 /* ExclusivityController.swift in Sources */,
+				E423535F217FC76D00888C92 /* DelayOperation.swift in Sources */,
+				E4235318217F983800888C92 /* LocationCondition.swift in Sources */,
 				E406116921652A9B0084AC98 /* AOperation.swift in Sources */,
 				E406119F21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406118121652A9B0084AC98 /* OperationCondition.swift in Sources */,
@@ -722,6 +748,7 @@
 				E40611A321652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115921652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115D21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
+				E423531D217F9E1E00888C92 /* SilentCondition.swift in Sources */,
 				E406117921652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
 				E406118521652A9B0084AC98 /* OperationErrors.swift in Sources */,
 				E406119121652A9B0084AC98 /* BlockObserver.swift in Sources */,
@@ -741,7 +768,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E406119A21652A9B0084AC98 /* ExclusivityController.swift in Sources */,
+				E423531E217F9E1E00888C92 /* SilentCondition.swift in Sources */,
 				E406116A21652A9B0084AC98 /* AOperation.swift in Sources */,
+				E4235319217F983800888C92 /* LocationCondition.swift in Sources */,
 				E40611A021652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406118221652A9B0084AC98 /* OperationCondition.swift in Sources */,
 				E406118A21652A9B0084AC98 /* OperationObserver.swift in Sources */,
@@ -749,6 +778,7 @@
 				E40611A921652B2A0084AC98 /* AOperatinLogger.swift in Sources */,
 				E406116E21652A9B0084AC98 /* BlockOperation.swift in Sources */,
 				E406119621652A9B0084AC98 /* AOperationQueue.swift in Sources */,
+				E4235360217FC76D00888C92 /* DelayOperation.swift in Sources */,
 				E406117E21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E40611A421652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115A21652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,

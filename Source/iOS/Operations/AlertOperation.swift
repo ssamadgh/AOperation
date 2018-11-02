@@ -38,7 +38,7 @@ public class AlertOperation: AOperation {
     // MARK: Initialization
 
     public init(presentationContext: UIViewController? = nil) {
-        self.presentationContext = presentationContext ?? UIApplication.shared.keyWindow?.rootViewController
+        self.presentationContext = presentationContext ?? UIApplication.shared.topViewController()
 
         super.init()
 
@@ -79,4 +79,35 @@ public class AlertOperation: AOperation {
             presentationContext.present(self.alertController, animated: true, completion: nil)
         }
     }
+	
+	
+}
+
+
+extension UIApplication {
+	
+	public func topViewController() -> UIViewController? {
+		return self.topViewControllerWithRootViewController(UIApplication.shared.keyWindow?.rootViewController)
+	}
+	
+	public func topViewControllerWithRootViewController(_ rootViewController: UIViewController?) -> UIViewController? {
+		guard let root = rootViewController else { return nil }
+		if root is UITabBarController {
+			let tabBarController = root as! UITabBarController
+			return self.topViewControllerWithRootViewController(tabBarController.selectedViewController)
+		}
+		
+		if root is UINavigationController {
+			let navigationController = root as! UINavigationController
+			return self.topViewControllerWithRootViewController(navigationController.visibleViewController)
+		}
+		
+		if root.presentedViewController != nil {
+			let presentedViewController = root.presentedViewController
+			return self.topViewControllerWithRootViewController(presentedViewController)
+		}
+		
+		return root
+	}
+
 }
