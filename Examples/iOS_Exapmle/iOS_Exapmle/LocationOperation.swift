@@ -6,7 +6,6 @@ Abstract:
 Shows how to retrieve the user's location with an operation.
 */
 
-import Foundation
 import CoreLocation
 import AOperation
 
@@ -31,7 +30,7 @@ class LocationOperation: AOperation, CLLocationManagerDelegate {
         super.init()
 		let newCondition = LocationCondition(usage: .always, servicesAvailability: [.headingAvailable])
 		
-        addCondition(LocationCondition(usage: .whenInUse))
+        addCondition(newCondition)
         addCondition(MutuallyExclusive<CLLocationManager>())
     }
     

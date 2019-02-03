@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
 #
 	s.name = 'AOperation'
 	
-	s.version = '0.0.9'
+	s.version = '0.0.9.1'
 	s.license = { :type => "MIT", :file => 'LICENSE' }
-	s.summary = 'A Mediator Between Model (or Server) and View'
+	s.summary = 'A wrapper on Operation and OperationQueue Classes'
 
 	s.homepage = 'https://github.com/ssamadgh/AOperation.git'
 	s.author = { 'Seyed Samad Gholamzadeh' => 'ssamadgh@gmail.com' }

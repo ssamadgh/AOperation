@@ -12,7 +12,7 @@ import Foundation
 public typealias OperationBlock = (@escaping () -> Void) -> Void
 
 /// A sublcass of `AOperation` to execute a closure.
-public class BlockOperation: AOperation {
+public class BlockAOperation: AOperation {
     fileprivate let block: OperationBlock?
 
     /**

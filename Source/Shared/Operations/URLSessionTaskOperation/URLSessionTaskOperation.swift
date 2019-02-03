@@ -89,7 +89,11 @@ public class URLSessionTaskOperation: AOperation {
 		
 		assert(task.state == .suspended, "Tasks must be suspended.")
 		self.task = task
-//		super.init()
+
+		addObserver(BlockObserver(cancelHandler: { _ in
+			task.cancel()
+		}))
+
 		name = "URLSessionTaskOperation"
 	}
 	
@@ -110,11 +114,6 @@ public class URLSessionTaskOperation: AOperation {
 		assert(task.state == .suspended, "Task was resumed by something other than \(self).")
 		
 		task.resume()
-	}
-	
-	override public func cancel() {
-		task.cancel()
-		super.cancel()
 	}
 	
 }

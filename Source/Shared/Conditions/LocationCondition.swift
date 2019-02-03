@@ -58,8 +58,11 @@ public struct LocationCondition: OperationCondition {
 			case .headingAvailable:
 				return CLLocationManager.headingAvailable()
 				
+			#if os(iOS)
 			case .rangingAvailable:
 				return CLLocationManager.isRangingAvailable()
+			#endif
+				
 			}
 			
 		}
@@ -190,7 +193,7 @@ private class LocationPermissionOperation: AOperation {
             case .whenInUse:
                 key = "NSLocationWhenInUseUsageDescription"
                 manager?.requestWhenInUseAuthorization()
-        
+			
             case .always:
                 key = "NSLocationAlwaysUsageDescription"
                 manager?.requestAlwaysAuthorization()

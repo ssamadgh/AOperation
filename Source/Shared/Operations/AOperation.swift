@@ -15,7 +15,7 @@ import Foundation
 	Add the "state" key to the key value observable properties of `Foundation.Operation`.
 	*/
 	class func keyPathsForValuesAffectingIsReady() -> Set<String> {
-		return ["state"]
+		return ["state", "cancelledState"]
 	}
 
 	class func keyPathsForValuesAffectingIsExecuting() -> Set<String> {
@@ -26,9 +26,9 @@ import Foundation
 		return ["state"]
 	}
 
-	//    class func keyPathsForValuesAffectingIsCancelled() -> Set<String> {
-	//        return ["state"]
-	//    }
+	class func keyPathsForValuesAffectingIsCancelled() -> Set<String> {
+		return ["cancelledState"]
+	}
 
 }
 
@@ -40,6 +40,19 @@ about interesting operation state changes
 */
 open class AOperation: Foundation.Operation {
 
+	/* The completionBlock property has unexpected behaviors such as executing twice and executing on unexpected threads. BlockObserver executes in an expected manner.
+	*/
+	@available(*, deprecated, message: "use BlockObserver completions instead")
+	override open var completionBlock: (() -> Void)? {
+		set {
+			fatalError("The completionBlock property on NSOperation has unexpected behavior and is not supported in PSOperations.Operation 😈")
+		}
+		get {
+			return nil
+		}
+	}
+
+	
 	// MARK: State Management
 
 	fileprivate enum State: Int, Comparable {
@@ -70,11 +83,15 @@ open class AOperation: Foundation.Operation {
 		/// The `AOperation` has finished executing.
 		case finished
 
-		func canTransitionToState(_ target: State) -> Bool {
+		func canTransitionToState(_ target: State, operationIsCancelled cancelled: Bool) -> Bool {
 			switch (self, target) {
 			case (.initialized, .pending):
 				return true
 			case (.pending, .evaluatingConditions):
+				return true
+			case (.pending, .finishing) where cancelled:
+				return true
+			case (.pending, .ready) where cancelled:
 				return true
 			case (.evaluatingConditions, .ready):
 				return true
@@ -83,8 +100,6 @@ open class AOperation: Foundation.Operation {
 			case (.ready, .finishing):
 				return true
 			case (.executing, .finishing):
-				return true
-			case (.pending, .finishing):
 				return true
 			case (.finishing, .finished):
 				return true
@@ -99,7 +114,7 @@ open class AOperation: Foundation.Operation {
 	Indicates that the AOperation can now begin to evaluate readiness conditions,
 	if appropriate.
 	*/
-	internal func willEnqueue() {
+	internal func didEnqueue() {
 		state = .pending
 	}
 
@@ -107,7 +122,7 @@ open class AOperation: Foundation.Operation {
 	fileprivate var _state = State.initialized
 
 	/// A lock to guard reads and writes to the `_state` property
-	fileprivate let stateLock = NSLock()
+	fileprivate let stateLock = NSRecursiveLock()
 
 	fileprivate var state: State {
 		get {
@@ -133,7 +148,7 @@ open class AOperation: Foundation.Operation {
 					return
 				}
 
-				assert(_state.canTransitionToState(newState), "Performing invalid state transition.")
+				assert(_state.canTransitionToState(newState, operationIsCancelled: isCancelled), "Performing invalid state transition.")
 				_state = newState
 			}
 
@@ -143,32 +158,41 @@ open class AOperation: Foundation.Operation {
 
 	// Here is where we extend our definition of "readiness".
 	override open var isReady: Bool {
-		switch state {
-
-		case .initialized:
-			// If the operation has been cancelled, "isReady" should return true
-			return isCancelled
-
-		case .pending:
-			// If the operation has been cancelled, "isReady" should return true
-			guard !isCancelled else {
-				return true
+		
+		var _ready = false
+		
+		stateLock.withCriticalScope {
+			switch state {
+				
+			case .initialized:
+				// If the operation has been cancelled, "isReady" should return true
+				_ready = isCancelled
+				
+			case .pending:
+				// If the operation has been cancelled, "isReady" should return true
+				guard !isCancelled else {
+					state = .ready
+					_ready = true
+					return
+				}
+				
+				// If super isReady, conditions can be evaluated
+				if super.isReady {
+					evaluateConditions()
+					_ready = state == .ready
+				}
+				
+			case .ready:
+				_ready = super.isReady || isCancelled
+				
+			default:
+				_ready = false
 			}
-
-			// If super isReady, conditions can be evaluated
-			if super.isReady {
-				evaluateConditions()
-			}
-
-			// Until conditions have been evaluated, "isReady" returns false
-			return false
-
-		case .ready:
-			return super.isReady || isCancelled
-
-		default:
-			return false
+			
 		}
+		
+		return _ready
+		
 	}
 
 	/**
@@ -193,7 +217,28 @@ open class AOperation: Foundation.Operation {
 	override open var isFinished: Bool {
 		return state == .finished
 	}
-
+	
+	var _cancelled = false {
+		willSet {
+			willChangeValue(forKey: "cancelledState")
+		}
+		
+		didSet {
+			didChangeValue(forKey: "cancelledState")
+			if _cancelled != oldValue && _cancelled == true {
+				
+				for observer in observers {
+					observer.operationDidCancel(self)
+				}
+				
+			}
+		}
+	}
+	
+	override open var isCancelled: Bool {
+		return _cancelled
+	}
+	
 	fileprivate func evaluateConditions() {
 		assert(state == .pending && !isCancelled, "evaluateConditions() was called out-of-order")
 
@@ -205,9 +250,13 @@ open class AOperation: Foundation.Operation {
 		}
 
 		OperationConditionEvaluator.evaluate(conditions, operation: self) { failures in
-			self._internalErrors += failures
+			if !failures.isEmpty {
+				self.cancelWithErrors(failures)
+			}
+			
 			self.state = .ready
 		}
+		
 	}
 
 	// MARK: Observers and Conditions
@@ -256,8 +305,8 @@ open class AOperation: Foundation.Operation {
 				observer.operationDidStart(self)
 			}
 
-			if AOperatinLogger.logOperationsTrack {
-				print("AOperation \(self.name ?? "has no name") executed")
+			if AOperatinLogger.printOperationsState {
+				print("AOperation \(type(of: self)) executed")
 			}
 
 			execute()
@@ -279,7 +328,7 @@ open class AOperation: Foundation.Operation {
 	*/
 	open func execute() {
 
-		if AOperatinLogger.logOperationsTrack {
+		if AOperatinLogger.printOperationsState {
 			print("\(type(of: self)) must override `execute()`.")
 		}
 
@@ -288,12 +337,25 @@ open class AOperation: Foundation.Operation {
 
 	fileprivate var _internalErrors = [NSError]()
 
-	public func cancelWithError(_ error: NSError? = nil) {
-		if let error = error {
-			_internalErrors.append(error)
+	override open func cancel() {
+		if isFinished {
+			return
 		}
-
+		
+		_cancelled = true
+		
+		if state > .ready {
+			finish()
+		}
+	}
+	
+	public func cancelWithErrors(_ errors: [NSError]) {
+		_internalErrors += errors
 		cancel()
+	}
+	
+	public func cancelWithError(_ error: NSError) {
+		cancelWithErrors([error])
 	}
 
 	public final func produceOperation(_ operation: Foundation.Operation) {
@@ -335,8 +397,8 @@ open class AOperation: Foundation.Operation {
 			let combinedErrors = _internalErrors + errors
 			finished(combinedErrors)
 
-			if AOperatinLogger.logOperationsTrack {
-				print("AOperation \(self.name ?? "has no name") finished")
+			if AOperatinLogger.printOperationsState {
+				print("AOperation \(type(of: self)) finished")
 			}
 
 			for observer in observers {
@@ -371,6 +433,7 @@ open class AOperation: Foundation.Operation {
 		*/
 		fatalError("Waiting on operations is an anti-pattern. Remove this ONLY if you're absolutely sure there is No Other Way™.")
 	}
+	
 }
 
 // Simple operator functions to simplify the assertions used above.

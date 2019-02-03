@@ -3,7 +3,7 @@
  See LICENSE.txt for this sample’s licensing information
 
  Abstract:
- This file contains an NSAOperationQueue subclass.
+ This file contains an Foundation.OperationQueue subclass.
  */
 
 import Foundation
@@ -24,7 +24,7 @@ import Foundation
 }
 
 /**
- `AOperationQueue` is an `NSAOperationQueue` subclass that implements a large
+ `AOperationQueue` is an `Foundation.OperationQueue` subclass that implements a large
  number of "extra features" related to the `AOperation` class:
 
  - Notifying a delegate of all operation completion
@@ -87,7 +87,7 @@ public class AOperationQueue: Foundation.OperationQueue {
              and it's now it a state where it can proceed with evaluating conditions,
              if appropriate.
              */
-            op.willEnqueue()
+            op.didEnqueue()
         }
         else {
             /*
@@ -104,8 +104,8 @@ public class AOperationQueue: Foundation.OperationQueue {
 
         delegate?.operationQueue?(self, willAddOperation: op)
 
-		if AOperatinLogger.logOperationsTrack {
-			print("AOperation \"\(op.name ?? "has no name")\" added to queue")
+		if AOperatinLogger.printOperationsState {
+			print("AOperation \"\(type(of: op))\" added to queue")
 		}
 
         super.addOperation(op)

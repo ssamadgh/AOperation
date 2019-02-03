@@ -13,9 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
+	let presenter = AppDelegatePresenter()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		
+		self.presenter.initializeCoreDataStack(modelName: "AppModel") { (error) in
+			
+			if error != nil {
+				// Do Something
+			}
+			
+		}
+		
 		return true
 	}
 
