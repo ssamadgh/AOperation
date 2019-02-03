@@ -15,7 +15,7 @@ import UserNotifications
     `UILocalNotification` and/or remote notifications.
 */
 @available(iOS 10.0, *)
-struct UNNotificationCondition: OperationCondition {
+public struct UNNotificationCondition: OperationCondition {
     
     enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
@@ -25,10 +25,10 @@ struct UNNotificationCondition: OperationCondition {
         case replace
     }
     
-    static let name = "UserNotification"
+	public static let name = "UserNotification"
     static let currentOptions = "CurrentUserNotificationOptions"
     static let desiredOptions = "DesiredUserNotificationOptions"
-    static let isMutuallyExclusive = false
+	public static let isMutuallyExclusive = false
     
     let options: UNAuthorizationOptions
     let behavior: Behavior
@@ -53,11 +53,11 @@ struct UNNotificationCondition: OperationCondition {
         self.behavior = behavior
     }
     
-    func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
+	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
         return UNNotificationAuthorizationOperation(options: options, behavior: behavior)
     }
     
-    func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
+	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
 		
 		UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
 			

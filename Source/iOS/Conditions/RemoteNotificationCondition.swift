@@ -20,9 +20,9 @@ private enum RemoteRegistrationResult {
 
 /// A condition for verifying that the app has the ability to receive push notifications.
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
-struct RemoteNotificationCondition: OperationCondition {
-    static let name = "RemoteNotification"
-    static let isMutuallyExclusive = false
+public struct RemoteNotificationCondition: OperationCondition {
+	public static let name = "RemoteNotification"
+	public static let isMutuallyExclusive = false
     
     static func didReceiveNotificationToken(_ token: Data) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteNotificationName), object: nil, userInfo: [
@@ -42,11 +42,11 @@ struct RemoteNotificationCondition: OperationCondition {
         self.application = application
     }
     
-    func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
+	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
         return RemoteNotificationPermissionOperation(application: application, handler: { _ in })
     }
     
-    func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
+	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         /*
             Since evaluation requires executing an operation, use a private operation
             queue.
