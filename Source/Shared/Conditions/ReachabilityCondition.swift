@@ -1,95 +1,184 @@
+//
+//  ReachabilityCondition.swift
+//  AOperation
+//
+//  Created by Seyed Samad Gholamzadeh on 3/9/19.
+//
 /*
- Copyright (C) 2015 Apple Inc. All Rights Reserved.
- See LICENSE.txt for this sample’s licensing information
+Abstract:
+This file shows an example of implementing the OperationCondition protocol.
 
- Abstract:
- This file shows an example of implementing the OperationCondition protocol.
- */
+*/
 
 import Foundation
-import SystemConfiguration
 
 /**
- This is a condition that performs a very high-level reachability check.
- It does *not* perform a long-running reachability check, nor does it respond to changes in reachability.
- Reachability is evaluated once when the operation to which this is attached is asked about its readiness.
- */
+This is a condition that performs a very high-level reachability check.
+It performs a long-running reachability check, and it respond to changes in reachability.
+If user sets `waitToConnect` to **true**, this condition adds a dependency operation to the operation which this condition is attached to it and that operation waits until the connection changes to the user's intended connection.
+If user sets `waitToConnect` to **false**, reachability is evaluated once when the operation to which this is attached is asked about its readiness.
+*/
+
 public struct ReachabilityCondition: OperationCondition {
+	
 	public static let hostKey = "Host"
 	public static let name = "Reachability"
 	public static let isMutuallyExclusive = false
 	
-	public let host: URL
+	public let url: URL?
+	let connection: Connection?
+	let waitToConnect: Bool
 	
-	public init(host: URL) {
-		self.host = host
+	private let reachability: Reachability
+	
+	/**
+	Initialization for reachability condition
+	
+	- Parameters:
+		- url:
+		The url which user wants to chack reachability to it
+		The default value is nil
+		- connection:
+		The type of connection which user wants to have
+	If the value of this parameter set to nil, the condition checks if connection is other than **.none**. The default value is nil
+
+		- waitToConnect:
+		If user sets this parameter to **true**, the condition adds a dependency operation to the operation which this condition is attached to it and that operation waits until the connection changes to the user's intended connection.
+		If user sets this parameter to **false**, reachability is evaluated once when the operation to which this is attached is asked about its readiness.
+		The default value is **false**.
+	*/
+	public init(url: URL? = nil, connection: Connection? = nil, waitToConnect: Bool = false) {
+		self.url = url
+		self.connection = connection
+		self.waitToConnect = waitToConnect
+		
+		guard let reachability = Reachability(hostname: self.url?.host) else {
+			fatalError("Reachability is nil")
+		}
+		self.reachability = reachability
 	}
 	
 	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-		return nil
+		return waitToConnect ? ReachabilityOperation(url: self.url, connection: self.connection) : nil
 	}
 	
 	
 	
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-		ReachabilityController.requestReachability(host) { reachable in
-			if reachable {
-				completion(.satisfied)
-			}
-			else {
-				let error = NSError(code: .conditionFailed, userInfo: [
-					OperationConditionKey: type(of: self).name,
-					type(of: self).hostKey: self.host
-					])
-				
-				completion(.failed(error))
-			}
+		
+		var isConnect: Bool = false
+		
+		
+		if self.connection == nil {
+			let reachable = self.reachability.connection != .none
+			isConnect = reachable
 		}
+		else {
+			isConnect = self.connection == self.reachability.connection
+		}
+		
+		
+		if isConnect {
+			completion(.satisfied)
+		}
+		else {
+			
+			let error = NSError(code: .conditionFailed, userInfo: [
+				OperationConditionKey: type(of: self).name,
+				type(of: self).hostKey: self.url?.host ?? ""
+				])
+			
+			completion(.failed(error))
+
+		}
+		
 	}
+	
 	
 }
 
-/// A private singleton that maintains a basic cache of `SCNetworkReachability` objects.
-private class ReachabilityController {
-    static var reachabilityRefs = [String: SCNetworkReachability]()
 
-    static let reachabilityQueue = DispatchQueue(label: "Operations.Reachability", attributes: [])
+private class ReachabilityOperation: AOperation {
+	public let url: URL?
+	let connection: Connection?
+	
+	private let reachability: Reachability
+	
+	init(url: URL?, connection: Connection?) {
+		self.url = url
+		self.connection = connection
+		
+		guard let reachability = Reachability(hostname: self.url?.host) else {
+			fatalError("Reachability is nil")
+		}
+		self.reachability = reachability
+	}
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+	}
+	
+	override func execute() {
+		
+		var isConnect: Bool = false
+		
+		if self.connection == nil {
+			let reachable = self.reachability.connection != .none
+			isConnect = reachable
+		}
+		else {
+			isConnect = self.reachability.connection == self.connection
+		}
+		
+		guard !isConnect else {
+			self.finishWithError(nil)
+			return
+		}
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+		
+		do {
+			try self.reachability.startNotifier()
+		}
+		catch {
+			let error = NSError(code: .conditionFailed, userInfo: [
+				"Operation": self.name ?? "",
+				"HOST": self.url?.host ?? ""
+				])
+			
+			self.finishWithError(error)
+		}
+		
+		
+	}
+	
+	@objc func reachabilityChanged(note: Notification) {
+		
+		let reachability = note.object as! Reachability
+		
+//		switch reachability.connection {
+//		case .wifi:
+//			print("Reachable via WiFi")
+//		case .cellular:
+//			print("Reachable via Cellular")
+//		case .none:
+//			print("Network not reachable")
+//		}
+		
+		if self.connection == nil {
+			if reachability.connection != .none {
+				reachability.stopNotifier()
+				self.finishWithError(nil)
+			}
+		}
+		else {
+			if reachability.connection == self.connection {
+				reachability.stopNotifier()
+				self.finishWithError(nil)
+			}
+		}
+		
+	}
 
-    static func requestReachability(_ url: URL, completionHandler: @escaping (Bool) -> Void) {
-        if let host = url.host {
-            reachabilityQueue.async {
-                var ref = self.reachabilityRefs[host]
 
-                if ref == nil {
-                    let hostString = host as NSString
-                    ref = SCNetworkReachabilityCreateWithName(nil, hostString.utf8String!)
-//                    ref = SCNetworkReachabilityCreateWithName(nil, hostString.utf8String!)
-                }
-
-                if let ref = ref {
-                    self.reachabilityRefs[host] = ref
-
-                    var reachable = false
-                    var flags: SCNetworkReachabilityFlags = []
-                    if SCNetworkReachabilityGetFlags(ref, &flags) != false {
-                        /*
-                         Note that this is a very basic "is reachable" check.
-                         Your app may choose to allow for other considerations,
-                         such as whether or not the connection would require
-                         VPN, a cellular connection, etc.
-                         */
-                        reachable = flags.contains(.reachable)
-                    }
-                    completionHandler(reachable)
-                }
-                else {
-                    completionHandler(false)
-                }
-            }
-        }
-        else {
-            completionHandler(false)
-        }
-    }
 }
-

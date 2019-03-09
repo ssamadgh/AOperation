@@ -77,7 +77,7 @@ public class URLSessionTaskOperation: AOperation {
 		})
 		
 		#if os(iOS) || os(macOS) || os(tvOS)
-		let reachabilityCondition = ReachabilityCondition(host: request.url!)
+		let reachabilityCondition = ReachabilityCondition(url: request.url!)
 		self.addCondition(reachabilityCondition)
 		#endif
 

@@ -34,9 +34,9 @@
 		E406116D21652A9B0084AC98 /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114821652A9B0084AC98 /* BlockOperation.swift */; };
 		E406116E21652A9B0084AC98 /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114821652A9B0084AC98 /* BlockOperation.swift */; };
 		E406117321652A9B0084AC98 /* AlertOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114A21652A9B0084AC98 /* AlertOperation.swift */; };
-		E406117721652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
-		E406117821652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
-		E406117921652A9B0084AC98 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */; };
+		E406117721652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */; };
+		E406117821652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */; };
+		E406117921652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */; };
 		E406117B21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
 		E406117C21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
 		E406117D21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
@@ -87,6 +87,14 @@
 		E423535E217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
 		E423535F217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
 		E4235360217FC76D00888C92 /* DelayOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423535C217FC76D00888C92 /* DelayOperation.swift */; };
+		E44DE1852232F276008DE9C2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1842232F275008DE9C2 /* Reachability.swift */; };
+		E44DE1862232F276008DE9C2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1842232F275008DE9C2 /* Reachability.swift */; };
+		E44DE1872232F276008DE9C2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1842232F275008DE9C2 /* Reachability.swift */; };
+		E44DE1882232F276008DE9C2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1842232F275008DE9C2 /* Reachability.swift */; };
+		E44DE18A2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
+		E44DE18B2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
+		E44DE18C2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
+		E44DE18D2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
 		E4638AFF21FD97BF00656820 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */; };
 		E4638B0021FD97BF00656820 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */; };
 		E4638B0121FD97BF00656820 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */; };
@@ -156,7 +164,7 @@
 		E406114721652A9B0084AC98 /* AOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOperation.swift; sourceTree = "<group>"; };
 		E406114821652A9B0084AC98 /* BlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockOperation.swift; sourceTree = "<group>"; };
 		E406114A21652A9B0084AC98 /* AlertOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertOperation.swift; sourceTree = "<group>"; };
-		E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityCondition.swift; sourceTree = "<group>"; };
+		E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityConditionOld.swift; sourceTree = "<group>"; };
 		E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
 		E406114E21652A9B0084AC98 /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
 		E406114F21652A9B0084AC98 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
@@ -171,6 +179,8 @@
 		E4235315217F983800888C92 /* LocationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCondition.swift; sourceTree = "<group>"; };
 		E423531A217F9E1E00888C92 /* SilentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentCondition.swift; sourceTree = "<group>"; };
 		E423535C217FC76D00888C92 /* DelayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayOperation.swift; sourceTree = "<group>"; };
+		E44DE1842232F275008DE9C2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityCondition.swift; sourceTree = "<group>"; };
 		E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Operations.swift"; sourceTree = "<group>"; };
 		E4638B0321FD97D200656820 /* UIUserNotifications+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIUserNotifications+Operations.swift"; sourceTree = "<group>"; };
 		E4638B0521FD9ABC00656820 /* UserNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationCondition.swift; sourceTree = "<group>"; };
@@ -332,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				E40611A521652B2A0084AC98 /* AOperatinLogger.swift */,
+				E44DE1842232F275008DE9C2 /* Reachability.swift */,
 				E40611AB21652BD20084AC98 /* Convenience Extensions */,
 				E406114421652A9B0084AC98 /* Operations */,
 				E406114B21652A9B0084AC98 /* Conditions */,
@@ -359,7 +370,8 @@
 				E406114E21652A9B0084AC98 /* OperationCondition.swift */,
 				E4F57BCF22015DD4005323DD /* NegatedCondition.swift */,
 				E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */,
-				E406114C21652A9B0084AC98 /* ReachabilityCondition.swift */,
+				E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */,
+				E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */,
 				E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */,
 				E406114F21652A9B0084AC98 /* OperationErrors.swift */,
 				E4235315217F983800888C92 /* LocationCondition.swift */,
@@ -720,6 +732,7 @@
 				E406116721652A9B0084AC98 /* AOperation.swift in Sources */,
 				E406119D21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406117F21652A9B0084AC98 /* OperationCondition.swift in Sources */,
+				E44DE1852232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406118721652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E4638B0621FD9ABC00656820 /* UserNotificationCondition.swift in Sources */,
 				E423531B217F9E1E00888C92 /* SilentCondition.swift in Sources */,
@@ -737,8 +750,9 @@
 				E406115721652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115B21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E4638AFF21FD97BF00656820 /* Dictionary+Operations.swift in Sources */,
-				E406117721652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
+				E406117721652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */,
 				E406118321652A9B0084AC98 /* OperationErrors.swift in Sources */,
+				E44DE18A2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E406118F21652A9B0084AC98 /* BlockObserver.swift in Sources */,
 				E423535D217FC76D00888C92 /* DelayOperation.swift in Sources */,
 			);
@@ -771,12 +785,14 @@
 				E406116C21652A9B0084AC98 /* BlockOperation.swift in Sources */,
 				E406119421652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117C21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
+				E44DE1862232F276008DE9C2 /* Reachability.swift in Sources */,
 				E40611A221652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115821652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115C21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E423531C217F9E1E00888C92 /* SilentCondition.swift in Sources */,
-				E406117821652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
+				E406117821652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */,
 				E406118421652A9B0084AC98 /* OperationErrors.swift in Sources */,
+				E44DE18B2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E406119021652A9B0084AC98 /* BlockObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -808,12 +824,14 @@
 				E406116D21652A9B0084AC98 /* BlockOperation.swift in Sources */,
 				E406119521652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117D21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
+				E44DE1872232F276008DE9C2 /* Reachability.swift in Sources */,
 				E40611A321652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115921652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115D21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E423531D217F9E1E00888C92 /* SilentCondition.swift in Sources */,
-				E406117921652A9B0084AC98 /* ReachabilityCondition.swift in Sources */,
+				E406117921652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */,
 				E406118521652A9B0084AC98 /* OperationErrors.swift in Sources */,
+				E44DE18C2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E406119121652A9B0084AC98 /* BlockObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -844,10 +862,12 @@
 				E406116E21652A9B0084AC98 /* BlockOperation.swift in Sources */,
 				E4F57BD922015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
 				E406119621652A9B0084AC98 /* AOperationQueue.swift in Sources */,
+				E44DE18D2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E4235360217FC76D00888C92 /* DelayOperation.swift in Sources */,
 				E406117E21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E40611A421652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115A21652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
+				E44DE1882232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406115E21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E406118621652A9B0084AC98 /* OperationErrors.swift in Sources */,
 				E406119221652A9B0084AC98 /* BlockObserver.swift in Sources */,

@@ -46,7 +46,7 @@ class CommentViewController: UIViewController {
 					self.commentLabel.alpha = 0
 					})
 				})
-
+				op.waitUntilFinished()
 				self.presenter.addOperation(op)
 			}
 			
