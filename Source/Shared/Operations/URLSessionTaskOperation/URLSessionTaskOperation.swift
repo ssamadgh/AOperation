@@ -76,10 +76,10 @@ public class URLSessionTaskOperation: AOperation {
 			
 		})
 		
-		#if os(iOS) || os(macOS) || os(tvOS)
-		let reachabilityCondition = ReachabilityCondition(url: request.url!)
-		self.addCondition(reachabilityCondition)
-		#endif
+//		#if os(iOS) || os(macOS) || os(tvOS)
+//		let reachabilityCondition = ReachabilityCondition(url: request.url!)
+//		self.addCondition(reachabilityCondition)
+//		#endif
 
 		#if os(iOS)
 			let networkObserver = NetworkObserver()
