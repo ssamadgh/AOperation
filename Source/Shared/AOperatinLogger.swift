@@ -1,5 +1,5 @@
 /**
-AOperatinLogger.swift
+AOperationDebugger.swift
 ModelAssistant
 
 Copyright © 2018 Seyed Samad Gholamzadeh. All rights reserved.
@@ -25,7 +25,7 @@ THE SOFTWARE.
 
 import Foundation
 
-public struct AOperatinLogger {
+public struct AOperationDebugger {
 
 	public static var printOperationsState: Bool = false
 }

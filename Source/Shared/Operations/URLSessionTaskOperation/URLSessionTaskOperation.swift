@@ -90,7 +90,7 @@ public class URLSessionTaskOperation: AOperation {
 		assert(task.state == .suspended, "Tasks must be suspended.")
 		self.task = task
 
-		addObserver(BlockObserver(cancelHandler: { _ in
+		addObserver(BlockObserver(cancelHandler: { _,_  in
 			task.cancel()
 		}))
 

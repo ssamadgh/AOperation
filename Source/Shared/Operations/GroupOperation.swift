@@ -76,45 +76,62 @@ open class GroupOperation: AOperation {
         // For use by subclasses.
     }
 	
+	open func operationDidCancel(_ operation: Foundation.Operation, withErrors errors: [NSError]) {
+		// For use by subclasses.
+	}
+	
 }
 
 extension  GroupOperation: AOperationQueueDelegate {
 	
-    final internal func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {
-        assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
+	final internal func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {
+		assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
+		
+		/*
+		Some operation in this group has produced a new operation to execute.
+		We want to allow that operation to execute before the group completes,
+		so we'll make the finishing operation dependent on this newly-produced operation.
+		*/
+		if operation !== finishingOperation {
+			finishingOperation.addDependency(operation)
+		}
+		
+		/*
+		All operations should be dependent on the "startingOperation".
+		This way, we can guarantee that the conditions for other operations
+		will not evaluate until just before the operation is about to run.
+		Otherwise, the conditions could be evaluated at any time, even
+		before the internal operation queue is unsuspended.
+		*/
+		if operation !== startingOperation {
+			operation.addDependency(startingOperation)
+		}
+	}
+	
+	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [NSError]) {
+		aggregatedErrors.append(contentsOf: errors)
+		
+		if operation === finishingOperation {
+			internalQueue.isSuspended = true
+			finish(aggregatedErrors)
+		}
+		else if operation !== startingOperation {
+			operationDidFinish(operation, withErrors: errors)
+		}
+	}
+	
+	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Operation, withErrors errors: [NSError]) {
+		aggregatedErrors.append(contentsOf: errors)
+		
+		if operation === finishingOperation {
+			internalQueue.isSuspended = true
+			finish(aggregatedErrors)
+		}
+		else if operation !== startingOperation {
+			operationDidCancel(operation, withErrors: errors)
+		}
 
-        /*
-         Some operation in this group has produced a new operation to execute.
-         We want to allow that operation to execute before the group completes,
-         so we'll make the finishing operation dependent on this newly-produced operation.
-         */
-        if operation !== finishingOperation {
-            finishingOperation.addDependency(operation)
-        }
-
-        /*
-         All operations should be dependent on the "startingOperation".
-         This way, we can guarantee that the conditions for other operations
-         will not evaluate until just before the operation is about to run.
-         Otherwise, the conditions could be evaluated at any time, even
-         before the internal operation queue is unsuspended.
-         */
-        if operation !== startingOperation {
-            operation.addDependency(startingOperation)
-        }
-    }
-
-    final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [NSError]) {
-        aggregatedErrors.append(contentsOf: errors)
-
-        if operation === finishingOperation {
-            internalQueue.isSuspended = true
-            finish(aggregatedErrors)
-        }
-        else if operation !== startingOperation {
-            operationDidFinish(operation, withErrors: errors)
-        }
-    }
+	}
 	
 }
 

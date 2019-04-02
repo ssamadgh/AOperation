@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 #
 	s.name = 'AOperation'
 	
-	s.version = '0.0.9.3'
+	s.version = '0.0.9.4'
 	s.license = { :type => "MIT", :file => 'LICENSE' }
 	s.summary = 'A wrapper on Operation and OperationQueue Classes'
 
@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
 	s.source_files = 'Source/Shared/**/*.swift'
 	s.ios.source_files = 'Source/iOS/**/*.swift'
 
-	s.swift_version = '4.2'
+	s.swift_version = '5'
 end
 

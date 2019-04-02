@@ -97,7 +97,7 @@ struct OperationConditionEvaluator {
 			var failures = results.compactMap { $0?.error }
 
             /*
-             If any of the conditions caused this operation to be cancelled,
+             If any of the conditions caused this operation to be canceled,
              check for that.
              */
             if operation.isCancelled {

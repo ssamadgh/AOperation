@@ -34,7 +34,7 @@ struct TimeoutObserver: OperationObserver {
 		DispatchQueue.global(qos: DispatchQoS.QoSClass.default).asyncAfter(deadline: when) {
             /*
                 Cancel the operation if it hasn't finished and hasn't already
-                been cancelled.
+                been canceled.
             */
             if !operation.isFinished && !operation.isCancelled {
                 let error = NSError(code: .executionFailed, userInfo: [
@@ -46,7 +46,7 @@ struct TimeoutObserver: OperationObserver {
         }
     }
 	
-	internal func operationDidCancel(_ operation: AOperation) {
+	func operationDidCancel(_ operation: AOperation, errors: [NSError]) {
 		// No op.
 	}
 

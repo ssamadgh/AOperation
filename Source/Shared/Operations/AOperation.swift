@@ -17,19 +17,19 @@ import Foundation
 	class func keyPathsForValuesAffectingIsReady() -> Set<String> {
 		return ["state", "cancelledState"]
 	}
-
+	
 	class func keyPathsForValuesAffectingIsExecuting() -> Set<String> {
 		return ["state"]
 	}
-
+	
 	class func keyPathsForValuesAffectingIsFinished() -> Set<String> {
 		return ["state"]
 	}
-
+	
 	class func keyPathsForValuesAffectingIsCancelled() -> Set<String> {
 		return ["cancelledState"]
 	}
-
+	
 }
 
 /**
@@ -39,50 +39,50 @@ extended readiness requirements, as well as notify many interested parties
 about interesting operation state changes
 */
 open class AOperation: Foundation.Operation {
-
+	
 	/* The completionBlock property has unexpected behaviors such as executing twice and executing on unexpected threads. BlockObserver executes in an expected manner.
 	*/
 	@available(*, deprecated, message: "use BlockObserver completions instead")
 	override open var completionBlock: (() -> Void)? {
 		set {
-			fatalError("The completionBlock property on NSOperation has unexpected behavior and is not supported in PSOperations.Operation 😈")
+			fatalError("The completionBlock property on NSOperation has unexpected behavior and is not supported in AOperation 😈")
 		}
 		get {
 			return nil
 		}
 	}
-
+	
 	
 	// MARK: State Management
-
+	
 	fileprivate enum State: Int, Comparable {
 		/// The initial state of an `AOperation`.
 		case initialized
-
+		
 		/// The `AOperation` is ready to begin evaluating conditions.
 		case pending
-
+		
 		/// The `AOperation` is evaluating conditions.
 		case evaluatingConditions
-
+		
 		/**
 		The `AOperation`'s conditions have all been satisfied, and it is ready
 		to execute.
 		*/
 		case ready
-
+		
 		/// The `AOperation` is executing.
 		case executing
-
+		
 		/**
 		Execution of the `AOperation` has finished, but it has not yet notified
 		the queue of this.
 		*/
 		case finishing
-
+		
 		/// The `AOperation` has finished executing.
 		case finished
-
+		
 		func canTransitionToState(_ target: State, operationIsCancelled cancelled: Bool) -> Bool {
 			switch (self, target) {
 			case (.initialized, .pending):
@@ -103,13 +103,13 @@ open class AOperation: Foundation.Operation {
 				return true
 			case (.finishing, .finished):
 				return true
-
+				
 			default:
 				return false
 			}
 		}
 	}
-
+	
 	/**
 	Indicates that the AOperation can now begin to evaluate readiness conditions,
 	if appropriate.
@@ -117,20 +117,20 @@ open class AOperation: Foundation.Operation {
 	internal func didEnqueue() {
 		state = .pending
 	}
-
+	
 	/// Private storage for the `state` property that will be KVO observed.
 	fileprivate var _state = State.initialized
-
+	
 	/// A lock to guard reads and writes to the `_state` property
 	fileprivate let stateLock = NSRecursiveLock()
-
+	
 	fileprivate var state: State {
 		get {
 			return stateLock.withCriticalScope {
 				_state
 			}
 		}
-
+		
 		set(newState) {
 			/*
 			It's important to note that the KVO notifications are NOT called from inside
@@ -140,22 +140,22 @@ open class AOperation: Foundation.Operation {
 			acquire the lock, then we'd be stuck waiting on our own lock. It's the
 			classic definition of deadlock.
 			*/
-
+			
 			willChangeValue(forKey: "state")
-
+			
 			stateLock.withCriticalScope { () -> Void in
 				guard _state != .finished else {
 					return
 				}
-
+				
 				assert(_state.canTransitionToState(newState, operationIsCancelled: isCancelled), "Performing invalid state transition.")
 				_state = newState
 			}
-
+			
 			didChangeValue(forKey: "state")
 		}
 	}
-
+	
 	// Here is where we extend our definition of "readiness".
 	override open var isReady: Bool {
 		
@@ -194,7 +194,7 @@ open class AOperation: Foundation.Operation {
 		return _ready
 		
 	}
-
+	
 	/**
 	Used for performing work that has been explicitly requested by the user, and for which results must be immediately presented in order to allow for further user interaction. For example, loading an email after a user has selected it in a message list.
 	*/
@@ -202,18 +202,18 @@ open class AOperation: Foundation.Operation {
 		get {
 			return qualityOfService == .userInitiated
 		}
-
+		
 		set {
 			assert(state < .executing, "Cannot modify userInitiated after execution has begun.")
-
+			
 			qualityOfService = newValue ? .userInitiated : .default
 		}
 	}
-
+	
 	override open var isExecuting: Bool {
 		return state == .executing
 	}
-
+	
 	override open var isFinished: Bool {
 		return state == .finished
 	}
@@ -226,9 +226,11 @@ open class AOperation: Foundation.Operation {
 		didSet {
 			didChangeValue(forKey: "cancelledState")
 			if _cancelled != oldValue && _cancelled == true {
-				
+				if AOperationDebugger.printOperationsState {
+					print("AOperation \(type(of: self)) cancelled")
+				}
 				for observer in observers {
-					observer.operationDidCancel(self)
+					observer.operationDidCancel(self, errors: [])
 				}
 				
 			}
@@ -241,14 +243,14 @@ open class AOperation: Foundation.Operation {
 	
 	fileprivate func evaluateConditions() {
 		assert(state == .pending && !isCancelled, "evaluateConditions() was called out-of-order")
-
+		
 		state = .evaluatingConditions
-
+		
 		guard conditions.count > 0 else {
 			state = .ready
 			return
 		}
-
+		
 		OperationConditionEvaluator.evaluate(conditions, operation: self) { failures in
 			if !failures.isEmpty {
 				self.cancelWithErrors(failures)
@@ -258,85 +260,85 @@ open class AOperation: Foundation.Operation {
 		}
 		
 	}
-
+	
 	// MARK: Observers and Conditions
-
+	
 	fileprivate(set) var conditions = [OperationCondition]()
-
+	
 	public func addCondition(_ condition: OperationCondition) {
 		assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
-
+		
 		conditions.append(condition)
 	}
-
+	
 	fileprivate(set) var observers = [OperationObserver]()
-
+	
 	public func addObserver(_ observer: OperationObserver) {
 		assert(state < .executing, "Cannot modify observers after execution has begun.")
-
+		
 		observers.append(observer)
 	}
-
+	
 	override open func addDependency(_ operation: Foundation.Operation) {
 		assert(state < .executing, "Dependencies cannot be modified after execution has begun.")
-
+		
 		super.addDependency(operation)
 	}
-
+	
 	// MARK: Execution and Cancellation
-
+	
 	override final public func start() {
 		// NSOperation.start() contains important logic that shouldn't be bypassed.
 		super.start()
-
+		
 		// If the operation has been cancelled, we still need to enter the "Finished" state.
 		if isCancelled {
 			finish()
 		}
 	}
-
+	
 	override final public func main() {
 		assert(state == .ready, "This operation must be performed on an operation queue.")
-
+		
 		if _internalErrors.isEmpty && !isCancelled {
 			state = .executing
-
+			
 			for observer in observers {
 				observer.operationDidStart(self)
 			}
-
-			if AOperatinLogger.printOperationsState {
+			
+			if AOperationDebugger.printOperationsState {
 				print("AOperation \(type(of: self)) executed")
 			}
-
+			
 			execute()
 		}
 		else {
 			finish()
 		}
 	}
-
+	
 	/**
 	`execute()` is the entry point of execution for all `AOperation` subclasses.
 	If you subclass `AOperation` and wish to customize its execution, you would
 	do so by overriding the `execute()` method.
-
+	
 	At some point, your `AOperation` subclass must call one of the "finish"
 	methods defined below; this is how you indicate that your operation has
 	finished its execution, and that operations dependent on yours can re-evaluate
 	their readiness state.
 	*/
 	open func execute() {
-
-		if AOperatinLogger.printOperationsState {
+		
+		if AOperationDebugger.printOperationsState {
 			print("\(type(of: self)) must override `execute()`.")
 		}
-
+		
 		finish()
 	}
-
+	
 	fileprivate var _internalErrors = [NSError]()
-
+	
 	override open func cancel() {
 		if isFinished {
 			return
@@ -357,15 +359,15 @@ open class AOperation: Foundation.Operation {
 	public func cancelWithError(_ error: NSError) {
 		cancelWithErrors([error])
 	}
-
+	
 	public final func produceOperation(_ operation: Foundation.Operation) {
 		for observer in observers {
 			observer.operation(self, didProduceOperation: operation)
 		}
 	}
-
+	
 	// MARK: Finishing
-
+	
 	/**
 	Most operations may finish with a single error, if they have one at all.
 	This is a convenience method to simplify calling the actual `finish()`
@@ -382,33 +384,33 @@ open class AOperation: Foundation.Operation {
 			finish()
 		}
 	}
-
+	
 	/**
 	A private property to ensure we only notify the observers once that the
 	operation has finished.
 	*/
 	fileprivate var hasFinishedAlready = false
-
+	
 	internal final func finish(_ errors: [NSError] = []) {
 		if !hasFinishedAlready {
 			hasFinishedAlready = true
 			state = .finishing
-
+			
 			let combinedErrors = _internalErrors + errors
 			finished(combinedErrors)
-
-			if AOperatinLogger.printOperationsState {
+			
+			if AOperationDebugger.printOperationsState {
 				print("AOperation \(type(of: self)) finished")
 			}
-
+			
 			for observer in observers {
 				observer.operationDidFinish(self, errors: combinedErrors)
 			}
-
+			
 			state = .finished
 		}
 	}
-
+	
 	/**
 	Subclasses may override `finished(_:)` if they wish to react to the operation
 	finishing with errors. For example, the `LoadModelOperation` implements
@@ -418,7 +420,7 @@ open class AOperation: Foundation.Operation {
 	open func finished(_ errors: [NSError]) {
 		// No op.
 	}
-
+	
 	override final public func waitUntilFinished() {
 		/*
 		Waiting on operations is almost NEVER the right thing to do. It is
@@ -426,13 +428,53 @@ open class AOperation: Foundation.Operation {
 		or `dispatch_group_notify`, or even `NSLocking` objects. Many developers
 		use waiting when they should instead be chaining discrete operations
 		together using dependencies.
-
+		
 		To reinforce this idea, invoking `waitUntilFinished()` will crash your
 		app, as incentive for you to find a more appropriate way to express
 		the behavior you're wishing to create.
 		*/
 		fatalError("Waiting on operations is an anti-pattern. Remove this ONLY if you're absolutely sure there is No Other Way™.")
 	}
+	
+	public func didStart(_ startHandler: @escaping (() -> Void)) {
+		let observer: BlockObserver? = self.removeExistingBlockObserver()
+		
+		self.addObserver(BlockObserver(startHandler: { op in
+			observer?.operationDidStart(op)
+			startHandler()
+		}, cancelHandler: {observer?.operationDidCancel($0, errors: $1)}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
+	}
+	
+	public func didCancel(_ cancelHandler: @escaping (([NSError]) -> Void)) {
+		let observer: BlockObserver? = self.removeExistingBlockObserver()
+		
+		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:), cancelHandler: { op, errors in
+			observer?.operationDidCancel(op, errors: errors)
+			cancelHandler(errors)
+		}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
+	}
+	
+	
+	public func didFinish(_ finishHandler: @escaping (([NSError]) -> Void)) {
+		
+		let observer: BlockObserver? = self.removeExistingBlockObserver()
+		
+		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:), cancelHandler: {observer?.operationDidCancel($0, errors: $1)}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: { operation, errors in
+			observer?.operationDidFinish(operation, errors: errors)
+			finishHandler(errors)
+		}))
+	}
+	
+	private func removeExistingBlockObserver() -> BlockObserver? {
+		assert(state < .executing, "Cannot modify observers after execution has begun.")
+		
+		var observer: BlockObserver?
+		if let index = self.observers.firstIndex(where: { $0 is BlockObserver }) {
+			observer = self.observers.remove(at: index) as? BlockObserver
+		}
+		return observer
+	}
+	
 	
 }
 

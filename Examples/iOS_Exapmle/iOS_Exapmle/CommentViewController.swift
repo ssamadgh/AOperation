@@ -20,7 +20,7 @@ class CommentViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		AOperatinLogger.printOperationsState = true
+		AOperationDebugger.printOperationsState = true
 	}
 
 	@IBAction func addCommentAction(_ sender: UIButton) {

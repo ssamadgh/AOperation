@@ -21,6 +21,7 @@ import Foundation
 @objc protocol AOperationQueueDelegate: NSObjectProtocol {
     @objc optional func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation)
     @objc optional func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [NSError])
+	@objc optional func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Foundation.Operation, withErrors errors: [NSError])
 }
 
 /**
@@ -39,6 +40,11 @@ public class AOperationQueue: Foundation.OperationQueue {
             // Set up a `BlockObserver` to invoke the `AOperationQueueDelegate` method.
             let delegate = BlockObserver(
                 startHandler: nil,
+				cancelHandler: { [weak self] in
+					if let q = self {
+						q.delegate?.operationQueue?(q, operationDidCancel: $0, withErrors: $1)
+					}
+				},
                 produceHandler: { [weak self] in
                     self?.addOperation($1)
                 },
@@ -104,7 +110,7 @@ public class AOperationQueue: Foundation.OperationQueue {
 
         delegate?.operationQueue?(self, willAddOperation: op)
 
-		if AOperatinLogger.printOperationsState {
+		if AOperationDebugger.printOperationsState {
 			print("AOperation \"\(type(of: op))\" added to queue")
 		}
 

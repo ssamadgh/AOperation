@@ -91,7 +91,6 @@ public struct LocationCondition: OperationCondition {
 		var services = servicesAvailability
 		services.insert(.locationServicesEnabled)
 		self.servicesAvailability = services
-		
     }
     
 	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {

@@ -21,6 +21,17 @@ public struct AOperationError {
 }
 //public let OperationErrorDomain = "OperationErrors"
 
+struct AOperationError2: CustomNSError {
+	
+	var errorCode: Int
+	var errorUserInfo: [String : Any]
+	
+	init(code: Int, userInfo: [String: Any]? = nil) {
+		errorCode = code
+		errorUserInfo = userInfo ?? [:]
+	}
+	
+}
 
 extension NSError {
     public convenience init(code: AOperationError.Code, userInfo: [String: Any]? = nil) {
