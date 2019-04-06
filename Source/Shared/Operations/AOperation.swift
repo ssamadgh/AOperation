@@ -436,7 +436,7 @@ open class AOperation: Foundation.Operation {
 		fatalError("Waiting on operations is an anti-pattern. Remove this ONLY if you're absolutely sure there is No Other Way™.")
 	}
 	
-	public func didStart(_ startHandler: @escaping (() -> Void)) {
+	public final func observeDidStart(_ startHandler: @escaping (() -> Void)) {
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
 		self.addObserver(BlockObserver(startHandler: { op in
@@ -445,7 +445,7 @@ open class AOperation: Foundation.Operation {
 		}, cancelHandler: {observer?.operationDidCancel($0, errors: $1)}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
 	}
 	
-	public func didCancel(_ cancelHandler: @escaping (([NSError]) -> Void)) {
+	public final func observeDidCancel(_ cancelHandler: @escaping (([NSError]) -> Void)) {
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
 		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:), cancelHandler: { op, errors in
@@ -455,7 +455,7 @@ open class AOperation: Foundation.Operation {
 	}
 	
 	
-	public func didFinish(_ finishHandler: @escaping (([NSError]) -> Void)) {
+	public final func observeDidFinish(_ finishHandler: @escaping (([NSError]) -> Void)) {
 		
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
@@ -465,7 +465,7 @@ open class AOperation: Foundation.Operation {
 		}))
 	}
 	
-	private func removeExistingBlockObserver() -> BlockObserver? {
+	private final func removeExistingBlockObserver() -> BlockObserver? {
 		assert(state < .executing, "Cannot modify observers after execution has begun.")
 		
 		var observer: BlockObserver?

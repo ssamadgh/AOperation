@@ -36,7 +36,7 @@ class AOperation_iOS_Tests: XCTestCase {
 	func testOperationGroup() {
 		let group = TestGroupOp()
 		let testGroupExpect = expectation(description: "TestGroupOperation")
-		group.didFinish { errors in
+		group.observeDidFinish { errors in
 			
 			testGroupExpect.fulfill()
 		}
@@ -49,10 +49,10 @@ class AOperation_iOS_Tests: XCTestCase {
 		// Use XCTAssert and related functions to verify your tests produce the correct results.
 		let expect = expectation(description: "TestGroupOperation")
 		let opB = OperationB()
-		opB.didCancel { (errors) in
+		opB.observeDidCancel { (errors) in
 			print("Cancelled 📛")
 		}
-		opB.didFinish { errors in
+		opB.observeDidFinish { errors in
 			print("finished ✅")
 			expect.fulfill()
 		}
