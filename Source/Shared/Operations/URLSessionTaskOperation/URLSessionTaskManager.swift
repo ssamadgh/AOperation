@@ -108,8 +108,7 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 //		return operation(for: task, with: request.url!)
 //	}
 	
-	
-	func transportTask(kind: TaskKind, from localURL: URL?, for request: URLRequest, downloadProgress: ((Progress) -> Swift.Void)? = nil, urlCompletionHandler: @escaping (URL?, URLResponse?, Error?) -> Swift.Void, dataCompletionHandler: ((Data?, URLResponse?, Error?) -> Swift.Void)?) -> URLSessionTask {
+	func transportTask(kind: TaskKind, for request: URLRequest, downloadProgress: ((Progress) -> Swift.Void)? = nil, urlCompletionHandler: @escaping (URL?, URLResponse?, Error?) -> Swift.Void, dataCompletionHandler: ((Data?, URLResponse?, Error?) -> Swift.Void)?) -> URLSessionTask {
 		
 		switch kind {
 		case .data:

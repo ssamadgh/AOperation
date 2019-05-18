@@ -99,6 +99,7 @@
 		E493C3392250965000517BA1 /* AOperation_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E493C3382250965000517BA1 /* AOperation_iOS_Tests.swift */; };
 		E493C33B2250965000517BA1 /* AOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40610DC216517420084AC98 /* AOperation.framework */; };
 		E4A930772205A83700703141 /* UNNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A930762205A83700703141 /* UNNotificationCondition.swift */; };
+		E4AE3BC3228B497D004216D8 /* OrderedGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */; };
 		E4F57BD222015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
 		E4F57BD322015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
 		E4F57BD422015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
@@ -162,6 +163,7 @@
 		E493C3382250965000517BA1 /* AOperation_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOperation_iOS_Tests.swift; sourceTree = "<group>"; };
 		E493C33A2250965000517BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4A930762205A83700703141 /* UNNotificationCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationCondition.swift; sourceTree = "<group>"; };
+		E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedGroupOperation.swift; sourceTree = "<group>"; };
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				E406114621652A9B0084AC98 /* GroupOperation.swift */,
+				E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */,
 				E406114721652A9B0084AC98 /* AOperation.swift */,
 				E406114821652A9B0084AC98 /* BlockOperation.swift */,
 				E423535C217FC76D00888C92 /* DelayOperation.swift */,
@@ -631,6 +634,7 @@
 				E4F57BD222015DD6005323DD /* NegatedCondition.swift in Sources */,
 				E406115721652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115B21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
+				E4AE3BC3228B497D004216D8 /* OrderedGroupOperation.swift in Sources */,
 				E4638AFF21FD97BF00656820 /* Dictionary+Operations.swift in Sources */,
 				E406117721652A9B0084AC98 /* ReachabilityConditionOld.swift in Sources */,
 				E406118321652A9B0084AC98 /* OperationErrors.swift in Sources */,

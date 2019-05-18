@@ -54,7 +54,7 @@ public class URLSessionTaskOperation: AOperation {
 	private init(kind: TaskKind, from localURL: URL? = nil, for request: URLRequest, progress: ((Progress) -> Swift.Void)? = nil, urlCompletionHandler: @escaping ((URL?, URLResponse?, Error?) -> Swift.Void), dataCompletionHandler: @escaping ((Data?, URLResponse?, Error?) -> Swift.Void)) {
 		super.init()
 
-		let task = URLSessionTaskManager.shared.transportTask(kind: kind, from: localURL, for: request, downloadProgress: progress, urlCompletionHandler: { (url, response, error) in
+		let task = URLSessionTaskManager.shared.transportTask(kind: kind, for: request, downloadProgress: progress, urlCompletionHandler: { (url, response, error) in
 			
 			if let error = error as NSError? {
 				self.finishWithError(error as NSError?)
