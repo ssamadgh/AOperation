@@ -225,15 +225,6 @@ open class AOperation: Foundation.Operation {
 		
 		didSet {
 			didChangeValue(forKey: "cancelledState")
-			if _cancelled != oldValue && _cancelled == true {
-				if AOperationDebugger.printOperationsState {
-					print("AOperation \(type(of: self)) cancelled")
-				}
-				for observer in observers {
-					observer.operationDidCancel(self, errors: [])
-				}
-				
-			}
 		}
 	}
 	
@@ -344,11 +335,29 @@ open class AOperation: Foundation.Operation {
 			return
 		}
 		
-		_cancelled = true
-		
-		if state > .ready {
-			finish()
+		if !_cancelled {
+			_cancelled = true
+			
+			if AOperationDebugger.printOperationsState {
+				print("AOperation \(type(of: self)) cancelled")
+			}
+			
+			if state > .ready {
+				finish()
+			} else {
+				let errors = _internalErrors
+
+				for observer in observers {
+					observer.operationDidCancel(self, errors: errors)
+				}
+			}
+			
 		}
+		
+		
+		
+		
+		
 	}
 	
 	public func cancelWithErrors(_ errors: [NSError]) {
