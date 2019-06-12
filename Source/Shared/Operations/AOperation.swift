@@ -342,14 +342,14 @@ open class AOperation: Foundation.Operation {
 				print("AOperation \(type(of: self)) cancelled")
 			}
 			
+			let errors = _internalErrors
+			
+			for observer in observers {
+				observer.operationDidCancel(self, errors: errors)
+			}
+			
 			if state > .ready {
 				finish()
-			} else {
-				let errors = _internalErrors
-
-				for observer in observers {
-					observer.operationDidCancel(self, errors: errors)
-				}
 			}
 			
 		}
