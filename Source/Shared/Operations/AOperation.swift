@@ -279,13 +279,14 @@ open class AOperation: Foundation.Operation {
 	// MARK: Execution and Cancellation
 	
 	override final public func start() {
-		// NSOperation.start() contains important logic that shouldn't be bypassed.
-		super.start()
-		
 		// If the operation has been cancelled, we still need to enter the "Finished" state.
 		if isCancelled {
 			finish()
 		}
+
+		// NSOperation.start() contains important logic that shouldn't be bypassed.
+		super.start()
+		
 	}
 	
 	override final public func main() {

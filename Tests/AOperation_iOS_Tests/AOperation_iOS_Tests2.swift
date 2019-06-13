@@ -42,7 +42,7 @@ class AOperation_iOS_Tests2: XCTestCase {
 			testGroupExpect.fulfill()
 		}
 		self.queue.addOperation(group)
-		wait(for: [testGroupExpect], timeout: 3)
+		wait(for: [testGroupExpect], timeout: 30)
 	}
 	
 	func testCancelBeforeExecuteOperation() {
@@ -84,7 +84,7 @@ class OperationA2: AOperation {
 class OperationB2: AOperation {
 	
 	var timer: AOperationTimer!
-    weak var op3: OperationC2!
+    weak var op3: OperationC2?
     
 	override func execute() {
 		if isCancelled {
@@ -94,7 +94,7 @@ class OperationB2: AOperation {
 		
 		timer = AOperationTimer(interval: 0, handler: {
 			print("Hello World Operation B2✅")
-            self.op3.addCondition(SampleCondition())
+            self.op3?.addCondition(SampleCondition())
 			self.finishWithError(nil)
 		})
 	}
@@ -130,31 +130,50 @@ class OperationC2: AOperation {
 	}
 }
 
+
+class OperationD2: AOperation {
+	
+	var timer: AOperationTimer!
+	
+	override func execute() {
+		timer = AOperationTimer(interval: 0, handler: {
+			print("Hello World Operation D2 💚")
+			self.finishWithError(nil)
+		})
+	}
+}
+
+
 class TestGroupOp2: GroupOperation {
 	let opA: OperationA2
 	let opB: OperationB2
 	let opC: OperationC2
-	
+	let opD: OperationD2
+
 	init() {
 		opA = OperationA2()
 		opB = OperationB2()
 		opC = OperationC2()
+		opD = OperationD2()
+
 		opB.op3 = opC
 		opB.addDependency(opA)
 		opC.addDependency(opB)
-		
-		let ops = [opA, opB, opC]
+		opD.addDependency(opC)
+		let ops = [opA, opB, opC, opD]
 		super.init(operations: ops)
 	}
 	
 	override func operationDidCancel(_ operation: Operation, withErrors errors: [NSError]) {
-        errors.forEach { self.aggregateError($0) }
-//		self.cancelWithErrors(errors)
+//        errors.forEach { self.aggregateError($0) }
+		self.cancel()
 	}
     
     
     override func operationDidFinish(_ operation: Operation, withErrors errors: [NSError]) {
-//        errors.forEach { self.aggregateError($0) }
+		if !errors.isEmpty {
+			errors.forEach { self.aggregateError($0) }
+		}
     }
     
     
