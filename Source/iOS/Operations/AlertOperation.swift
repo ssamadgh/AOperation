@@ -73,7 +73,7 @@ public class AlertOperation: AOperation {
 
         DispatchQueue.main.async {
             if self.alertController.actions.isEmpty {
-                self.addAction("باشه")
+                self.addAction(NSLocalizedString("OK", comment: ""))
             }
 
             presentationContext.present(self.alertController, animated: true, completion: nil)

@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 #
 	s.name = 'AOperation'
 	
-	s.version = '0.0.9.8.2'
+	s.version = '0.0.9.8.3'
 	s.license = { :type => "MIT", :file => 'LICENSE' }
 	s.summary = 'A wrapper on Operation and OperationQueue Classes'
 
