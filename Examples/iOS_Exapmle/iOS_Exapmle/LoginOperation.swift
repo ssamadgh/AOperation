@@ -83,3 +83,11 @@ enum AppState {
 
 
 var appState = AppState.logOut
+
+
+class GOp: OrderedGroupOperation {
+	
+	override init(operations: [Operation]) {
+		super.init(operations: <#T##[Operation]#>)
+	}
+}

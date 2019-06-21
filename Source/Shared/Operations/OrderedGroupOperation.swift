@@ -11,7 +11,7 @@ import Foundation
 open class OrderedGroupOperation: GroupOperation {
 	
 	
-	override init(operations: [Foundation.Operation]) {
+	override public init(operations: [Foundation.Operation]) {
 		var lastIndex = operations.count - 1
 		while lastIndex > 0 {
 			let lastOp = operations[lastIndex]
@@ -22,5 +22,7 @@ open class OrderedGroupOperation: GroupOperation {
 		
 		super.init(operations: operations)
 	}
+	
+	
 	
 }
