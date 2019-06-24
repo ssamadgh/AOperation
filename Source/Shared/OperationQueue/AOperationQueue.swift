@@ -111,7 +111,7 @@ public class AOperationQueue: Foundation.OperationQueue {
         delegate?.operationQueue?(self, willAddOperation: op)
 
 		if AOperationDebugger.printOperationsState {
-			print("AOperation \"\(type(of: op))\" added to queue")
+			print("AOperation \(type(of: op)) added to queue")
 		}
 
         super.addOperation(op)
