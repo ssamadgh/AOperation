@@ -6,7 +6,7 @@
 
 
 [![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
-[![license MIT](https://img.shields.io/cocoapods/l/ModelAssistant.svg)](https://github.com/ssamadgh/ModelAssistant/blob/master/LICENSE)
+[![license MIT](https://img.shields.io/cocoapods/l/AOperation.svg)](https://github.com/ssamadgh/AOperation/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/badge/twitter-@ssamadgh-blue.svg?style=flat)](https://twitter.com/ssamadgh)
 
 
@@ -21,7 +21,7 @@
 $ gem install cocoapods
 ```
 
-To integrate ModelAssistant into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate AOperation into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/ssamadgh/AOperationPod.git'
