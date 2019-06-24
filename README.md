@@ -7,7 +7,8 @@
 
 [![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
 <!--[![license MIT](https://img.shields.io/cocoapods/l/AOperation.svg)](https://github.com/ssamadgh/AOperation/blob/master/LICENSE)
--->[![Twitter](https://img.shields.io/badge/twitter-@ssamadgh-blue.svg?style=flat)](https://twitter.com/ssamadgh)
+-->
+[![Twitter](https://img.shields.io/badge/twitter-@ssamadgh-blue.svg?style=flat)](https://twitter.com/ssamadgh)
 
 
 
