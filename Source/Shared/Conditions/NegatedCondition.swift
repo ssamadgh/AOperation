@@ -13,9 +13,9 @@ import Foundation
     This is useful (for example) if you want to only execute an operation if the
     network is NOT reachable.
 */
-struct NegatedCondition<T: OperationCondition>: OperationCondition {
+public struct NegatedCondition<T: OperationCondition>: OperationCondition {
     
-    static var name: String {
+    public static var name: String {
         return "Not<\(T.name)>"
     }
     
@@ -23,21 +23,21 @@ struct NegatedCondition<T: OperationCondition>: OperationCondition {
         return "NegatedCondition"
     }
     
-    static var isMutuallyExclusive: Bool {
+   public static var isMutuallyExclusive: Bool {
         return T.isMutuallyExclusive
     }
     
     let condition: T
 
-    init(condition: T) {
+    public init(condition: T) {
         self.condition = condition
     }
     
-    func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
+    public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
         return condition.dependencyForOperation(operation)
     }
     
-    func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
+    public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         condition.evaluateForOperation(operation) { result in
             if result == .satisfied {
                 // If the composed condition succeeded, then this one failed.

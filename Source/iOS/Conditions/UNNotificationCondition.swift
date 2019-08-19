@@ -48,7 +48,7 @@ public struct UNNotificationCondition: OperationCondition {
             `application`. You may also specify `.Replace`, which means the `settings`
             will overwrite the exisiting settings.
     */
-    init(options: UNAuthorizationOptions = [], behavior: Behavior = .merge) {
+    public init(options: UNAuthorizationOptions = [], behavior: Behavior = .merge) {
         self.options = options
         self.behavior = behavior
     }

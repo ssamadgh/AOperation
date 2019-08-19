@@ -26,7 +26,7 @@ public struct SilentCondition<T: OperationCondition>: OperationCondition {
         return T.isMutuallyExclusive
     }
     
-    init(condition: T) {
+    public init(condition: T) {
         self.condition = condition
     }
     

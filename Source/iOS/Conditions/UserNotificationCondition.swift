@@ -49,7 +49,7 @@ public struct UserNotificationCondition: OperationCondition {
             `application`. You may also specify `.Replace`, which means the `settings`
             will overwrite the exisiting settings.
     */
-    init(settings: UIUserNotificationSettings, application: UIApplication, behavior: Behavior = .merge) {
+    public init(settings: UIUserNotificationSettings, application: UIApplication, behavior: Behavior = .merge) {
         self.settings = settings
         self.application = application
         self.behavior = behavior

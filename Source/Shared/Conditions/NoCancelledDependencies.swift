@@ -13,21 +13,21 @@ import Foundation
     If any dependency was canceled, the target operation will be canceled as
     well.
 */
-struct NoCanceledDependencies: OperationCondition {
+public struct NoCanceledDependencies: OperationCondition {
 
-    static let name = "NoCanceledDependencies"
+    public static let name = "NoCanceledDependencies"
     static let canceledDependenciesKey = "CanceledDependencies"
-    static let isMutuallyExclusive = false
+    public static let isMutuallyExclusive = false
     
-    init() {
+    public init() {
         // No op.
     }
     
-    func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
+    public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
         return nil
     }
     
-    func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
+    public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         // Verify that all of the dependencies executed.
 		let canceled = operation.dependencies.filter { $0.isCancelled }
 

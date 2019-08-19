@@ -38,7 +38,7 @@ public struct RemoteNotificationCondition: OperationCondition {
     
     let application: UIApplication
     
-    init(application: UIApplication) {
+    public init(application: UIApplication) {
         self.application = application
     }
     
