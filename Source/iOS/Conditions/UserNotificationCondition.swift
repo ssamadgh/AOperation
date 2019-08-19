@@ -17,7 +17,7 @@ import UIKit
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
 public struct UserNotificationCondition: OperationCondition {
     
-    enum Behavior {
+    public enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
         case merge
 

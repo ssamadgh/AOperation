@@ -17,7 +17,7 @@ import UserNotifications
 @available(iOS 10.0, *)
 public struct UNNotificationCondition: OperationCondition {
     
-    enum Behavior {
+    public enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
         case merge
 
