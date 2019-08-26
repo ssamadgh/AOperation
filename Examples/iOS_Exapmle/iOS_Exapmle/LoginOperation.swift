@@ -89,9 +89,6 @@ class GOp: OrderedGroupOperation {
 	
 	override init(operations: [Operation]) {
 		super.init(operations: [])
-        let requeset = URLRequest(url: URL(string: "")!)
-        let operation = URLSessionTaskOperation.dataTask(for: requeset) { (data, response, error, finish) in
-            finish(nil)
-        }
+		
 	}
 }

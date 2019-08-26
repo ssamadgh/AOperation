@@ -60,18 +60,16 @@
 		E406119821652A9B0084AC98 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115621652A9B0084AC98 /* ExclusivityController.swift */; };
 		E406119921652A9B0084AC98 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115621652A9B0084AC98 /* ExclusivityController.swift */; };
 		E406119A21652A9B0084AC98 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406115621652A9B0084AC98 /* ExclusivityController.swift */; };
-		E406119D21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */; };
-		E406119E21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */; };
-		E406119F21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */; };
-		E40611A021652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */; };
-		E40611A121652AF50084AC98 /* URLSessionTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */; };
-		E40611A221652AF50084AC98 /* URLSessionTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */; };
-		E40611A321652AF50084AC98 /* URLSessionTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */; };
-		E40611A421652AF50084AC98 /* URLSessionTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */; };
 		E40611A621652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
 		E40611A721652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
 		E40611A821652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
 		E40611A921652B2A0084AC98 /* AOperatinLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40611A521652B2A0084AC98 /* AOperatinLogger.swift */; };
+		E41EB63723144A5000B714DE /* URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB63623144A5000B714DE /* URLSessionTaskOperation.swift */; };
+		E41EB63A23144ADE00B714DE /* URLSessionTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB6352314498100B714DE /* URLSessionTaskManager.swift */; };
+		E41EB63C231453B000B714DE /* URLSessionDownloadTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB63B231453B000B714DE /* URLSessionDownloadTaskOperation.swift */; };
+		E41EB63E2314562200B714DE /* URLSessionUploadTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB63D2314562200B714DE /* URLSessionUploadTaskOperation.swift */; };
+		E41EB6402314563500B714DE /* URLSessionDataTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB63F2314563500B714DE /* URLSessionDataTaskOperation.swift */; };
+		E41EB64E2314894E00B714DE /* MediaCaptureCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB64D2314894E00B714DE /* MediaCaptureCondition.swift */; };
 		E4235316217F983800888C92 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4235315217F983800888C92 /* LocationCondition.swift */; };
 		E423531B217F9E1E00888C92 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423531A217F9E1E00888C92 /* SilentCondition.swift */; };
 		E423531C217F9E1E00888C92 /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423531A217F9E1E00888C92 /* SilentCondition.swift */; };
@@ -113,7 +111,6 @@
 		E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
-		E98D9D4F230BDADE00C8AA1F /* URLSessionDataResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98D9D4E230BDADE00C8AA1F /* URLSessionDataResponseOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,9 +146,13 @@
 		E406115321652A9B0084AC98 /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
 		E406115521652A9B0084AC98 /* AOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOperationQueue.swift; sourceTree = "<group>"; };
 		E406115621652A9B0084AC98 /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
-		E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperation.swift; sourceTree = "<group>"; };
-		E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionTaskManager.swift; sourceTree = "<group>"; };
 		E40611A521652B2A0084AC98 /* AOperatinLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOperatinLogger.swift; sourceTree = "<group>"; };
+		E41EB6352314498100B714DE /* URLSessionTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTaskManager.swift; sourceTree = "<group>"; };
+		E41EB63623144A5000B714DE /* URLSessionTaskOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTaskOperation.swift; sourceTree = "<group>"; };
+		E41EB63B231453B000B714DE /* URLSessionDownloadTaskOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDownloadTaskOperation.swift; sourceTree = "<group>"; };
+		E41EB63D2314562200B714DE /* URLSessionUploadTaskOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionUploadTaskOperation.swift; sourceTree = "<group>"; };
+		E41EB63F2314563500B714DE /* URLSessionDataTaskOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskOperation.swift; sourceTree = "<group>"; };
+		E41EB64D2314894E00B714DE /* MediaCaptureCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCaptureCondition.swift; sourceTree = "<group>"; };
 		E4235315217F983800888C92 /* LocationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCondition.swift; sourceTree = "<group>"; };
 		E423531A217F9E1E00888C92 /* SilentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentCondition.swift; sourceTree = "<group>"; };
 		E423535C217FC76D00888C92 /* DelayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayOperation.swift; sourceTree = "<group>"; };
@@ -170,7 +171,6 @@
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
-		E98D9D4E230BDADE00C8AA1F /* URLSessionDataResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataResponseOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +220,7 @@
 				E406113C2165253D0084AC98 /* Tests */,
 				E406113E216527140084AC98 /* Supporting Files */,
 				E40610DD216517420084AC98 /* Products */,
+				E41EB64C231487CE00B714DE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -312,6 +313,7 @@
 				E406114F21652A9B0084AC98 /* OperationErrors.swift */,
 				E4235315217F983800888C92 /* LocationCondition.swift */,
 				E423531A217F9E1E00888C92 /* SilentCondition.swift */,
+				E41EB64D2314894E00B714DE /* MediaCaptureCondition.swift */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -348,9 +350,11 @@
 		E40611F72165BEF40084AC98 /* URLSessionTaskOperation */ = {
 			isa = PBXGroup;
 			children = (
-				E406119C21652AF50084AC98 /* URLSessionTaskManager.swift */,
-				E406119B21652AF50084AC98 /* URLSessionTaskOperation.swift */,
-				E98D9D4E230BDADE00C8AA1F /* URLSessionDataResponseOperation.swift */,
+				E41EB6352314498100B714DE /* URLSessionTaskManager.swift */,
+				E41EB63623144A5000B714DE /* URLSessionTaskOperation.swift */,
+				E41EB63B231453B000B714DE /* URLSessionDownloadTaskOperation.swift */,
+				E41EB63D2314562200B714DE /* URLSessionUploadTaskOperation.swift */,
+				E41EB63F2314563500B714DE /* URLSessionDataTaskOperation.swift */,
 			);
 			path = URLSessionTaskOperation;
 			sourceTree = "<group>";
@@ -619,14 +623,18 @@
 				E406119721652A9B0084AC98 /* ExclusivityController.swift in Sources */,
 				E4638B0821FD9B7600656820 /* RemoteNotificationCondition.swift in Sources */,
 				E4F57BD622015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
-				E98D9D4F230BDADE00C8AA1F /* URLSessionDataResponseOperation.swift in Sources */,
+				E41EB64E2314894E00B714DE /* MediaCaptureCondition.swift in Sources */,
 				E4638B0421FD97D200656820 /* UIUserNotifications+Operations.swift in Sources */,
 				E406116721652A9B0084AC98 /* AOperation.swift in Sources */,
-				E406119D21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406117F21652A9B0084AC98 /* OperationCondition.swift in Sources */,
+				E41EB6402314563500B714DE /* URLSessionDataTaskOperation.swift in Sources */,
 				E44DE1852232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406118721652A9B0084AC98 /* OperationObserver.swift in Sources */,
+				E41EB63E2314562200B714DE /* URLSessionUploadTaskOperation.swift in Sources */,
+				E41EB63A23144ADE00B714DE /* URLSessionTaskManager.swift in Sources */,
+				E41EB63723144A5000B714DE /* URLSessionTaskOperation.swift in Sources */,
 				E4638B0621FD9ABC00656820 /* UserNotificationCondition.swift in Sources */,
+				E41EB63C231453B000B714DE /* URLSessionDownloadTaskOperation.swift in Sources */,
 				E423531B217F9E1E00888C92 /* SilentCondition.swift in Sources */,
 				E406116321652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E4235316217F983800888C92 /* LocationCondition.swift in Sources */,
@@ -634,7 +642,6 @@
 				E406116B21652A9B0084AC98 /* BlockAOperation.swift in Sources */,
 				E406119321652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117B21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
-				E40611A121652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406118B21652A9B0084AC98 /* NetworkObserver.swift in Sources */,
 				E4F57BDF22018EE0005323DD /* TimeoutObserver.swift in Sources */,
 				E4A930772205A83700703141 /* UNNotificationCondition.swift in Sources */,
@@ -661,7 +668,6 @@
 				E406116821652A9B0084AC98 /* AOperation.swift in Sources */,
 				E4F57BD322015DD6005323DD /* NegatedCondition.swift in Sources */,
 				E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */,
-				E406119E21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406118021652A9B0084AC98 /* OperationCondition.swift in Sources */,
 				E406118821652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E406116421652A9B0084AC98 /* GroupOperation.swift in Sources */,
@@ -671,7 +677,6 @@
 				E406119421652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117C21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E44DE1862232F276008DE9C2 /* Reachability.swift in Sources */,
-				E40611A221652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115821652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115C21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E423531C217F9E1E00888C92 /* SilentCondition.swift in Sources */,
@@ -692,7 +697,6 @@
 				E406116921652A9B0084AC98 /* AOperation.swift in Sources */,
 				E4F57BD422015DD6005323DD /* NegatedCondition.swift in Sources */,
 				E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */,
-				E406119F21652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406118121652A9B0084AC98 /* OperationCondition.swift in Sources */,
 				E406118921652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E406116521652A9B0084AC98 /* GroupOperation.swift in Sources */,
@@ -702,7 +706,6 @@
 				E406119521652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E406117D21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
 				E44DE1872232F276008DE9C2 /* Reachability.swift in Sources */,
-				E40611A321652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115921652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E406115D21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,
 				E423531D217F9E1E00888C92 /* SilentCondition.swift in Sources */,
@@ -723,7 +726,6 @@
 				E4638B0221FD97BF00656820 /* Dictionary+Operations.swift in Sources */,
 				E406116A21652A9B0084AC98 /* AOperation.swift in Sources */,
 				E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */,
-				E40611A021652AF50084AC98 /* URLSessionTaskOperation.swift in Sources */,
 				E406118221652A9B0084AC98 /* OperationCondition.swift in Sources */,
 				E406118A21652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E406116621652A9B0084AC98 /* GroupOperation.swift in Sources */,
@@ -734,7 +736,6 @@
 				E44DE18D2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E4235360217FC76D00888C92 /* DelayOperation.swift in Sources */,
 				E406117E21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */,
-				E40611A421652AF50084AC98 /* URLSessionTaskManager.swift in Sources */,
 				E406115A21652A9B0084AC98 /* NSLock+MyOperations.swift in Sources */,
 				E44DE1882232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406115E21652A9B0084AC98 /* Foundation.Operation+Operation.swift in Sources */,

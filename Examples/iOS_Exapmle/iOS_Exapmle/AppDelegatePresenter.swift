@@ -13,6 +13,11 @@ class AppDelegatePresenter {
 	
 	lazy var queue = AOperationQueue()
 	
+	init() {
+		AOperationDebugger.printOperationsState = true
+	}
+	
+	
 	func initializeCoreDataStack(modelName: String, completion: @escaping (_ error: NSError?) -> Void ) {
 		
 		let op = BlockAOperation {
