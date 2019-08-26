@@ -8,27 +8,33 @@
 
 import Foundation
 
-enum TaskKind {
-	case data, download, upload
-}
 
 
-public struct HTTPMethod {
+
+public extension URLRequest {
 	
-	public static var get = "GET"
-	public static var post = "POST"
-	public static var put = "PUT"
-	public static var delete = "DELETE"
+	struct HTTPMethod {
+		
+		public static var get = "GET"
+		public static var post = "POST"
+		public static var put = "PUT"
+		public static var delete = "DELETE"
+	}
+	
 }
 
 class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
+	
+	enum TaskKind {
+		case data, download, upload
+	}
 	
 	public static var shared: URLSessionTaskManager = {
 		return URLSessionTaskManager()
 	}()
 
 	var downloadTaskFinisedDic: [Int : (URL?, URLResponse?, Error?) -> Swift.Void] = [:]
-	var uploadTaskFinisedDic: [Int : (Data?, URLResponse?, Error?) -> Swift.Void] = [:]
+	var dataTaskFinisedDic: [Int : (Data?, URLResponse?, Error?) -> Swift.Void] = [:]
 	var taskProgressDic: [Int : (Progress) -> Swift.Void] = [:]
 	
 	func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -75,10 +81,23 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	
 	func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
 		print("task Finished didCompleteWithError")
-//		let url: URL? = nil
-//		let response = task.response
-//		let error = error
-//		self.downloadTaskFinised?(url, response, error)
+		let response = task.response
+		let error = error
+
+		if let dataTaskFinised = self.dataTaskFinisedDic[task.taskIdentifier] {
+			dataTaskFinised(nil, response, error)
+			self.dataTaskFinisedDic.removeValue(forKey: task.taskIdentifier)
+			self.taskProgressDic.removeValue(forKey: task.taskIdentifier)
+			return
+		}
+		
+		if let downloadTaskFinished = self.downloadTaskFinisedDic[task.taskIdentifier] {
+			downloadTaskFinished(nil, response, error)
+			self.dataTaskFinisedDic.removeValue(forKey: task.taskIdentifier)
+			self.taskProgressDic.removeValue(forKey: task.taskIdentifier)
+			return
+		}
+
 	}
 	
 	func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
@@ -87,9 +106,9 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		let error = dataTask.error
 //		self.uploadTaskFinised?(data, response, error)
 		
-		let uploadTaskFinised = self.uploadTaskFinisedDic[dataTask.taskIdentifier]
-		uploadTaskFinised?(data, response, error)
-		self.uploadTaskFinisedDic.removeValue(forKey: dataTask.taskIdentifier)
+		let dataTaskFinised = self.dataTaskFinisedDic[dataTask.taskIdentifier]
+		dataTaskFinised?(data, response, error)
+		self.dataTaskFinisedDic.removeValue(forKey: dataTask.taskIdentifier)
 		self.taskProgressDic.removeValue(forKey: dataTask.taskIdentifier)
 	}
 	
@@ -108,33 +127,29 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 //		return operation(for: task, with: request.url!)
 //	}
 	
-	func transportTask(kind: TaskKind, for request: URLRequest, downloadProgress: ((Progress) -> Swift.Void)? = nil, urlCompletionHandler: @escaping (URL?, URLResponse?, Error?) -> Swift.Void, dataCompletionHandler: ((Data?, URLResponse?, Error?) -> Swift.Void)?) -> URLSessionTask {
+	func transportTask(kind: TaskKind, for request: URLRequest) -> URLSessionTask {
 		
 		switch kind {
 		case .data:
-			let task = session.dataTask(with: request, completionHandler: dataCompletionHandler!)
+
+			let task = session.dataTask(with: request)
+//			self.dataTaskFinisedDic[task.taskIdentifier] = dataCompletionHandler
+
 			return task
 			
 		case .download:
 			
-			if downloadProgress != nil {
-				let delegateTask = session.downloadTask(with: request)
-				self.downloadTaskFinisedDic[delegateTask.taskIdentifier] = urlCompletionHandler
-				self.taskProgressDic[delegateTask.taskIdentifier] = downloadProgress
-				
-				return delegateTask
-			}
-			else {
-				
-				let task = session.downloadTask(with: request, completionHandler: urlCompletionHandler)
-				return task
-			}
+			let deownloadTask = session.downloadTask(with: request)
+//			self.downloadTaskFinisedDic[deownloadTask.taskIdentifier] = urlCompletionHandler
+//			self.taskProgressDic[deownloadTask.taskIdentifier] = downloadProgress
 			
+			return deownloadTask
+
 		case .upload:
 			
 			let upload = session.uploadTask(withStreamedRequest: request)
-			self.uploadTaskFinisedDic[upload.taskIdentifier] = dataCompletionHandler
-			self.taskProgressDic[upload.taskIdentifier] = downloadProgress
+//			self.dataTaskFinisedDic[upload.taskIdentifier] = dataCompletionHandler
+//			self.taskProgressDic[upload.taskIdentifier] = downloadProgress
 			
 			return upload
 			
@@ -144,20 +159,16 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	}
 
 	
-//	private func operation(for task: URLSessionTask, with url: URL) -> URLSessionTaskOperation {
-//		let taskOperation = URLSessionTaskOperation(task: task)
-//
-//		let reachabilityCondition = ReachabilityCondition(host: url)
-//		taskOperation.addCondition(reachabilityCondition)
-//
-//		return taskOperation
-//	}
+	func didFinishDataTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Swift.Void)) {
+		self.dataTaskFinisedDic[taskIdentifier] = completionHandler
+	}
 	
-	static var headers: [String : String]? {
-		let headers = [
-			"Content-Type" : "application/json",
-			]
-		return headers
+	func didFinishDownloadTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((URL?, URLResponse?, Error?) -> Swift.Void)) {
+		self.downloadTaskFinisedDic[taskIdentifier] = completionHandler
+	}
+	
+	func didChangeProgressForTask(withIdentifier taskIdentifier: Int, progressHandler: @escaping ((Progress) -> Swift.Void)) {
+		self.taskProgressDic[taskIdentifier] = progressHandler
 	}
 	
 	

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E41EB64A23145D7400B714DE /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EB64923145D7400B714DE /* TestViewController.swift */; };
 		E423532C217FC48500888C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423532B217FC48500888C92 /* AppDelegate.swift */; };
 		E423532E217FC48500888C92 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423532D217FC48500888C92 /* CommentViewController.swift */; };
 		E4235331217FC48500888C92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E423532F217FC48500888C92 /* Main.storyboard */; };
@@ -22,19 +23,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E41EB64723145D5D00B714DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E423533D217FC52C00888C92 /* AOperation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E493C3362250965000517BA1;
+			remoteInfo = AOperation_iOS_Tests;
+		};
 		E4235347217FC52D00888C92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E423533D217FC52C00888C92 /* AOperation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E40610DC216517420084AC98;
 			remoteInfo = "AOperation iOS";
-		};
-		E4235349217FC52D00888C92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E423533D217FC52C00888C92 /* AOperation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E40610E5216517420084AC98;
-			remoteInfo = "AOperation iOSTests";
 		};
 		E423534B217FC52D00888C92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -43,26 +44,12 @@
 			remoteGlobalIDString = E40610F9216519340084AC98;
 			remoteInfo = "AOperation tvOS";
 		};
-		E423534D217FC52D00888C92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E423533D217FC52C00888C92 /* AOperation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4061101216519340084AC98;
-			remoteInfo = "AOperation tvOSTests";
-		};
 		E423534F217FC52D00888C92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E423533D217FC52C00888C92 /* AOperation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E4061115216519840084AC98;
 			remoteInfo = "AOperation macOS";
-		};
-		E4235351217FC52D00888C92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E423533D217FC52C00888C92 /* AOperation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E406111D216519840084AC98;
-			remoteInfo = "AOperation macOSTests";
 		};
 		E4235353217FC52D00888C92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -95,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E41EB64923145D7400B714DE /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E4235328217FC48500888C92 /* iOS_Exapmle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Exapmle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E423532B217FC48500888C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E423532D217FC48500888C92 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +137,7 @@
 				E4F57BE3220194FC005323DD /* LoginViewController.swift */,
 				E4F57BEB2201951D005323DD /* LoginOperation.swift */,
 				E423535A217FC5FB00888C92 /* LocationOperation.swift */,
+				E41EB64923145D7400B714DE /* TestViewController.swift */,
 				E423532F217FC48500888C92 /* Main.storyboard */,
 				E4235332217FC48600888C92 /* Assets.xcassets */,
 				E4235334217FC48600888C92 /* LaunchScreen.storyboard */,
@@ -161,12 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				E4235348217FC52D00888C92 /* AOperation.framework */,
-				E423534A217FC52D00888C92 /* AOperation.xctest */,
 				E423534C217FC52D00888C92 /* AOperation.framework */,
-				E423534E217FC52D00888C92 /* AOperation.xctest */,
 				E4235350217FC52D00888C92 /* AOperation.framework */,
-				E4235352217FC52D00888C92 /* AOperation.xctest */,
 				E4235354217FC52D00888C92 /* AOperation.framework */,
+				E41EB64823145D5D00B714DE /* AOperation_iOS_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,18 +220,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		E41EB64823145D5D00B714DE /* AOperation_iOS_Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AOperation_iOS_Tests.xctest;
+			remoteRef = E41EB64723145D5D00B714DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E4235348217FC52D00888C92 /* AOperation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AOperation.framework;
 			remoteRef = E4235347217FC52D00888C92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E423534A217FC52D00888C92 /* AOperation.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AOperation.xctest;
-			remoteRef = E4235349217FC52D00888C92 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		E423534C217FC52D00888C92 /* AOperation.framework */ = {
@@ -254,25 +241,11 @@
 			remoteRef = E423534B217FC52D00888C92 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E423534E217FC52D00888C92 /* AOperation.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AOperation.xctest;
-			remoteRef = E423534D217FC52D00888C92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		E4235350217FC52D00888C92 /* AOperation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AOperation.framework;
 			remoteRef = E423534F217FC52D00888C92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E4235352217FC52D00888C92 /* AOperation.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AOperation.xctest;
-			remoteRef = E4235351217FC52D00888C92 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		E4235354217FC52D00888C92 /* AOperation.framework */ = {
@@ -304,6 +277,7 @@
 			files = (
 				E4F57BE4220194FC005323DD /* LoginViewController.swift in Sources */,
 				E423532E217FC48500888C92 /* CommentViewController.swift in Sources */,
+				E41EB64A23145D7400B714DE /* TestViewController.swift in Sources */,
 				E4C259CF22046D4C002D8CC9 /* CoreDataStack.swift in Sources */,
 				E423535B217FC5FB00888C92 /* LocationOperation.swift in Sources */,
 				E4F57BEC2201951D005323DD /* LoginOperation.swift in Sources */,
