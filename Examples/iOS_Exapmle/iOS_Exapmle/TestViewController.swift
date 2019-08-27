@@ -33,7 +33,7 @@ class TestViewController: UIViewController {
 //		}
 		request.httpMethod = URLRequest.HTTPMethod.post
 		request.httpBody = "Helllo".data(using: .utf8)
-		let operation = URLSessionTaskOperation.upload(with: request)
+		let operation = URLSessionTaskOperation.upload(for: request)
 		operation.didFinish { (data, response, error, finished) in
 			print("did Finish")
 			finished(nil)
@@ -44,8 +44,6 @@ class TestViewController: UIViewController {
 
 		}
 		self.operationQueue.addOperation(operation)
-		
-		
 	}
 	
 }

@@ -111,6 +111,7 @@
 		E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
+		E99E02052314F8CA003B2792 /* UIImagePickerAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
+		E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImagePickerAvailabilityCondition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +222,6 @@
 				E406113C2165253D0084AC98 /* Tests */,
 				E406113E216527140084AC98 /* Supporting Files */,
 				E40610DD216517420084AC98 /* Products */,
-				E41EB64C231487CE00B714DE /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -383,6 +384,7 @@
 				E4A930762205A83700703141 /* UNNotificationCondition.swift */,
 				E4638B0521FD9ABC00656820 /* UserNotificationCondition.swift */,
 				E4638B0721FD9B7600656820 /* RemoteNotificationCondition.swift */,
+				E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -636,6 +638,7 @@
 				E4638B0621FD9ABC00656820 /* UserNotificationCondition.swift in Sources */,
 				E41EB63C231453B000B714DE /* URLSessionDownloadTaskOperation.swift in Sources */,
 				E423531B217F9E1E00888C92 /* SilentCondition.swift in Sources */,
+				E99E02052314F8CA003B2792 /* UIImagePickerAvailabilityCondition.swift in Sources */,
 				E406116321652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E4235316217F983800888C92 /* LocationCondition.swift in Sources */,
 				E40611A621652B2A0084AC98 /* AOperatinLogger.swift in Sources */,

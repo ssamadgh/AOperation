@@ -28,15 +28,15 @@ public class URLSessionTaskOperation: AOperation {
 	
 	var task: URLSessionTask!
 	
-	public static func data(with request: URLRequest) -> URLSessionDataTaskOperation {
+	public static func data(for request: URLRequest) -> URLSessionDataTaskOperation {
 		return URLSessionDataTaskOperation(request: request)
 	}
 	
-	public static func upload(with request: URLRequest) -> URLSessionUploadTaskOperation {
+	public static func upload(for request: URLRequest) -> URLSessionUploadTaskOperation {
 		return URLSessionUploadTaskOperation(request: request)
 	}
 
-	public static func download(with request: URLRequest) -> URLSessionDownloadTaskOperation {
+	public static func download(for request: URLRequest) -> URLSessionDownloadTaskOperation {
 		return URLSessionDownloadTaskOperation(request: request)
 	}
 	
