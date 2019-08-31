@@ -8,7 +8,7 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import CoreLocation
 
-
+@available(OSX 10.15, *)
 public extension AOperationError {
 	func map(to type: LocationCondition.Error.Type) -> LocationCondition.Error? {
 		guard self.state == .conditionFailed, let info = self.info, (info[.key] as! String) == LocationCondition.key, let status = info[LocationCondition.ErrorInfo.authorizationStatus] as? CLAuthorizationStatus, let notAvailables = info[LocationCondition.ErrorInfo.notAvailableServices] as? [LocationCondition.LocationServicesAvailability] else { return nil }
@@ -16,6 +16,7 @@ public extension AOperationError {
 	}
 }
 
+@available(OSX 10.15, *)
 extension LocationCondition {
 	
 	struct ErrorInfo {
@@ -37,6 +38,7 @@ extension LocationCondition {
 }
 
 /// A condition for verifying access to the user's location.
+@available(OSX 10.15, *)
 public struct LocationCondition: AOperationCondition {
     /**
         Declare a new enum instead of using `CLAuthorizationStatus`, because that
@@ -172,6 +174,7 @@ public struct LocationCondition: AOperationCondition {
     A private `AOperation` that will request permission to access the user's location,
     if permission has not already been granted.
 */
+@available(OSX 10.15, *)
 private class LocationPermissionOperation: AOperation {
     let usage: LocationCondition.Usage
     var manager: CLLocationManager?
@@ -207,7 +210,10 @@ private class LocationPermissionOperation: AOperation {
         manager?.delegate = self
 
         let key: String
-        
+		#if os(macOS)
+			key = "NSLocationAlwaysUsageDescription"
+			manager?.requestAlwaysAuthorization()
+		#else
         switch usage {
             case .whenInUse:
                 key = "NSLocationWhenInUseUsageDescription"
@@ -217,6 +223,7 @@ private class LocationPermissionOperation: AOperation {
                 key = "NSLocationAlwaysUsageDescription"
                 manager?.requestAlwaysAuthorization()
         }
+		#endif
         
         // This is helpful when developing the app.
         assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permission requires the \(key) key in your Info.plist")
@@ -224,6 +231,7 @@ private class LocationPermissionOperation: AOperation {
     
 }
 
+@available(OSX 10.15, *)
 extension LocationPermissionOperation: CLLocationManagerDelegate {
     @objc func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if manager == self.manager && isExecuting && status != .notDetermined {

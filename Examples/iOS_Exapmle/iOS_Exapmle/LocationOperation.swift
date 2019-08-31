@@ -25,15 +25,15 @@ extension LocationOperation {
     }
 }
 
-extension CLError: Mappable {
-    
-    public func map(to type: AOperationError) -> AOperationError? {
+extension CLError {
+	
+	public func map(to type: AOperationError.Type) -> AOperationError? {
         let info: [AOperationError.Info : Any?] = [
             .errorCode : self.errorCode,
             LocationOperation.ErrorInfo.errorUserInfo : self.errorUserInfo
         ]
         return AOperationError.executionFailed(with: info)
-    }
+	}
 }
 
 

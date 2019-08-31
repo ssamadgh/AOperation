@@ -8,50 +8,6 @@
 
 import Foundation
 
-public extension Error {
-    
-    func map<T>(to mapHandler: (Self) -> T) -> T where T: Error {
-        return mapHandler(self)
-    }
-    
-}
-
-public protocol Mappable {
-    func map<T>(to type: T.Type) -> T?
-}
-
-public extension Mappable {
-    
-    func map<T>(to type: T.Type) -> T? {
-        return nil
-    }
-    
-}
-
-
-extension AOperationError: Mappable {
-	
-	public enum State: Int {
-		case conditionFailed
-		case executionFailed
-	}
-
-	public struct Info: RawRepresentable, Hashable {
-		
-		public var rawValue: String
-		
-		public init(rawValue: String) {
-			self.rawValue = rawValue
-		}
-		
-		public static let key = Info(rawValue: "key")
-        public static let errorCode = Info(rawValue: "errorCode")
-		public static let reason = Info(rawValue: "reason")
-		public static let localizedDescription = Info(rawValue: "localizedDescription")
-	}
-	
-}
-
 public struct AOperationError: LocalizedError, Equatable {
 		
 	public let state: State
@@ -83,6 +39,53 @@ public func == (lhs: AOperationError, rhs: AOperationError) -> Bool {
 	}
 
 	return result
+}
+
+public extension Error {
+    
+	public func map(to type: AOperationError.Type) -> AOperationError? {
+		return nil
+		
+	}
+	
+    func map(to mapHandler: (Self) -> AOperationError) -> AOperationError {
+        return mapHandler(self)
+    }
+    
+}
+
+extension AOperationError {
+	func map<T: Error>(to type: T.Type) -> T? {
+		  return nil
+	  }
+	
+    func map<T: Error>(to mapHandler: (Self) -> T) -> T {
+        return mapHandler(self)
+    }
+
+}
+
+public extension AOperationError {
+	
+	enum State: Int {
+		case conditionFailed
+		case executionFailed
+	}
+
+	struct Info: RawRepresentable, Hashable {
+		
+		public var rawValue: String
+		
+		public init(rawValue: String) {
+			self.rawValue = rawValue
+		}
+		
+		public static let key = Info(rawValue: "key")
+        public static let errorCode = Info(rawValue: "errorCode")
+		public static let reason = Info(rawValue: "reason")
+		public static let localizedDescription = Info(rawValue: "localizedDescription")
+	}
+	
 }
 
 
