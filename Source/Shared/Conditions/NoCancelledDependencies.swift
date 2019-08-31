@@ -22,7 +22,7 @@ extension NoCanceledDependencies {
 */
 public struct NoCanceledDependencies: AOperationCondition {
 
-    public static let name = "NoCanceledDependencies"
+    public static let key = "NoCanceledDependencies"
     static let canceledDependenciesKey = "CanceledDependencies"
     public static let isMutuallyExclusive = false
     
@@ -40,7 +40,7 @@ public struct NoCanceledDependencies: AOperationCondition {
 
 		if !canceled.isEmpty {
             // At least one dependency was canceled; the condition was not satisfied.
-			let error = AOperationError.conditionFailed(with: [.key : Self.name, Self.ErrorInfo.canceledDependencies : canceled])
+			let error = AOperationError.conditionFailed(with: [.key : Self.key, Self.ErrorInfo.canceledDependencies : canceled])
             
             completion(.failed(error))
         }

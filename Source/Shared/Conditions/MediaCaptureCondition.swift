@@ -13,7 +13,7 @@ public struct MediaCaptureCondition: AOperationCondition {
     
     let mediaType: AVMediaType
     
-    public static var name: String = "MediaCapture"
+    public static var key: String = "MediaCapture"
     
     public static var isMutuallyExclusive: Bool = false
     
@@ -32,7 +32,7 @@ public struct MediaCaptureCondition: AOperationCondition {
             completion(.satisfied)
         }
         else {
-			let error = AOperationError.conditionFailed(with: [.key : type(of: self).name])
+			let error = AOperationError.conditionFailed(with: [.key : type(of: self).key])
             completion(.failed(error))
         }
         

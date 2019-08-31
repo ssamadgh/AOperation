@@ -16,10 +16,10 @@ public let OperationConditionKey = "OperationCondition"
  */
 public protocol AOperationCondition {
     /**
-     The name of the condition. This is used in userInfo dictionaries of `.ConditionFailed`
-     errors as the value of the `OperationConditionKey` key.
+     The key of the condition. This is used in userInfo dictionaries of  `.ConditionFailed`
+     errors as the value of the `AOperationError.Info.key` key.
      */
-    static var name: String { get }
+    static var key: String { get }
 
     /**
      Specifies whether multiple instances of the conditionalized operation may
@@ -52,7 +52,7 @@ public protocol AOperationCondition {
 public enum OperationConditionResult: Equatable {
     case satisfied
     case failed(AOperationError)
-
+    
     var error: AOperationError? {
         if case .failed(let error) = self {
             return error

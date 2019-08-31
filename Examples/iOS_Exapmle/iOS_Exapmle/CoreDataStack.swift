@@ -53,12 +53,15 @@ class InitializeCoreDataStackOperation: AOperation {
 		}
 		
 		stack = CoreDataStack(self.modelName) { description, error in
-			let cdError: NSError? = error != nil ? NSError(code: AOperationError.Code.executionFailed, userInfo: [AOperationError.reason: error!.localizedDescription, "description": description]) : nil
+            
+            
+            let cdError: AOperationError? = error != nil ? AOperationError.executionFailed(with: [.key : self.name, .localizedDescription : error!.localizedDescription, .reason : description]) : nil
+                
 			self.finishWithError(cdError)
 		}
 	}
 	
-	override func finished(_ errors: [NSError]) {
+	override func finished(_ errors: [AOperationError]) {
 		if errors.isEmpty {
 			CoreDataStack.shared = stack
 		}
@@ -74,7 +77,7 @@ struct CoreDataStackAvailablity: AOperationCondition {
 		self.modelName = modelName
 	}
 	
-	static var name: String = "CoreDataStackAvailablity"
+	static var key: String = "CoreDataStackAvailablity"
 	
 	static var isMutuallyExclusive: Bool = true
 	
@@ -89,10 +92,9 @@ struct CoreDataStackAvailablity: AOperationCondition {
 			result = .satisfied
 		}
 		else {
-			let error = NSError(code: .conditionFailed, userInfo: [
-				AOperationError.reason: type(of: self).name,
-				])
-			result = .failed(error)
+            let error = AOperationError.conditionFailed(with: [.key : Self.key])
+
+            result = .failed(error)
 		}
 		
 		completion(result)

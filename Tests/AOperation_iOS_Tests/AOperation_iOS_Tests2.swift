@@ -102,7 +102,7 @@ class OperationB2: AOperation {
 }
 
 struct SampleCondition: AOperationCondition {
-    static var name: String = "SampleCondition"
+    static var key: String = "SampleCondition"
     
     static var isMutuallyExclusive: Bool = true
     
@@ -111,7 +111,7 @@ struct SampleCondition: AOperationCondition {
     }
     
     func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-        let error = NSError(code: .conditionFailed, userInfo: [OperationConditionKey: type(of: self).name])
+        let error = NSError(code: .conditionFailed, userInfo: [OperationConditionKey: type(of: self).key])
         completion(.failed(error))
     }
 

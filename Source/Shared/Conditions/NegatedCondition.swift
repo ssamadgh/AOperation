@@ -23,12 +23,12 @@ extension NegatedCondition {
 */
 public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
     
-    public static var name: String {
+    public static var key: String {
         return "NegatedCondition"
     }
     
     static var negatedConditionKey: String {
-        return "\(T.name)"
+        return "\(T.key)"
     }
     
    public static var isMutuallyExclusive: Bool {
@@ -51,8 +51,8 @@ public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
                 // If the composed condition succeeded, then this one failed.
 				let errorInfo: [AOperationError.Info : Any?] =
 				[
-					.key : type(of: self).name,
-					NegatedCondition.ErrorInfo.inputCondition : type(of: self.condition).name
+					.key : type(of: self).key,
+					NegatedCondition.ErrorInfo.inputCondition : type(of: self.condition).key
 				]
               
 				let error = AOperationError.conditionFailed(with: errorInfo)

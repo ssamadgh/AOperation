@@ -9,6 +9,34 @@ Shows how to retrieve the user's location with an operation.
 import CoreLocation
 import AOperation
 
+
+extension AOperationError {
+    public func map(to type: CLError.Type) -> CLError? {
+        guard self.state == .executionFailed, let info = self.info,
+            let code = info[.errorCode] as? CLError.Code, let errorInfo = info[LocationOperation.ErrorInfo.errorUserInfo] as? [String : Any]
+            else { return nil }
+        return CLError(code, userInfo: errorInfo)
+    }
+}
+
+extension LocationOperation {
+    struct ErrorInfo {
+        static let errorUserInfo = AOperationError.Info(rawValue: "errorUserInfo")
+    }
+}
+
+extension CLError: Mappable {
+    
+    public func map(to type: AOperationError) -> AOperationError? {
+        let info: [AOperationError.Info : Any?] = [
+            .errorCode : self.errorCode,
+            LocationOperation.ErrorInfo.errorUserInfo : self.errorUserInfo
+        ]
+        return AOperationError.executionFailed(with: info)
+    }
+}
+
+
 /**
     `LocationOperation` is an `Operation` subclass to do a "one-shot" request to
     get the user's current location, with a desired accuracy. This operation will
@@ -75,6 +103,19 @@ class LocationOperation: AOperation, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         stopLocationUpdates()
-        finishWithError(error as NSError?)
+        
+        let operationError = error.map { (error) -> AOperationError in
+            var info: [AOperationError.Info : Any?] = [:]
+
+            if let clError = (error as? CLError), let opError = clError.map(to: AOperationError.self) {
+                info = opError.info!
+            }
+
+            info[.key] = self.name
+            info[.localizedDescription] = error.localizedDescription
+            return AOperationError.executionFailed(with: info)
+        }
+        
+        finishWithError(operationError)
     }
 }

@@ -11,7 +11,7 @@ import CoreLocation
 
 public extension AOperationError {
 	func map(to type: LocationCondition.Error.Type) -> LocationCondition.Error? {
-		guard self.state == .conditionFailed, let info = self.info, (info[.key] as! String) == LocationCondition.name, let status = info[LocationCondition.ErrorInfo.authorizationStatus] as? CLAuthorizationStatus, let notAvailables = info[LocationCondition.ErrorInfo.notAvailableServices] as? [LocationCondition.LocationServicesAvailability] else { return nil }
+		guard self.state == .conditionFailed, let info = self.info, (info[.key] as! String) == LocationCondition.key, let status = info[LocationCondition.ErrorInfo.authorizationStatus] as? CLAuthorizationStatus, let notAvailables = info[LocationCondition.ErrorInfo.notAvailableServices] as? [LocationCondition.LocationServicesAvailability] else { return nil }
 		return LocationCondition.Error(authorizationStatus: status, notAvailableServices: notAvailables)
 	}
 }
@@ -23,9 +23,15 @@ extension LocationCondition {
 		static let notAvailableServices = AOperationError.Info(rawValue: "notAvailableServices")
 	}
 	
-	public struct Error: Swift.Error {
-		let authorizationStatus: CLAuthorizationStatus
-		let notAvailableServices: [LocationServicesAvailability]
+    public struct Error: Swift.Error {
+        
+        public init(authorizationStatus: CLAuthorizationStatus, notAvailableServices: [LocationCondition.LocationServicesAvailability]) {
+            self.authorizationStatus = authorizationStatus
+            self.notAvailableServices = notAvailableServices
+        }
+        
+		public let authorizationStatus: CLAuthorizationStatus
+		public let notAvailableServices: [LocationServicesAvailability]
 	}
 	
 }
@@ -90,7 +96,7 @@ public struct LocationCondition: AOperationCondition {
 		
 	}
 	
-	public static let name = "Location"
+	public static let key = "Location"
 	static var notAvailableServiceArray: [LocationServicesAvailability] = []
 	public static let isMutuallyExclusive = false
     
@@ -145,9 +151,9 @@ public struct LocationCondition: AOperationCondition {
                 */
 				let errorInfo: [AOperationError.Info : Any?] =
 					[
-						.key : type(of: self).name,
-						LocationCondition.ErrorInfo.authorizationStatus : Int(actual.rawValue),
-						LocationCondition.ErrorInfo.notAvailableServices : type(of: self).notAvailableServiceArray
+						.key : type(of: self).key,
+						LocationCondition.ErrorInfo.authorizationStatus : actual,
+						LocationCondition.ErrorInfo.notAvailableServices : Self.notAvailableServiceArray
 				]
 				
 				error = AOperationError.conditionFailed(with: errorInfo)

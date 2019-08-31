@@ -8,6 +8,7 @@
 
 import UIKit
 import AOperation
+import CoreLocation
 
 class TestViewController: UIViewController {
 	
@@ -44,6 +45,22 @@ class TestViewController: UIViewController {
 
 		}
 		self.operationQueue.addOperation(operation)
+        
+//        let condition: Error = LocationCondition.Error(authorizationStatus: .notDetermined, notAvailableServices: [])
+        let authorizationStatus = AOperationError.Info(rawValue: "CLAuthorizationStatus")
+        let notAvailableServices = AOperationError.Info(rawValue: "notAvailableServices")
+
+        let errorInfo: [AOperationError.Info : Any?] =
+            [
+                .key : LocationCondition.key,
+                authorizationStatus : CLAuthorizationStatus.denied,
+                notAvailableServices : []
+        ]
+        
+        let error = AOperationError.conditionFailed(with: errorInfo)
+
+        let conditionError = error.map(to: LocationCondition.Error.self)
+        
 	}
 	
 }

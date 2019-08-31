@@ -18,8 +18,8 @@ public struct SilentCondition<T: AOperationCondition>: AOperationCondition {
     
     let condition: T
     
-	public static var name: String {
-        return "Silent<\(T.name)>"
+	public static var key: String {
+        return "Silent<\(T.key)>"
     }
     
 	public static var isMutuallyExclusive: Bool {

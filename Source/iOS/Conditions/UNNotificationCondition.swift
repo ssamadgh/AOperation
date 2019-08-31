@@ -34,7 +34,7 @@ public struct UNNotificationCondition: AOperationCondition {
         case replace
     }
     
-	public static let name = "UserNotification"
+	public static let key = "UserNotification"
     static let currentOptions = "CurrentUserNotificationOptions"
     static let desiredOptions = "DesiredUserNotificationOptions"
 	public static let isMutuallyExclusive = false
@@ -95,7 +95,7 @@ public struct UNNotificationCondition: AOperationCondition {
 					
 				default:
 					let error = AOperationError.conditionFailed(with: [
-						.key : Self.name,
+						.key : Self.key,
 						Self.ErrorInfo.currentOptions : current,
 						Self.ErrorInfo.desiredOptions : self.options
 					])
@@ -106,7 +106,7 @@ public struct UNNotificationCondition: AOperationCondition {
 			}
 			else {
 				let error = AOperationError.conditionFailed(with: [
-					.key : Self.name,
+					.key : Self.key,
 					Self.ErrorInfo.currentOptions : [],
 					Self.ErrorInfo.desiredOptions : self.options
 				])

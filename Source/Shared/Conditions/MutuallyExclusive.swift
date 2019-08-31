@@ -12,7 +12,7 @@ import Foundation
 public struct MutuallyExclusive<T>: AOperationCondition {
 
 
-	public static var name: String {
+	public static var key: String {
         return "MutuallyExclusive<\(T.self)>"
     }
 

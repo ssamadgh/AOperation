@@ -28,7 +28,7 @@ If user sets `waitToConnect` to **false**, reachability is evaluated once when t
 public struct ReachabilityCondition: AOperationCondition {
 	
 	public static let hostKey = "Host"
-	public static let name = "Reachability"
+	public static let key = "Reachability"
 	public static let isMutuallyExclusive = false
 	
 	public let url: URL?
@@ -88,7 +88,7 @@ public struct ReachabilityCondition: AOperationCondition {
 			completion(.satisfied)
 		}
 		else {
-			let error = AOperationError.conditionFailed(with: [.key: Self.name, Self.ErrorInfo.host : self.url?.host])
+			let error = AOperationError.conditionFailed(with: [.key: Self.key, Self.ErrorInfo.host : self.url?.host])
 			
 			completion(.failed(error))
 

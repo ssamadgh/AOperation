@@ -34,7 +34,7 @@ public struct UserNotificationCondition: AOperationCondition {
         case replace
     }
     
-	public static let name = "UserNotification"
+	public static let key = "UserNotification"
     static let currentSettings = "CurrentUserNotificationSettings"
     static let desiredSettings = "DesiredUserNotificationSettigns"
 	public static let isMutuallyExclusive = false
@@ -81,7 +81,7 @@ public struct UserNotificationCondition: AOperationCondition {
 				
 				let errorInfo: [AOperationError.Info : Any?] =
 				[
-					.key : type(of: self).name,
+					.key : type(of: self).key,
 					UserNotificationCondition.ErrorInfo.currentSettings :  current,
 					UserNotificationCondition.ErrorInfo.desiredSettings: settings
 				]

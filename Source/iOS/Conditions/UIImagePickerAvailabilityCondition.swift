@@ -17,7 +17,7 @@ extension UIImagePickerAvailabilityCondition {
 
 public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     
-    public static var name: String = "UIImagePickerAvailablity"
+    public static var key: String = "UIImagePickerAvailablity"
     
     public static var isMutuallyExclusive: Bool = true
     
@@ -45,7 +45,7 @@ public struct UIImagePickerAvailabilityCondition: AOperationCondition {
         else {
 			let info: [AOperationError.Info : Any?] =
 			[
-				.key : type(of: self).name,
+				.key : type(of: self).key,
 				type(of: self).ErrorInfo.notAvailableMediaTypes : Array(self.mediaTypes)
 			]
 			let error = AOperationError.conditionFailed(with: info)

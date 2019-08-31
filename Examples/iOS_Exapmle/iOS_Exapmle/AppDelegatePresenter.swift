@@ -18,14 +18,14 @@ class AppDelegatePresenter {
 	}
 	
 	
-	func initializeCoreDataStack(modelName: String, completion: @escaping (_ error: NSError?) -> Void ) {
+	func initializeCoreDataStack(modelName: String, completion: @escaping (_ error: AOperationError?) -> Void ) {
 		
 		let op = BlockAOperation {
 			
 		}
 		op.addCondition(CoreDataStackAvailablity(modelName: modelName))
 		op.addObserver(BlockObserver { _ , errors in
-
+            
 			completion(errors.first)
 		})
 	}

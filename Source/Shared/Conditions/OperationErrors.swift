@@ -16,20 +16,20 @@ public extension Error {
     
 }
 
-public protocol MappableError: Error {
-    func map<T: Error>(to type: T.Type) -> T?
+public protocol Mappable {
+    func map<T>(to type: T.Type) -> T?
 }
 
-public extension MappableError {
+public extension Mappable {
     
-    func map<T: Error>(to type: T.Type) -> T? {
+    func map<T>(to type: T.Type) -> T? {
         return nil
     }
     
 }
 
 
-extension AOperationError: MappableError {
+extension AOperationError: Mappable {
 	
 	public enum State: Int {
 		case conditionFailed
@@ -44,9 +44,10 @@ extension AOperationError: MappableError {
 			self.rawValue = rawValue
 		}
 		
-		static let key = Info(rawValue: "key")
-		static let reason = Info(rawValue: "reason")
-		static let localizedDescription = Info(rawValue: "localizedDescription")
+		public static let key = Info(rawValue: "key")
+        public static let errorCode = Info(rawValue: "errorCode")
+		public static let reason = Info(rawValue: "reason")
+		public static let localizedDescription = Info(rawValue: "localizedDescription")
 	}
 	
 }

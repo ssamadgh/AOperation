@@ -36,17 +36,22 @@ class LoginOperation: AOperation, LoginViewControllerDelegate {
 	}
 	
 	func loginViewControllerDidCancel() {
-		let error = NSError(code: AOperationError.Code.executionFailed, userInfo: [AOperationError.reason:"Wrong user or password"])
+        let error = AOperationError.executionFailed(with: [.reason:"Wrong user or password"])
 		finishWithError(error)
 	}
 
 	
 }
 
+extension LoginCondition {
+    struct ErrorInfo {
+        static let userIsLoggedIn = AOperationError.Info(rawValue: "UserIsLogged")
+    }
+}
 
 struct LoginCondition: AOperationCondition {
 	
-	static var name: String = "Login"
+	static var key: String = "Login"
 	
 	static var isMutuallyExclusive: Bool = true
 	
@@ -56,14 +61,12 @@ struct LoginCondition: AOperationCondition {
 	
 	func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
 		
-		var error: NSError?
+		var error: AOperationError?
 
 		if appState != .logIn {
-			error = NSError(code: .conditionFailed, userInfo: [
-				OperationConditionKey: type(of: self).name,
-				"UserIsLogged": false
-				])
-		}
+            error = AOperationError.conditionFailed(with: [.key : Self.key, LoginCondition.ErrorInfo.userIsLoggedIn : false])
+
+        }
 
 		if let error = error {
 			completion(.failed(error))

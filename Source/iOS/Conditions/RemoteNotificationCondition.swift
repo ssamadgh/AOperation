@@ -27,7 +27,7 @@ private enum RemoteRegistrationResult {
 /// A condition for verifying that the app has the ability to receive push notifications.
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
 public struct RemoteNotificationCondition: AOperationCondition {
-	public static let name = "RemoteNotification"
+	public static let key = "RemoteNotification"
 	public static let isMutuallyExclusive = false
     
     static func didReceiveNotificationToken(_ token: Data) {

@@ -22,7 +22,7 @@ extension ReachabilityConditionOld {
  */
 struct ReachabilityConditionOld: AOperationCondition {
 	public static let hostKey = "Host"
-	public static let name = "Reachability"
+	public static let key = "Reachability"
 	public static let isMutuallyExclusive = false
 	
 	public let host: URL
@@ -43,7 +43,7 @@ struct ReachabilityConditionOld: AOperationCondition {
 				completion(.satisfied)
 			}
 			else {
-				let error = AOperationError.conditionFailed(with: [.key :  Self.name, Self.ErrorInfo.host : self.host])
+				let error = AOperationError.conditionFailed(with: [.key :  Self.key, Self.ErrorInfo.host : self.host])
 				
 				completion(.failed(error))
 			}
