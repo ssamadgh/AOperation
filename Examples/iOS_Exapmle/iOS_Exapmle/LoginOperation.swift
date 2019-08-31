@@ -44,7 +44,7 @@ class LoginOperation: AOperation, LoginViewControllerDelegate {
 }
 
 
-struct LoginCondition: OperationCondition {
+struct LoginCondition: AOperationCondition {
 	
 	static var name: String = "Login"
 	

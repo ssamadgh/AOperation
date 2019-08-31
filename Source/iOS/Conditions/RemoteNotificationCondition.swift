@@ -10,6 +10,12 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import UIKit
     
+extension RemoteNotificationCondition {
+	struct ErrorInfo {
+		static let underlyingError = AOperationError.Info(rawValue: NSUnderlyingErrorKey)
+	}
+}
+
 private let RemoteNotificationQueue = AOperationQueue()
 private let RemoteNotificationName = "RemoteNotificationPermissionNotification"
 
@@ -20,7 +26,7 @@ private enum RemoteRegistrationResult {
 
 /// A condition for verifying that the app has the ability to receive push notifications.
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
-public struct RemoteNotificationCondition: OperationCondition {
+public struct RemoteNotificationCondition: AOperationCondition {
 	public static let name = "RemoteNotification"
 	public static let isMutuallyExclusive = false
     
@@ -57,11 +63,7 @@ public struct RemoteNotificationCondition: OperationCondition {
                     completion(.satisfied)
 
                 case .error(let underlyingError):
-                    let error = NSError(code: .conditionFailed, userInfo: [
-                        OperationConditionKey: type(of: self).name,
-                        NSUnderlyingErrorKey: underlyingError
-                    ])
-
+					let error = AOperationError.conditionFailed(with: [.key : Self.ErrorInfo.underlyingError, .reason : underlyingError])
                     completion(.failed(error))
             }
         })

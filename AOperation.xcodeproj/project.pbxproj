@@ -35,10 +35,10 @@
 		E406117C21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
 		E406117D21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
 		E406117E21652A9B0084AC98 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */; };
-		E406117F21652A9B0084AC98 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* OperationCondition.swift */; };
-		E406118021652A9B0084AC98 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* OperationCondition.swift */; };
-		E406118121652A9B0084AC98 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* OperationCondition.swift */; };
-		E406118221652A9B0084AC98 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* OperationCondition.swift */; };
+		E406117F21652A9B0084AC98 /* AOperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* AOperationCondition.swift */; };
+		E406118021652A9B0084AC98 /* AOperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* AOperationCondition.swift */; };
+		E406118121652A9B0084AC98 /* AOperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* AOperationCondition.swift */; };
+		E406118221652A9B0084AC98 /* AOperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114E21652A9B0084AC98 /* AOperationCondition.swift */; };
 		E406118321652A9B0084AC98 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114F21652A9B0084AC98 /* OperationErrors.swift */; };
 		E406118421652A9B0084AC98 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114F21652A9B0084AC98 /* OperationErrors.swift */; };
 		E406118521652A9B0084AC98 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406114F21652A9B0084AC98 /* OperationErrors.swift */; };
@@ -140,7 +140,7 @@
 		E406114A21652A9B0084AC98 /* AlertOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertOperation.swift; sourceTree = "<group>"; };
 		E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityConditionOld.swift; sourceTree = "<group>"; };
 		E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
-		E406114E21652A9B0084AC98 /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
+		E406114E21652A9B0084AC98 /* AOperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOperationCondition.swift; sourceTree = "<group>"; };
 		E406114F21652A9B0084AC98 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
 		E406115121652A9B0084AC98 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
 		E406115221652A9B0084AC98 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		E406114B21652A9B0084AC98 /* Conditions */ = {
 			isa = PBXGroup;
 			children = (
-				E406114E21652A9B0084AC98 /* OperationCondition.swift */,
+				E406114E21652A9B0084AC98 /* AOperationCondition.swift */,
 				E4F57BCF22015DD4005323DD /* NegatedCondition.swift */,
 				E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */,
 				E406114C21652A9B0084AC98 /* ReachabilityConditionOld.swift */,
@@ -628,7 +628,7 @@
 				E41EB64E2314894E00B714DE /* MediaCaptureCondition.swift in Sources */,
 				E4638B0421FD97D200656820 /* UIUserNotifications+Operations.swift in Sources */,
 				E406116721652A9B0084AC98 /* AOperation.swift in Sources */,
-				E406117F21652A9B0084AC98 /* OperationCondition.swift in Sources */,
+				E406117F21652A9B0084AC98 /* AOperationCondition.swift in Sources */,
 				E41EB6402314563500B714DE /* URLSessionDataTaskOperation.swift in Sources */,
 				E44DE1852232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406118721652A9B0084AC98 /* OperationObserver.swift in Sources */,
@@ -671,7 +671,7 @@
 				E406116821652A9B0084AC98 /* AOperation.swift in Sources */,
 				E4F57BD322015DD6005323DD /* NegatedCondition.swift in Sources */,
 				E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */,
-				E406118021652A9B0084AC98 /* OperationCondition.swift in Sources */,
+				E406118021652A9B0084AC98 /* AOperationCondition.swift in Sources */,
 				E406118821652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E406116421652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E4F57BD722015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
@@ -700,7 +700,7 @@
 				E406116921652A9B0084AC98 /* AOperation.swift in Sources */,
 				E4F57BD422015DD6005323DD /* NegatedCondition.swift in Sources */,
 				E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */,
-				E406118121652A9B0084AC98 /* OperationCondition.swift in Sources */,
+				E406118121652A9B0084AC98 /* AOperationCondition.swift in Sources */,
 				E406118921652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E406116521652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E4F57BD822015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
@@ -729,7 +729,7 @@
 				E4638B0221FD97BF00656820 /* Dictionary+Operations.swift in Sources */,
 				E406116A21652A9B0084AC98 /* AOperation.swift in Sources */,
 				E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */,
-				E406118221652A9B0084AC98 /* OperationCondition.swift in Sources */,
+				E406118221652A9B0084AC98 /* AOperationCondition.swift in Sources */,
 				E406118A21652A9B0084AC98 /* OperationObserver.swift in Sources */,
 				E406116621652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E40611A921652B2A0084AC98 /* AOperatinLogger.swift in Sources */,

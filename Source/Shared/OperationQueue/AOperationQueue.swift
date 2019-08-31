@@ -18,10 +18,17 @@ import Foundation
  For example, `GroupOperation` is the delegate of its own internal
  `AOperationQueue` and uses it to manage dependencies.
  */
-@objc protocol AOperationQueueDelegate: NSObjectProtocol {
-    @objc optional func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation)
-    @objc optional func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [NSError])
-	@objc optional func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Foundation.Operation, withErrors errors: [NSError])
+protocol AOperationQueueDelegate: class {
+    func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation)
+    func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError])
+	func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Foundation.Operation, withErrors errors: [AOperationError])
+}
+
+extension AOperationQueueDelegate {
+	func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {}
+	func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError]) {}
+	func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Foundation.Operation, withErrors errors: [AOperationError]) {}
+
 }
 
 /**
@@ -42,7 +49,7 @@ public class AOperationQueue: Foundation.OperationQueue {
                 startHandler: nil,
 				cancelHandler: { [weak self] in
 					if let q = self {
-						q.delegate?.operationQueue?(q, operationDidCancel: $0, withErrors: $1)
+						q.delegate?.operationQueue(q, operationDidCancel: $0, withErrors: $1)
 					}
 				},
                 produceHandler: { [weak self] in
@@ -50,7 +57,7 @@ public class AOperationQueue: Foundation.OperationQueue {
                 },
                 finishHandler: { [weak self] in
                     if let q = self {
-                        q.delegate?.operationQueue?(q, operationDidFinish: $0, withErrors: $1)
+                        q.delegate?.operationQueue(q, operationDidFinish: $0, withErrors: $1)
                     }
                 }
             )
@@ -104,11 +111,11 @@ public class AOperationQueue: Foundation.OperationQueue {
              */
             op.addCompletionBlock { [weak self, weak op] in
                 guard let queue = self, let operation = op else { return }
-                queue.delegate?.operationQueue?(queue, operationDidFinish: operation, withErrors: [])
+                queue.delegate?.operationQueue(queue, operationDidFinish: operation, withErrors: [])
             }
         }
 
-        delegate?.operationQueue?(self, willAddOperation: op)
+        delegate?.operationQueue(self, willAddOperation: op)
 
 		if AOperationDebugger.printOperationsState {
 			print("AOperation \(type(of: op)) added to queue")

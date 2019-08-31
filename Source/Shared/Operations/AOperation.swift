@@ -254,9 +254,9 @@ open class AOperation: Foundation.Operation {
 	
 	// MARK: Observers and Conditions
 	
-	fileprivate(set) var conditions = [OperationCondition]()
+	fileprivate(set) var conditions = [AOperationCondition]()
 	
-	public func addCondition(_ condition: OperationCondition) {
+	public func addCondition(_ condition: AOperationCondition) {
 		assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
 		
 		conditions.append(condition)
@@ -329,7 +329,7 @@ open class AOperation: Foundation.Operation {
 		finish()
 	}
 	
-	fileprivate var _internalErrors = [NSError]()
+	fileprivate var _internalErrors = [AOperationError]()
 	
 	override open func cancel() {
 		if isFinished {
@@ -361,12 +361,12 @@ open class AOperation: Foundation.Operation {
 		
 	}
 	
-	public func cancelWithErrors(_ errors: [NSError]) {
+	public func cancelWithErrors(_ errors: [AOperationError]) {
 		_internalErrors += errors
 		cancel()
 	}
 	
-	public func cancelWithError(_ error: NSError) {
+	public func cancelWithError(_ error: AOperationError) {
 		cancelWithErrors([error])
 	}
 	
@@ -386,7 +386,7 @@ open class AOperation: Foundation.Operation {
 	for how an error from an `NSURLSession` is passed along via the
 	`finishWithError()` method.
 	*/
-	public final func finishWithError(_ error: NSError?) {
+	public final func finishWithError(_ error: AOperationError?) {
 		if let error = error {
 			finish([error])
 		}
@@ -401,7 +401,7 @@ open class AOperation: Foundation.Operation {
 	*/
 	fileprivate var hasFinishedAlready = false
 	
-	internal final func finish(_ errors: [NSError] = []) {
+	internal final func finish(_ errors: [AOperationError] = []) {
 		if !hasFinishedAlready {
 			hasFinishedAlready = true
 			state = .finishing
@@ -427,7 +427,7 @@ open class AOperation: Foundation.Operation {
 	this method to potentially inform the user about an error when trying to
 	bring up the Core Data stack.
 	*/
-	open func finished(_ errors: [NSError]) {
+	open func finished(_ errors: [AOperationError]) {
 		// No op.
 	}
 	
@@ -455,7 +455,7 @@ open class AOperation: Foundation.Operation {
 		}, cancelHandler: {observer?.operationDidCancel($0, errors: $1)}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
 	}
 	
-	public final func observeDidCancel(_ cancelHandler: @escaping (([NSError]) -> Void)) {
+	public final func observeDidCancel(_ cancelHandler: @escaping (([AOperationError]) -> Void)) {
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
 		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:), cancelHandler: { op, errors in
@@ -465,7 +465,7 @@ open class AOperation: Foundation.Operation {
 	}
 	
 	
-	public final func observeDidFinish(_ finishHandler: @escaping (([NSError]) -> Void)) {
+	public final func observeDidFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
 		
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		

@@ -8,6 +8,12 @@ This file shows how to implement the OperationObserver protocol.
 
 import Foundation
 
+extension TimeoutObserver {
+	struct ErrorInfo {
+		static let timeout = AOperationError.Info(rawValue: "Timeout")
+	}
+}
+
 /**
     `TimeoutObserver` is a way to make an `Operation` automatically time out and
     cancel after a specified time interval.
@@ -15,7 +21,6 @@ import Foundation
 struct TimeoutObserver: OperationObserver {
     // MARK: Properties
 
-    static let timeoutKey = "Timeout"
     
     fileprivate let timeout: TimeInterval
     
@@ -37,16 +42,18 @@ struct TimeoutObserver: OperationObserver {
                 been canceled.
             */
             if !operation.isFinished && !operation.isCancelled {
-                let error = NSError(code: .executionFailed, userInfo: [
-                    type(of: self).timeoutKey: self.timeout
-                ])
+				let info: [AOperationError.Info : Any?] =
+				[
+					type(of: self).ErrorInfo.timeout : self.timeout
+				]
+				let error = AOperationError.executionFailed(with: info)
 
                 operation.cancelWithError(error)
             }
         }
     }
 	
-	func operationDidCancel(_ operation: AOperation, errors: [NSError]) {
+	func operationDidCancel(_ operation: AOperation, errors: [AOperationError]) {
 		// No op.
 	}
 
@@ -54,7 +61,7 @@ struct TimeoutObserver: OperationObserver {
         // No op.
     }
 
-    internal func operationDidFinish(_ operation: AOperation, errors: [NSError]) {
+    internal func operationDidFinish(_ operation: AOperation, errors: [AOperationError]) {
         // No op.
     }
 }

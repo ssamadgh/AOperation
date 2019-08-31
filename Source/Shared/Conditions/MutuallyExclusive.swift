@@ -9,7 +9,7 @@
 import Foundation
 
 /// A generic condition for describing kinds of operations that may not execute concurrently.
-public struct MutuallyExclusive<T>: OperationCondition {
+public struct MutuallyExclusive<T>: AOperationCondition {
 
 
 	public static var name: String {

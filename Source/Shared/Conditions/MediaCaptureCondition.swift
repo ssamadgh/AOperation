@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-public struct MediaCaptureCondition: OperationCondition {
+public struct MediaCaptureCondition: AOperationCondition {
     
     let mediaType: AVMediaType
     
@@ -32,9 +32,7 @@ public struct MediaCaptureCondition: OperationCondition {
             completion(.satisfied)
         }
         else {
-            let error = NSError(code: .conditionFailed, userInfo: [
-                OperationConditionKey: type(of: self).name
-                ])
+			let error = AOperationError.conditionFailed(with: [.key : type(of: self).name])
             completion(.failed(error))
         }
         

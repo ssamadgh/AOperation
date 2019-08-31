@@ -101,7 +101,7 @@ class OperationB2: AOperation {
 	
 }
 
-struct SampleCondition: OperationCondition {
+struct SampleCondition: AOperationCondition {
     static var name: String = "SampleCondition"
     
     static var isMutuallyExclusive: Bool = true

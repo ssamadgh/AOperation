@@ -8,18 +8,30 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import CoreLocation
 
-@dynamicMemberLookup
-struct DynamicStruct<T> {
-	let dictionary: [String:T]
-	
-	subscript(dynamicMember member: String) -> T {
-		return dictionary[member]!
+
+public extension AOperationError {
+	func map(to type: LocationCondition.Error.Type) -> LocationCondition.Error? {
+		guard self.state == .conditionFailed, let info = self.info, (info[.key] as! String) == LocationCondition.name, let status = info[LocationCondition.ErrorInfo.authorizationStatus] as? CLAuthorizationStatus, let notAvailables = info[LocationCondition.ErrorInfo.notAvailableServices] as? [LocationCondition.LocationServicesAvailability] else { return nil }
+		return LocationCondition.Error(authorizationStatus: status, notAvailableServices: notAvailables)
 	}
 }
 
+extension LocationCondition {
+	
+	struct ErrorInfo {
+		static let authorizationStatus = AOperationError.Info(rawValue: "CLAuthorizationStatus")
+		static let notAvailableServices = AOperationError.Info(rawValue: "notAvailableServices")
+	}
+	
+	public struct Error: Swift.Error {
+		let authorizationStatus: CLAuthorizationStatus
+		let notAvailableServices: [LocationServicesAvailability]
+	}
+	
+}
 
 /// A condition for verifying access to the user's location.
-public struct LocationCondition: OperationCondition {
+public struct LocationCondition: AOperationCondition {
     /**
         Declare a new enum instead of using `CLAuthorizationStatus`, because that
         enum has more case values than are necessary for our purposes.
@@ -79,8 +91,7 @@ public struct LocationCondition: OperationCondition {
 	}
 	
 	public static let name = "Location"
-    static var locationServicesEnabledKey = "CLLocationServicesEnabled"
-    static let authorizationStatusKey = "CLAuthorizationStatus"
+	static var notAvailableServiceArray: [LocationServicesAvailability] = []
 	public static let isMutuallyExclusive = false
     
     let usage: Usage
@@ -100,18 +111,18 @@ public struct LocationCondition: OperationCondition {
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
 //        let enabled = CLLocationManager.locationServicesEnabled()
 		let notAvailableServices = self.servicesAvailability.filter { !$0.isAvailable }
-		let enabled = notAvailableServices.isEmpty
+		let availlable = notAvailableServices.isEmpty
 		
-		if !enabled {
-			type(of: self).locationServicesEnabledKey = "\(notAvailableServices.first!)"
+		if !availlable {
+			type(of: self).notAvailableServiceArray = Array(notAvailableServices)
 		}
 		
         let actual = CLLocationManager.authorizationStatus()
         
-        var error: NSError?
+		var error: AOperationError?
 
         // There are several factors to consider when evaluating this condition
-        switch (enabled, usage, actual) {
+        switch (availlable, usage, actual) {
             case (true, _, .authorizedAlways):
                 // The service is enabled, and we have "Always" permission -> condition satisfied.
                 break
@@ -132,11 +143,14 @@ public struct LocationCondition: OperationCondition {
                     
                     The last case would happen if this condition were wrapped in a `SilentCondition`.
                 */
-                error = NSError(code: .conditionFailed, userInfo: [
-                    OperationConditionKey: type(of: self).name,
-                    type(of: self).locationServicesEnabledKey: enabled,
-                    type(of: self).authorizationStatusKey: Int(actual.rawValue)
-                ])
+				let errorInfo: [AOperationError.Info : Any?] =
+					[
+						.key : type(of: self).name,
+						LocationCondition.ErrorInfo.authorizationStatus : Int(actual.rawValue),
+						LocationCondition.ErrorInfo.notAvailableServices : type(of: self).notAvailableServiceArray
+				]
+				
+				error = AOperationError.conditionFailed(with: errorInfo)
         }
         
         if let error = error {

@@ -8,30 +8,84 @@
 
 import Foundation
 
+public extension Error {
+    
+    func map<T>(to mapHandler: (Self) -> T) -> T where T: Error {
+        return mapHandler(self)
+    }
+    
+}
 
-public struct AOperationError {
-	public static let domain = "OperationErrors"
-	public static let reason = "OperationErrorsReason"
+public protocol MappableError: Error {
+    func map<T: Error>(to type: T.Type) -> T?
+}
+
+public extension MappableError {
+    
+    func map<T: Error>(to type: T.Type) -> T? {
+        return nil
+    }
+    
+}
+
+
+extension AOperationError: MappableError {
 	
-	public enum Code: Int {
-		case conditionFailed = 1
-		case executionFailed = 2
+	public enum State: Int {
+		case conditionFailed
+		case executionFailed
+	}
+
+	public struct Info: RawRepresentable, Hashable {
+		
+		public var rawValue: String
+		
+		public init(rawValue: String) {
+			self.rawValue = rawValue
+		}
+		
+		static let key = Info(rawValue: "key")
+		static let reason = Info(rawValue: "reason")
+		static let localizedDescription = Info(rawValue: "localizedDescription")
+	}
+	
+}
+
+public struct AOperationError: LocalizedError, Equatable {
+		
+	public let state: State
+	public let info: [Info : Any?]?
+	
+	private init(state: State, info: [Info : Any?]?) {
+		self.state = state
+		self.info = info
+	}
+	
+	public static func executionFailed(with info: [Info : Any?]?) -> AOperationError {
+		return AOperationError(state: .executionFailed, info: info)
+	}
+	
+	public static func conditionFailed(with info: [Info : Any?]?) -> AOperationError {
+		return AOperationError(state: .conditionFailed, info: info)
 	}
 
 }
-//public let OperationErrorDomain = "OperationErrors"
 
-struct AOperationError2: CustomNSError {
+
+public func == (lhs: AOperationError, rhs: AOperationError) -> Bool {
+	var result = true
 	
-	var errorCode: Int
-	var errorUserInfo: [String : Any]
+	result = lhs.state == rhs.state
 	
-	init(code: Int, userInfo: [String: Any]? = nil) {
-		errorCode = code
-		errorUserInfo = userInfo ?? [:]
+	if let lkey = lhs.info?[.key] as? String, let rkey = lhs.info?[.key] as? String {
+		result = lkey == rkey
 	}
-	
+
+	return result
 }
+
+
+/*
 
 extension NSError {
     public convenience init(code: AOperationError.Code, userInfo: [String: Any]? = nil) {
@@ -56,3 +110,4 @@ func ==(lhs: AOperationError.Code, rhs: Int) -> Bool {
 //
 //}
 
+*/

@@ -8,19 +8,27 @@ The file shows how to make an OperationCondition that composes another Operation
 
 import Foundation
 
+extension NegatedCondition {
+	struct ErrorInfo {
+		static var inputCondition: AOperationError.Info {
+			return AOperationError.Info(rawValue: "NegatedCondition")
+		}
+	}
+}
+
 /**
     A simple condition that negates the evaluation of another condition.
     This is useful (for example) if you want to only execute an operation if the
     network is NOT reachable.
 */
-public struct NegatedCondition<T: OperationCondition>: OperationCondition {
+public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
     
     public static var name: String {
-        return "Not<\(T.name)>"
+        return "NegatedCondition"
     }
     
     static var negatedConditionKey: String {
-        return "NegatedCondition"
+        return "\(T.name)"
     }
     
    public static var isMutuallyExclusive: Bool {
@@ -41,10 +49,13 @@ public struct NegatedCondition<T: OperationCondition>: OperationCondition {
         condition.evaluateForOperation(operation) { result in
             if result == .satisfied {
                 // If the composed condition succeeded, then this one failed.
-                let error = NSError(code: .conditionFailed, userInfo: [
-                    OperationConditionKey: type(of: self).name,
-                    type(of: self).negatedConditionKey: type(of: self.condition).name
-                    ])
+				let errorInfo: [AOperationError.Info : Any?] =
+				[
+					.key : type(of: self).name,
+					NegatedCondition.ErrorInfo.inputCondition : type(of: self.condition).name
+				]
+              
+				let error = AOperationError.conditionFailed(with: errorInfo)
                 
                 completion(.failed(error))
             }

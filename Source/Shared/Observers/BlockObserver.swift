@@ -16,11 +16,11 @@ public struct BlockObserver: OperationObserver {
     // MARK: Properties
 
     fileprivate let startHandler: ((AOperation) -> Void)?
-	fileprivate let cancelHandler: ((AOperation, [NSError]) -> Void)?
+	fileprivate let cancelHandler: ((AOperation, [AOperationError]) -> Void)?
     fileprivate let produceHandler: ((AOperation, Foundation.Operation) -> Void)?
-    fileprivate let finishHandler: ((AOperation, [NSError]) -> Void)?
+    fileprivate let finishHandler: ((AOperation, [AOperationError]) -> Void)?
 
-    public init(startHandler: ((AOperation) -> Void)? = nil, cancelHandler: ((AOperation, [NSError]) -> Void)? = nil, produceHandler: ((AOperation, Foundation.Operation) -> Void)? = nil, finishHandler: ((AOperation, [NSError]) -> Void)? = nil) {
+    public init(startHandler: ((AOperation) -> Void)? = nil, cancelHandler: ((AOperation, [AOperationError]) -> Void)? = nil, produceHandler: ((AOperation, Foundation.Operation) -> Void)? = nil, finishHandler: ((AOperation, [AOperationError]) -> Void)? = nil) {
         self.startHandler = startHandler
 		self.cancelHandler = cancelHandler
         self.produceHandler = produceHandler
@@ -33,7 +33,7 @@ public struct BlockObserver: OperationObserver {
         startHandler?(operation)
     }
 	
-	public func operationDidCancel(_ operation: AOperation, errors: [NSError]) {
+	public func operationDidCancel(_ operation: AOperation, errors: [AOperationError]) {
 		cancelHandler?(operation, errors)
 	}
 
@@ -41,7 +41,7 @@ public struct BlockObserver: OperationObserver {
         produceHandler?(operation, newOperation)
     }
 
-   public func operationDidFinish(_ operation: AOperation, errors: [NSError]) {
+   public func operationDidFinish(_ operation: AOperation, errors: [AOperationError]) {
         finishHandler?(operation, errors)
     }
 }

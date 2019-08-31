@@ -21,8 +21,8 @@ occurred during execution of the task.
 An example usage of `URLSessionTaskOperation` can be seen in the `DownloadEarthquakesOperation`.
 */
 
-public typealias DataResponseOperationBlock = ( Data?, URLResponse?, Error?, @escaping (NSError?) -> Void) -> Void
-public typealias URLResponseOperationBlock = ( URL?, URLResponse?, Error?, @escaping (NSError?) -> Void) -> Void
+public typealias DataResponseOperationBlock = ( Data?, URLResponse?, Error?, @escaping (AOperationError?) -> Void) -> Void
+public typealias URLResponseOperationBlock = ( URL?, URLResponse?, Error?, @escaping (AOperationError?) -> Void) -> Void
 
 public class URLSessionTaskOperation: AOperation {
 	

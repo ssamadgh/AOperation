@@ -27,7 +27,7 @@ open class GroupOperation: AOperation {
     fileprivate let startingOperation = Foundation.BlockOperation(block: {})
     fileprivate let finishingOperation = Foundation.BlockOperation(block: {})
 
-    fileprivate var aggregatedErrors = [NSError]()
+    fileprivate var aggregatedErrors = [AOperationError]()
 	fileprivate let serialQueue = DispatchQueue(label: "GroupOperation_Serial_Queue")
 
     public convenience init(operations: Foundation.Operation...) {
@@ -69,15 +69,15 @@ open class GroupOperation: AOperation {
      Errors aggregated through this method will be included in the final array
      of errors reported to observers and to the `finished(_:)` method.
      */
-    public final func aggregateError(_ error: NSError) {
+    public final func aggregateError(_ error: AOperationError) {
         aggregatedErrors.append(error)
     }
 
-    open func operationDidFinish(_ operation: Foundation.Operation, withErrors errors: [NSError]) {
+    open func operationDidFinish(_ operation: Foundation.Operation, withErrors errors: [AOperationError]) {
         // For use by subclasses.
     }
 	
-	open func operationDidCancel(_ operation: Foundation.Operation, withErrors errors: [NSError]) {
+	open func operationDidCancel(_ operation: Foundation.Operation, withErrors errors: [AOperationError]) {
 		// For use by subclasses.
 	}
 	
@@ -109,7 +109,7 @@ extension  GroupOperation: AOperationQueueDelegate {
 		}
 	}
 	
-	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [NSError]) {
+	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError]) {
 		aggregatedErrors.append(contentsOf: errors)
 		
 		if operation === finishingOperation {
@@ -121,7 +121,7 @@ extension  GroupOperation: AOperationQueueDelegate {
 		}
 	}
 	
-	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Operation, withErrors errors: [NSError]) {
+	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Operation, withErrors errors: [AOperationError]) {
 		self.serialQueue.async {
 			self.aggregatedErrors.append(contentsOf: errors)
 		}

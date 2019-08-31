@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
-public struct UIImagePickerAvailabilityCondition: OperationCondition {
+extension UIImagePickerAvailabilityCondition {
+	struct ErrorInfo {
+		static let notAvailableMediaTypes = AOperationError.Info(rawValue: "mediaTypes")
+	}
+}
+
+public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     
     public static var name: String = "UIImagePickerAvailablity"
     
@@ -37,7 +43,12 @@ public struct UIImagePickerAvailabilityCondition: OperationCondition {
             completion(.satisfied)
         }
         else {
-            let error = NSError(code: .conditionFailed, userInfo: [OperationConditionKey : type(of: self).name, "mediaTypes" : self.mediaTypes])
+			let info: [AOperationError.Info : Any?] =
+			[
+				.key : type(of: self).name,
+				type(of: self).ErrorInfo.notAvailableMediaTypes : Array(self.mediaTypes)
+			]
+			let error = AOperationError.conditionFailed(with: info)
             completion(.failed(error))
         }
         

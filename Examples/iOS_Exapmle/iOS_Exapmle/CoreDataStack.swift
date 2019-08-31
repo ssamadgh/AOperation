@@ -66,7 +66,7 @@ class InitializeCoreDataStackOperation: AOperation {
 	
 }
 
-struct CoreDataStackAvailablity: OperationCondition {
+struct CoreDataStackAvailablity: AOperationCondition {
 	
 	let modelName: String
 	

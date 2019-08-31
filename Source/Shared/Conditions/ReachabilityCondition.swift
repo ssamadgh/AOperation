@@ -12,6 +12,12 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import Foundation
 
+extension ReachabilityCondition {
+	struct ErrorInfo {
+		static let host = AOperationError.Info(rawValue: "Host")
+	}
+}
+
 /**
 This is a condition that performs a very high-level reachability check.
 It performs a long-running reachability check, and it respond to changes in reachability.
@@ -19,7 +25,7 @@ If user sets `waitToConnect` to **true**, this condition adds a dependency opera
 If user sets `waitToConnect` to **false**, reachability is evaluated once when the operation to which this is attached is asked about its readiness.
 */
 
-public struct ReachabilityCondition: OperationCondition {
+public struct ReachabilityCondition: AOperationCondition {
 	
 	public static let hostKey = "Host"
 	public static let name = "Reachability"
@@ -82,11 +88,7 @@ public struct ReachabilityCondition: OperationCondition {
 			completion(.satisfied)
 		}
 		else {
-			
-			let error = NSError(code: .conditionFailed, userInfo: [
-				OperationConditionKey: type(of: self).name,
-				type(of: self).hostKey: self.url?.host ?? ""
-				])
+			let error = AOperationError.conditionFailed(with: [.key: Self.name, Self.ErrorInfo.host : self.url?.host])
 			
 			completion(.failed(error))
 
@@ -141,12 +143,16 @@ private class ReachabilityOperation: AOperation {
 			try self.reachability.startNotifier()
 		}
 		catch {
-			let error = NSError(code: .conditionFailed, userInfo: [
-				"Operation": self.name ?? "",
-				"HOST": self.url?.host ?? ""
-				])
+//			let errorInfo: [AOperationError.Info : Any?] =
+//			[
+//				.key : type(of: self).name
+//			]
+//			let error = NSError(code: .conditionFailed, userInfo: [
+//				"Operation": self.name ?? "",
+//				"HOST": self.url?.host ?? ""
+//				])
 			
-			self.finishWithError(error)
+			self.finishWithError(nil)
 		}
 		
 		

@@ -10,12 +10,21 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import UIKit
 
+extension UserNotificationCondition {
+	public struct ErrorInfo {
+		static let currentSettings = AOperationError.Info(rawValue: "CurrentUserNotificationSettings")
+		static let desiredSettings = AOperationError.Info(rawValue: "DesiredUserNotificationSettigns")
+
+	}
+}
+
+
 /**
     A condition for verifying that we can present alerts to the user via
     `UILocalNotification` and/or remote notifications.
 */
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
-public struct UserNotificationCondition: OperationCondition {
+public struct UserNotificationCondition: AOperationCondition {
     
     public enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
@@ -69,12 +78,15 @@ public struct UserNotificationCondition: OperationCondition {
                 result = .satisfied
 
             default:
-                let error = NSError(code: .conditionFailed, userInfo: [
-                    OperationConditionKey: type(of: self).name,
-                    type(of: self).currentSettings: current ?? NSNull(),
-                    type(of: self).desiredSettings: settings
-                ])
-                
+				
+				let errorInfo: [AOperationError.Info : Any?] =
+				[
+					.key : type(of: self).name,
+					UserNotificationCondition.ErrorInfo.currentSettings :  current,
+					UserNotificationCondition.ErrorInfo.desiredSettings: settings
+				]
+				let error = AOperationError.conditionFailed(with: errorInfo)
+				                
                 result = .failed(error)
         }
         

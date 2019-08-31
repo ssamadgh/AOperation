@@ -30,11 +30,11 @@ public struct NetworkObserver: OperationObserver {
 	
 	public func operation(_ operation: AOperation, didProduceOperation newOperation: Foundation.Operation) { }
 	
-	public func operationDidCancel(_ operation: AOperation, errors: [NSError]) {
+	public func operationDidCancel(_ operation: AOperation, errors: [AOperationError]) {
 		
 	}
 	
-	public func operationDidFinish(_ operation: AOperation, errors: [NSError]) {
+	public func operationDidFinish(_ operation: AOperation, errors: [AOperationError]) {
 		DispatchQueue.main.async {
 			// Decrement the network indicator's "reference count".
 			NetworkIndicatorController.shared.networkActivityDidEnd()

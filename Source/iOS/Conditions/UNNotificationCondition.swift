@@ -10,12 +10,21 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import UserNotifications
 
+@available(iOS 10.0, *)
+extension UNNotificationCondition {
+	struct ErrorInfo {
+		static let currentOptions = AOperationError.Info(rawValue: "CurrentUserNotificationOptions")
+		static let desiredOptions = AOperationError.Info(rawValue: "DesiredUserNotificationOptions")
+
+	}
+}
+
 /**
     A condition for verifying that we can present alerts to the user via
     `UILocalNotification` and/or remote notifications.
 */
 @available(iOS 10.0, *)
-public struct UNNotificationCondition: OperationCondition {
+public struct UNNotificationCondition: AOperationCondition {
     
     public enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
@@ -85,23 +94,23 @@ public struct UNNotificationCondition: OperationCondition {
 					result = .satisfied
 					
 				default:
-					
-					let error = NSError(code: .conditionFailed, userInfo: [
-						OperationConditionKey: type(of: self).name,
-						type(of: self).currentOptions: current,
-						type(of: self).desiredOptions: self.options
-						])
+					let error = AOperationError.conditionFailed(with: [
+						.key : Self.name,
+						Self.ErrorInfo.currentOptions : current,
+						Self.ErrorInfo.desiredOptions : self.options
+					])
 					
 					result = .failed(error)
 				}
 				
 			}
 			else {
-				let error = NSError(code: .conditionFailed, userInfo: [
-					OperationConditionKey: type(of: self).name,
-					type(of: self).currentOptions: [],
-					type(of: self).desiredOptions: self.options,
-					])
+				let error = AOperationError.conditionFailed(with: [
+					.key : Self.name,
+					Self.ErrorInfo.currentOptions : [],
+					Self.ErrorInfo.desiredOptions : self.options
+				])
+
 				result = .failed(error)
 			}
 			
@@ -112,6 +121,12 @@ public struct UNNotificationCondition: OperationCondition {
     }
 }
 
+@available(iOS 10.0, *)
+extension UNNotificationAuthorizationOperation {
+	struct ErrorInfo {
+		static let granted = AOperationError.Info(rawValue: "granted")
+	}
+}
 /**
     A private `Operation` subclass to register a `UIUserNotificationSettings`
     object with a `UIApplication`, prompting the user for permission if necessary.
@@ -139,9 +154,9 @@ private class UNNotificationAuthorizationOperation: AOperation {
 				let optionsToAuthorize: UNAuthorizationOptions
 				
 				guard settings.authorizationStatus != .denied else {
-					let nsError = NSError(code: AOperationError.Code.executionFailed, userInfo: [AOperationError.reason: "UserNotification Authorization is denied", "granted": false])
+					let error = AOperationError.executionFailed(with: [.reason : "UserNotification Authorization is denied", Self.ErrorInfo.granted : false])
 
-					self.finishWithError(nsError)
+					self.finishWithError(error)
 					return
 				}
 				
@@ -169,17 +184,19 @@ private class UNNotificationAuthorizationOperation: AOperation {
 					}
 					
 					UNUserNotificationCenter.current().requestAuthorization(options: optionsToAuthorize, completionHandler: { (granted, error) in
-						var nsError: NSError?
+						var operationError: AOperationError?
 						
 						if !granted {
-							nsError = NSError(code: AOperationError.Code.executionFailed, userInfo: [AOperationError.reason: error?.localizedDescription ?? "UserNotification Authorization Not Granted", "granted": granted])
+							operationError = AOperationError.executionFailed(with: [.reason: error?.localizedDescription ?? "UserNotification Authorization Not Granted", Self.ErrorInfo.granted : granted])
+
 						}
 						
 						if let error = error {
-							nsError = NSError(code: AOperationError.Code.executionFailed, userInfo: [AOperationError.reason: error.localizedDescription, "granted": granted])
+							operationError = AOperationError.executionFailed(with: [.reason: error.localizedDescription, .localizedDescription: error.localizedDescription, Self.ErrorInfo.granted : granted])
+
 						}
 						
-						self.finishWithError(nsError)
+						self.finishWithError(operationError)
 					})
 
 				})
