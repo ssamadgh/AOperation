@@ -54,11 +54,6 @@ public class URLSessionTaskOperation: AOperation {
 		
 		assert(task.state == .suspended, "Tasks must be suspended.")
 		
-		
-		self.observeDidCancel { (_) in
-			task.cancel()
-		}
-		
 	}
 	
 	deinit {
@@ -72,6 +67,11 @@ public class URLSessionTaskOperation: AOperation {
 		assert(task.state == .suspended, "Task was resumed by something other than \(self).")
 		
 		task.resume()
+	}
+	
+	public override func cancel() {
+		task.cancel()
+		super.cancel()
 	}
 		
 }

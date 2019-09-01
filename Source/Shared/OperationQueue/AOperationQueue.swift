@@ -21,14 +21,11 @@ import Foundation
 protocol AOperationQueueDelegate: class {
     func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation)
     func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError])
-	func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Foundation.Operation, withErrors errors: [AOperationError])
 }
 
 extension AOperationQueueDelegate {
 	func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {}
 	func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError]) {}
-	func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Foundation.Operation, withErrors errors: [AOperationError]) {}
-
 }
 
 /**
@@ -47,11 +44,6 @@ public class AOperationQueue: Foundation.OperationQueue {
             // Set up a `BlockObserver` to invoke the `AOperationQueueDelegate` method.
             let delegate = BlockObserver(
                 startHandler: nil,
-				cancelHandler: { [weak self] in
-					if let q = self {
-						q.delegate?.operationQueue(q, operationDidCancel: $0, withErrors: $1)
-					}
-				},
                 produceHandler: { [weak self] in
                     self?.addOperation($1)
                 },

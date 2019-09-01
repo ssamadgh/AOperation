@@ -66,7 +66,7 @@ class Presenter {
 		operation.addCondition(LoginCondition())
 		operation.addCondition(MutuallyExclusive<Comment>())
 
-		let observer = BlockObserver(startHandler: nil, cancelHandler: nil, produceHandler: nil) { (_, errors) in
+		let observer = BlockObserver(startHandler: nil, produceHandler: nil) { (_, errors) in
 				completion(errors.first)
 			}
 		operation.addObserver(observer)

@@ -48,7 +48,7 @@ struct TimeoutObserver: OperationObserver {
 				]
 				let error = AOperationError.executionFailed(with: info)
 
-                operation.cancelWithError(error)
+                operation.finishWithError(error)
             }
         }
     }

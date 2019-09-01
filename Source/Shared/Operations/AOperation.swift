@@ -244,7 +244,7 @@ open class AOperation: Foundation.Operation {
 		
 		OperationConditionEvaluator.evaluate(conditions, operation: self) { failures in
 			if !failures.isEmpty {
-				self.cancelWithErrors(failures)
+				self._internalErrors += failures
 			}
 			
 			self.state = .ready
@@ -343,31 +343,15 @@ open class AOperation: Foundation.Operation {
 				print("AOperation \(type(of: self)) cancelled")
 			}
 			
-			let errors = _internalErrors
-			
-			for observer in observers {
-				observer.operationDidCancel(self, errors: errors)
-			}
+			let error = AOperationError.executionFailed(with: [.key : self.name, .isCanceled : true])
+			_internalErrors.append(error)
 			
 			if state > .ready {
 				finish()
 			}
 			
 		}
-		
-		
-		
-		
-		
-	}
-	
-	public func cancelWithErrors(_ errors: [AOperationError]) {
-		_internalErrors += errors
-		cancel()
-	}
-	
-	public func cancelWithError(_ error: AOperationError) {
-		cancelWithErrors([error])
+
 	}
 	
 	public final func produceOperation(_ operation: Foundation.Operation) {
@@ -452,16 +436,8 @@ open class AOperation: Foundation.Operation {
 		self.addObserver(BlockObserver(startHandler: { op in
 			observer?.operationDidStart(op)
 			startHandler()
-		}, cancelHandler: {observer?.operationDidCancel($0, errors: $1)}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
-	}
-	
-	public final func observeDidCancel(_ cancelHandler: @escaping (([AOperationError]) -> Void)) {
-		let observer: BlockObserver? = self.removeExistingBlockObserver()
-		
-		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:), cancelHandler: { op, errors in
-			observer?.operationDidCancel(op, errors: errors)
-			cancelHandler(errors)
-		}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
+		},
+		produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: {observer?.operationDidFinish($0, errors: $1)}))
 	}
 	
 	
@@ -469,7 +445,8 @@ open class AOperation: Foundation.Operation {
 		
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
-		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:), cancelHandler: {observer?.operationDidCancel($0, errors: $1)}, produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: { operation, errors in
+		self.addObserver(BlockObserver(startHandler: observer?.operationDidStart(_:),
+			produceHandler: {observer?.operation($0, didProduceOperation: $1)}, finishHandler: { operation, errors in
 			observer?.operationDidFinish(operation, errors: errors)
 			finishHandler(errors)
 		}))

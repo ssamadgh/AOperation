@@ -76,11 +76,7 @@ open class GroupOperation: AOperation {
     open func operationDidFinish(_ operation: Foundation.Operation, withErrors errors: [AOperationError]) {
         // For use by subclasses.
     }
-	
-	open func operationDidCancel(_ operation: Foundation.Operation, withErrors errors: [AOperationError]) {
-		// For use by subclasses.
-	}
-	
+		
 }
 
 extension  GroupOperation: AOperationQueueDelegate {
@@ -121,22 +117,6 @@ extension  GroupOperation: AOperationQueueDelegate {
 		}
 	}
 	
-	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidCancel operation: Operation, withErrors errors: [AOperationError]) {
-		self.serialQueue.async {
-			self.aggregatedErrors.append(contentsOf: errors)
-		}
-
-		if operation === finishingOperation {
-			internalQueue.isSuspended = true
-			self.serialQueue.sync {
-				finish(aggregatedErrors)
-			}
-		}
-		else if operation !== startingOperation {
-			operationDidCancel(operation, withErrors: errors)
-		}
-
-	}
 	
 }
 

@@ -49,9 +49,7 @@ class AOperation_iOS_Tests: XCTestCase {
 		// Use XCTAssert and related functions to verify your tests produce the correct results.
 		let expect = expectation(description: "TestGroupOperation")
 		let opB = OperationB()
-		opB.observeDidCancel { (errors) in
-			print("Cancelled 📛")
-		}
+
 		opB.observeDidFinish { errors in
 			print("finished ✅")
 			expect.fulfill()
@@ -127,8 +125,17 @@ class TestGroupOp: GroupOperation {
 		super.init(operations: ops)
 	}
 	
-	override func operationDidCancel(_ operation: Operation, withErrors errors: [NSError]) {
-		self.cancel()
+	
+	override func operationDidFinish(_ operation: Operation, withErrors errors: [AOperationError]) {
+		
+		if !errors.isEmpty {
+			errors.forEach { self.aggregateError($0) }
+		}
+		let canceledErrors = errors.filter ({ ($0.info?[.isCanceled] as? Bool ?? false) == true })
+		if !canceledErrors.isEmpty {
+			self.cancel()
+		}
 	}
+
 	
 }

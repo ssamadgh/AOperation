@@ -43,7 +43,7 @@ public func == (lhs: AOperationError, rhs: AOperationError) -> Bool {
 
 public extension Error {
     
-	public func map(to type: AOperationError.Type) -> AOperationError? {
+	func map(to type: AOperationError.Type) -> AOperationError? {
 		return nil
 		
 	}
@@ -84,6 +84,7 @@ public extension AOperationError {
         public static let errorCode = Info(rawValue: "errorCode")
 		public static let reason = Info(rawValue: "reason")
 		public static let localizedDescription = Info(rawValue: "localizedDescription")
+		public static let isCanceled = Info(rawValue: "canceled")
 	}
 	
 }

@@ -50,10 +50,11 @@ class AOperation_iOS_Tests2: XCTestCase {
 		// Use XCTAssert and related functions to verify your tests produce the correct results.
 		let expect = expectation(description: "TestGroupOperation")
 		let opB = OperationB()
-		opB.observeDidCancel { (errors) in
-			print("Cancelled 📛")
-		}
+
 		opB.observeDidFinish { errors in
+			if opB.isCancelled {
+				print("Canceled 🔴")
+			}
 			print("finished ✅")
 			expect.fulfill()
 		}
@@ -111,7 +112,7 @@ struct SampleCondition: AOperationCondition {
     }
     
     func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-        let error = NSError(code: .conditionFailed, userInfo: [OperationConditionKey: type(of: self).key])
+		let error = AOperationError.conditionFailed(with: [.key : Self.key])
         completion(.failed(error))
     }
 
@@ -155,7 +156,7 @@ class TestGroupOp2: GroupOperation {
 		opB = OperationB2()
 		opC = OperationC2()
 		opD = OperationD2()
-
+		
 		opB.op3 = opC
 		opB.addDependency(opA)
 		opC.addDependency(opB)
@@ -164,17 +165,20 @@ class TestGroupOp2: GroupOperation {
 		super.init(operations: ops)
 	}
 	
-	override func operationDidCancel(_ operation: Operation, withErrors errors: [NSError]) {
-//        errors.forEach { self.aggregateError($0) }
-		self.cancel()
-	}
+
     
     
-    override func operationDidFinish(_ operation: Operation, withErrors errors: [NSError]) {
+	override func operationDidFinish(_ operation: Operation, withErrors errors: [AOperationError]) {
+		
 		if !errors.isEmpty {
 			errors.forEach { self.aggregateError($0) }
 		}
-    }
+		
+		if operation.isCancelled {
+			self.cancel()
+		}
+		
+	}
     
     
     
