@@ -9,6 +9,28 @@
 import Foundation
 import AVFoundation
 
+extension AOperationError {
+    public func map(to type: MediaCaptureCondition.Error.Type) -> MediaCaptureCondition.Error? {
+        guard (self.info?[.key] as? String) == MediaCaptureCondition.key,
+            let mediaType = self.info?[MediaCaptureCondition.ErrorInfo.notAvailableMediaType] else {
+            return nil
+        }
+        
+        return MediaCaptureCondition.Error(notAvailableMediaType: mediaType as! AVMediaType)
+        
+    }
+}
+
+extension MediaCaptureCondition {
+    struct ErrorInfo {
+        static let notAvailableMediaType = AOperationError.Info(rawValue: "mediaType")
+    }
+    
+    public struct Error {
+        let notAvailableMediaType: AVMediaType
+    }
+}
+
 public struct MediaCaptureCondition: AOperationCondition {
     
     let mediaType: AVMediaType

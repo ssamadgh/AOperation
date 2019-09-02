@@ -9,11 +9,12 @@ This file shows an example of implementing the OperationCondition protocol.
 #if os(iOS)
 
 import UIKit
-    
+
 extension RemoteNotificationCondition {
 	struct ErrorInfo {
 		static let underlyingError = AOperationError.Info(rawValue: NSUnderlyingErrorKey)
 	}
+
 }
 
 private let RemoteNotificationQueue = AOperationQueue()

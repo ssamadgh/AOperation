@@ -43,26 +43,14 @@ public func == (lhs: AOperationError, rhs: AOperationError) -> Bool {
 
 public extension Error {
     
-	func map(to type: AOperationError.Type) -> AOperationError? {
-		return nil
-		
-	}
+	func map<T: Error>(to type: T.Type) -> T? {
+        return nil
+    }
 	
-    func map(to mapHandler: (Self) -> AOperationError) -> AOperationError {
+   func map<T: Error>(to mapHandler: (Self) -> T) -> T {
         return mapHandler(self)
     }
     
-}
-
-extension AOperationError {
-	func map<T: Error>(to type: T.Type) -> T? {
-		  return nil
-	  }
-	
-    func map<T: Error>(to mapHandler: (Self) -> T) -> T {
-        return mapHandler(self)
-    }
-
 }
 
 public extension AOperationError {

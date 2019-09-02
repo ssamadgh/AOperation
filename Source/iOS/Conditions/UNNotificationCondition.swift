@@ -11,12 +11,30 @@ This file shows an example of implementing the OperationCondition protocol.
 import UserNotifications
 
 @available(iOS 10.0, *)
+extension AOperationError {
+    
+    public func map(to type: UNNotificationCondition.Error.Type) -> UNNotificationCondition.Error? {
+        guard (self.info?[.key] as? String) == UNNotificationCondition.key,
+            let currentOptions = self.info?[UNNotificationCondition.ErrorInfo.currentOptions],
+        let desiredOptions = self.info?[UNNotificationCondition.ErrorInfo.desiredOptions]
+            else { return nil }
+        return UNNotificationCondition.Error(currentOptions: currentOptions as! UNAuthorizationOptions, desiredOptions: desiredOptions as! UNAuthorizationOptions)
+    }
+}
+
+@available(iOS 10.0, *)
 extension UNNotificationCondition {
 	struct ErrorInfo {
 		static let currentOptions = AOperationError.Info(rawValue: "CurrentUserNotificationOptions")
 		static let desiredOptions = AOperationError.Info(rawValue: "DesiredUserNotificationOptions")
 
 	}
+    
+   public struct Error: Swift.Error {
+        let currentOptions: UNAuthorizationOptions
+        let desiredOptions: UNAuthorizationOptions
+    }
+    
 }
 
 /**

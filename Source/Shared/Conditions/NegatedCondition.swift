@@ -10,10 +10,11 @@ import Foundation
 
 extension NegatedCondition {
 	struct ErrorInfo {
-		static var inputCondition: AOperationError.Info {
-			return AOperationError.Info(rawValue: "NegatedCondition")
+		static var inputConditionKey: AOperationError.Info {
+			return AOperationError.Info(rawValue: "NegatedConditionKey")
 		}
 	}
+
 }
 
 /**
@@ -52,7 +53,7 @@ public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
 				let errorInfo: [AOperationError.Info : Any?] =
 				[
 					.key : type(of: self).key,
-					NegatedCondition.ErrorInfo.inputCondition : type(of: self.condition).key
+					NegatedCondition.ErrorInfo.inputConditionKey : type(of: self.condition).key
 				]
               
 				let error = AOperationError.conditionFailed(with: errorInfo)

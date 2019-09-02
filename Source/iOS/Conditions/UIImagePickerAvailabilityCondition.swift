@@ -9,10 +9,24 @@
 import Foundation
 import UIKit
 
+extension AOperationError {
+    public func map(to type: UIImagePickerAvailabilityCondition.Error.Type) -> UIImagePickerAvailabilityCondition.Error? {
+        guard (self.info?[.key] as? String) == UIImagePickerAvailabilityCondition.key,
+            let mediaTypes = self.info?[UIImagePickerAvailabilityCondition.ErrorInfo.notAvailableMediaTypes] else { return nil }
+        return UIImagePickerAvailabilityCondition.Error(notAvailableMediaTypes: mediaTypes as! [String])
+    }
+    
+}
+
 extension UIImagePickerAvailabilityCondition {
 	struct ErrorInfo {
 		static let notAvailableMediaTypes = AOperationError.Info(rawValue: "mediaTypes")
 	}
+    
+    public struct Error: Swift.Error {
+        let notAvailableMediaTypes: [String]
+    }
+    
 }
 
 public struct UIImagePickerAvailabilityCondition: AOperationCondition {

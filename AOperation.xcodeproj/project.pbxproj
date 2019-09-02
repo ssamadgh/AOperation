@@ -320,7 +320,6 @@
 				E406114D21652A9B0084AC98 /* MutuallyExclusive.swift */,
 				E406114F21652A9B0084AC98 /* AOperationError.swift */,
 				E423531A217F9E1E00888C92 /* SilentCondition.swift */,
-				E41EB64D2314894E00B714DE /* MediaCaptureCondition.swift */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -413,6 +412,7 @@
 		E4A930742205A76300703141 /* Conditions */ = {
 			isa = PBXGroup;
 			children = (
+				E41EB64D2314894E00B714DE /* MediaCaptureCondition.swift */,
 				E4A930762205A83700703141 /* UNNotificationCondition.swift */,
 				E4638B0521FD9ABC00656820 /* UserNotificationCondition.swift */,
 				E4638B0721FD9B7600656820 /* RemoteNotificationCondition.swift */,
