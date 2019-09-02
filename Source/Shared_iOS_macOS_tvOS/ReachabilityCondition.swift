@@ -12,10 +12,24 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import Foundation
 
+extension AOperationError {
+    public func map(to type: ReachabilityCondition.Error.Type) -> ReachabilityCondition.Error? {
+        guard (self.info?[.key] as? String) == ReachabilityCondition.key
+         else { return nil }
+        return ReachabilityCondition.Error(host: self.info?[ReachabilityCondition.ErrorInfo.host] as? String, connection: self.info?[ReachabilityCondition.ErrorInfo.connection] as? Connection)
+    }
+}
+
 extension ReachabilityCondition {
-	struct ErrorInfo {
-		static let host = AOperationError.Info(rawValue: "Host")
-	}
+    struct ErrorInfo {
+        static let host = AOperationError.Info(rawValue: "Host")
+        static let connection = AOperationError.Info(rawValue: "connection")
+    }
+    
+    public struct Error {
+        let host: String?
+        let connection: Connection?
+    }
 }
 
 /**
@@ -143,14 +157,6 @@ private class ReachabilityOperation: AOperation {
 			try self.reachability.startNotifier()
 		}
 		catch {
-//			let errorInfo: [AOperationError.Info : Any?] =
-//			[
-//				.key : type(of: self).name
-//			]
-//			let error = NSError(code: .conditionFailed, userInfo: [
-//				"Operation": self.name ?? "",
-//				"HOST": self.url?.host ?? ""
-//				])
 			
 			self.finishWithError(nil)
 		}
@@ -161,15 +167,6 @@ private class ReachabilityOperation: AOperation {
 	@objc func reachabilityChanged(note: Notification) {
 		
 		let reachability = note.object as! Reachability
-		
-//		switch reachability.connection {
-//		case .wifi:
-//			print("Reachable via WiFi")
-//		case .cellular:
-//			print("Reachable via Cellular")
-//		case .none:
-//			print("Network not reachable")
-//		}
 		
 		if self.connection == nil {
 			if reachability.connection != .none {
