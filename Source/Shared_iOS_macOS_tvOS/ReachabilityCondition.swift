@@ -16,18 +16,18 @@ extension AOperationError {
     public func map(to type: ReachabilityCondition.Error.Type) -> ReachabilityCondition.Error? {
         guard (self.info?[.key] as? String) == ReachabilityCondition.key
          else { return nil }
-        return ReachabilityCondition.Error(host: self.info?[ReachabilityCondition.ErrorInfo.host] as? String, connection: self.info?[ReachabilityCondition.ErrorInfo.connection] as? Connection)
+        return ReachabilityCondition.Error(url: self.info?[ReachabilityCondition.ErrorInfo.url] as? URL, connection: self.info?[ReachabilityCondition.ErrorInfo.connection] as? Connection)
     }
 }
 
 extension ReachabilityCondition {
     struct ErrorInfo {
-        static let host = AOperationError.Info(rawValue: "Host")
+        static let url = AOperationError.Info(rawValue: "Host")
         static let connection = AOperationError.Info(rawValue: "connection")
     }
     
     public struct Error {
-        let host: String?
+        let url: URL?
         let connection: Connection?
     }
 }
@@ -41,7 +41,7 @@ If user sets `waitToConnect` to **false**, reachability is evaluated once when t
 
 public struct ReachabilityCondition: AOperationCondition {
 	
-	public static let hostKey = "Host"
+	public static let urlKey = "URL"
 	public static let key = "Reachability"
 	public static let isMutuallyExclusive = false
 	
@@ -102,7 +102,7 @@ public struct ReachabilityCondition: AOperationCondition {
 			completion(.satisfied)
 		}
 		else {
-			let error = AOperationError.conditionFailed(with: [.key: Self.key, Self.ErrorInfo.host : self.url?.host])
+			let error = AOperationError.conditionFailed(with: [.key: Self.key, Self.ErrorInfo.url : self.url])
 			
 			completion(.failed(error))
 

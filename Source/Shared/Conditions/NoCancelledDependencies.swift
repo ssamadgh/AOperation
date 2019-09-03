@@ -8,12 +8,23 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import Foundation
 
+extension AOperationError {
+	public func map(to type: NoCanceledDependencies.Error.Type) -> NoCanceledDependencies.Error? {
+		guard (self.info?[.key] as? String) == NoCanceledDependencies.key,
+			let canceled = self.info?[NoCanceledDependencies.ErrorInfo.canceledDependencies] else { return nil }
+		return NoCanceledDependencies.Error(canceledDependencies: canceled as! [Operation])
+	}
+}
+
 extension NoCanceledDependencies {
 	struct ErrorInfo {
 		static let canceledDependencies = AOperationError.Info(rawValue: "CanceledDependencies")
 
 	}
-    
+	
+	public struct Error: Swift.Error {
+		let canceledDependencies: [Operation]
+	}
     
 }
 
