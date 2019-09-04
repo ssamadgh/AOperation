@@ -13,9 +13,9 @@ import AOperation
 extension AOperationError {
     public func map(to type: CLError.Type) -> CLError? {
         guard self.state == .executionFailed, let info = self.info,
-            let code = info[.errorCode] as? CLError.Code, let errorInfo = info[LocationOperation.ErrorInfo.errorUserInfo] as? [String : Any]
+            let errorCode = info[.errorCode] as? Int, let errorInfo = info[LocationOperation.ErrorInfo.errorUserInfo] as? [String : Any]
             else { return nil }
-        return CLError(code, userInfo: errorInfo)
+        return CLError(CLError.Code(rawValue: errorCode)!, userInfo: errorInfo)
     }
 }
 
