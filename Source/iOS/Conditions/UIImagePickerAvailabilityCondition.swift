@@ -29,6 +29,7 @@ extension UIImagePickerAvailabilityCondition {
     
 }
 
+/// A condition for verifying UIImagePicker source and media types availability on device.
 public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     
     public static var key: String = "UIImagePickerAvailablity"
@@ -38,6 +39,7 @@ public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     private let sourceType: UIImagePickerController.SourceType
     private let mediaTypes: Set<String>
     
+    /// Initializes `UIImagePickerAvailabilityCondition` with the given sourceType and media types
     public init(sourceType: UIImagePickerController.SourceType, mediaTypes: [String]) {
         self.sourceType = sourceType
         self.mediaTypes = Set(mediaTypes)

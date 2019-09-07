@@ -63,16 +63,13 @@ public struct UNNotificationCondition: AOperationCondition {
     /**
         The designated initializer.
         
-        - parameter settings: The `UIUserNotificationSettings` you wish to be
+        - parameter options: The `UNAuthorizationOptions` you wish to be
             registered.
 
-        - parameter application: The `UIApplication` on which the `settings` should
-            be registered.
-
-        - parameter behavior: The way in which the `settings` should be applied
+        - parameter behavior: The way in which the `options` should be applied
             to the `application`. By default, this value is `.Merge`, which means
-            that the `settings` will be combined with the existing settings on the
-            `application`. You may also specify `.Replace`, which means the `settings`
+            that the `options` will be combined with the existing settings on the
+            `application`. You may also specify `.Replace`, which means the `options`
             will overwrite the exisiting settings.
     */
     public init(options: UNAuthorizationOptions = [], behavior: Behavior = .merge) {

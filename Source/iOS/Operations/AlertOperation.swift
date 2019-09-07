@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An Operation that presents a UIAlertController on top view controller or the given view controller.
 public class AlertOperation: AOperation {
     // MARK: Properties
 
@@ -36,7 +37,9 @@ public class AlertOperation: AOperation {
     }
 
     // MARK: Initialization
-
+    /// Initializes an `AlertOperation`.
+    /// - Parameter presentationContext: the viewcontroller you want to `UIAlertController` present on it.
+    /// Return `nil` if you want to `AlertOperation` select the presenting view controller by itself (which will be the top view controller on screen)
     public init(presentationContext: UIViewController? = nil) {
         self.presentationContext = presentationContext ?? UIApplication.shared.topViewController()
 
@@ -85,11 +88,12 @@ public class AlertOperation: AOperation {
 
 
 extension UIApplication {
-	
+	/// Returns the top view controller on the root view controller
 	public func topViewController() -> UIViewController? {
 		return self.topViewControllerWithRootViewController(UIApplication.shared.keyWindow?.rootViewController)
 	}
 	
+    /// Returns the top view controller on the given viewcontroller
 	public func topViewControllerWithRootViewController(_ rootViewController: UIViewController?) -> UIViewController? {
 		guard let root = rootViewController else { return nil }
 		if root is UITabBarController {

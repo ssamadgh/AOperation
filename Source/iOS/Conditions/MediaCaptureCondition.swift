@@ -31,6 +31,7 @@ extension MediaCaptureCondition {
     }
 }
 
+/// A condition for verifying media types availability on device.
 public struct MediaCaptureCondition: AOperationCondition {
     
     let mediaType: AVMediaType
@@ -39,6 +40,7 @@ public struct MediaCaptureCondition: AOperationCondition {
     
     public static var isMutuallyExclusive: Bool = false
     
+    /// Initializes `MediaCaptureCondition` with the given media type
     public init(mediaType: AVMediaType) {
         self.mediaType = mediaType
     }
