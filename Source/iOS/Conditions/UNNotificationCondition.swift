@@ -39,7 +39,7 @@ extension UNNotificationCondition {
 
 /**
     A condition for verifying that we can present alerts to the user via
-    `UILocalNotification` and/or remote notifications.
+    `UNNotification` .
 */
 @available(iOS 10.0, *)
 public struct UNNotificationCondition: AOperationCondition {
