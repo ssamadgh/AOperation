@@ -13,17 +13,17 @@ import Foundation
  events by implementing these methods.
 
  In general, implementing `AOperationQueueDelegate` is not necessary; you would
- want to use an `OperationObserver` instead. However, there are a couple of
+ want to use an `AOperationObserver` instead. However, there are a couple of
  situations where using `AOperationQueueDelegate` can lead to simpler code.
  For example, `GroupOperation` is the delegate of its own internal
  `AOperationQueue` and uses it to manage dependencies.
  */
-protocol AOperationQueueDelegate: class {
+public protocol AOperationQueueDelegate: class {
     func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation)
     func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError])
 }
 
-extension AOperationQueueDelegate {
+public extension AOperationQueueDelegate {
 	func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {}
 	func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError]) {}
 }

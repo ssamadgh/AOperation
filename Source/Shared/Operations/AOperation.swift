@@ -262,9 +262,9 @@ open class AOperation: Foundation.Operation {
 		conditions.append(condition)
 	}
 	
-	fileprivate(set) var observers = [OperationObserver]()
+	fileprivate(set) var observers = [AOperationObserver]()
 	
-	public func addObserver(_ observer: OperationObserver) {
+	public func addObserver(_ observer: AOperationObserver) {
 		assert(state < .executing, "Cannot modify observers after execution has begun.")
 		
 		observers.append(observer)
@@ -343,7 +343,7 @@ open class AOperation: Foundation.Operation {
 				print("AOperation \(type(of: self)) cancelled")
 			}
 			
-			let error = AOperationError.executionFailed(with: [.key : self.name, .isCanceled : true])
+			let error = AOperationError.executionFailed(with: [.key : self.name, .isCancelled : true])
 			_internalErrors.append(error)
 			
 			if state > .ready {

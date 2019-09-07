@@ -3,7 +3,7 @@
  See LICENSE.txt for this sample’s licensing information
 
  Abstract:
- This file shows how to implement the OperationObserver protocol.
+ This file shows how to implement the AOperationObserver protocol.
  */
 
 import Foundation
@@ -12,7 +12,7 @@ import Foundation
  The `BlockObserver` is a way to attach arbitrary blocks to significant events
  in an `AOperation`'s lifecycle.
  */
-public struct BlockObserver: OperationObserver {
+public struct BlockObserver: AOperationObserver {
     // MARK: Properties
 
     fileprivate let startHandler: ((AOperation) -> Void)?
@@ -25,7 +25,7 @@ public struct BlockObserver: OperationObserver {
         self.finishHandler = finishHandler
     }
 
-    // MARK: OperationObserver
+    // MARK: AOperationObserver
 
 	public func operationDidStart(_ operation: AOperation) {
         startHandler?(operation)

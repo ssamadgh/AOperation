@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows how to implement the OperationObserver protocol.
+This file shows how to implement the AOperationObserver protocol.
 */
 
 import Foundation
@@ -18,7 +18,7 @@ extension TimeoutObserver {
     `TimeoutObserver` is a way to make an `Operation` automatically time out and
     cancel after a specified time interval.
 */
-struct TimeoutObserver: OperationObserver {
+struct TimeoutObserver: AOperationObserver {
     // MARK: Properties
 
     
@@ -30,7 +30,7 @@ struct TimeoutObserver: OperationObserver {
         self.timeout = timeout
     }
     
-    // MARK: OperationObserver
+    // MARK: AOperationObserver
     
     internal func operationDidStart(_ operation: AOperation) {
         // When the operation starts, queue up a block to cause it to time out.

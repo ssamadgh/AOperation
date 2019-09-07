@@ -131,7 +131,7 @@ class TestGroupOp: GroupOperation {
 		if !errors.isEmpty {
 			errors.forEach { self.aggregateError($0) }
 		}
-		let canceledErrors = errors.filter ({ ($0.info?[.isCanceled] as? Bool ?? false) == true })
+		let canceledErrors = errors.filter ({ ($0.info?[.isCancelled] as? Bool ?? false) == true })
 		if !canceledErrors.isEmpty {
 			self.cancel()
 		}

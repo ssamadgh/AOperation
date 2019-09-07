@@ -6,18 +6,22 @@
 //
 /*
 Abstract:
-This file shows an example of implementing the OperationCondition protocol.
+This file is about ReachabilityCondition which implementing the OperationCondition protocol.
 
 */
 
 import Foundation
 
 extension AOperationError {
+    
+    /// Maps `AOperationError` to `ReachabilityCondition.Error` type
     public func map(to type: ReachabilityCondition.Error.Type) -> ReachabilityCondition.Error? {
         guard (self.info?[.key] as? String) == ReachabilityCondition.key
          else { return nil }
         return ReachabilityCondition.Error(url: self.info?[ReachabilityCondition.ErrorInfo.url] as? URL, connection: self.info?[ReachabilityCondition.ErrorInfo.connection] as? Connection)
     }
+    
+    
 }
 
 extension ReachabilityCondition {
@@ -26,6 +30,7 @@ extension ReachabilityCondition {
         static let connection = AOperationError.Info(rawValue: "connection")
     }
     
+    /// a `ReachabilityCondition` error
     public struct Error {
         let url: URL?
         let connection: Connection?
@@ -61,11 +66,10 @@ public struct ReachabilityCondition: AOperationCondition {
 		- connection:
 		The type of connection which user wants to have
 	If the value of this parameter set to nil, the condition checks if connection is other than **.none**. The default value is nil
-
 		- waitToConnect:
-		If user sets this parameter to **true**, the condition adds a dependency operation to the operation which this condition is attached to it and that operation waits until the connection changes to the user's intended connection.
-		If user sets this parameter to **false**, reachability is evaluated once when the operation to which this is attached is asked about its readiness.
-		The default value is **false**.
+        If user sets this parameter to **true**, the condition adds a dependency operation to the operation which this condition is attached to it and that operation waits until the connection changes to the user's intended connection.
+        If user sets this parameter to **false**, reachability is evaluated once when the operation to which this is attached is asked about its readiness.
+        The default value is **false**.
 	*/
 	public init(url: URL? = nil, connection: Connection? = nil, waitToConnect: Bool = false) {
 		self.url = url

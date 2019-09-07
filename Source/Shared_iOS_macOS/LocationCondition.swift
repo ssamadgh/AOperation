@@ -3,13 +3,15 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows an example of implementing the OperationCondition protocol.
+This file is about LocationCondition which implementing the OperationCondition protocol.
 */
 
 import CoreLocation
 
 @available(OSX 10.15, *)
 public extension AOperationError {
+    
+    /// Maps `AOperationError` to `LocationCondition.Error` type
 	func map(to type: LocationCondition.Error.Type) -> LocationCondition.Error? {
 		guard self.state == .conditionFailed, let info = self.info, (info[.key] as! String) == LocationCondition.key, let status = info[LocationCondition.ErrorInfo.authorizationStatus] as? CLAuthorizationStatus, let notAvailables = info[LocationCondition.ErrorInfo.notAvailableServices] as? [LocationCondition.LocationServicesAvailability] else { return nil }
 		return LocationCondition.Error(authorizationStatus: status, notAvailableServices: notAvailables)
@@ -41,14 +43,14 @@ extension LocationCondition {
 @available(OSX 10.15, *)
 public struct LocationCondition: AOperationCondition {
     /**
-        Declare a new enum instead of using `CLAuthorizationStatus`, because that
-        enum has more case values than are necessary for our purposes.
+        An enum that declares kind of usage of users location
     */
    public enum Usage {
         case whenInUse
         case always
     }
 	
+    /// An enum the declares services available with Core Location
 	public enum LocationServicesAvailability: Hashable {
 		
 		case locationServicesEnabled
@@ -104,7 +106,10 @@ public struct LocationCondition: AOperationCondition {
     
     let usage: Usage
 	let servicesAvailability: Set<LocationServicesAvailability>
-	
+    
+    /// Initializes a LocationCondition
+    /// - Parameter usage: Kind of the usage of users location
+    /// - Parameter servicesAvailability: The services of Core Location which you want to be available
 	public init(usage: Usage, servicesAvailability: Set<LocationServicesAvailability> = []) {
         self.usage = usage
 		var services = servicesAvailability
@@ -117,8 +122,8 @@ public struct LocationCondition: AOperationCondition {
     }
     
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-//        let enabled = CLLocationManager.locationServicesEnabled()
-		let notAvailableServices = self.servicesAvailability.filter { !$0.isAvailable }
+
+        let notAvailableServices = self.servicesAvailability.filter { !$0.isAvailable }
 		let availlable = notAvailableServices.isEmpty
 		
 		if !availlable {
@@ -168,6 +173,7 @@ public struct LocationCondition: AOperationCondition {
             completion(.satisfied)
         }
     }
+    
 }
 
 /**

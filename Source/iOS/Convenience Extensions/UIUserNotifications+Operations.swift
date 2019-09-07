@@ -12,6 +12,7 @@ import UIKit
 import UserNotifications
 
 extension UIUserNotificationSettings {
+    
     /// Check to see if one Settings object is a superset of another Settings object.
     func contains(_ settings: UIUserNotificationSettings) -> Bool {
         // our types must contain all of the other types

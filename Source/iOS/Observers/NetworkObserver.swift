@@ -12,11 +12,11 @@ Contains the code to manage the visibility of the network activity indicator
 import UIKit
 
 /**
-An `OperationObserver` that will cause the network activity indicatior to appear as long
+An `AOperationObserver` that will cause the network activity indicatior to appear as long
 as the `AOperation` to which it is attached is executing.
 */
 
-public struct NetworkObserver: OperationObserver {
+public struct NetworkObserver: AOperationObserver {
 	//MARk: Initialization
 	
 	public init() { }

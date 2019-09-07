@@ -8,38 +8,47 @@ Shows how to lift operation-like objects in to the NSOperation world.
 
 import Foundation
 
+public typealias DataResponseOperationBlock = ( Data?, URLResponse?, Error?, @escaping (AOperationError?) -> Void) -> Void
+
+public typealias URLResponseOperationBlock = ( URL?, URLResponse?, Error?, @escaping (AOperationError?) -> Void) -> Void
+
 
 /**
 `URLSessionTaskOperation` is an `AOperation` that lifts an `NSURLSessionTask`
 into an operation.
 
-Note that this operation does not participate in any of the delegate callbacks \
-of an `NSURLSession`, but instead uses Key-Value-Observing to know when the
-task has been completed. It also does not get notified about any errors that
-occurred during execution of the task.
-
-An example usage of `URLSessionTaskOperation` can be seen in the `DownloadEarthquakesOperation`.
 */
-
-public typealias DataResponseOperationBlock = ( Data?, URLResponse?, Error?, @escaping (AOperationError?) -> Void) -> Void
-public typealias URLResponseOperationBlock = ( URL?, URLResponse?, Error?, @escaping (AOperationError?) -> Void) -> Void
-
 public class URLSessionTaskOperation: AOperation {
 	
 	var task: URLSessionTask!
 	
+    /**
+        Returns a `URLSessionDataTaskOperation` which executes a `URLSessionDataTask` with the given request.
+     
+        - Parameter request: The `URLRequest` which `URLSessionDataTask` executed with that.
+     */
 	public static func data(for request: URLRequest) -> URLSessionDataTaskOperation {
 		return URLSessionDataTaskOperation(request: request)
 	}
 	
+    /**
+        Returns a `URLSessionUploadTaskOperation` which executes a `URLSessionUploadTask` with the given request.
+     
+        - Parameter request: The `URLRequest` which `URLSessionUploadTask` executed with that.
+     */
 	public static func upload(for request: URLRequest) -> URLSessionUploadTaskOperation {
 		return URLSessionUploadTaskOperation(request: request)
 	}
 
+    /**
+        Returns a `URLSessionDownloadTaskOperation` which executes a `URLSessionDownloadTask` with the given request.
+     
+        - Parameter request: The `URLRequest` which `URLSessionDownloadTask` executed with that.
+     */
 	public static func download(for request: URLRequest) -> URLSessionDownloadTaskOperation {
 		return URLSessionDownloadTaskOperation(request: request)
 	}
-	
+    
 	init(kind: URLSessionTaskManager.TaskKind, for request: URLRequest) {
 		super.init()
 		
@@ -68,7 +77,8 @@ public class URLSessionTaskOperation: AOperation {
 		
 		task.resume()
 	}
-	
+    
+    /// Cancels The operation and the URLSessin task executes inside it.
 	public override func cancel() {
 		task.cancel()
 		super.cancel()

@@ -61,6 +61,8 @@ class TestViewController: UIViewController {
 
         let conditionError = error.map(to: LocationCondition.Error.self)
         
+        
+        
 	}
 	
 }

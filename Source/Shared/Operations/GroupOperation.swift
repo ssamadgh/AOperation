@@ -11,15 +11,8 @@ import Foundation
 /**
  A subclass of `AOperation` that executes zero or more operations as part of its
  own execution. This class of operation is very useful for abstracting several
- smaller operations into a larger operation. As an example, the `GetEarthquakesOperation`
- is composed of both a `DownloadEarthquakesOperation` and a `ParseEarthquakesOperation`.
+ smaller operations into a larger operation.
 
- Additionally, `GroupOperation`s are useful if you establish a chain of dependencies,
- but part of the chain may "loop". For example, if you have an operation that
- requires the user to be authenticated, you may consider putting the "login"
- operation inside a group operation. That way, the "login" operation may produce
- subsequent operations (still within the outer `GroupOperation`) that will all
- be executed before the rest of the operations in the initial chain of operations.
  */
 open class GroupOperation: AOperation {
 	
@@ -81,7 +74,7 @@ open class GroupOperation: AOperation {
 
 extension  GroupOperation: AOperationQueueDelegate {
 	
-	final internal func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {
+	final public func operationQueue(_ operationQueue: AOperationQueue, willAddOperation operation: Foundation.Operation) {
 		assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
 		
 		/*
@@ -105,7 +98,7 @@ extension  GroupOperation: AOperationQueueDelegate {
 		}
 	}
 	
-	final internal func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError]) {
+	final public func operationQueue(_ operationQueue: AOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [AOperationError]) {
 		aggregatedErrors.append(contentsOf: errors)
 		
 		if operation === finishingOperation {
