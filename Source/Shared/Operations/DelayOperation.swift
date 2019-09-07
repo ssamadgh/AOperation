@@ -39,7 +39,7 @@ public class DelayOperation: AOperation {
 		super.init()
 	}
 	
-	init(until date: Date) {
+	public init(until date: Date) {
 		delay = .date(date)
 		super.init()
 	}
