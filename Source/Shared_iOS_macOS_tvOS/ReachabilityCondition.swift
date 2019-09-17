@@ -32,8 +32,8 @@ extension ReachabilityCondition {
     
     /// a `ReachabilityCondition` error
     public struct Error {
-        let url: URL?
-        let connection: Connection?
+       public let url: URL?
+       public let connection: Connection?
     }
 }
 
