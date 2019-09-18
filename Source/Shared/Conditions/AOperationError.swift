@@ -31,7 +31,7 @@ public struct AOperationError: LocalizedError, Equatable {
     /// Initializes an error with a given state and info dictionary.
     /// - Parameter state: The state of error emitation
     /// - Parameter info: The error’s info dictionary.
-	private init(state: State, info: [Info : Any?]?) {
+	public init(state: State, info: [Info : Any?]?) {
 		self.state = state
 		self.info = info
 	}
@@ -136,4 +136,34 @@ public extension AOperationError {
         
 	}
 	
+}
+
+
+extension NSError {
+    
+    public func mapToAOperationError(with state: AOperationError.State, key: String) -> AOperationError {
+
+        var info: [AOperationError.Info : Any?] = [.key : key, .reason : self.localizedFailureReason, .localizedDescription : self.localizedDescription, AOperationError.Info(rawValue: "localizedRecoverySuggestion") : self.localizedRecoverySuggestion, AOperationError.Info(rawValue: "localizedRecoveryOptions") : self.localizedRecoveryOptions]
+        
+        for (key, value) in self.userInfo {
+            info[AOperationError.Info(rawValue: key)] = value
+        }
+        
+        return AOperationError(state: state, info: info)
+    }
+    
+}
+
+
+extension LocalizedError {
+    
+    public func mapToAOperationError(with state: AOperationError.State, key: String) -> AOperationError {
+        
+        let info: [AOperationError.Info : Any?] = [.key : key, .reason : self.failureReason, .localizedDescription : self.localizedDescription, AOperationError.Info(rawValue: "recoverySuggestion") : self.recoverySuggestion, AOperationError.Info(rawValue: "errorDescription") : self.errorDescription]
+
+        
+        return AOperationError(state: state, info: info)
+    }
+    
+    
 }
