@@ -77,7 +77,7 @@ struct CoreDataStackAvailablity: AOperationCondition {
 		self.modelName = modelName
 	}
 	
-	static var key: String = "CoreDataStackAvailablity"
+//	static var key: String = "CoreDataStackAvailablity"
 	
 	static var isMutuallyExclusive: Bool = true
 	

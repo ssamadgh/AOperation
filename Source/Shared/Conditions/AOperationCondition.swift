@@ -45,6 +45,13 @@ public protocol AOperationCondition {
     func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void)
 }
 
+public extension AOperationCondition {
+    
+    static var key: String {
+        return "\(String(describing: self))"
+    }
+}
+
 /**
  An enum to indicate whether an `OperationCondition` was satisfied, or if it
  failed with an error.

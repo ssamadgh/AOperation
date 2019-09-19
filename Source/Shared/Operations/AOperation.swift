@@ -40,6 +40,10 @@ about interesting operation state changes
 */
 open class AOperation: Foundation.Operation {
 	
+    public static var key: String {
+        return "\(String(describing: self))"
+    }
+    
     public override init() {
         super.init()
         self.name = "\(type(of: self))"
