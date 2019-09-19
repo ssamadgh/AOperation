@@ -40,6 +40,11 @@ about interesting operation state changes
 */
 open class AOperation: Foundation.Operation {
 	
+    public override init() {
+        super.init()
+        self.name = "\(type(of: self))"
+    }
+    
 	/* The completionBlock property has unexpected behaviors such as executing twice and executing on unexpected threads. BlockObserver executes in an expected manner.
 	*/
 	@available(*, deprecated, message: "use BlockObserver completions instead")
