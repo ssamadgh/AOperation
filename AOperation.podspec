@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
 	
 	s.source_files = 'Source/Shared/**/*.swift'
-	s.ios.source_files = 'Source/iOS/**/*.swift'
+	s.ios.source_files = 'Source/**/*.swift'
 
 	s.swift_version = '5'
 end
