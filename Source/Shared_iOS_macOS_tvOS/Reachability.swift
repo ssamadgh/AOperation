@@ -37,31 +37,30 @@ public enum ReachabilityError: Error {
 }
 
 public enum Connection: CustomStringConvertible {
-	case none, wifi, cellular
-	public var description: String {
-		switch self {
-		case .cellular: return "Cellular"
-		case .wifi: return "WiFi"
-		case .none: return "No Connection"
-		}
-	}
+    case none, wifi, cellular
+    public var description: String {
+        switch self {
+        case .cellular: return "Cellular"
+        case .wifi: return "WiFi"
+        case .none: return "No Connection"
+        }
+    }
 }
 
 @available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
 public let ReachabilityChangedNotification = NSNotification.Name("ReachabilityChangedNotification")
 
 public extension Notification.Name {
-	static let reachabilityChanged = Notification.Name("reachabilityChanged")
+    static let reachabilityChanged = Notification.Name("reachabilityChanged")
 }
 
 class Reachability {
 
-	class var `default`: Reachability {
-		return Reachability.init()!
-	}
-	
-    public typealias NetworkReachable = (Reachability) -> ()
-    public typealias NetworkUnreachable = (Reachability) -> ()
+    class var `default`: Reachability {
+        return Reachability.init()!
+    }
+    
+    public typealias NetworkReachable = (Connection) -> ()
 
     @available(*, unavailable, renamed: "Connection")
     public enum NetworkStatus: CustomStringConvertible {
@@ -75,10 +74,9 @@ class Reachability {
         }
     }
 
-    public var whenReachable: NetworkReachable?
-    public var whenUnreachable: NetworkUnreachable?
+    private var reachabilityClosure: NetworkReachable?
 
-	@available(*, deprecated, renamed: "allowsCellularConnection")
+    @available(*, deprecated, renamed: "allowsCellularConnection")
     public let reachableOnWWAN: Bool = true
 
     /// Set to `false` to force Reachability.connection to .none when on cellular connection (default value `true`)
@@ -87,7 +85,7 @@ class Reachability {
     // The notification center on which "reachability changed" events are being posted
     public var notificationCenter: NotificationCenter = NotificationCenter.default
 
-	@available(*, deprecated, renamed: "connection.description")
+    @available(*, deprecated, renamed: "connection.description")
     public var currentReachabilityString: String {
         return "\(connection)"
     }
@@ -134,19 +132,19 @@ class Reachability {
     }
 
     public convenience init?(hostname: String?, queueQoS: DispatchQoS = .default, targetQueue: DispatchQueue? = nil) {
-		var ref: SCNetworkReachability
-		if let hostname = hostname {
-			guard let refrence = SCNetworkReachabilityCreateWithName(nil, hostname) else { return nil }
-			ref = refrence
-		}
-		else {
-			var zeroAddress = sockaddr()
-			zeroAddress.sa_len = UInt8(MemoryLayout<sockaddr>.size)
-			zeroAddress.sa_family = sa_family_t(AF_INET)
-			
-			guard let refrence = SCNetworkReachabilityCreateWithAddress(nil, &zeroAddress) else { return nil }
-			ref = refrence
-		}
+        var ref: SCNetworkReachability
+        if let hostname = hostname {
+            guard let refrence = SCNetworkReachabilityCreateWithName(nil, hostname) else { return nil }
+            ref = refrence
+        }
+        else {
+            var zeroAddress = sockaddr()
+            zeroAddress.sa_len = UInt8(MemoryLayout<sockaddr>.size)
+            zeroAddress.sa_family = sa_family_t(AF_INET)
+            
+            guard let refrence = SCNetworkReachabilityCreateWithAddress(nil, &zeroAddress) else { return nil }
+            ref = refrence
+        }
         self.init(reachabilityRef: ref, queueQoS: queueQoS, targetQueue: targetQueue)
     }
 
@@ -163,6 +161,11 @@ class Reachability {
     deinit {
         stopNotifier()
     }
+    
+    public func didChangeConnection(_ reachabilityClosure: @escaping NetworkReachable) {
+        self.reachabilityClosure = reachabilityClosure
+    }
+    
 }
 
 extension Reachability {
@@ -204,18 +207,18 @@ extension Reachability {
     }
 
     // MARK: - *** Connection test methods ***
-	@available(*, deprecated, message: "Please use `connection != .none`")
+    @available(*, deprecated, message: "Please use `connection != .none`")
     var isReachable: Bool {
         return connection != .none
     }
 
-	@available(*, deprecated, message: "Please use `connection == .cellular`")
+    @available(*, deprecated, message: "Please use `connection == .cellular`")
     var isReachableViaWWAN: Bool {
         // Check we're not on the simulator, we're REACHABLE and check we're on WWAN
         return connection == .cellular
     }
 
-	@available(*, deprecated, message: "Please use `connection == .wifi`")
+    @available(*, deprecated, message: "Please use `connection == .wifi`")
     var isReachableViaWiFi: Bool {
         return connection == .wifi
     }
@@ -251,11 +254,11 @@ fileprivate extension Reachability {
     }
     
     func reachabilityChanged() {
-        let block = connection != .none ? whenReachable : whenUnreachable
+        let block = self.reachabilityClosure
 
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-            block?(strongSelf)
+            block?(strongSelf.connection)
             strongSelf.notificationCenter.post(name: .reachabilityChanged, object: strongSelf)
         }
     }

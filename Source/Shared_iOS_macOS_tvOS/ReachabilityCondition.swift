@@ -135,7 +135,7 @@ private class ReachabilityOperation: AOperation {
 	}
 	
 	deinit {
-		NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
+//		NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
 	}
 	
 	override func execute() {
@@ -155,7 +155,25 @@ private class ReachabilityOperation: AOperation {
 			return
 		}
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+//		NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        
+        self.reachability.didChangeConnection { [weak self] (connection) in
+            guard let `self` = self else { return }
+            
+            if self.connection == nil {
+                if self.reachability.connection != .none {
+                    self.reachability.stopNotifier()
+                        self.finishWithError(nil)
+                    }
+                }
+                else {
+                if self.reachability.connection == self.connection {
+                    self.reachability.stopNotifier()
+                        self.finishWithError(nil)
+                    }
+                }
+            
+        }
 		
 		do {
 			try self.reachability.startNotifier()
