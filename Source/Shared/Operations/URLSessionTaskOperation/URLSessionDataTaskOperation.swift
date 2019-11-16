@@ -12,7 +12,7 @@ public class URLSessionDataTaskOperation: URLSessionTaskOperation {
 	init(request: URLRequest) {
 		super.init(kind: .data, for: request)
 		URLSessionTaskManager.shared.didFinishDataTask(withIdentifier: self.task.taskIdentifier) { (_, _, _) in
-			self.finishWithError(nil)
+            self.finishWithError(nil)
 		}
 	}
 	
@@ -35,11 +35,15 @@ public class URLSessionDataTaskOperation: URLSessionTaskOperation {
 
      */
 	public func didFinish(_ handler: @escaping DataResponseOperationBlock) {
-		URLSessionTaskManager.shared.didFinishDataTask(withIdentifier: self.task.taskIdentifier) { (data, response, error) in
-			handler(data, response, error) { error in
-				self.finishWithError(error)
-			}
-		}
+        let request = self.task.originalRequest!
+        let task = URLSessionTaskManager.shared.didFinishDataTask(withRequest: request) { (data, response, error) in
+            handler(data, response, error) { error in
+                self.finishWithError(error)
+            }
+        }
+        
+        self.task = task
+        
 	}
 	
 }

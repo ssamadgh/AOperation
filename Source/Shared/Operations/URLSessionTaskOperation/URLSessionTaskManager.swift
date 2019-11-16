@@ -135,9 +135,12 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 
 	}
 
+    func didFinishDataTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Swift.Void)) {
+        self.dataTaskFinisedDic[taskIdentifier] = completionHandler
+    }
 	
-	func didFinishDataTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Swift.Void)) {
-		self.dataTaskFinisedDic[taskIdentifier] = completionHandler
+	func didFinishDataTask(withRequest request: URLRequest, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Swift.Void)) -> URLSessionTask {
+        return self.session.dataTask(with: request, completionHandler: completionHandler)
 	}
 	
 	func didFinishDownloadTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((URL?, URLResponse?, Error?) -> Swift.Void)) {
