@@ -37,7 +37,7 @@ public extension AOperationQueueDelegate {
  - Setting up dependencies to enforce mutual exclusivity
  */
 public class AOperationQueue: Foundation.OperationQueue {
-    weak var delegate: AOperationQueueDelegate?
+    public weak var delegate: AOperationQueueDelegate?
 
 	override public func addOperation(_ op: Foundation.Operation) {
         if let op = op as? AOperation {
