@@ -43,6 +43,8 @@ extension UNNotificationCondition {
 */
 @available(iOS 10.0, *)
 public struct UNNotificationCondition: AOperationCondition {
+
+    public var dependentOperation: AOperation?
     
     public enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
@@ -75,10 +77,7 @@ public struct UNNotificationCondition: AOperationCondition {
     public init(options: UNAuthorizationOptions = [], behavior: Behavior = .merge) {
         self.options = options
         self.behavior = behavior
-    }
-    
-	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-        return UNNotificationAuthorizationOperation(options: options, behavior: behavior)
+        self.dependentOperation = UNNotificationAuthorizationOperation(options: options, behavior: behavior)
     }
     
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {

@@ -15,6 +15,9 @@ public let OperationConditionKey = "OperationCondition"
  operation to begin execution.
  */
 public protocol AOperationCondition {
+        
+    var dependentOperation: AOperation? { get }
+    
     /**
      The key of the condition. This is used in userInfo dictionaries of  `.ConditionFailed`
      errors as the value of the `AOperationError.Info.key` key.
@@ -39,7 +42,7 @@ public protocol AOperationCondition {
      expressing that as multiple conditions. Alternatively, you could return
      a single `GroupOperation` that executes multiple operations internally.
      */
-    func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation?
+    func dependencyForOperation(_ operation: AOperation) -> AOperation?
 
     /// Evaluate the condition, to see if it has been satisfied or not.
     func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void)
@@ -50,6 +53,22 @@ public extension AOperationCondition {
     static var key: String {
         return "\(String(describing: self))"
     }
+    
+    func dependencyForOperation(_ operation: AOperation) -> AOperation? {
+        return self.dependentOperation
+    }
+    
+    func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
+        if let error = self.dependentOperation?.finishedErrors?.first {
+            completion(.failed(error))
+        }
+        else {
+            completion(.satisfied)
+        }
+        
+    }
+
+    
 }
 
 /**

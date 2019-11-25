@@ -22,6 +22,19 @@ class AOperation_iOS_Tests2: XCTestCase {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 	}
 	
+    func testOperationCondition() {
+        let expect = expectation(description: "TestGroupOperation")
+
+        let operation = OperationC2()
+        operation.addCondition(SampleCondition())
+        operation.observeDidFinish { (errors) in
+            print("Condition error is \(errors)")
+            expect.fulfill()
+        }
+        self.queue.addOperation(operation)
+        wait(for: [expect], timeout: 10)
+    }
+    
 	func testOperationTimer() {
 		let timerExpect = expectation(description: "Timer execution")
 		timer = AOperationTimer(interval: 2) {
@@ -50,8 +63,9 @@ class AOperation_iOS_Tests2: XCTestCase {
 		// Use XCTAssert and related functions to verify your tests produce the correct results.
 		let expect = expectation(description: "TestGroupOperation")
 		let opB = OperationB()
-
+        opB.addCondition(SampleCondition())
 		opB.observeDidFinish { errors in
+            print(errors)
 			if opB.isCancelled {
 				print("Canceled 🔴")
 			}
@@ -95,7 +109,7 @@ class OperationB2: AOperation {
 		
 		timer = AOperationTimer(interval: 0, handler: {
 			print("Hello World Operation B2✅")
-            self.op3?.addCondition(SampleCondition())
+            
 			self.finishWithError(nil)
 		})
 	}
@@ -103,19 +117,25 @@ class OperationB2: AOperation {
 }
 
 struct SampleCondition: AOperationCondition {
+    
+    var dependentOperation: AOperation? = SampleConditionOperation()
+
     static var key: String = "SampleCondition"
     
     static var isMutuallyExclusive: Bool = true
-    
-    func dependencyForOperation(_ operation: AOperation) -> Operation? {
-        return nil
-    }
-    
-    func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-		let error = AOperationError.conditionFailed(with: [.key : Self.key])
-        completion(.failed(error))
-    }
 
+    
+}
+
+class SampleConditionOperation: AOperation {
+    
+    override func execute() {
+        let error = AOperationError.conditionFailed(with: [.key: SampleCondition.key, .localizedDescription : "Please see this sample and judge about it"])
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.finishWithError(error)
+        }
+    }
     
 }
 

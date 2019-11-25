@@ -36,6 +36,8 @@ public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     
     public static var isMutuallyExclusive: Bool = true
     
+    public var dependentOperation: AOperation?
+    
     private let sourceType: UIImagePickerController.SourceType
     private let mediaTypes: Set<String>
     
@@ -43,10 +45,6 @@ public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     public init(sourceType: UIImagePickerController.SourceType, mediaTypes: [String]) {
         self.sourceType = sourceType
         self.mediaTypes = Set(mediaTypes)
-    }
-    
-    public func dependencyForOperation(_ operation: AOperation) -> Operation? {
-        return nil
     }
     
     public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {

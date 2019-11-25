@@ -45,6 +45,7 @@ If user sets `waitToConnect` to **false**, reachability is evaluated once when t
 */
 
 public struct ReachabilityCondition: AOperationCondition {
+    
 	
 	public static let urlKey = "URL"
 	public static let key = "Reachability"
@@ -54,6 +55,8 @@ public struct ReachabilityCondition: AOperationCondition {
 	let connection: Connection?
 	let waitToConnect: Bool
 	
+    public var dependentOperation: AOperation?
+    
 	private let reachability: Reachability
 	
 	/**
@@ -80,13 +83,8 @@ public struct ReachabilityCondition: AOperationCondition {
 			fatalError("Reachability is nil")
 		}
 		self.reachability = reachability
+        self.dependentOperation = waitToConnect ? ReachabilityOperation(url: self.url, connection: self.connection) : nil
 	}
-	
-	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-		return waitToConnect ? ReachabilityOperation(url: self.url, connection: self.connection) : nil
-	}
-	
-	
 	
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
 		
