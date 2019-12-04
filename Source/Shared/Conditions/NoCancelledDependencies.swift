@@ -39,13 +39,12 @@ public struct NoCanceledDependencies: AOperationCondition {
     static let canceledDependenciesKey = "CanceledDependencies"
     public static let isMutuallyExclusive = false
     
+    public var dependentOperation: AOperation?
+    
     public init() {
         // No op.
     }
     
-    public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-        return nil
-    }
     
     public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         // Verify that all of the dependencies executed.

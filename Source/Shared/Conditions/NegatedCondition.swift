@@ -24,6 +24,9 @@ extension NegatedCondition {
 */
 public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
     
+    public var dependentOperation: AOperation?
+    
+    
     public static var key: String {
         return "NegatedCondition"
     }
@@ -42,8 +45,9 @@ public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
         self.condition = condition
     }
     
-    public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-        return condition.dependencyForOperation(operation)
+    public func dependencyForOperation(_ operation: AOperation) -> AOperation? {
+        let operation = condition.dependencyForOperation(operation)
+        return operation
     }
     
     public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {

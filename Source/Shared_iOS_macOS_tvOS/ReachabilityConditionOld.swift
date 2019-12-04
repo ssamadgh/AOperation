@@ -25,14 +25,12 @@ struct ReachabilityConditionOld: AOperationCondition {
 	public static let key = "Reachability"
 	public static let isMutuallyExclusive = false
 	
+    var dependentOperation: AOperation?
+    
 	public let host: URL
 	
 	public init(host: URL) {
 		self.host = host
-	}
-	
-	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-		return nil
 	}
 	
 	

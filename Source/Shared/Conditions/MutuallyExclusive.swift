@@ -10,9 +10,11 @@ import Foundation
 
 /// A generic condition for describing kinds of operations that may not execute concurrently.
 public struct MutuallyExclusive<T>: AOperationCondition {
+    
+    
+    public var dependentOperation: AOperation? = nil
 
-
-	public static var key: String {
+    public static var key: String {
         return "MutuallyExclusive<\(T.self)>"
     }
 
@@ -22,9 +24,6 @@ public struct MutuallyExclusive<T>: AOperationCondition {
 
     public init() { }
 
-	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-        return nil
-    }
 
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         completion(.satisfied)

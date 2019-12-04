@@ -110,7 +110,6 @@
 		E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
-		E9209FD72354558900EE6727 /* AOperation_Test_Duplicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9209FD62354558900EE6727 /* AOperation_Test_Duplicate.swift */; };
 		E99E02052314F8CA003B2792 /* UIImagePickerAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,7 +179,6 @@
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
-		E9209FD62354558900EE6727 /* AOperation_Test_Duplicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOperation_Test_Duplicate.swift; sourceTree = "<group>"; };
 		E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImagePickerAvailabilityCondition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -407,7 +405,6 @@
 				E493C3382250965000517BA1 /* AOperation_iOS_Tests.swift */,
 				E4C204EA22B022BE0094440C /* AOperation_iOS_Tests2.swift */,
 				E493C33A2250965000517BA1 /* Info.plist */,
-				E9209FD62354558900EE6727 /* AOperation_Test_Duplicate.swift */,
 			);
 			path = AOperation_iOS_Tests;
 			sourceTree = "<group>";
@@ -805,7 +802,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C204EC22B022D80094440C /* AOperation_iOS_Tests2.swift in Sources */,
-				E9209FD72354558900EE6727 /* AOperation_Test_Duplicate.swift in Sources */,
 				E493C3392250965000517BA1 /* AOperation_iOS_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

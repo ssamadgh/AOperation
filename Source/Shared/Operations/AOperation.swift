@@ -338,6 +338,8 @@ open class AOperation: Foundation.Operation {
 		finish()
 	}
 	
+    internal var finishedErrors: [AOperationError]?
+    
 	fileprivate var _internalErrors = [AOperationError]()
 	
 	override open func cancel() {
@@ -400,6 +402,7 @@ open class AOperation: Foundation.Operation {
 			state = .finishing
 			
 			let combinedErrors = _internalErrors + errors
+            self.finishedErrors = combinedErrors
 			finished(combinedErrors)
 			
 			if AOperationDebugger.printOperationsState {
