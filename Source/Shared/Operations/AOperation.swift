@@ -338,7 +338,7 @@ open class AOperation: Foundation.Operation {
 		finish()
 	}
 	
-    internal var finishedErrors: [AOperationError]?
+    public var finishedErrors: [AOperationError]?
     
 	fileprivate var _internalErrors = [AOperationError]()
 	
@@ -419,9 +419,7 @@ open class AOperation: Foundation.Operation {
 	
 	/**
 	Subclasses may override `finished(_:)` if they wish to react to the operation
-	finishing with errors. For example, the `LoadModelOperation` implements
-	this method to potentially inform the user about an error when trying to
-	bring up the Core Data stack.
+	finishing with errors.
 	*/
 	open func finished(_ errors: [AOperationError]) {
 		// No op.

@@ -110,6 +110,9 @@
 		E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
 		E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */; };
+		E93546182399354C004AE759 /* ResultableOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93546172399354C004AE759 /* ResultableOperation.swift */; };
+		E935461C23993BBA004AE759 /* ResultableGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935461B23993BBA004AE759 /* ResultableGroupOperation.swift */; };
+		E935461E23993C9E004AE759 /* ResultableOrderedGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935461D23993C9E004AE759 /* ResultableOrderedGroupOperation.swift */; };
 		E99E02052314F8CA003B2792 /* UIImagePickerAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +182,9 @@
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
+		E93546172399354C004AE759 /* ResultableOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableOperation.swift; sourceTree = "<group>"; };
+		E935461B23993BBA004AE759 /* ResultableGroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableGroupOperation.swift; sourceTree = "<group>"; };
+		E935461D23993C9E004AE759 /* ResultableOrderedGroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableOrderedGroupOperation.swift; sourceTree = "<group>"; };
 		E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImagePickerAvailabilityCondition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +310,7 @@
 				E406114621652A9B0084AC98 /* GroupOperation.swift */,
 				E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */,
 				E406114721652A9B0084AC98 /* AOperation.swift */,
+				E935461A23993B9B004AE759 /* ResultableOperations */,
 				E406114821652A9B0084AC98 /* BlockAOperation.swift */,
 				E423535C217FC76D00888C92 /* DelayOperation.swift */,
 				E40611F72165BEF40084AC98 /* URLSessionTaskOperation */,
@@ -435,6 +442,16 @@
 				E406115221652A9B0084AC98 /* NetworkObserver.swift */,
 			);
 			path = Observers;
+			sourceTree = "<group>";
+		};
+		E935461A23993B9B004AE759 /* ResultableOperations */ = {
+			isa = PBXGroup;
+			children = (
+				E93546172399354C004AE759 /* ResultableOperation.swift */,
+				E935461B23993BBA004AE759 /* ResultableGroupOperation.swift */,
+				E935461D23993C9E004AE759 /* ResultableOrderedGroupOperation.swift */,
+			);
+			path = ResultableOperations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -676,6 +693,7 @@
 				E406119721652A9B0084AC98 /* ExclusivityController.swift in Sources */,
 				E4638B0821FD9B7600656820 /* RemoteNotificationCondition.swift in Sources */,
 				E4F57BD622015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
+				E935461C23993BBA004AE759 /* ResultableGroupOperation.swift in Sources */,
 				E41EB64E2314894E00B714DE /* MediaCaptureCondition.swift in Sources */,
 				E4638B0421FD97D200656820 /* UIUserNotifications+Operations.swift in Sources */,
 				E406116721652A9B0084AC98 /* AOperation.swift in Sources */,
@@ -684,6 +702,7 @@
 				E44DE1852232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406118721652A9B0084AC98 /* AOperationObserver.swift in Sources */,
 				E41EB63E2314562200B714DE /* URLSessionUploadTaskOperation.swift in Sources */,
+				E93546182399354C004AE759 /* ResultableOperation.swift in Sources */,
 				E41EB63A23144ADE00B714DE /* URLSessionTaskManager.swift in Sources */,
 				E41EB63723144A5000B714DE /* URLSessionTaskOperation.swift in Sources */,
 				E4638B0621FD9ABC00656820 /* UserNotificationCondition.swift in Sources */,
@@ -708,6 +727,7 @@
 				E406118321652A9B0084AC98 /* AOperationError.swift in Sources */,
 				E44DE18A2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E406118F21652A9B0084AC98 /* BlockObserver.swift in Sources */,
+				E935461E23993C9E004AE759 /* ResultableOrderedGroupOperation.swift in Sources */,
 				E423535D217FC76D00888C92 /* DelayOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
