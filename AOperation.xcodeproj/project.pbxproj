@@ -93,11 +93,11 @@
 		E4638B0621FD9ABC00656820 /* UserNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638B0521FD9ABC00656820 /* UserNotificationCondition.swift */; };
 		E4638B0821FD9B7600656820 /* RemoteNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638B0721FD9B7600656820 /* RemoteNotificationCondition.swift */; };
 		E46422D5231AEE3A0076C654 /* LocationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4235315217F983800888C92 /* LocationCondition.swift */; };
-		E493C3392250965000517BA1 /* AOperation_iOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E493C3382250965000517BA1 /* AOperation_iOS_Tests.swift */; };
 		E493C33B2250965000517BA1 /* AOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40610DC216517420084AC98 /* AOperation.framework */; };
 		E4A930772205A83700703141 /* UNNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A930762205A83700703141 /* UNNotificationCondition.swift */; };
 		E4AE3BC3228B497D004216D8 /* OrderedGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */; };
-		E4C204EC22B022D80094440C /* AOperation_iOS_Tests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C204EA22B022BE0094440C /* AOperation_iOS_Tests2.swift */; };
+		E4D07CF2239983970018FDD6 /* ConditionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF1239983970018FDD6 /* ConditionTest.swift */; };
+		E4D07CF62399A0890018FDD6 /* ResultOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF52399A0890018FDD6 /* ResultOperationTest.swift */; };
 		E4F57BD222015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
 		E4F57BD322015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
 		E4F57BD422015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
@@ -174,11 +174,12 @@
 		E4638B0721FD9B7600656820 /* RemoteNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationCondition.swift; sourceTree = "<group>"; };
 		E46422CD231ADE670076C654 /* iOS_Exapmle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOS_Exapmle.xcodeproj; path = Examples/iOS_Exapmle/iOS_Exapmle.xcodeproj; sourceTree = "<group>"; };
 		E493C3362250965000517BA1 /* AOperation_iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOperation_iOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E493C3382250965000517BA1 /* AOperation_iOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOperation_iOS_Tests.swift; sourceTree = "<group>"; };
 		E493C33A2250965000517BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4A930762205A83700703141 /* UNNotificationCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationCondition.swift; sourceTree = "<group>"; };
 		E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedGroupOperation.swift; sourceTree = "<group>"; };
-		E4C204EA22B022BE0094440C /* AOperation_iOS_Tests2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AOperation_iOS_Tests2.swift; sourceTree = "<group>"; };
+		E4D07CF0239983970018FDD6 /* AOperation_iOS_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOperation_iOS_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E4D07CF1239983970018FDD6 /* ConditionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionTest.swift; sourceTree = "<group>"; };
+		E4D07CF52399A0890018FDD6 /* ResultOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOperationTest.swift; sourceTree = "<group>"; };
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
@@ -276,6 +277,7 @@
 		E406113C2165253D0084AC98 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E4D07CEF239983600018FDD6 /* SharedTest */,
 				E493C3372250965000517BA1 /* AOperation_iOS_Tests */,
 			);
 			path = Tests;
@@ -409,8 +411,6 @@
 		E493C3372250965000517BA1 /* AOperation_iOS_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E493C3382250965000517BA1 /* AOperation_iOS_Tests.swift */,
-				E4C204EA22B022BE0094440C /* AOperation_iOS_Tests2.swift */,
 				E493C33A2250965000517BA1 /* Info.plist */,
 			);
 			path = AOperation_iOS_Tests;
@@ -434,6 +434,16 @@
 				E4638B0321FD97D200656820 /* UIUserNotifications+Operations.swift */,
 			);
 			path = "Convenience Extensions";
+			sourceTree = "<group>";
+		};
+		E4D07CEF239983600018FDD6 /* SharedTest */ = {
+			isa = PBXGroup;
+			children = (
+				E4D07CF1239983970018FDD6 /* ConditionTest.swift */,
+				E4D07CF52399A0890018FDD6 /* ResultOperationTest.swift */,
+				E4D07CF0239983970018FDD6 /* AOperation_iOS_Tests-Bridging-Header.h */,
+			);
+			path = SharedTest;
 			sourceTree = "<group>";
 		};
 		E4D599D42165CD0100BD7F66 /* Observers */ = {
@@ -605,6 +615,7 @@
 					};
 					E493C3352250965000517BA1 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -821,8 +832,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C204EC22B022D80094440C /* AOperation_iOS_Tests2.swift in Sources */,
-				E493C3392250965000517BA1 /* AOperation_iOS_Tests.swift in Sources */,
+				E4D07CF62399A0890018FDD6 /* ResultOperationTest.swift in Sources */,
+				E4D07CF2239983970018FDD6 /* ConditionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1578,6 +1589,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/SharedTest/AOperation_iOS_Tests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1621,6 +1633,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/SharedTest/AOperation_iOS_Tests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -58,6 +58,12 @@ public struct AOperationError: LocalizedError, Equatable {
     public var failureReason: String? {
         return self.info?[.reason] as? String
     }
+	
+    /// Retrieve the key for the error.
+    public var key: String? {
+        return self.info?[.key] as? String
+    }
+
 
 }
 

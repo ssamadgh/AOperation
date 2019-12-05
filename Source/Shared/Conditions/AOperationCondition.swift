@@ -60,6 +60,9 @@ public extension AOperationCondition {
     
     func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         if let error = self.dependentOperation?.finishedErrors?.first {
+			var info: [AOperationError.Info : Any?] = error.info ?? [:]
+			info[.key] = Self.key
+			let error = AOperationError.conditionFailed(with: info)
             completion(.failed(error))
         }
         else {
