@@ -97,7 +97,9 @@
 		E4A930772205A83700703141 /* UNNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A930762205A83700703141 /* UNNotificationCondition.swift */; };
 		E4AE3BC3228B497D004216D8 /* OrderedGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */; };
 		E4D07CF2239983970018FDD6 /* ConditionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF1239983970018FDD6 /* ConditionTest.swift */; };
-		E4D07CF62399A0890018FDD6 /* ResultOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF52399A0890018FDD6 /* ResultOperationTest.swift */; };
+		E4D07CF62399A0890018FDD6 /* ResultableOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF52399A0890018FDD6 /* ResultableOperationTest.swift */; };
+		E4D07D20239ABEE30018FDD6 /* ResultableGroupOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07D1F239ABEE30018FDD6 /* ResultableGroupOperationTest.swift */; };
+		E4D07D23239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07D22239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift */; };
 		E4F57BD222015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
 		E4F57BD322015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
 		E4F57BD422015DD6005323DD /* NegatedCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57BCF22015DD4005323DD /* NegatedCondition.swift */; };
@@ -179,7 +181,9 @@
 		E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedGroupOperation.swift; sourceTree = "<group>"; };
 		E4D07CF0239983970018FDD6 /* AOperation_iOS_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOperation_iOS_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		E4D07CF1239983970018FDD6 /* ConditionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionTest.swift; sourceTree = "<group>"; };
-		E4D07CF52399A0890018FDD6 /* ResultOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOperationTest.swift; sourceTree = "<group>"; };
+		E4D07CF52399A0890018FDD6 /* ResultableOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableOperationTest.swift; sourceTree = "<group>"; };
+		E4D07D1F239ABEE30018FDD6 /* ResultableGroupOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableGroupOperationTest.swift; sourceTree = "<group>"; };
+		E4D07D22239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableOrderedGroupOperationTest.swift; sourceTree = "<group>"; };
 		E4F57BCF22015DD4005323DD /* NegatedCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegatedCondition.swift; sourceTree = "<group>"; };
 		E4F57BD022015DD6005323DD /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		E4F57BDE22018EE0005323DD /* TimeoutObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutObserver.swift; sourceTree = "<group>"; };
@@ -440,7 +444,9 @@
 			isa = PBXGroup;
 			children = (
 				E4D07CF1239983970018FDD6 /* ConditionTest.swift */,
-				E4D07CF52399A0890018FDD6 /* ResultOperationTest.swift */,
+				E4D07CF52399A0890018FDD6 /* ResultableOperationTest.swift */,
+				E4D07D1F239ABEE30018FDD6 /* ResultableGroupOperationTest.swift */,
+				E4D07D22239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift */,
 				E4D07CF0239983970018FDD6 /* AOperation_iOS_Tests-Bridging-Header.h */,
 			);
 			path = SharedTest;
@@ -832,8 +838,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4D07CF62399A0890018FDD6 /* ResultOperationTest.swift in Sources */,
+				E4D07CF62399A0890018FDD6 /* ResultableOperationTest.swift in Sources */,
 				E4D07CF2239983970018FDD6 /* ConditionTest.swift in Sources */,
+				E4D07D23239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift in Sources */,
+				E4D07D20239ABEE30018FDD6 /* ResultableGroupOperationTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

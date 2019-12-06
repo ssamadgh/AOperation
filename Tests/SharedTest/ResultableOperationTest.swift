@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import AOperation
+import AOperation
 
-class ResultOperationTest: XCTestCase {
+class ResultableOperationTest: XCTestCase {
 
 	let operationQueue = AOperationQueue()
 	
@@ -132,14 +132,14 @@ class ResultOperationTest: XCTestCase {
 }
 
 
-struct User: Decodable {
+fileprivate struct User: Decodable {
 	let id: Int
 	let name: String
 	let family: String
 }
 
 
-class FetchUserOperation: ResultableOperation<User> {
+fileprivate class FetchUserOperation: ResultableOperation<User> {
 	
 	var json: Data
 	
@@ -165,7 +165,7 @@ class FetchUserOperation: ResultableOperation<User> {
 }
 
 
-struct UserSigningCondition: AOperationCondition {
+fileprivate struct UserSigningCondition: AOperationCondition {
 	
 	var dependentOperation: AOperation? = nil
 	

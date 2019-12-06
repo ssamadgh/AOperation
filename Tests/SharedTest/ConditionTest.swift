@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import AOperation
+import AOperation
 
 
 /// This class testing condition in several situation to confirm that its work correctly as expects.
@@ -107,7 +107,7 @@ class ConditionTest: XCTestCase {
 
 
 
-class TestOperation: AOperation {
+fileprivate class TestOperation: AOperation {
 	
 	override func execute() {
 		self.finishWithError(nil)
@@ -115,7 +115,7 @@ class TestOperation: AOperation {
 	
 }
 
-struct FailedConditionWithItsDefinedError: AOperationCondition {
+fileprivate struct FailedConditionWithItsDefinedError: AOperationCondition {
 	
 	static let uniqueId = UUID()
 	
@@ -131,7 +131,7 @@ struct FailedConditionWithItsDefinedError: AOperationCondition {
 }
 
 
-struct FailedCondition: AOperationCondition {
+fileprivate struct FailedCondition: AOperationCondition {
 	
 	var dependentOperation: AOperation? = FailedConditionOperation()
 	
@@ -141,7 +141,7 @@ struct FailedCondition: AOperationCondition {
 }
 
 
-class FailedConditionOperation: AOperation {
+fileprivate class FailedConditionOperation: AOperation {
 	
 	static let uniqueId = UUID()
 
@@ -153,7 +153,7 @@ class FailedConditionOperation: AOperation {
 	
 }
 
-struct SucceedCondition: AOperationCondition {
+fileprivate struct SucceedCondition: AOperationCondition {
 	
 	var dependentOperation: AOperation? = SucceedConditionOperation()
 	
@@ -163,7 +163,7 @@ struct SucceedCondition: AOperationCondition {
 
 
 
-class SucceedConditionOperation: AOperation {
+fileprivate class SucceedConditionOperation: AOperation {
 	
 	override func execute() {
 		self.finishWithError(nil)
