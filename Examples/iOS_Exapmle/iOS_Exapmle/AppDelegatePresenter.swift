@@ -14,7 +14,7 @@ class AppDelegatePresenter {
 	lazy var queue = AOperationQueue()
 	
 	init() {
-		AOperationDebugger.printOperationsState = true
+		AOperation.Debugger.printOperationsState = true
 	}
 	
 	

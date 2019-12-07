@@ -96,6 +96,8 @@
 		E493C33B2250965000517BA1 /* AOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40610DC216517420084AC98 /* AOperation.framework */; };
 		E4A930772205A83700703141 /* UNNotificationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A930762205A83700703141 /* UNNotificationCondition.swift */; };
 		E4AE3BC3228B497D004216D8 /* OrderedGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */; };
+		E4BE32EA239AEA06002B1DA1 /* UniquenessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE32E9239AEA06002B1DA1 /* UniquenessController.swift */; };
+		E4BE32ED239AF0BD002B1DA1 /* UniqueOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE32EC239AF0BD002B1DA1 /* UniqueOperationTest.swift */; };
 		E4D07CF2239983970018FDD6 /* ConditionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF1239983970018FDD6 /* ConditionTest.swift */; };
 		E4D07CF62399A0890018FDD6 /* ResultableOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07CF52399A0890018FDD6 /* ResultableOperationTest.swift */; };
 		E4D07D20239ABEE30018FDD6 /* ResultableGroupOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D07D1F239ABEE30018FDD6 /* ResultableGroupOperationTest.swift */; };
@@ -179,6 +181,8 @@
 		E493C33A2250965000517BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4A930762205A83700703141 /* UNNotificationCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationCondition.swift; sourceTree = "<group>"; };
 		E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedGroupOperation.swift; sourceTree = "<group>"; };
+		E4BE32E9239AEA06002B1DA1 /* UniquenessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniquenessController.swift; sourceTree = "<group>"; };
+		E4BE32EC239AF0BD002B1DA1 /* UniqueOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueOperationTest.swift; sourceTree = "<group>"; };
 		E4D07CF0239983970018FDD6 /* AOperation_iOS_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AOperation_iOS_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		E4D07CF1239983970018FDD6 /* ConditionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionTest.swift; sourceTree = "<group>"; };
 		E4D07CF52399A0890018FDD6 /* ResultableOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableOperationTest.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 			children = (
 				E406115521652A9B0084AC98 /* AOperationQueue.swift */,
 				E406115621652A9B0084AC98 /* ExclusivityController.swift */,
+				E4BE32E9239AEA06002B1DA1 /* UniquenessController.swift */,
 			);
 			path = AOperationQueue;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				E4D07CF52399A0890018FDD6 /* ResultableOperationTest.swift */,
 				E4D07D1F239ABEE30018FDD6 /* ResultableGroupOperationTest.swift */,
 				E4D07D22239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift */,
+				E4BE32EC239AF0BD002B1DA1 /* UniqueOperationTest.swift */,
 				E4D07CF0239983970018FDD6 /* AOperation_iOS_Tests-Bridging-Header.h */,
 			);
 			path = SharedTest;
@@ -744,6 +750,7 @@
 				E406118321652A9B0084AC98 /* AOperationError.swift in Sources */,
 				E44DE18A2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */,
 				E406118F21652A9B0084AC98 /* BlockObserver.swift in Sources */,
+				E4BE32EA239AEA06002B1DA1 /* UniquenessController.swift in Sources */,
 				E935461E23993C9E004AE759 /* ResultableOrderedGroupOperation.swift in Sources */,
 				E423535D217FC76D00888C92 /* DelayOperation.swift in Sources */,
 			);
@@ -838,6 +845,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BE32ED239AF0BD002B1DA1 /* UniqueOperationTest.swift in Sources */,
 				E4D07CF62399A0890018FDD6 /* ResultableOperationTest.swift in Sources */,
 				E4D07CF2239983970018FDD6 /* ConditionTest.swift in Sources */,
 				E4D07D23239ADD290018FDD6 /* ResultableOrderedGroupOperationTest.swift in Sources */,

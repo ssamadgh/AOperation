@@ -119,6 +119,8 @@ open class AOperation: Foundation.Operation {
 		}
 	}
 	
+	public var isUnique: Bool = false
+	
 	/**
 	Indicates that the AOperation can now begin to evaluate readiness conditions,
 	if appropriate.
@@ -308,7 +310,7 @@ open class AOperation: Foundation.Operation {
 				observer.operationDidStart(self)
 			}
 			
-			if AOperationDebugger.printOperationsState {
+			if AOperation.Debugger.printOperationsState {
 				print("AOperation \(type(of: self)) executed")
 			}
 			
@@ -331,14 +333,14 @@ open class AOperation: Foundation.Operation {
 	*/
 	open func execute() {
 		
-		if AOperationDebugger.printOperationsState {
+		if AOperation.Debugger.printOperationsState {
 			print("\(type(of: self)) must override `execute()`.")
 		}
 		
 		finish()
 	}
 	
-    public var finishedErrors: [AOperationError]?
+    public private(set) var finishedErrors: [AOperationError]?
     
 	fileprivate var _internalErrors = [AOperationError]()
 	
@@ -350,7 +352,7 @@ open class AOperation: Foundation.Operation {
 		if !_cancelled {
 			_cancelled = true
 			
-			if AOperationDebugger.printOperationsState {
+			if AOperation.Debugger.printOperationsState {
 				print("AOperation \(type(of: self)) cancelled")
 			}
 			
@@ -405,7 +407,7 @@ open class AOperation: Foundation.Operation {
             self.finishedErrors = combinedErrors
 			finished(combinedErrors)
 			
-			if AOperationDebugger.printOperationsState {
+			if AOperation.Debugger.printOperationsState {
 				print("AOperation \(type(of: self)) finished")
 			}
 			

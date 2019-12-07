@@ -41,6 +41,10 @@ public class AOperationQueue: Foundation.OperationQueue {
 
 	override public func addOperation(_ op: Foundation.Operation) {
         if let op = op as? AOperation {
+			if UniquenessController.shared.contains(op) {
+				print("AOperation \(type(of: op)) canceled because of uniqueness")
+				return
+			}
             // Set up a `BlockObserver` to invoke the `AOperationQueueDelegate` method.
             let delegate = BlockObserver(
                 startHandler: nil,
@@ -85,7 +89,16 @@ public class AOperationQueue: Foundation.OperationQueue {
                 op.addObserver(BlockObserver { operation, _ in
                     exclusivityController.removeOperation(operation, categories: concurrencyCategories)
                 })
+				
+
             }
+			
+			if op.isUnique {
+				UniquenessController.shared.addOperation(op)
+				op.addObserver(BlockObserver(startHandler: nil, produceHandler: nil, finishHandler: { (operation, _) in
+					UniquenessController.shared.removeOperation(operation)
+				}))
+			}
 
             /*
              Indicate to the operation that we've finished our extra work on it
@@ -109,7 +122,7 @@ public class AOperationQueue: Foundation.OperationQueue {
 
         delegate?.operationQueue(self, willAddOperation: op)
 
-		if AOperationDebugger.printOperationsState {
+		if AOperation.Debugger.printOperationsState {
 			print("AOperation \(type(of: op)) added to queue")
 		}
 
