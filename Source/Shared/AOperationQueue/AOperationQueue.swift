@@ -42,7 +42,9 @@ public class AOperationQueue: Foundation.OperationQueue {
 	override public func addOperation(_ op: Foundation.Operation) {
         if let op = op as? AOperation {
 			if UniquenessController.shared.contains(op) {
-				print("AOperation \(type(of: op)) canceled because of uniqueness")
+				if AOperation.Debugger.printOperationsState {
+					print("AOperation \(type(of: op)) canceled because of uniqueness")
+				}
 				return
 			}
             // Set up a `BlockObserver` to invoke the `AOperationQueueDelegate` method.
