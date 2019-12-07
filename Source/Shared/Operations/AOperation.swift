@@ -119,7 +119,16 @@ open class AOperation: Foundation.Operation {
 		}
 	}
 	
-	public var isUnique: Bool = false
+    
+    /// Prevents any operation with same type to added to queue while this operation is in.
+    /// - Note: Changing this property after adding operation to queue produces undefined behavior and so results a fatalError.
+    public var isUnique: Bool = false {
+        didSet {
+            if state > .initialized {
+                fatalError("Changing `isUnique` property of an operation after adding it to the queue produces undefined behavior")
+            }
+        }
+    }
 	
 	/**
 	Indicates that the AOperation can now begin to evaluate readiness conditions,
