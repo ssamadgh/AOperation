@@ -104,6 +104,8 @@ public struct LocationCondition: AOperationCondition {
 	static var notAvailableServiceArray: [LocationServicesAvailability] = []
 	public static let isMutuallyExclusive = false
     
+    public var dependentOperation: AOperation?
+    
     let usage: Usage
 	let servicesAvailability: Set<LocationServicesAvailability>
     
@@ -115,10 +117,7 @@ public struct LocationCondition: AOperationCondition {
 		var services = servicesAvailability
 		services.insert(.locationServicesEnabled)
 		self.servicesAvailability = services
-    }
-    
-	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-        return LocationPermissionOperation(usage: usage)
+        self.dependentOperation = LocationPermissionOperation(usage: usage)
     }
     
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {

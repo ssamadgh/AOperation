@@ -39,6 +39,8 @@ public struct UserNotificationCondition: AOperationCondition {
     static let desiredSettings = "DesiredUserNotificationSettigns"
 	public static let isMutuallyExclusive = false
     
+    public var dependentOperation: AOperation?
+    
     let settings: UIUserNotificationSettings
     let application: UIApplication
     let behavior: Behavior
@@ -62,11 +64,9 @@ public struct UserNotificationCondition: AOperationCondition {
         self.settings = settings
         self.application = application
         self.behavior = behavior
+        self.dependentOperation = UserNotificationPermissionOperation(settings: settings, application: application, behavior: behavior)
     }
     
-	public func dependencyForOperation(_ operation: AOperation) -> Foundation.Operation? {
-        return UserNotificationPermissionOperation(settings: settings, application: application, behavior: behavior)
-    }
     
 	public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         let result: OperationConditionResult

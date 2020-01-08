@@ -18,6 +18,8 @@ public struct SilentCondition<T: AOperationCondition>: AOperationCondition {
     
     let condition: T
     
+    public var dependentOperation: AOperation?
+    
 	public static var key: String {
         return "Silent<\(T.key)>"
     }

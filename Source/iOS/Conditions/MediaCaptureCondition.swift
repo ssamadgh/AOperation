@@ -40,13 +40,12 @@ public struct MediaCaptureCondition: AOperationCondition {
     
     public static var isMutuallyExclusive: Bool = false
     
+    public var dependentOperation: AOperation?
+    
     /// Initializes `MediaCaptureCondition` with the given media type
     public init(mediaType: AVMediaType) {
         self.mediaType = mediaType
-    }
-    
-    public func dependencyForOperation(_ operation: AOperation) -> Operation? {
-        return MediaCapturePermissionOperation(mediaType: self.mediaType)
+        self.dependentOperation = MediaCapturePermissionOperation(mediaType: self.mediaType)
     }
     
     public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {

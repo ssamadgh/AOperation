@@ -119,6 +119,17 @@ open class AOperation: Foundation.Operation {
 		}
 	}
 	
+    
+    /// Prevents any operation with same type to added to queue while this operation is in.
+    /// - Note: Changing this property after adding operation to queue produces undefined behavior and so results a fatalError.
+//    public var isUnique: Bool = false {
+//        didSet {
+//            if state > .initialized {
+//                fatalError("Changing `isUnique` property of an operation after adding it to the queue produces undefined behavior")
+//            }
+//        }
+//    }
+	
 	/**
 	Indicates that the AOperation can now begin to evaluate readiness conditions,
 	if appropriate.
@@ -308,7 +319,7 @@ open class AOperation: Foundation.Operation {
 				observer.operationDidStart(self)
 			}
 			
-			if AOperationDebugger.printOperationsState {
+			if AOperation.Debugger.printOperationsState {
 				print("AOperation \(type(of: self)) executed")
 			}
 			
@@ -331,13 +342,15 @@ open class AOperation: Foundation.Operation {
 	*/
 	open func execute() {
 		
-		if AOperationDebugger.printOperationsState {
+		if AOperation.Debugger.printOperationsState {
 			print("\(type(of: self)) must override `execute()`.")
 		}
 		
 		finish()
 	}
 	
+    public private(set) var finishedErrors: [AOperationError]?
+    
 	fileprivate var _internalErrors = [AOperationError]()
 	
 	override open func cancel() {
@@ -348,7 +361,7 @@ open class AOperation: Foundation.Operation {
 		if !_cancelled {
 			_cancelled = true
 			
-			if AOperationDebugger.printOperationsState {
+			if AOperation.Debugger.printOperationsState {
 				print("AOperation \(type(of: self)) cancelled")
 			}
 			
@@ -400,9 +413,10 @@ open class AOperation: Foundation.Operation {
 			state = .finishing
 			
 			let combinedErrors = _internalErrors + errors
+            self.finishedErrors = combinedErrors
 			finished(combinedErrors)
 			
-			if AOperationDebugger.printOperationsState {
+			if AOperation.Debugger.printOperationsState {
 				print("AOperation \(type(of: self)) finished")
 			}
 			
@@ -416,9 +430,7 @@ open class AOperation: Foundation.Operation {
 	
 	/**
 	Subclasses may override `finished(_:)` if they wish to react to the operation
-	finishing with errors. For example, the `LoadModelOperation` implements
-	this method to potentially inform the user about an error when trying to
-	bring up the Core Data stack.
+	finishing with errors.
 	*/
 	open func finished(_ errors: [AOperationError]) {
 		// No op.

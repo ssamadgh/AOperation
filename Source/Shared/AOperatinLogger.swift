@@ -1,5 +1,5 @@
 /**
-AOperationDebugger.swift
+AOperation.Debugger.swift
 ModelAssistant
 
 Copyright © 2018 Seyed Samad Gholamzadeh. All rights reserved.
@@ -24,11 +24,16 @@ THE SOFTWARE.
 */
 
 import Foundation
-/// A structure used to debug Aoperation
-public struct AOperationDebugger {
-    
-    /// Prints states of operations
-    ///
-    /// Set it true to track states of operations in Xcode Console
-	public static var printOperationsState: Bool = false
+
+extension AOperation {
+	
+	/// A structure used to debug Aoperation
+	public struct Debugger {
+		
+		/// Prints states of operations
+		///
+		/// Set it true to track states of operations in Xcode Console
+		public static var printOperationsState: Bool = false
+	}
+	
 }

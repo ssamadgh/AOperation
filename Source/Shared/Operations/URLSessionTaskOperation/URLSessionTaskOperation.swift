@@ -66,7 +66,7 @@ public class URLSessionTaskOperation: AOperation {
 	}
 	
 	deinit {
-		if AOperationDebugger.printOperationsState {
+		if AOperation.Debugger.printOperationsState {
 			print("\(type(of: self)) deinited")
 		}
 	}

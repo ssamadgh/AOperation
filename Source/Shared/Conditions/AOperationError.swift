@@ -38,13 +38,25 @@ public struct AOperationError: LocalizedError, Equatable {
     
     /// Returns an error with executionFailed state and given info.
     /// - Parameter info: The error’s info dictionary.
-	public static func executionFailed(with info: [Info : Any?]?) -> AOperationError {
+	public static func executionFailed(for operation: AOperation? = nil, with info: [Info : Any?]?) -> AOperationError {
+		
+		var info = info
+		if operation != nil, info?[.key] == nil {
+			info?[.key] = operation?.name
+		}
+		
 		return AOperationError(state: .executionFailed, info: info)
 	}
 	
     /// Returns an error with conditionFailed state and given info.
     /// - Parameter info: The error’s info dictionary.
-	public static func conditionFailed(with info: [Info : Any?]?) -> AOperationError {
+	public static func conditionFailed(for condition: AOperationCondition? = nil, with info: [Info : Any?]?) -> AOperationError {
+		
+		var info = info
+		if condition != nil, info?[.key] == nil {
+			info?[.key] = type(of: condition!).key
+		}
+		
 		return AOperationError(state: .conditionFailed, info: info)
 	}
     
@@ -58,6 +70,12 @@ public struct AOperationError: LocalizedError, Equatable {
     public var failureReason: String? {
         return self.info?[.reason] as? String
     }
+	
+    /// Retrieve the key for the error.
+    public var key: String? {
+        return self.info?[.key] as? String
+    }
+
 
 }
 
