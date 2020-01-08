@@ -44,10 +44,8 @@ class UniqueOperationTest: XCTestCase {
 	
 	func testAddingTwoRegularOperationsWhichOneSetUnique() {
 		
-		let firstOperation = TestRegularOperation()
+		let firstOperation = TestUniqueOperation()
 		let secondOperation = TestRegularOperation()
-
-		firstOperation.isUnique = true
 
 		let expect = expectation(description: "test unique operaions")
 		expect.expectedFulfillmentCount = 1
@@ -108,11 +106,12 @@ fileprivate class TestRegularOperation: AOperation {
 	
 }
 
-fileprivate class TestUniqueOperation: AOperation {
+fileprivate class TestUniqueOperation: AOperation, UniqueOperation {
+	
+	var uniqueId: String = "Extremely Unique"
 	
 	override init() {
 		super.init()
-		self.isUnique = true
 	}
 	
 	override func execute() {
