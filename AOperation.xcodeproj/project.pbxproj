@@ -85,6 +85,7 @@
 		E44DE18A2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
 		E44DE18B2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
 		E44DE18C2233146B008DE9C2 /* ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */; };
+		E45B803B23C58A3B00D3FB9A /* UniqueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45B803A23C58A3B00D3FB9A /* UniqueOperation.swift */; };
 		E4638AFF21FD97BF00656820 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */; };
 		E4638B0021FD97BF00656820 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */; };
 		E4638B0121FD97BF00656820 /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */; };
@@ -172,6 +173,7 @@
 		E423535C217FC76D00888C92 /* DelayOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayOperation.swift; sourceTree = "<group>"; };
 		E44DE1842232F275008DE9C2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E44DE1892233146B008DE9C2 /* ReachabilityCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityCondition.swift; sourceTree = "<group>"; };
+		E45B803A23C58A3B00D3FB9A /* UniqueOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueOperation.swift; sourceTree = "<group>"; };
 		E4638AFE21FD97BF00656820 /* Dictionary+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Operations.swift"; sourceTree = "<group>"; };
 		E4638B0321FD97D200656820 /* UIUserNotifications+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIUserNotifications+Operations.swift"; sourceTree = "<group>"; };
 		E4638B0521FD9ABC00656820 /* UserNotificationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationCondition.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				E406114621652A9B0084AC98 /* GroupOperation.swift */,
 				E4AE3BC2228B497D004216D8 /* OrderedGroupOperation.swift */,
 				E406114721652A9B0084AC98 /* AOperation.swift */,
+				E45B803A23C58A3B00D3FB9A /* UniqueOperation.swift */,
 				E935461A23993B9B004AE759 /* ResultableOperations */,
 				E406114821652A9B0084AC98 /* BlockAOperation.swift */,
 				E423535C217FC76D00888C92 /* DelayOperation.swift */,
@@ -724,6 +727,7 @@
 				E41EB6402314563500B714DE /* URLSessionDataTaskOperation.swift in Sources */,
 				E44DE1852232F276008DE9C2 /* Reachability.swift in Sources */,
 				E406118721652A9B0084AC98 /* AOperationObserver.swift in Sources */,
+				E45B803B23C58A3B00D3FB9A /* UniqueOperation.swift in Sources */,
 				E41EB63E2314562200B714DE /* URLSessionUploadTaskOperation.swift in Sources */,
 				E93546182399354C004AE759 /* ResultableOperation.swift in Sources */,
 				E41EB63A23144ADE00B714DE /* URLSessionTaskManager.swift in Sources */,

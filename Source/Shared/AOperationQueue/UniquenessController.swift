@@ -21,32 +21,32 @@ class UniquenessController {
          */
     }
 
-    internal func addOperation(_ operation: AOperation) {
+    internal func addOperation(_ operation: AOperation & UniqueOperation) {
         /*
          This needs to be a synchronous operation.
          If this were async, then we might not get around to adding dependencies
          until after the operation had already begun, which would be incorrect.
          */
         serialQueue.sync {
-			self.operationsKey.insert(type(of: operation).key)
+			self.operationsKey.insert(operation.uniqueId)
         }
     }
 
     /// Unregisters an operation from being mutually exclusive.
-    internal func removeOperation(_ operation: AOperation) {
+    internal func removeOperation(_ operation: AOperation & UniqueOperation) {
         serialQueue.async {
-			self.operationsKey.remove(type(of: operation).key)
+			self.operationsKey.remove(operation.uniqueId)
         }
     }
 	
-	internal func contains(_ operation: AOperation) -> Bool {
+	internal func contains(_ operation: AOperation & UniqueOperation) -> Bool {
         /*
          This needs to be a synchronous operation.
          If this were async, then we might not get around to adding dependencies
          until after the operation had already begun, which would be incorrect.
          */
 		serialQueue.sync {
-			self.operationsKey.contains(type(of: operation).key)
+			self.operationsKey.contains(operation.uniqueId)
         }
     }
 	

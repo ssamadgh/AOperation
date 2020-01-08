@@ -41,12 +41,17 @@ public class AOperationQueue: Foundation.OperationQueue {
 
 	override public func addOperation(_ op: Foundation.Operation) {
         if let op = op as? AOperation {
-			if UniquenessController.shared.contains(op) {
-				if AOperation.Debugger.printOperationsState {
-					print("AOperation \(type(of: op)) canceled because of uniqueness")
+			
+			if op is UniqueOperation {
+				if UniquenessController.shared.contains(op as! (AOperation & UniqueOperation)) {
+					if AOperation.Debugger.printOperationsState {
+						print("AOperation \(type(of: op)) canceled because of uniqueness by id \((op as! (AOperation & UniqueOperation)).uniqueId)")
+					}
+					return
 				}
-				return
 			}
+			
+		
             // Set up a `BlockObserver` to invoke the `AOperationQueueDelegate` method.
             let delegate = BlockObserver(
                 startHandler: nil,
@@ -95,10 +100,10 @@ public class AOperationQueue: Foundation.OperationQueue {
 
             }
 			
-			if op.isUnique {
-				UniquenessController.shared.addOperation(op)
+			if op is UniqueOperation {
+				UniquenessController.shared.addOperation(op as! (AOperation & UniqueOperation))
 				op.addObserver(BlockObserver(startHandler: nil, produceHandler: nil, finishHandler: { (operation, _) in
-					UniquenessController.shared.removeOperation(operation)
+					UniquenessController.shared.removeOperation(operation as! (AOperation & UniqueOperation))
 				}))
 			}
 
