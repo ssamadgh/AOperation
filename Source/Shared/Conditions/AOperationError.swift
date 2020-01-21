@@ -76,7 +76,10 @@ public struct AOperationError: LocalizedError, Equatable {
         return self.info?[.key] as? String
     }
 
-
+    public var errorCode: Int? {
+        return self.info?[.errorCode] as? Int
+    }
+    
 }
 
 
