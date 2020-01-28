@@ -119,6 +119,12 @@
 		E935461C23993BBA004AE759 /* ResultableGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935461B23993BBA004AE759 /* ResultableGroupOperation.swift */; };
 		E935461E23993C9E004AE759 /* ResultableOrderedGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935461D23993C9E004AE759 /* ResultableOrderedGroupOperation.swift */; };
 		E99E02052314F8CA003B2792 /* UIImagePickerAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E02042314F8C9003B2792 /* UIImagePickerAvailabilityCondition.swift */; };
+		E9C3146D23DFFF700096D070 /* UniqueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45B803A23C58A3B00D3FB9A /* UniqueOperation.swift */; };
+		E9C3146F23DFFF710096D070 /* UniqueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45B803A23C58A3B00D3FB9A /* UniqueOperation.swift */; };
+		E9C3147023DFFF730096D070 /* UniqueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45B803A23C58A3B00D3FB9A /* UniqueOperation.swift */; };
+		E9C3147123DFFF830096D070 /* UniquenessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE32E9239AEA06002B1DA1 /* UniquenessController.swift */; };
+		E9C3147223DFFF830096D070 /* UniquenessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE32E9239AEA06002B1DA1 /* UniquenessController.swift */; };
+		E9C3147323DFFF840096D070 /* UniquenessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE32E9239AEA06002B1DA1 /* UniquenessController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -764,6 +770,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C3146D23DFFF700096D070 /* UniqueOperation.swift in Sources */,
 				E406119821652A9B0084AC98 /* ExclusivityController.swift in Sources */,
 				E423535E217FC76D00888C92 /* DelayOperation.swift in Sources */,
 				E4638B0021FD97BF00656820 /* Dictionary+Operations.swift in Sources */,
@@ -772,6 +779,7 @@
 				E4F57BE022018EE0005323DD /* TimeoutObserver.swift in Sources */,
 				E406118021652A9B0084AC98 /* AOperationCondition.swift in Sources */,
 				E406118821652A9B0084AC98 /* AOperationObserver.swift in Sources */,
+				E9C3147123DFFF830096D070 /* UniquenessController.swift in Sources */,
 				E406116421652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E4F57BD722015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
 				E40611A721652B2A0084AC98 /* AOperatinLogger.swift in Sources */,
@@ -793,6 +801,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C3146F23DFFF710096D070 /* UniqueOperation.swift in Sources */,
 				E406119921652A9B0084AC98 /* ExclusivityController.swift in Sources */,
 				E423535F217FC76D00888C92 /* DelayOperation.swift in Sources */,
 				E4638B0121FD97BF00656820 /* Dictionary+Operations.swift in Sources */,
@@ -800,6 +809,7 @@
 				E4F57BD422015DD6005323DD /* NegatedCondition.swift in Sources */,
 				E4F57BE122018EE0005323DD /* TimeoutObserver.swift in Sources */,
 				E406118121652A9B0084AC98 /* AOperationCondition.swift in Sources */,
+				E9C3147223DFFF830096D070 /* UniquenessController.swift in Sources */,
 				E406118921652A9B0084AC98 /* AOperationObserver.swift in Sources */,
 				E406116521652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E4F57BD822015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
@@ -831,9 +841,11 @@
 				E4F57BE222018EE0005323DD /* TimeoutObserver.swift in Sources */,
 				E406118221652A9B0084AC98 /* AOperationCondition.swift in Sources */,
 				E406118A21652A9B0084AC98 /* AOperationObserver.swift in Sources */,
+				E9C3147023DFFF730096D070 /* UniqueOperation.swift in Sources */,
 				E406116621652A9B0084AC98 /* GroupOperation.swift in Sources */,
 				E40611A921652B2A0084AC98 /* AOperatinLogger.swift in Sources */,
 				E406116E21652A9B0084AC98 /* BlockAOperation.swift in Sources */,
+				E9C3147323DFFF840096D070 /* UniquenessController.swift in Sources */,
 				E4F57BD922015DD6005323DD /* NoCancelledDependencies.swift in Sources */,
 				E406119621652A9B0084AC98 /* AOperationQueue.swift in Sources */,
 				E4235360217FC76D00888C92 /* DelayOperation.swift in Sources */,

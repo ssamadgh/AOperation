@@ -462,7 +462,7 @@ open class AOperation: Foundation.Operation {
 	}
 	
 	
-	public final func observeDidFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
+	public func observeDidFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
 		
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		

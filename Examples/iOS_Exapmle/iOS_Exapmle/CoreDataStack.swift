@@ -70,20 +70,21 @@ class InitializeCoreDataStackOperation: AOperation {
 }
 
 struct CoreDataStackAvailablity: AOperationCondition {
+    
+    
+    var dependentOperation: AOperation?
+    
 	
 	let modelName: String
 	
 	init(modelName: String) {
 		self.modelName = modelName
+        self.dependentOperation = InitializeCoreDataStackOperation(modelName: modelName)
 	}
 	
 //	static var key: String = "CoreDataStackAvailablity"
 	
 	static var isMutuallyExclusive: Bool = true
-	
-	func dependencyForOperation(_ operation: AOperation) -> Operation? {
-		return InitializeCoreDataStackOperation(modelName: modelName)
-	}
 	
 	func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
 		let result: OperationConditionResult

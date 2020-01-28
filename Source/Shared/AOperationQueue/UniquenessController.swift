@@ -27,7 +27,7 @@ class UniquenessController {
          If this were async, then we might not get around to adding dependencies
          until after the operation had already begun, which would be incorrect.
          */
-        serialQueue.sync {
+        serialQueue.async {
 			self.operationsKey.insert(operation.uniqueId)
         }
     }

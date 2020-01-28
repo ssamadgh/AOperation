@@ -15,6 +15,10 @@ open class ResultableGroupOperation<T>: GroupOperation {
         self.resultCompletion = completion
     }
     
+    public override func observeDidFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
+        fatalError("Use `public final func didFinishWithResult(_ completion: @escaping (Result<T, AOperationError>) -> Void)` Instead")
+    }
+    
     public final func finish(with result: Result<T, AOperationError>) {
         self.resultCompletion?(result)
     }

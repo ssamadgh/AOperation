@@ -50,14 +50,13 @@ extension LoginCondition {
 }
 
 struct LoginCondition: AOperationCondition {
+    
+    var dependentOperation: AOperation? = LoginOperation()
+    
 	
 	static var key: String = "Login"
 	
 	static var isMutuallyExclusive: Bool = true
-	
-	func dependencyForOperation(_ operation: AOperation) -> Operation? {
-		return LoginOperation()
-	}
 	
 	func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
 		
