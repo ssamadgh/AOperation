@@ -6,6 +6,8 @@
  This file shows how to present an alert as part of an operation.
  */
 
+#if os(iOS)
+
 import UIKit
 
 /// An Operation that presents a UIAlertController on top view controller or the given view controller.
@@ -115,3 +117,5 @@ extension UIApplication {
 	}
 
 }
+
+#endif

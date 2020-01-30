@@ -9,6 +9,8 @@ Abstract:
 Contains the code to manage the visibility of the network activity indicator
 */
 
+#if os(iOS)
+
 import UIKit
 
 /**
@@ -124,3 +126,5 @@ public class AOperationTimer {
 		isCanceled = true
 	}
 }
+
+#endif

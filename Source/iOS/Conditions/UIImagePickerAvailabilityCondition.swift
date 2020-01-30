@@ -6,6 +6,8 @@
 //  Copyright © 2019 Seyed Samad Gholamzadeh. All rights reserved.
 //
 
+#if os(iOS)
+
 import Foundation
 import UIKit
 
@@ -70,3 +72,5 @@ public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     
     
 }
+
+#endif

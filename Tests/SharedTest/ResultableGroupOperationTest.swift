@@ -5,6 +5,8 @@
 //  Created by Seyed Samad Gholamzadeh on 12/6/19.
 //
 
+#if os(iOS) || os(macOS) || os(tvOS)
+
 import XCTest
 import AOperation
 
@@ -241,3 +243,5 @@ fileprivate class SuccedFetchedGroupOperation: ResultableGroupOperation<User> {
 	}
 	
 }
+
+#endif

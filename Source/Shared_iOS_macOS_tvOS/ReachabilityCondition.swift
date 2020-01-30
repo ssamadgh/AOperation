@@ -9,6 +9,7 @@ Abstract:
 This file is about ReachabilityCondition which implementing the OperationCondition protocol.
 
 */
+#if os(iOS) || os(macOS) || os(tvOS)
 
 import Foundation
 
@@ -205,3 +206,5 @@ private class ReachabilityOperation: AOperation {
 
 
 }
+
+#endif

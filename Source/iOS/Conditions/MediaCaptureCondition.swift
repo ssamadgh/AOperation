@@ -6,9 +6,12 @@
 //  Copyright © 2019 PakkCharkhIranian. All rights reserved.
 //
 
+#if os(iOS) || os(macOS)
+
 import Foundation
 import AVFoundation
 
+@available(OSX 10.14, *)
 extension AOperationError {
     public func map(to type: MediaCaptureCondition.Error.Type) -> MediaCaptureCondition.Error? {
         guard (self.info?[.key] as? String) == MediaCaptureCondition.key,
@@ -21,6 +24,7 @@ extension AOperationError {
     }
 }
 
+@available(OSX 10.14, *)
 extension MediaCaptureCondition {
     struct ErrorInfo {
         static let notAvailableMediaType = AOperationError.Info(rawValue: "mediaType")
@@ -32,6 +36,7 @@ extension MediaCaptureCondition {
 }
 
 /// A condition for verifying media types availability on device.
+@available(OSX 10.14, *)
 public struct MediaCaptureCondition: AOperationCondition {
     
     let mediaType: AVMediaType
@@ -65,7 +70,7 @@ public struct MediaCaptureCondition: AOperationCondition {
 }
 
 
-
+@available(OSX 10.14, *)
 private class MediaCapturePermissionOperation: AOperation {
 
     let mediaType: AVMediaType
@@ -87,3 +92,5 @@ private class MediaCapturePermissionOperation: AOperation {
     }
     
 }
+
+#endif

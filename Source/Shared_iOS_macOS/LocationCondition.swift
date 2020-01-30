@@ -5,6 +5,7 @@ See LICENSE.txt for this sample’s licensing information
 Abstract:
 This file is about LocationCondition which implementing the OperationCondition protocol.
 */
+#if os(iOS) || os(macOS)
 
 import CoreLocation
 
@@ -55,11 +56,9 @@ public struct LocationCondition: AOperationCondition {
 		
 		case locationServicesEnabled
 		
-		#if os(iOS) || os(macOS)
 		case significantLocationChangeMonitoringAvailable
 		case monitoringAvailable(forRegionClass: AnyClass)
 		case headingAvailable
-		#endif
 		
 		#if os(iOS)
 		case rangingAvailable
@@ -244,3 +243,5 @@ extension LocationPermissionOperation: CLLocationManagerDelegate {
         }
     }
 }
+
+#endif

@@ -6,6 +6,8 @@
  This file shows an example of implementing the OperationCondition protocol.
  */
 
+#if os(iOS) || os(macOS) || os(tvOS)
+
 import Foundation
 import SystemConfiguration
 
@@ -94,3 +96,4 @@ private class ReachabilityController {
     }
 }
 
+#endif
