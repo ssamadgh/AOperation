@@ -164,13 +164,13 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	}()
 	
 	
-	func transportTask(kind: TaskKind, for request: URLRequest) -> URLSessionTask {
+	func transportTask(kind: TaskKind, for request: URLRequest) -> URLSessionTask? {
 		
 		switch kind {
 		case .data:
 			
-			let task = session.dataTask(with: request)
-			return task
+//			let task = session.dataTask(with: request)
+			return nil
 			
 		case .download:
 			

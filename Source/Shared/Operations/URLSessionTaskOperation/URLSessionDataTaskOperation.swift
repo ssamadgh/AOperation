@@ -11,9 +11,9 @@ public class URLSessionDataTaskOperation: URLSessionTaskOperation {
 	
 	init(request: URLRequest) {
 		super.init(kind: .data, for: request)
-		URLSessionTaskManager.shared.didFinishDataTask(withIdentifier: self.task.taskIdentifier) { (_, _, _) in
-            self.finishWithError(nil)
-		}
+//		URLSessionTaskManager.shared.didFinishDataTask(withIdentifier: self.task.taskIdentifier) { (_, _, _) in
+//            self.finishWithError(nil)
+//		}
 	}
 	
     /**
@@ -35,7 +35,7 @@ public class URLSessionDataTaskOperation: URLSessionTaskOperation {
 
      */
 	public func didFinish(_ handler: @escaping DataResponseOperationBlock) {
-        let request = self.task.originalRequest!
+        let request = self.request
         let task = URLSessionTaskManager.shared.didFinishDataTask(withRequest: request) { (data, response, error) in
             handler(data, response, error) { error in
                 self.finishWithError(error)

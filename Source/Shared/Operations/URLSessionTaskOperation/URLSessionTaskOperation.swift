@@ -20,6 +20,8 @@ into an operation.
 */
 public class URLSessionTaskOperation: AOperation {
 	
+    internal var request: URLRequest
+    
 	var task: URLSessionTask!
 	
     /**
@@ -50,18 +52,18 @@ public class URLSessionTaskOperation: AOperation {
 	}
     
 	init(kind: URLSessionTaskManager.TaskKind, for request: URLRequest) {
+        self.request = request
 		super.init()
-		
-		let task = URLSessionTaskManager.shared.transportTask(kind: kind, for: request)
-		self.task = task
+        if let task = URLSessionTaskManager.shared.transportTask(kind: kind, for: request) {
+            self.task = task
 
+            assert(task.state == .suspended, "Tasks must be suspended.")
+        }
+        
 		#if os(iOS)
 		let networkObserver = NetworkObserver()
 		self.addObserver(networkObserver)
 		#endif
-		
-		
-		assert(task.state == .suspended, "Tasks must be suspended.")
 		
 	}
 	
