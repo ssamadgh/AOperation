@@ -22,7 +22,7 @@ $ gem install cocoapods
 To integrate AOperation into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-source 'https://github.com/ssamadgh/AOperationPod.git'
+
 platform :ios, '10.0'
 use_frameworks!
 
