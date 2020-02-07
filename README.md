@@ -5,7 +5,12 @@
  A wrapper on Operation and OperationQueue classes which gives some more power to you in using them.
 
 
-[![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/) [![Twitter](https://img.shields.io/badge/twitter-@ssamadgh-blue.svg?style=flat)](https://twitter.com/ssamadgh)
+[![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![license MIT](https://img.shields.io/cocoapods/l/AOperation.svg)](https://github.com/ssamadgh/AOperation/blob/master/LICENSE)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/AOperation.svg)](https://img.shields.io/cocoapods/v/AOperation.svg)
+[![Platform](https://img.shields.io/cocoapods/p/AOperation.svg?style=flat)](https://ssamadgh.github.io/AOperation)
+[![codebeat badge](https://codebeat.co/badges/b9643fd8-9f23-49e6-82ae-f43de233ca8a)](https://codebeat.co/projects/github-com-ssamadgh-aoperation-master)
+[![Twitter](https://img.shields.io/badge/twitter-@ssamadgh-blue.svg?style=flat)](https://twitter.com/ssamadgh)
 
 
 
