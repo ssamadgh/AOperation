@@ -11,55 +11,55 @@ import XCTest
 import AOperation
 
 class ResultableOrderedGroupOperationTest: XCTestCase {
-
-	let operationQueue = AOperationQueue()
-
+    
+    let operationQueue = AOperationQueue()
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
-	func testOrderedGroupResultableOperationWithFirstFailedOperation() {
-		let expect = expectation(description: "testOrderedGroupResultableOperationWithFirstFailedOperation")
-		let operation = ResultableOrderedGroupOperation<Any>(operations: [FirstFailedOperation(), SecondFailedOperation()])
-		
-		operation.didFinishWithResult { (result) in
-			
-			switch result {
-			case let .failure(error):
-				assert(error.failureReason == FirstFailedOperation.uuid.uuidString)
-				expect.fulfill()
-				
-			default:
-				break
-			}
-			
-		}
-		
-		self.operationQueue.addOperation(operation)
-		wait(for: [expect], timeout: 10)
-	}
-	
-	func testOrderedGroupResultableOperationWithSecondFailedOperation() {
-		let expect = expectation(description: "testOrderedGroupResultableOperationWithFirstFailedOperation")
-		let operation = ResultableOrderedGroupOperation<Any>(operations: [SecondFailedOperation(), FirstFailedOperation()])
-		
-		operation.didFinishWithResult { (result) in
-			
-			switch result {
-			case let .failure(error):
-				assert(error.failureReason == SecondFailedOperation.uuid.uuidString)
-				expect.fulfill()
-				
-			default:
-				break
-			}
-			
-		}
-		
-		self.operationQueue.addOperation(operation)
-		wait(for: [expect], timeout: 10)
-	}
-	
+    
+    func testOrderedGroupResultableOperationWithFirstFailedOperation() {
+        let expect = expectation(description: "testOrderedGroupResultableOperationWithFirstFailedOperation")
+        let operation = ResultableOrderedGroupOperation<Any>(operations: [FirstFailedOperation(), SecondFailedOperation()])
+        
+        operation.didFinishWithResult { (result) in
+            
+            switch result {
+            case let .failure(error):
+                assert(error.failureReason == FirstFailedOperation.uuid.uuidString)
+                expect.fulfill()
+                
+            default:
+                break
+            }
+            
+        }
+        
+        self.operationQueue.addOperation(operation)
+        wait(for: [expect], timeout: 10)
+    }
+    
+    func testOrderedGroupResultableOperationWithSecondFailedOperation() {
+        let expect = expectation(description: "testOrderedGroupResultableOperationWithFirstFailedOperation")
+        let operation = ResultableOrderedGroupOperation<Any>(operations: [SecondFailedOperation(), FirstFailedOperation()])
+        
+        operation.didFinishWithResult { (result) in
+            
+            switch result {
+            case let .failure(error):
+                assert(error.failureReason == SecondFailedOperation.uuid.uuidString)
+                expect.fulfill()
+                
+            default:
+                break
+            }
+            
+        }
+        
+        self.operationQueue.addOperation(operation)
+        wait(for: [expect], timeout: 10)
+    }
+    
 }
 
 fileprivate class FirstFailedOperation: AOperation {

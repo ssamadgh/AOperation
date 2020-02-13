@@ -174,7 +174,7 @@ fileprivate class FetchUserOperation: ResultableOperation<User> {
 		} catch {
 			
 			let operationError = AOperationError.executionFailed(with: [.key : Self.key, .localizedDescription : error.localizedDescription])
-			self.finishWithError(operationError)
+            self.finish(with: .failure(operationError))
 		}
 	}
 	
