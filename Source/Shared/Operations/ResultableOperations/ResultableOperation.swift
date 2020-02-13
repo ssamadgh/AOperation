@@ -9,6 +9,7 @@ import Foundation
 
 open class ResultableOperation<T>: AOperation {
     
+    private var finishedResult: Result<T, AOperationError>?
     private var resultCompletion: ((Result<T, AOperationError>) -> Void)?
     
     public final func didFinishWithResult(_ completion: @escaping (Result<T, AOperationError>) -> Void) {
@@ -19,15 +20,36 @@ open class ResultableOperation<T>: AOperation {
         fatalError("Use `public final func didFinishWithResult(_ completion: @escaping (Result<T, AOperationError>) -> Void)` Instead")
     }
     
-    public final func finish(with result: Result<T, AOperationError>) {
+    private func privateFinish(with result: Result<T, AOperationError>) {
         self.resultCompletion?(result)
+    }
+    
+    public final func finish(with result: Result<T, AOperationError>) {
+        self.finishedResult = result
+        
+        var opError: AOperationError?
+        switch result {
+        case let .failure(error):
+            opError = error
+        default:
+            break
+        }
+        
+        self.finishWithError(opError)
     }
     
     
     open override func finished(_ errors: [AOperationError]) {
         if let error = errors.first {
             let result: Result<T, AOperationError> = .failure(error)
-            self.finish(with: result)
+            self.privateFinish(with: result)
+        }
+        else {
+            
+            if let result = self.finishedResult {
+                self.privateFinish(with: result)
+            }
         }
     }
+    
 }
