@@ -47,7 +47,7 @@ public class BlockAOperation: AOperation {
     }
 
 	override public func execute() {
-        guard let block = block else {
+        guard let block = block, !isCancelled else {
             finish()
             return
         }
