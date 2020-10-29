@@ -29,11 +29,11 @@ class UniqueOperationTest: XCTestCase {
 		expect.expectedFulfillmentCount = 2
 		expect.assertForOverFulfill = true
 		
-		firstOperation.observeDidFinish { (errors) in
+		firstOperation.didFinish { (errors) in
 			expect.fulfill()
 		}
 		
-		secondOperation.observeDidFinish { (errors) in
+		secondOperation.didFinish { (errors) in
 			expect.fulfill()
 		}
 
@@ -50,14 +50,14 @@ class UniqueOperationTest: XCTestCase {
 		let secondOperation = TestRegularOperation()
 
 		let expect = expectation(description: "test unique operaions")
-		expect.expectedFulfillmentCount = 1
+		expect.expectedFulfillmentCount = 2
 		expect.assertForOverFulfill = true
 		
-		firstOperation.observeDidFinish { (errors) in
+		firstOperation.didFinish { (errors) in
 			expect.fulfill()
 		}
 		
-		secondOperation.observeDidFinish { (errors) in
+		secondOperation.didFinish { (errors) in
 			expect.fulfill()
 		}
 
@@ -77,11 +77,11 @@ class UniqueOperationTest: XCTestCase {
 		expect.expectedFulfillmentCount = 1
 		expect.assertForOverFulfill = true
 		
-		firstOperation.observeDidFinish { (errors) in
+		firstOperation.didFinish { (errors) in
 			expect.fulfill()
 		}
 		
-		secondOperation.observeDidFinish { (errors) in
+		secondOperation.didFinish { (errors) in
 			expect.fulfill()
 		}
 

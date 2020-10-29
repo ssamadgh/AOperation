@@ -16,7 +16,7 @@ open class ResultableOperation<T>: AOperation {
         self.resultCompletion = completion
     }
     
-    public override func observeDidFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
+    public override func didFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
         fatalError("Use `public final func didFinishWithResult(_ completion: @escaping (Result<T, AOperationError>) -> Void)` Instead")
     }
     

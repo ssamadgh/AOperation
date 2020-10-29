@@ -11,6 +11,7 @@ A convenient extension to UIKit.UIUserNotificationSettings.
 import UIKit
 import UserNotifications
 
+@available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
 extension UIUserNotificationSettings {
     
     /// Check to see if one Settings object is a superset of another Settings object.

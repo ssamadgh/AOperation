@@ -37,16 +37,16 @@ class CommentViewController: UIViewController {
 					self.commentLabel.text = "Comment added to the post"
 					self.commentLabel.textColor = .gray
 				}
-
+				
 				let op = BlockAOperation(mainQueueBlock: {
 					self.commentLabel.alpha = 1
 				})
-				op.addObserver(BlockObserver { _, error in
+				op.didFinish { (errors) in
 					UIView.animate(withDuration: 3, animations: {
-					self.commentLabel.alpha = 0
+						self.commentLabel.alpha = 0
 					})
-				})
-				op.waitUntilFinished()
+				}
+				
 				self.presenter.addOperation(op)
 			}
 			

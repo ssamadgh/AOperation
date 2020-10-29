@@ -10,6 +10,7 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import UIKit
 
+@available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
 extension UserNotificationCondition {
 	public struct ErrorInfo {
 		static let currentSettings = AOperationError.Info(rawValue: "CurrentUserNotificationSettings")

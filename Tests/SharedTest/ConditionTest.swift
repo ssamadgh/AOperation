@@ -24,7 +24,7 @@ class ConditionTest: XCTestCase {
 		let operation = TestOperation()
 		operation.addCondition(FailedCondition())
 		
-		operation.observeDidFinish { (errors) in
+		operation.didFinish { (errors) in
 			
 			guard
 				let error = errors.first,
@@ -54,7 +54,7 @@ class ConditionTest: XCTestCase {
 		let operation = TestOperation()
 		operation.addCondition(SucceedCondition())
 		
-		operation.observeDidFinish { (errors) in
+		operation.didFinish { (errors) in
 			
 			if let error = errors.first,
 				error.state == .conditionFailed {
@@ -79,7 +79,7 @@ class ConditionTest: XCTestCase {
 		let operation = TestOperation()
 		operation.addCondition(FailedConditionWithItsDefinedError())
 		
-		operation.observeDidFinish { (errors) in
+		operation.didFinish { (errors) in
 			
 			guard
 				let error = errors.first,

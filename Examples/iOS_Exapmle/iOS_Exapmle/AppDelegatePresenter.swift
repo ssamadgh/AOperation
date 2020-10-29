@@ -24,10 +24,9 @@ class AppDelegatePresenter {
 			
 		}
 		op.addCondition(CoreDataStackAvailablity(modelName: modelName))
-		op.addObserver(BlockObserver { _ , errors in
-            
+		op.didFinish { (errors) in
 			completion(errors.first)
-		})
+		}
 	}
 	
 }

@@ -451,7 +451,7 @@ open class AOperation: Foundation.Operation {
 		fatalError("Waiting on operations is an anti-pattern. Remove this ONLY if you're absolutely sure there is No Other Way™.")
 	}
 	
-	public final func observeDidStart(_ startHandler: @escaping (() -> Void)) {
+	public final func didStart(_ startHandler: @escaping (() -> Void)) {
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
 		self.addObserver(BlockObserver(startHandler: { op in
@@ -462,7 +462,7 @@ open class AOperation: Foundation.Operation {
 	}
 	
 	
-	public func observeDidFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
+	public func didFinish(_ finishHandler: @escaping (([AOperationError]) -> Void)) {
 		
 		let observer: BlockObserver? = self.removeExistingBlockObserver()
 		
