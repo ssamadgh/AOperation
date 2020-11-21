@@ -46,6 +46,13 @@ class EarthquakesTableViewController: UITableViewController {
         operationQueue.addOperation(operation)
     }
     
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		if let indexPath = self.tableView.indexPathForSelectedRow {
+			self.tableView.deselectRow(at: indexPath, animated: true)
+		}
+	}
+	
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0
     }
@@ -90,8 +97,8 @@ class EarthquakesTableViewController: UITableViewController {
         }
         
         operation.addCondition(MutuallyExclusive<UIViewController>())
-        
-        let blockObserver = BlockObserver { _, errors in
+		
+		operation.didFinish { (errors) in
             /*
              If the operation errored (ex: a condition failed) then the segue
              isn't going to happen. We shouldn't leave the row selected.
@@ -102,9 +109,8 @@ class EarthquakesTableViewController: UITableViewController {
                 }
             }
         }
-        
-        operation.addObserver(blockObserver)
-        
+          
+		
         operationQueue.addOperation(operation)
     }
     
