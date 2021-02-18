@@ -16,7 +16,7 @@ import AOperation
 class EarthquakeTableViewController: UITableViewController {
     // MARK: Properties
     
-    var queue: AOperationQueue?
+    var queue: AOperationQueue!
     var earthquake: Earthquake?
     var locationRequest: LocationOperation?
     
@@ -55,6 +55,7 @@ class EarthquakeTableViewController: UITableViewController {
         depthLabel.text = Earthquake.depthFormatter.string(fromMeters: earthquake.depth)
         timeLabel.text = Earthquake.timestampFormatter.string(from: earthquake.timestamp)
         
+		
         /*
              We can use a `LocationOperation` to retrieve the user's current locatioin.
              Once we have the location, we can compute how far they currently are
@@ -64,16 +65,21 @@ class EarthquakeTableViewController: UITableViewController {
              then the text in the `UILabel` will remain as what it is defined to
              be in the storyboard.
         */
-        let locationOperation = LocationOperation(accuracy: kCLLocationAccuracyKilometer) { (location) in
-            if let earthquakeLocation = self.earthquake?.location {
-                let distance = location.distance(from: earthquakeLocation)
-                self.distanceLabel.text = Earthquake.distanceFormatter.string(fromMeters: distance)
-            }
-            
-            self.locationRequest = nil
-        }
+		let locationOperation = LocationOperation(accuracy: kCLLocationAccuracyKilometer).didFinish({ (result) in
+			switch result {
+			case .success(let location):
+				if let earthquakeLocation = self.earthquake?.location {
+					let distance = location.distance(from: earthquakeLocation)
+					self.distanceLabel.text = Earthquake.distanceFormatter.string(fromMeters: distance)
+				}
+			default:
+				break
+			}
+			self.locationRequest = nil
+
+			})
+		.add(to: queue)
         
-        queue?.addOperation(locationOperation)
         locationRequest = locationOperation
     }
     
@@ -83,41 +89,40 @@ class EarthquakeTableViewController: UITableViewController {
         locationRequest?.cancel()
     }
     
-    @IBAction func shareEarthquake(_ sender: UIBarButtonItem) {
-        guard let earthquake = earthquake else { return }
-        guard let url = URL(string: earthquake.webLink) else { return }
-        
-        let location = earthquake.location
-        
-        let items = [url, location] as [Any]
-        
-        /*
-             We could present the share sheet manually, but by putting it inside
-             an `Operation`, we can make it mutually exclusive with other operations
-             that modify the view controller hierarchy.
-        */
-        let shareOperation = BlockAOperation { (continuation: @escaping () -> Void) in
-            DispatchQueue.main.async {
-                let shareSheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
-                
-                shareSheet.popoverPresentationController?.barButtonItem = sender
-                shareSheet.completionWithItemsHandler = { (_, _, _, _) in
-                    // End the operation when the share sheet completes.
-                    continuation()
-                }
-
-                self.present(shareSheet, animated: true, completion: nil)
-            }
-        }
-        
-        /*
-             Indicates that this operation modifies the View Controller hierarchy
-             and is thus mutually exclusive.
-        */
-        shareOperation.addCondition(MutuallyExclusive<UIViewController>())
-        
-        queue?.addOperation(shareOperation)
-    }
+	@IBAction func shareEarthquake(_ sender: UIBarButtonItem) {
+		guard let earthquake = earthquake else { return }
+		guard let url = URL(string: earthquake.webLink) else { return }
+		
+		let location = earthquake.location
+		
+		let items = [url, location] as [Any]
+		
+		/*
+		We could present the share sheet manually, but by putting it inside
+		an `Operation`, we can make it mutually exclusive with other operations
+		that modify the view controller hierarchy.
+		*/
+		AOperationBlock { (continuation: @escaping () -> Void) in
+			DispatchQueue.main.async {
+				let shareSheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
+				
+				shareSheet.popoverPresentationController?.barButtonItem = sender
+				shareSheet.completionWithItemsHandler = { (_, _, _, _) in
+					// End the operation when the share sheet completes.
+					continuation()
+				}
+				
+				self.present(shareSheet, animated: true, completion: nil)
+			}
+		}
+		
+		/*
+		Indicates that this operation modifies the View Controller hierarchy
+		and is thus mutually exclusive.
+		*/
+		.conditions(MutuallyExclusive<UIViewController>())
+		.add(to: queue)
+	}
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {

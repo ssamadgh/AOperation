@@ -12,10 +12,13 @@ import UIKit
 
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
 extension UserNotificationCondition {
-	public struct ErrorInfo {
-		static let currentSettings = AOperationError.Info(rawValue: "CurrentUserNotificationSettings")
-		static let desiredSettings = AOperationError.Info(rawValue: "DesiredUserNotificationSettigns")
+	
+	public struct Error: LocalizedError {
+		public let desiredUserNotificationSettings: UIUserNotificationSettings
 
+		public var errorDescription: String? {
+			"failed to register desired user notification settings \(String(describing: desiredUserNotificationSettings))"
+		}
 	}
 }
 
@@ -35,9 +38,6 @@ public struct UserNotificationCondition: AOperationCondition {
         case replace
     }
     
-	public static let key = "UserNotification"
-    static let currentSettings = "CurrentUserNotificationSettings"
-    static let desiredSettings = "DesiredUserNotificationSettigns"
 	public static let isMutuallyExclusive = false
     
     public var dependentOperation: AOperation?
@@ -76,19 +76,12 @@ public struct UserNotificationCondition: AOperationCondition {
 
         switch (current, settings)  {
             case (let current?, let settings) where current.contains(settings):
-                result = .satisfied
+                result = .success
 
             default:
 				
-				let errorInfo: [AOperationError.Info : Any?] =
-				[
-					.key : type(of: self).key,
-					UserNotificationCondition.ErrorInfo.currentSettings :  current,
-					UserNotificationCondition.ErrorInfo.desiredSettings: settings
-				]
-				let error = AOperationError.conditionFailed(with: errorInfo)
-				                
-                result = .failed(error)
+				let error = Error(desiredUserNotificationSettings: settings)
+                result = .failure(AOperationError(error))
         }
         
         completion(result)
@@ -112,7 +105,7 @@ private class UserNotificationPermissionOperation: AOperation {
         
         super.init()
 
-        addCondition(AlertPresentation())
+        conditions(AlertPresentation())
     }
     
     override func execute() {

@@ -9,12 +9,19 @@ The file shows how to make an OperationCondition that composes another Operation
 import Foundation
 
 extension NegatedCondition {
-	struct ErrorInfo {
-		static var inputConditionKey: AOperationError.Info {
-			return AOperationError.Info(rawValue: "NegatedConditionKey")
+
+	public struct Error: LocalizedError {
+		public let negatedConditionKey: String
+		
+		public var errorDescription: String? {
+			return "The condition \(negatedConditionKey) succeed"
+		}
+		
+		init(_ negatedConditionKey: String) {
+			self.negatedConditionKey = negatedConditionKey
 		}
 	}
-
+	
 }
 
 /**
@@ -26,11 +33,6 @@ public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
     
     public var dependentOperation: AOperation?
     
-    
-    public static var key: String {
-        return "NegatedCondition"
-    }
-    
     static var negatedConditionKey: String {
         return "\(T.key)"
     }
@@ -41,7 +43,7 @@ public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
     
     let condition: T
 
-    public init(condition: T) {
+    public init(_ condition: T) {
         self.condition = condition
     }
     
@@ -52,21 +54,16 @@ public struct NegatedCondition<T: AOperationCondition>: AOperationCondition {
     
     public func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
         condition.evaluateForOperation(operation) { result in
-            if result == .satisfied {
+			if case .success = result {
                 // If the composed condition succeeded, then this one failed.
-				let errorInfo: [AOperationError.Info : Any?] =
-				[
-					.key : type(of: self).key,
-					NegatedCondition.ErrorInfo.inputConditionKey : type(of: self.condition).key
-				]
               
-				let error = AOperationError.conditionFailed(with: errorInfo)
+				let error = AOperationError(Error(NegatedCondition<T>.negatedConditionKey))
                 
-                completion(.failed(error))
+                completion(.failure(error))
             }
             else {
                 // If the composed condition failed, then this one succeeded.
-                completion(.satisfied)
+                completion(.success)
             }
         }
     }

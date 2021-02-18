@@ -11,12 +11,6 @@ This file shows an example of implementing the OperationCondition protocol.
 import UIKit
 
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
-extension RemoteNotificationCondition {
-	struct ErrorInfo {
-		static let underlyingError = AOperationError.Info(rawValue: NSUnderlyingErrorKey)
-	}
-
-}
 
 private let RemoteNotificationQueue = AOperationQueue()
 private let RemoteNotificationName = "RemoteNotificationPermissionNotification"
@@ -30,7 +24,6 @@ private enum RemoteRegistrationResult {
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
 public struct RemoteNotificationCondition: AOperationCondition {
     
-	public static let key = "RemoteNotification"
 	public static let isMutuallyExclusive = false
     
     public var dependentOperation: AOperation?
@@ -62,11 +55,11 @@ public struct RemoteNotificationCondition: AOperationCondition {
         RemoteNotificationQueue.addOperation(RemoteNotificationPermissionOperation(application: application) { result in
             switch result {
                 case .token(_):
-                    completion(.satisfied)
+                    completion(.success)
 
                 case .error(let underlyingError):
-					let error = AOperationError.conditionFailed(with: [.key : Self.ErrorInfo.underlyingError, .reason : underlyingError])
-                    completion(.failed(error))
+					let error = AOperationError(underlyingError)
+                    completion(.failure(error))
             }
         })
     }
@@ -85,7 +78,7 @@ public struct RemoteNotificationCondition: AOperationCondition {
         `UIApplicationDelegate` method, as shown in the `AppDelegate.swift` file.
 */
 @available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use UNNotificationCondition")
-private class RemoteNotificationPermissionOperation: AOperation {
+private class RemoteNotificationPermissionOperation: VoidOperation {
     let application: UIApplication
     fileprivate let handler: (RemoteRegistrationResult) -> Void
     
@@ -99,7 +92,7 @@ private class RemoteNotificationPermissionOperation: AOperation {
             This operation cannot run at the same time as any other remote notification
             permission operation.
         */
-        addCondition(MutuallyExclusive<RemoteNotificationPermissionOperation>())
+        conditions(MutuallyExclusive<RemoteNotificationPermissionOperation>())
     }
     
     override func execute() {

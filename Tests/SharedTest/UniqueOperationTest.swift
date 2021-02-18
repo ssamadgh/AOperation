@@ -12,7 +12,7 @@ import AOperation
 
 class UniqueOperationTest: XCTestCase {
 
-	let operationQueue = AOperationQueue()
+	let queue = AOperationQueue()
 	
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,73 +21,54 @@ class UniqueOperationTest: XCTestCase {
 
 
 	func testAddingTwoRegularOperations() {
-		
-		let firstOperation = TestRegularOperation()
-		let secondOperation = TestRegularOperation()
-
 		let expect = expectation(description: "test regular operaions")
 		expect.expectedFulfillmentCount = 2
-		expect.assertForOverFulfill = true
 		
-		firstOperation.didFinish { (errors) in
+		RegularOperationA().didFinish { (result) in
 			expect.fulfill()
 		}
+		.add(to: queue)
 		
-		secondOperation.didFinish { (errors) in
+		RegularOperationA().didFinish { (errors) in
 			expect.fulfill()
 		}
-
-		
-		self.operationQueue.addOperation(firstOperation)
-		self.operationQueue.addOperation(secondOperation)
+		.add(to: queue)
 
 		wait(for: [expect], timeout: 10)
 	}
 	
-	func testAddingTwoRegularOperationsWhichOneSetUnique() {
-		
-		let firstOperation = TestUniqueOperation()
-		let secondOperation = TestRegularOperation()
+	func testAddingOneRegularOperationsAndOneUnique() {
 
-		let expect = expectation(description: "test unique operaions")
+		let expect = expectation(description: "test one regular and one unique operaions")
 		expect.expectedFulfillmentCount = 2
-		expect.assertForOverFulfill = true
 		
-		firstOperation.didFinish { (errors) in
+		UniqueOperationA().didFinish { (errors) in
 			expect.fulfill()
 		}
-		
-		secondOperation.didFinish { (errors) in
-			expect.fulfill()
-		}
+		.add(to: queue)
 
-		
-		self.operationQueue.addOperation(firstOperation)
-		self.operationQueue.addOperation(secondOperation)
+		RegularOperationA().didFinish { (errors) in
+			expect.fulfill()
+		}
+		.add(to: queue)
 
 		wait(for: [expect], timeout: 10)
 	}
 	
 	func testAddingTwoUniqueOperations() {
-		
-		let firstOperation = TestUniqueOperation()
-		let secondOperation = TestUniqueOperation()
-
-		let expect = expectation(description: "test unique operaions")
+		let expect = expectation(description: "test two unique operaions")
 		expect.expectedFulfillmentCount = 1
 		expect.assertForOverFulfill = true
 		
-		firstOperation.didFinish { (errors) in
+		UniqueOperationA().didFinish { (errors) in
 			expect.fulfill()
 		}
-		
-		secondOperation.didFinish { (errors) in
-			expect.fulfill()
-		}
+		.add(to: queue)
 
-		
-		self.operationQueue.addOperation(firstOperation)
-		self.operationQueue.addOperation(secondOperation)
+		UniqueOperationA().didFinish { (errors) in
+			expect.fulfill()
+		}
+		.add(to: queue)
 
 		wait(for: [expect], timeout: 10)
 	}
@@ -96,19 +77,21 @@ class UniqueOperationTest: XCTestCase {
 }
 
 
-fileprivate class TestRegularOperation: AOperation {
+fileprivate class RegularOperationA: VoidOperation {
 	
 	override init() {
 		super.init()
 	}
 	
 	override func execute() {
-		self.finishWithError(nil)
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+		self.finish()
+		}
 	}
 	
 }
 
-fileprivate class TestUniqueOperation: AOperation, UniqueOperation {
+fileprivate class UniqueOperationA: VoidOperation, UniqueOperation {
 	
 	var uniqueId: String = "Extremely Unique"
 	
@@ -117,7 +100,9 @@ fileprivate class TestUniqueOperation: AOperation, UniqueOperation {
 	}
 	
 	override func execute() {
-		self.finishWithError(nil)
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+		self.finish()
+		}
 	}
 	
 }

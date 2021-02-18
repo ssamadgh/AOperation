@@ -11,56 +11,53 @@ import XCTest
 import AOperation
 
 class ResultableOperationTest: XCTestCase {
-
-	let operationQueue = AOperationQueue()
+	
+	let queue = AOperationQueue()
 	
 	func testResultableOperationWithoutError() {
 		
 		let expect = expectation(description: "Test result operation with out error")
 		
 		let userJson =
-		"""
+			"""
 			{
 				"id" : 12,
-				"name" : "samad",
+				"name" : "Seyed Samad",
 				"family" : "Gholamzadeh"
 
 			}
 			
 		""".data(using: .utf8)!
-
 		
-		let operation = FetchUserOperation(json: userJson)
 		
-		operation.didFinishWithResult { (result) in
-			
-			switch result {
-			case let .success(user):
-				guard user.name == "samad",
-					user.family == "Gholamzadeh",
-					user.id == 12
+		FetchUserOperation(json: userJson)
+			.didFinish { (result) in
+				
+				switch result {
+				case let .success(user):
+					guard user.name == "Seyed Samad",
+						  user.family == "Gholamzadeh",
+						  user.id == 12
 					else { return }
-				expect.fulfill()
-				return
-			default:
-				break
+					expect.fulfill()
+					return
+				case .failure:
+					XCTAssert(false, "failed do to result not succeed")
+				}
+				
 			}
-			
-			assert(false, "failed do to result not succeed")
-			
-		}
+			.add(to: queue)
 		
-		self.operationQueue.addOperation(operation)
 		wait(for: [expect], timeout: 10)
 	}
 	
 	
 	func testResultableOperationWithError() {
 		
-		let expect = expectation(description: "Test result operation with out error")
+		let expect = expectation(description: "Test result operation with error")
 		
 		let userJson =
-		"""
+			"""
 			{
 				"id" : "12",
 				"name" : "samad",
@@ -69,26 +66,24 @@ class ResultableOperationTest: XCTestCase {
 			}
 			
 		""".data(using: .utf8)!
+		
+		
+		FetchUserOperation(json: userJson)
+			.didFinish { (result) in
+				
+				switch result {
+				case .success:
+					XCTAssert(false, "failed do to result does not have error")
 
-		
-		let operation = FetchUserOperation(json: userJson)
-		
-		operation.didFinishWithResult { (result) in
-			
-			switch result {
-			case let .failure(error):
-				print(error)
-				expect.fulfill()
-				return
-			default:
-				break
+				case let .failure(error):
+					XCTAssert(error.publishedError is FetchUserOperation.Error)
+					expect.fulfill()
+					return
+				}
+				
+				
 			}
-			
-			assert(false, "failed do to result does not have error")
-			
-		}
-		
-		self.operationQueue.addOperation(operation)
+			.add(to: queue)
 		wait(for: [expect], timeout: 10)
 	}
 	
@@ -98,7 +93,7 @@ class ResultableOperationTest: XCTestCase {
 		let expect = expectation(description: "Test result operation with out error")
 		
 		let userJson =
-		"""
+			"""
 			{
 				"id" : 12,
 				"name" : "samad",
@@ -107,26 +102,24 @@ class ResultableOperationTest: XCTestCase {
 			}
 			
 		""".data(using: .utf8)!
-
 		
-		let operation = FetchUserOperation(json: userJson)
-		operation.addCondition(UserSigningCondition())
-		operation.didFinishWithResult { (result) in
-			
-			switch result {
-			case let .failure(error):
-				print(error)
-				expect.fulfill()
-				return
-			default:
-				break
+		
+		FetchUserOperation(json: userJson)
+			.conditions(UserSigningCondition())
+			.didFinish{ (result) in
+				
+				switch result {
+				case .success:
+					XCTAssert(false, "failed do to result does not have error")
+
+				case let .failure(error):
+					XCTAssert(error.publishedError is UserSigningCondition.Error)
+					expect.fulfill()
+				}
+				
 			}
-			
-			assert(false, "failed do to result does not have error")
-
-		}
+			.add(to: queue)
 		
-		self.operationQueue.addOperation(operation)
 		wait(for: [expect], timeout: 10)
 	}
 	
@@ -159,25 +152,45 @@ fileprivate class FetchUserOperation: ResultableOperation<User> {
 			
 		} catch {
 			
-			let operationError = AOperationError.executionFailed(with: [.key : Self.key, .localizedDescription : error.localizedDescription])
-            self.finish(with: .failure(operationError))
+			let operationError = AOperationError(Error())
+			self.finish(with: .failure(operationError))
+		}
+	}
+	
+}
+
+extension FetchUserOperation {
+	
+	public struct Error: LocalizedError {
+		public var errorDescription: String? {
+			"Fetch User Failed"
 		}
 	}
 	
 }
 
 
+
 fileprivate struct UserSigningCondition: AOperationCondition {
-	
+		
 	var dependentOperation: AOperation? = nil
 	
 	static var isMutuallyExclusive: Bool = false
 	
 	func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-		let error = AOperationError.conditionFailed(with: [.key : Self.key])
-		completion(.failed(error))
+		let error = AOperationError(Error())
+		completion(.failure(error))
 	}
 	
+}
+
+extension UserSigningCondition {
+	
+	public struct Error: LocalizedError {
+		public var errorDescription: String? {
+			"User Signing Failed"
+		}
+	}
 }
 
 #endif

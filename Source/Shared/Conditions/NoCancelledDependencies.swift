@@ -8,22 +8,14 @@ This file shows an example of implementing the OperationCondition protocol.
 
 import Foundation
 
-extension AOperationError {
-	public func map(to type: NoCanceledDependencies.Error.Type) -> NoCanceledDependencies.Error? {
-		guard (self.info?[.key] as? String) == NoCanceledDependencies.key,
-			let canceled = self.info?[NoCanceledDependencies.ErrorInfo.canceledDependencies] else { return nil }
-		return NoCanceledDependencies.Error(canceledDependencies: canceled as! [Operation])
-	}
-}
-
 extension NoCanceledDependencies {
-	struct ErrorInfo {
-		static let canceledDependencies = AOperationError.Info(rawValue: "CanceledDependencies")
-
-	}
 	
-	public struct Error: Swift.Error {
-		let canceledDependencies: [Operation]
+	public struct Error: LocalizedError{
+		public let canceledDependencies: [String]
+		
+		public var errorDescription: String? {
+			"failed because of cancelled dependencies \(canceledDependencies.joined(separator: ", "))"
+		}
 	}
     
 }
@@ -35,8 +27,6 @@ extension NoCanceledDependencies {
 */
 public struct NoCanceledDependencies: AOperationCondition {
 
-    public static let key = "NoCanceledDependencies"
-    static let canceledDependenciesKey = "CanceledDependencies"
     public static let isMutuallyExclusive = false
     
     public var dependentOperation: AOperation?
@@ -52,12 +42,12 @@ public struct NoCanceledDependencies: AOperationCondition {
 
 		if !canceled.isEmpty {
             // At least one dependency was canceled; the condition was not satisfied.
-			let error = AOperationError.conditionFailed(with: [.key : Self.key, Self.ErrorInfo.canceledDependencies : canceled])
+			let error = AOperationError(Error(canceledDependencies: canceled.compactMap({$0.name})))
             
-            completion(.failed(error))
+            completion(.failure(error))
         }
         else {
-            completion(.satisfied)
+            completion(.success)
         }
     }
 }

@@ -9,34 +9,38 @@
 import Foundation
 
 /**
- A subclass of `AOperation` that executes zero or more operations as part of its
+ A subclass of `VoidOperation` that executes zero or more operations as part of its
  own execution. This class of operation is very useful for abstracting several
  smaller operations into a larger operation.
 
  */
-open class GroupOperation: AOperation {
+open class GroupOperation : VoidOperation {
 	
     fileprivate let internalQueue = AOperationQueue()
-    fileprivate let startingOperation = Foundation.BlockOperation(block: {})
-    fileprivate let finishingOperation = Foundation.BlockOperation(block: {})
+	fileprivate let startingOperation = AOperationBlock(mainQueueBlock: {})
+    fileprivate let finishingOperation = AOperationBlock(mainQueueBlock: {})
 
     fileprivate var aggregatedErrors = [AOperationError]()
-	fileprivate let serialQueue = DispatchQueue(label: "GroupOperation_Serial_Queue")
 
-    public convenience init(operations: Foundation.Operation...) {
-        self.init(operations: operations)
+    public convenience init(_ operations: Foundation.Operation...) {
+        self.init(operations)
     }
 
-	public init(operations: [Foundation.Operation]) {
+	public init(_ operations: [Foundation.Operation]) {
         super.init()
-
+		startingOperation.name = "startingOperation"
+		finishingOperation.name = "finishingOperation"
         internalQueue.isSuspended = true
         internalQueue.delegate = self
         internalQueue.addOperation(startingOperation)
 
 		self.addOperations(operations)
     }
-
+	
+	/// Adds the given operations to the queue of group operation
+	///
+	/// This method should be called before adding operation to the queue
+	/// - Parameter operations: A list of operations to add to queue
 	public func addOperations(_ operations: [Foundation.Operation]) {
 		for operation in operations {
 			self.addOperation(operation)
@@ -44,7 +48,7 @@ open class GroupOperation: AOperation {
 	}
 
 	override open func cancel() {
-        internalQueue.cancelAllOperations()
+		internalQueue.operations.reversed().forEach({$0.cancel()})
         super.cancel()
     }
 
@@ -53,9 +57,17 @@ open class GroupOperation: AOperation {
         internalQueue.addOperation(finishingOperation)
     }
 
+	/// Adds the given operation to the queue of group operation
+	///
+	/// This method should be called before adding operation to the queue
+	/// - Parameter operation: An operations to add to queue
     public func addOperation(_ operation: Foundation.Operation) {
         internalQueue.addOperation(operation)
     }
+	
+	public override func finish(with result: Result<Void, AOperationError>) {
+		self.finishedResult = result
+	}
 
     /**
      Note that some part of execution has produced an error.
@@ -103,7 +115,17 @@ extension  GroupOperation: AOperationQueueDelegate {
 		
 		if operation === finishingOperation {
 			internalQueue.isSuspended = true
-			finish(aggregatedErrors)
+			
+			if let willFinish = self.willFinishCompletion  {
+				let result: Result<Void, AOperationError> = aggregatedErrors.isEmpty ? .success(()) : .failure(aggregatedErrors.first!)
+				willFinish(result) {
+					finish(aggregatedErrors)
+				}
+			}
+			else {
+				finish(aggregatedErrors)
+			}
+
 		}
 		else if operation !== startingOperation {
 			operationDidFinish(operation, withErrors: errors)

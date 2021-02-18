@@ -9,8 +9,8 @@ This file shows how to make an operation that efficiently waits.
 import Foundation
 
 /**
-    `DelayOperation` is an `Operation` that will simply wait for a given time
-    interval, or until a specific `NSDate`.
+    `DelayOperation` is a `ResultableOperation` that will simply wait for a given time
+    interval, or until a specific `Date`.
 
     It is important to note that this operation does **not** use the `sleep()`
     function, since that is inefficient and blocks the thread on which it is called.
@@ -19,22 +19,24 @@ import Foundation
 
     If the interval is negative, or the `NSDate` is in the past, then this operation
     immediately finishes.
+
+	- Note: Set the Output as Void to use this operation independently. If you set Output other than Void type you should use this opeation as subscriberOperation. In this case the operation directly results the received value.
 */
-public class DelayOperation: AOperation {
-	// MARK: Types
+public class DelayOperation<Output>: ResultableOperation<Output>, ReceiverOperation {
 	
+	// MARK: Types
 	fileprivate enum Delay {
 		case interval(TimeInterval)
 		case date(Foundation.Date)
 	}
 	
 	// MARK: Properties
-	
+	public var receivedValue: Result<Output, AOperationError>?
 	fileprivate let delay: Delay
 	
 	// MARK: Initialization
 	
-	public init(interval: TimeInterval) {
+	public init(_ interval: TimeInterval) {
 		delay = .interval(interval)
 		super.init()
 	}
@@ -70,9 +72,16 @@ public class DelayOperation: AOperation {
 		}
 	}
 	
-	override public func cancel() {
-		super.cancel()
-		// Cancelling the operation means we don't want to wait anymore.
-		self.finish()
+	func finish() {
+		if Output.self == Void.self {
+			self.finish(with: .success(Void() as! Output))
+			return
+		}
+		
+		guard let result = self.receivedValue else {
+			fatalError("Set the Output type to Void or use this operation as a subscriberOperation")
+		}
+		self.finish(with: result)
 	}
+	
 }

@@ -11,7 +11,7 @@
 import UIKit
 
 /// An Operation that presents a UIAlertController on top view controller or the given view controller.
-public class AlertOperation: AOperation {
+public class AlertOperation: VoidOperation {
     // MARK: Properties
 
     fileprivate let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
@@ -47,14 +47,13 @@ public class AlertOperation: AOperation {
 
         super.init()
 
-        addCondition(AlertPresentation())
 
         /*
          This operation modifies the view controller hierarchy.
          Doing this while other such operations are executing can lead to
          inconsistencies in UIKit. So, let's make them mutally exclusive.
          */
-        addCondition(MutuallyExclusive<UIViewController>())
+		conditions(AlertPresentation(), MutuallyExclusive<UIViewController>())
     }
 
     public func addAction(_ title: String, style: UIAlertAction.Style = .default, handler: @escaping (AlertOperation) -> Void = { _ in }) {

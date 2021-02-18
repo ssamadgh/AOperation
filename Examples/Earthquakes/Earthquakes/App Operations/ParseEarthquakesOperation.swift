@@ -61,9 +61,12 @@ private struct ParsedEarthquake {
     }
 }
 
-/// A `Operation` to parse earthquakes out of a download feed from the USGS.
-class ParseEarthquakesOperation: AOperation {
-    let cacheFile: URL
+/// An`Operation` to parse earthquakes out of a download feed from the USGS.
+class ParseEarthquakesOperation: VoidOperation, ReceiverOperation {
+	
+	
+	var receivedValue: Result<(URL, URLResponse), AOperationError>?
+
     let context: NSManagedObjectContext
     
     /**
@@ -73,7 +76,7 @@ class ParseEarthquakesOperation: AOperation {
          `NSManagedObjectContext` that points to the same `NSPersistentStoreCoordinator`
          as the passed-in context.
     */
-    init(cacheFile: URL, context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext) {
         let importContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         importContext.persistentStoreCoordinator = context.persistentStoreCoordinator
         
@@ -83,7 +86,6 @@ class ParseEarthquakesOperation: AOperation {
         */
         importContext.mergePolicy = NSOverwriteMergePolicy
         
-        self.cacheFile = cacheFile
         self.context = importContext
         
         super.init()
@@ -93,8 +95,25 @@ class ParseEarthquakesOperation: AOperation {
     }
     
     override func execute() {
+		let receivedUrl: URL?
+		switch receivedValue {
+		case let .success((url, _)):
+			receivedUrl = url
+			
+		case let .failure(error):
+			receivedUrl = nil
+			self.finish(error)
+			return
+		case .none:
+			receivedUrl = nil
+		}
+		
+		guard let cacheFile = receivedUrl else {
+			return
+		}
+		
         guard let stream = InputStream(url: cacheFile) else  {
-            finishWithError(nil)
+            finish()
             return
         }
         
@@ -111,17 +130,17 @@ class ParseEarthquakesOperation: AOperation {
                 parse(features)
             }
             else {
-			   finishWithError(nil)
+			   finish()
             }
         }
-        catch let jsonError as NSError {
-			let opError = AOperationError.executionFailed(with: [.key: self.name, .localizedDescription : jsonError.localizedDescription])
-            finishWithError(opError)
+        catch let jsonError {
+			let opError = AOperationError(jsonError)
+            finish(opError)
         }
     }
     
     fileprivate func parse(_ features: [[String: Any]]) {
-        let parsedEarthquakes = features.flatMap { ParsedEarthquake(feature: $0) }
+		let parsedEarthquakes = features.compactMap { ParsedEarthquake(feature: $0) }
         
         context.perform {
             for newEarthquake in parsedEarthquakes {
@@ -129,7 +148,7 @@ class ParseEarthquakesOperation: AOperation {
             }
             
             let error = self.saveContext()
-            self.finishWithError(error)
+            self.finish(error)
         }
     }
     
@@ -159,9 +178,8 @@ class ParseEarthquakesOperation: AOperation {
             do {
                 try context.save()
             }
-            catch let saveError as NSError {
-				let opError = AOperationError.executionFailed(with: [.key: self.name, .localizedDescription : saveError.localizedDescription])
-
+            catch let saveError {
+				let opError = AOperationError(saveError)
                 error = opError
             }
         }

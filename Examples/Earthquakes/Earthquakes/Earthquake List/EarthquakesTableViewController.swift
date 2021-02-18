@@ -16,35 +16,55 @@ class EarthquakesTableViewController: UITableViewController {
     
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
     
-    let operationQueue = AOperationQueue()
+    let queue = AOperationQueue()
     
     // MARK: View Controller
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("Im executed out of Operation")
-
-        
-        let operation = LoadModelOperation { context in
-            // Now that we have a context, build our `FetchedResultsController`.
-            DispatchQueue.main.async {
-                print("Im executed in Operation")
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: Earthquake.entityName)
-                
-                request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
-                
-                request.fetchLimit = 100
-                
-                let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-                
-                self.fetchedResultsController = controller
-                
-                self.updateUI()
-            }
-        }
-        
-        operationQueue.addOperation(operation)
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		LoadModelOperation()
+			.retryOnFailure({ [unowned self] (numberOrRetries, error, retry) in
+				let alert = AlertOperation()
+				
+				alert.title = "Unable to load database"
+				
+				alert.message = "An error occurred while loading the database. \(error.localizedDescription). Please try again later."
+				
+				// No custom action for this button.
+				alert.addAction("Retry Later", style: .cancel) { _ in
+					retry(false)
+				}
+				
+				alert.addAction("Retry Now") { alertOperation in
+					retry(true)
+				}
+				alert.add(to: self.queue)
+				
+			})
+		.didFinish { (result) in
+			switch result {
+			case let .success(context):
+				// Now that we have a context, build our `FetchedResultsController`.
+				DispatchQueue.main.async {
+					let request = NSFetchRequest<NSFetchRequestResult>(entityName: Earthquake.entityName)
+					
+					request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+					
+					request.fetchLimit = 100
+					
+					let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+					
+					self.fetchedResultsController = controller
+					
+					self.updateUI()
+				}
+				
+			default:
+				break
+			}
+		}
+		.add(to: queue)
+	}
     
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -92,26 +112,22 @@ class EarthquakesTableViewController: UITableViewController {
          to the user about why you were unable to perform the requested action.
          */
         
-        let operation = BlockAOperation {
+        AOperationBlock {
             self.performSegue(withIdentifier: "showEarthquake", sender: nil)
         }
-        
-        operation.addCondition(MutuallyExclusive<UIViewController>())
-		
-		operation.didFinish { (errors) in
+        .conditions(MutuallyExclusive<UIViewController>())
+		.didFinish { (result) in
             /*
              If the operation errored (ex: a condition failed) then the segue
              isn't going to happen. We shouldn't leave the row selected.
              */
-            if !errors.isEmpty {
+			if result.error == nil {
                 DispatchQueue.main.async {
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
             }
         }
-          
-		
-        operationQueue.addOperation(operation)
+		.add(to: queue)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -119,7 +135,7 @@ class EarthquakesTableViewController: UITableViewController {
             let detailVC = navigationVC.viewControllers.first as? EarthquakeTableViewController else {
                 return
         }
-        detailVC.queue = operationQueue
+        detailVC.queue = queue
         
         if let indexPath = tableView.indexPathForSelectedRow {
             detailVC.earthquake = fetchedResultsController?.object(at: indexPath) as? Earthquake
@@ -132,23 +148,20 @@ class EarthquakesTableViewController: UITableViewController {
     
     fileprivate func getEarthquakes(_ userInitiated: Bool = true) {
         if let context = fetchedResultsController?.managedObjectContext {
-            let getEarthquakesOperation = GetEarthquakesOperation(context: context) {
-                DispatchQueue.main.async {
-                    self.refreshControl?.endRefreshing()
-                    self.updateUI()
-                }
-            }
-            
-            getEarthquakesOperation.userInitiated = userInitiated
-            operationQueue.addOperation(getEarthquakesOperation)
+
+			GetEarthquakesOperation(context: context)
+				.didFinish { (_) in
+					self.refreshControl?.endRefreshing()
+					self.updateUI()
+				}.add(to: queue)
+			
         }
         else {
             /*
              We don't have a context to operate on, so wait a bit and just make
              the refresh control end.
              */
-            let when = DispatchTime.now() + Double(Int64(0.3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-            DispatchQueue.main.asyncAfter(deadline: when) {
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
                 self.refreshControl?.endRefreshing()
             }
         }

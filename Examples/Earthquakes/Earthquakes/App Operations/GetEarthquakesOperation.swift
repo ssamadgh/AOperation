@@ -14,78 +14,63 @@ import CoreData
 import AOperation
 
 /// A composite `Operation` to both download and parse earthquake data.
-class GetEarthquakesOperation: GroupOperation {
-    //MARK: Properties
-    
-    let downloadOperation: DownloadEarthquakesOperation
-    let parseOperation: ParseEarthquakesOperation
-    
-    fileprivate var hasProducedAlert = false
-    
-    /**
-     - parameter context: The `NSManagedObjectContext` into wich the parsed earthquakes will be imported.
-     
-     - parameter completionHandler: The Handler to call after downloading and parsing are complete.
-         The handler will be invoked on an arbitrary queue.
-    */
-    init(context: NSManagedObjectContext, completionHandler: @escaping () -> Void) {
-        let cachesFolder = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let cacheFile = cachesFolder.appendingPathComponent("earthquakes.json")
-        
-        /*
-         This operation is made for three child operation:
-             1. The operation to download the JSON feed
-             2. The operation to parse the JSON feed and insert the elements into the Core Data store
-             3. The operation to invoke the completion handler
-        */
-        downloadOperation = DownloadEarthquakesOperation(cacheFile: cacheFile)
-        parseOperation = ParseEarthquakesOperation(cacheFile: cacheFile, context: context)
-        
-        let finishOperation = Foundation.BlockOperation(block: completionHandler)
-        
-        // These operations must be executed in order
-        parseOperation.addDependency(downloadOperation)
-        finishOperation.addDependency(parseOperation)
-        
-        super.init(operations: [downloadOperation, parseOperation, finishOperation])
-        
-        name = "Get Earthquakes"
-    }
-    
-    override func operationDidFinish(_ operation: Foundation.Operation, withErrors errors: [AOperationError]) {
-        if let firstError = errors.first, (operation === downloadOperation || operation === parseOperation) {
-            produceAlert(firstError)
-        }
-    }
-    
-    fileprivate func produceAlert(_ error: AOperationError) {
-        /*
-             We only want to show the first Error, since subsequent errors might be caused
-             by the first.
-        */
-        if hasProducedAlert { return }
-        
-		guard let errorKey = error.info?[.key] as? String else { return }
+class GetEarthquakesOperation: WrapperOperation<Void, Void> {
+	
+	/**
+	 - parameter context: The `NSManagedObjectContext` into wich the parsed earthquakes will be imported.
+	*/
+	init(context: NSManagedObjectContext) {
+		let url = URL(string: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson")!
+		super.init { (_) -> ResultableOperation<Void>? in
+			/*
+			 This operation is composite of two child operation:
+				 1. The operation to download the JSON feed
+				 2. The operation to parse the JSON feed and insert the elements into the Core Data store
+			*/
+			return URLSessionTaskOperation.download(for: url).deliver(to: ParseEarthquakesOperation(context: context))
+		}
+		
+		delegate = self
+		let reachabilityCondition = ReachabilityCondition(url: url)
+		conditions(reachabilityCondition)
 
-        let alert = AlertOperation()
+	}
+}
 
-        //These are example of errors for which we might choose to display an error to the user
-		switch errorKey {
+extension GetEarthquakesOperation: AOperationDelegate {
+	
+	func operationDidFinish(_ operation: AOperation, with errors: [AOperationError]) {
+		if let error = errors.first {
+			produceAlert(error)
+		}
+	}
+	
+	fileprivate func produceAlert(_ error: AOperationError) {
+		/*
+			 We only want to show the first Error, since subsequent errors might be caused
+			 by the first.
+		*/
+		guard let errorPublisher = error.publisher else { return }
+
+		let alert = AlertOperation()
+
+		//These are example of errors for which we might choose to display an error to the user
+		switch errorPublisher {
 		case ReachabilityCondition.key:
 			// We failed because the network isn't reachable.
-			let reachError = error.map(to: ReachabilityCondition.Error.self)!
+			
+			let reachErrorURL = (error.publishedError as? ReachabilityCondition.Error)?.url?.absoluteString ?? ""
 			alert.title = "Unable to Connect"
-			alert.message = "Cannot connect to \(reachError.url). Make sure your device is connected to the internet and try again."
+			alert.message = "Cannot connect to \(reachErrorURL). Make sure your device is connected to the internet and try again."
 			
 		default:
 			// We failed because the JSON was malformed.
 			alert.title = "Unable to Download"
-			alert.message = "Cannot Download earthquake data. try again later."
+			alert.message = "Cannot download earthquake data. try again later."
 			
 		}
 
-		produceOperation(alert)
-        hasProducedAlert = true
-    }
-	
+		produce(alert)
+	}
+
 }

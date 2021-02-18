@@ -39,12 +39,13 @@ public enum ReachabilityError: Error {
 }
 
 public enum Connection: CustomStringConvertible {
-    case none, wifi, cellular
+    case none, wifi, cellular, any
     public var description: String {
         switch self {
         case .cellular: return "Cellular"
         case .wifi: return "WiFi"
         case .none: return "No Connection"
+		case .any: return "Any Connection"
         }
     }
 }
@@ -56,7 +57,7 @@ public extension Notification.Name {
     static let reachabilityChanged = Notification.Name("reachabilityChanged")
 }
 
-class Reachability {
+public class Reachability {
 
     class var `default`: Reachability {
         return Reachability.init()!
@@ -106,6 +107,7 @@ class Reachability {
         case .none?, nil: return .none
         case .cellular?: return allowsCellularConnection ? .cellular : .none
         case .wifi?: return .wifi
+		case.any?: return .any
         }
     }
 

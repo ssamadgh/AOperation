@@ -13,8 +13,8 @@ import Foundation
 import SafariServices
 import AOperation
 
-/// An `Operation` to display an `NSURL` in an app-modal `SFSafariViewController`.
-class MoreInformationOperation: AOperation {
+/// An `Operation` to display a `URL` in an app-modal `SFSafariViewController`.
+class MoreInformationOperation: VoidOperation {
     //MARK: Properties
     
     let URL: Foundation.URL
@@ -24,7 +24,7 @@ class MoreInformationOperation: AOperation {
         self.URL = URL
         super.init()
         
-        addCondition(MutuallyExclusive<UIViewController>())
+        conditions(MutuallyExclusive<UIViewController>())
     }
     
     //MARK: Overrides
@@ -42,13 +42,13 @@ class MoreInformationOperation: AOperation {
             context.present(safari, animated: true, completion: nil)
         }
         else {
-            finishWithError(nil)
+            finish()
         }
     }
 }
 
 extension MoreInformationOperation: SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        self.finishWithError(nil)
+        self.finish()
     }
 }

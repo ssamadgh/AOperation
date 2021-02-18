@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AOperation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     //MARK: UIApplicationDelegate
-    
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+		
+		// Turn this flag on to track operations lifecycle.
+		AOperation.Debugger.printOperationsState = true
+		return true
+	}
 }
 
 

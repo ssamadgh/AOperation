@@ -29,6 +29,8 @@ public extension AOperationQueueDelegate {
 }
 
 /**
+	A queue that regulates the execution of AOperations.
+
  `AOperationQueue` is an `Foundation.OperationQueue` subclass that implements a large
  number of "extra features" related to the `AOperation` class:
 
@@ -37,15 +39,19 @@ public extension AOperationQueueDelegate {
  - Setting up dependencies to enforce mutual exclusivity
  */
 public class AOperationQueue: Foundation.OperationQueue {
+	
+	public static let shared = AOperationQueue()
+
+	
     public weak var delegate: AOperationQueueDelegate?
 
 	override public func addOperation(_ op: Foundation.Operation) {
         if let op = op as? AOperation {
-			
+			guard op.isInitialized else { return }
 			if op is UniqueOperation {
 				if UniquenessController.shared.contains(op as! (AOperation & UniqueOperation)) {
 					if AOperation.Debugger.printOperationsState {
-						print("AOperation \(type(of: op)) canceled because of uniqueness by id \((op as! (AOperation & UniqueOperation)).uniqueId)")
+						print("AOperation \(op.name ?? "\(type(of: op))") ignored because of uniqueId \((op as! (AOperation & UniqueOperation)).uniqueId)")
 					}
 					return
 				}
@@ -130,7 +136,7 @@ public class AOperationQueue: Foundation.OperationQueue {
         delegate?.operationQueue(self, willAddOperation: op)
 
 		if AOperation.Debugger.printOperationsState {
-			print("AOperation \(type(of: op)) added to queue")
+			print("AOperation \(op.name ?? "\(type(of: op))") added to queue")
 		}
 
         super.addOperation(op)

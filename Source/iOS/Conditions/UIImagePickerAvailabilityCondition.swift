@@ -11,27 +11,28 @@
 import Foundation
 import UIKit
 
-extension AOperationError {
-    public func map(to type: UIImagePickerAvailabilityCondition.Error.Type) -> UIImagePickerAvailabilityCondition.Error? {
-        guard (self.info?[.key] as? String) == UIImagePickerAvailabilityCondition.key,
-            let mediaTypes = self.info?[UIImagePickerAvailabilityCondition.ErrorInfo.notAvailableMediaTypes] else { return nil }
-        return UIImagePickerAvailabilityCondition.Error(notAvailableMediaTypes: mediaTypes as! [String])
-    }
-    
-}
-
 extension UIImagePickerAvailabilityCondition {
-	struct ErrorInfo {
-		static let notAvailableMediaTypes = AOperationError.Info(rawValue: "mediaTypes")
-	}
     
-    public struct Error: Swift.Error {
-        let notAvailableMediaTypes: [String]
+    public struct Error: LocalizedError {
+		public let sourceType: UIImagePickerController.SourceType
+		public let mediaTypes: Set<String>
+		
+		public var errorDescription: String? {
+			if mediaTypes.count > 1 {
+				let mediaTypesString = mediaTypes.joined(separator: ", ")
+				return "The mediaTypes \(mediaTypesString) are not available for sourceType \(sourceType)"
+
+			}
+			else {
+				let mediaTypeString = mediaTypes.first ?? ""
+				return "Them mediaType \(mediaTypeString) is not available for sourceType \(sourceType)"
+			}
+		}
     }
     
 }
 
-/// A condition for verifying UIImagePicker source and media types availability on device.
+/// A condition for verifying [UIImagePicker](https://developer.apple.com/documentation/uikit/uiimagepickercontroller) source and media types availability on device.
 public struct UIImagePickerAvailabilityCondition: AOperationCondition {
     
     public static var key: String = "UIImagePickerAvailablity"
@@ -56,16 +57,12 @@ public struct UIImagePickerAvailabilityCondition: AOperationCondition {
         let isAvailable = self.mediaTypes.isSubset(of: availableMediatypes)
         
         if isAvailable {
-            completion(.satisfied)
+            completion(.success)
         }
         else {
-			let info: [AOperationError.Info : Any?] =
-			[
-				.key : type(of: self).key,
-				type(of: self).ErrorInfo.notAvailableMediaTypes : Array(self.mediaTypes)
-			]
-			let error = AOperationError.conditionFailed(with: info)
-            completion(.failed(error))
+			let notAvailableMediaTypes = self.mediaTypes.subtracting(availableMediatypes)
+			let error = AOperationError(Error(sourceType: sourceType, mediaTypes: notAvailableMediaTypes))
+            completion(.failure(error))
         }
         
     }

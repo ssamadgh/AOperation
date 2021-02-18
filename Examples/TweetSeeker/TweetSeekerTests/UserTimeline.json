@@ -1,0 +1,3945 @@
+[
+  {
+    "contributors" : null,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "in_reply_to_user_id" : null,
+    "in_reply_to_user_id_str" : null,
+    "in_reply_to_status_id_str" : null,
+    "lang" : "fa",
+    "text" : "RT @Pargol68: دوستان تیم ما به دنبال #SenioriOSDevelopr هست.\nخوشحال میشم اگر در این حوزه فعالیت میکنین رزومتون رو به ایمیل hr@mobillet.ir ا…",
+    "id_str" : "1339871766634786816",
+    "in_reply_to_screen_name" : null,
+    "retweeted" : false,
+    "coordinates" : null,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "geo" : null,
+    "in_reply_to_status_id" : null,
+    "truncated" : false,
+    "place" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "1130353358945042432",
+          "id" : 1130353358945042432,
+          "screen_name" : "Pargol68",
+          "name" : "Golgoli",
+          "indices" : [
+            3,
+            12
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+        {
+          "indices" : [
+            37,
+            55
+          ],
+          "text" : "SenioriOSDevelopr"
+        }
+      ]
+    },
+    "retweet_count" : 17,
+    "created_at" : "Fri Dec 18 09:54:57 +0000 2020",
+    "favorited" : false,
+    "is_quote_status" : false,
+    "retweeted_status" : {
+      "place" : null,
+      "contributors" : null,
+      "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+      "truncated" : true,
+      "is_quote_status" : false,
+      "favorite_count" : 20,
+      "possibly_sensitive" : true,
+      "lang" : "fa",
+      "entities" : {
+        "symbols" : [
+
+        ],
+        "user_mentions" : [
+
+        ],
+        "urls" : [
+          {
+            "display_url" : "twitter.com\/i\/web\/status\/1…",
+            "url" : "https:\/\/t.co\/Pxl11V2JmT",
+            "indices" : [
+              117,
+              140
+            ],
+            "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1339644157032357891"
+          }
+        ],
+        "hashtags" : [
+          {
+            "indices" : [
+              23,
+              41
+            ],
+            "text" : "SenioriOSDevelopr"
+          }
+        ]
+      },
+      "in_reply_to_screen_name" : null,
+      "retweet_count" : 17,
+      "favorited" : false,
+      "geo" : null,
+      "id" : 1339644157032357891,
+      "user" : {
+        "protected" : false,
+        "is_translator" : false,
+        "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/1220085295795843075\/YLGwT6Q3_normal.jpg",
+        "created_at" : "Mon May 20 06:03:36 +0000 2019",
+        "id" : 1130353358945042432,
+        "default_profile_image" : false,
+        "listed_count" : 0,
+        "profile_background_color" : "F5F8FA",
+        "follow_request_sent" : null,
+        "location" : "",
+        "entities" : {
+          "description" : {
+            "urls" : [
+
+            ]
+          }
+        },
+        "url" : null,
+        "description" : "HR Manager",
+        "followers_count" : 167,
+        "geo_enabled" : true,
+        "lang" : null,
+        "profile_text_color" : "333333",
+        "statuses_count" : 469,
+        "following" : null,
+        "notifications" : null,
+        "profile_background_tile" : false,
+        "profile_use_background_image" : true,
+        "id_str" : "1130353358945042432",
+        "name" : "Golgoli",
+        "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1220085295795843075\/YLGwT6Q3_normal.jpg",
+        "profile_sidebar_fill_color" : "DDEEF6",
+        "profile_sidebar_border_color" : "C0DEED",
+        "contributors_enabled" : false,
+        "default_profile" : true,
+        "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/1130353358945042432\/1579725978",
+        "screen_name" : "Pargol68",
+        "time_zone" : null,
+        "profile_background_image_url" : null,
+        "profile_background_image_url_https" : null,
+        "profile_link_color" : "1DA1F2",
+        "favourites_count" : 1913,
+        "is_translation_enabled" : false,
+        "translator_type" : "none",
+        "utc_offset" : null,
+        "friends_count" : 189,
+        "verified" : false,
+        "has_extended_profile" : true
+      },
+      "in_reply_to_user_id" : null,
+      "retweeted" : false,
+      "text" : "دوستان تیم ما به دنبال #SenioriOSDevelopr هست.\nخوشحال میشم اگر در این حوزه فعالیت میکنین رزومتون رو به ایمیل hr@mob… https:\/\/t.co\/Pxl11V2JmT",
+      "created_at" : "Thu Dec 17 18:50:31 +0000 2020",
+      "in_reply_to_status_id_str" : null,
+      "in_reply_to_status_id" : null,
+      "in_reply_to_user_id_str" : null,
+      "id_str" : "1339644157032357891",
+      "coordinates" : null
+    },
+    "favorite_count" : 0,
+    "id" : 1339871766634786816
+  },
+  {
+    "in_reply_to_status_id_str" : null,
+    "in_reply_to_user_id" : null,
+    "in_reply_to_status_id" : null,
+    "text" : "RT @luckymarmot: Paw · The most advanced API tool for Mac (REST &amp; GraphQL) https:\/\/t.co\/9urIFDWKje · Our insane 2020 Black Friday offer: Re…",
+    "retweeted_status" : {
+      "place" : null,
+      "contributors" : null,
+      "source" : "<a href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\">Twitter Web App<\/a>",
+      "truncated" : true,
+      "is_quote_status" : false,
+      "favorite_count" : 1082,
+      "possibly_sensitive" : false,
+      "lang" : "en",
+      "entities" : {
+        "symbols" : [
+
+        ],
+        "user_mentions" : [
+
+        ],
+        "urls" : [
+          {
+            "display_url" : "paw.cloud",
+            "url" : "https:\/\/t.co\/9urIFDWKje",
+            "indices" : [
+              62,
+              85
+            ],
+            "expanded_url" : "http:\/\/paw.cloud"
+          },
+          {
+            "display_url" : "twitter.com\/i\/web\/status\/1…",
+            "url" : "https:\/\/t.co\/CshLiTYOaw",
+            "indices" : [
+              121,
+              144
+            ],
+            "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1332329351795372036"
+          }
+        ],
+        "hashtags" : [
+
+        ]
+      },
+      "in_reply_to_screen_name" : null,
+      "retweet_count" : 4322,
+      "favorited" : false,
+      "geo" : null,
+      "id" : 1332329351795372036,
+      "user" : {
+        "protected" : false,
+        "is_translator" : false,
+        "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/758669027166261249\/UKsGtXHO_normal.jpg",
+        "created_at" : "Tue Nov 20 14:19:54 +0000 2012",
+        "id" : 960567571,
+        "default_profile_image" : false,
+        "listed_count" : 167,
+        "profile_background_color" : "000000",
+        "follow_request_sent" : null,
+        "location" : "",
+        "entities" : {
+          "url" : {
+            "urls" : [
+              {
+                "display_url" : "paw.cloud",
+                "url" : "https:\/\/t.co\/hK6ScVfFzz",
+                "indices" : [
+                  0,
+                  23
+                ],
+                "expanded_url" : "https:\/\/paw.cloud"
+              }
+            ]
+          },
+          "description" : {
+            "urls" : [
+
+            ]
+          }
+        },
+        "url" : "https:\/\/t.co\/hK6ScVfFzz",
+        "description" : "We build Paw, the most delightful Mac app that makes it easy to test web APIs and lets you focus on developing the apps you dream about.",
+        "followers_count" : 10166,
+        "geo_enabled" : true,
+        "lang" : null,
+        "profile_text_color" : "000000",
+        "statuses_count" : 3749,
+        "following" : null,
+        "notifications" : null,
+        "profile_background_tile" : false,
+        "profile_use_background_image" : false,
+        "id_str" : "960567571",
+        "name" : "Paw",
+        "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/758669027166261249\/UKsGtXHO_normal.jpg",
+        "profile_sidebar_fill_color" : "000000",
+        "profile_sidebar_border_color" : "000000",
+        "contributors_enabled" : false,
+        "default_profile" : false,
+        "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/960567571\/1469715745",
+        "screen_name" : "luckymarmot",
+        "time_zone" : null,
+        "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_link_color" : "00AAFF",
+        "favourites_count" : 2728,
+        "is_translation_enabled" : false,
+        "translator_type" : "none",
+        "utc_offset" : null,
+        "friends_count" : 2038,
+        "verified" : true,
+        "has_extended_profile" : false
+      },
+      "in_reply_to_user_id" : null,
+      "retweeted" : false,
+      "text" : "Paw · The most advanced API tool for Mac (REST &amp; GraphQL) https:\/\/t.co\/9urIFDWKje · Our insane 2020 Black Friday of… https:\/\/t.co\/CshLiTYOaw",
+      "created_at" : "Fri Nov 27 14:24:05 +0000 2020",
+      "in_reply_to_status_id_str" : null,
+      "in_reply_to_status_id" : null,
+      "in_reply_to_user_id_str" : null,
+      "id_str" : "1332329351795372036",
+      "coordinates" : null
+    },
+    "retweeted" : false,
+    "retweet_count" : 4322,
+    "id" : 1332414415958925319,
+    "coordinates" : null,
+    "possibly_sensitive" : false,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "place" : null,
+    "geo" : null,
+    "id_str" : "1332414415958925319",
+    "contributors" : null,
+    "in_reply_to_screen_name" : null,
+    "favorited" : false,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "is_quote_status" : false,
+    "in_reply_to_user_id_str" : null,
+    "truncated" : false,
+    "lang" : "en",
+    "favorite_count" : 0,
+    "created_at" : "Fri Nov 27 20:02:06 +0000 2020",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "960567571",
+          "id" : 960567571,
+          "screen_name" : "luckymarmot",
+          "name" : "Paw",
+          "indices" : [
+            3,
+            15
+          ]
+        }
+      ],
+      "urls" : [
+        {
+          "display_url" : "paw.cloud",
+          "url" : "https:\/\/t.co\/9urIFDWKje",
+          "indices" : [
+            79,
+            102
+          ],
+          "expanded_url" : "http:\/\/paw.cloud"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    }
+  },
+  {
+    "id" : 1327684664027459586,
+    "is_quote_status" : false,
+    "retweeted" : false,
+    "in_reply_to_screen_name" : "saeed_taheri",
+    "favorited" : false,
+    "lang" : "fa",
+    "in_reply_to_user_id_str" : "188781195",
+    "contributors" : null,
+    "favorite_count" : 0,
+    "in_reply_to_status_id_str" : "1327684130734284801",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "coordinates" : null,
+    "text" : "@saeed_taheri مگه واسه مک هم هست؟",
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "in_reply_to_user_id" : 188781195,
+    "truncated" : false,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "188781195",
+          "id" : 188781195,
+          "screen_name" : "saeed_taheri",
+          "name" : "Saeed Taheri",
+          "indices" : [
+            0,
+            13
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "in_reply_to_status_id" : 1327684130734284801,
+    "geo" : null,
+    "id_str" : "1327684664027459586",
+    "retweet_count" : 0,
+    "place" : null,
+    "created_at" : "Sat Nov 14 18:47:45 +0000 2020"
+  },
+  {
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "188781195",
+          "id" : 188781195,
+          "screen_name" : "saeed_taheri",
+          "name" : "Saeed Taheri",
+          "indices" : [
+            0,
+            13
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "favorite_count" : 0,
+    "retweet_count" : 0,
+    "contributors" : null,
+    "coordinates" : null,
+    "created_at" : "Sat Nov 14 18:29:24 +0000 2020",
+    "is_quote_status" : false,
+    "id_str" : "1327680045209559040",
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "geo" : null,
+    "favorited" : false,
+    "in_reply_to_screen_name" : "saeed_taheri",
+    "place" : null,
+    "in_reply_to_status_id" : 1326813865263452160,
+    "truncated" : false,
+    "text" : "@saeed_taheri تقویم و اوقات شرعیت چیه؟",
+    "id" : 1327680045209559040,
+    "retweeted" : false,
+    "in_reply_to_user_id_str" : "188781195",
+    "in_reply_to_user_id" : 188781195,
+    "in_reply_to_status_id_str" : "1326813865263452160",
+    "lang" : "fa"
+  },
+  {
+    "contributors" : null,
+    "retweeted" : false,
+    "in_reply_to_screen_name" : null,
+    "favorited" : false,
+    "place" : null,
+    "id_str" : "1325726321184534528",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "in_reply_to_user_id_str" : null,
+    "text" : "RT @mobillet_ir: تا حالا از موبایلت هدیه گرفتی؟! https:\/\/t.co\/xAfgaDsIuQ",
+    "truncated" : false,
+    "possibly_sensitive" : false,
+    "created_at" : "Mon Nov 09 09:06:00 +0000 2020",
+    "in_reply_to_status_id_str" : null,
+    "retweeted_status" : {
+      "place" : null,
+      "contributors" : null,
+      "source" : "<a href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\">Twitter for Android<\/a>",
+      "truncated" : false,
+      "is_quote_status" : false,
+      "favorite_count" : 25,
+      "possibly_sensitive" : false,
+      "lang" : "fa",
+      "entities" : {
+        "media" : [
+          {
+            "id_str" : "1325523658228559874",
+            "media_url_https" : "https:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+            "expanded_url" : "https:\/\/twitter.com\/mobillet_ir\/status\/1325523660510277632\/photo\/1",
+            "id" : 1325523658228559874,
+            "sizes" : {
+              "large" : {
+                "w" : 936,
+                "h" : 578,
+                "resize" : "fit"
+              },
+              "medium" : {
+                "w" : 936,
+                "h" : 578,
+                "resize" : "fit"
+              },
+              "thumb" : {
+                "w" : 150,
+                "h" : 150,
+                "resize" : "crop"
+              },
+              "small" : {
+                "w" : 680,
+                "h" : 420,
+                "resize" : "fit"
+              }
+            },
+            "display_url" : "pic.twitter.com\/xAfgaDsIuQ",
+            "type" : "photo",
+            "indices" : [
+              32,
+              55
+            ],
+            "media_url" : "http:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+            "url" : "https:\/\/t.co\/xAfgaDsIuQ"
+          }
+        ],
+        "symbols" : [
+
+        ],
+        "user_mentions" : [
+
+        ],
+        "urls" : [
+
+        ],
+        "hashtags" : [
+
+        ]
+      },
+      "in_reply_to_screen_name" : null,
+      "retweet_count" : 7,
+      "favorited" : false,
+      "geo" : null,
+      "id" : 1325523660510277632,
+      "user" : {
+        "protected" : false,
+        "is_translator" : false,
+        "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/1260131210807869440\/rm8UXENk_normal.jpg",
+        "created_at" : "Thu Dec 07 20:52:40 +0000 2017",
+        "id" : 938873920622653440,
+        "default_profile_image" : false,
+        "listed_count" : 0,
+        "profile_background_color" : "F5F8FA",
+        "follow_request_sent" : null,
+        "location" : "Islamic Republic of Iran",
+        "entities" : {
+          "url" : {
+            "urls" : [
+              {
+                "display_url" : "mobillet.ir",
+                "url" : "https:\/\/t.co\/SbRJ1H3mWH",
+                "indices" : [
+                  0,
+                  23
+                ],
+                "expanded_url" : "https:\/\/mobillet.ir"
+              }
+            ]
+          },
+          "description" : {
+            "urls" : [
+
+            ]
+          }
+        },
+        "url" : "https:\/\/t.co\/SbRJ1H3mWH",
+        "description" : "‏‏‏‏‏‏شعبه چند اینچی بانک سامان \/ راهکاری برای تغییر در سبک زندگی مالی",
+        "followers_count" : 504,
+        "geo_enabled" : false,
+        "lang" : null,
+        "profile_text_color" : "333333",
+        "statuses_count" : 805,
+        "following" : null,
+        "notifications" : null,
+        "profile_background_tile" : false,
+        "profile_use_background_image" : true,
+        "id_str" : "938873920622653440",
+        "name" : "Mobillet موبایلت",
+        "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/1260131210807869440\/rm8UXENk_normal.jpg",
+        "profile_sidebar_fill_color" : "DDEEF6",
+        "profile_sidebar_border_color" : "C0DEED",
+        "contributors_enabled" : false,
+        "default_profile" : true,
+        "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/938873920622653440\/1589290003",
+        "screen_name" : "mobillet_ir",
+        "time_zone" : null,
+        "profile_background_image_url" : null,
+        "profile_background_image_url_https" : null,
+        "profile_link_color" : "1DA1F2",
+        "favourites_count" : 1341,
+        "is_translation_enabled" : false,
+        "translator_type" : "none",
+        "utc_offset" : null,
+        "friends_count" : 5,
+        "verified" : false,
+        "has_extended_profile" : false
+      },
+      "in_reply_to_user_id" : null,
+      "extended_entities" : {
+        "media" : [
+          {
+            "id_str" : "1325523658228559874",
+            "media_url_https" : "https:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+            "expanded_url" : "https:\/\/twitter.com\/mobillet_ir\/status\/1325523660510277632\/photo\/1",
+            "id" : 1325523658228559874,
+            "sizes" : {
+              "large" : {
+                "w" : 936,
+                "h" : 578,
+                "resize" : "fit"
+              },
+              "medium" : {
+                "w" : 936,
+                "h" : 578,
+                "resize" : "fit"
+              },
+              "thumb" : {
+                "w" : 150,
+                "h" : 150,
+                "resize" : "crop"
+              },
+              "small" : {
+                "w" : 680,
+                "h" : 420,
+                "resize" : "fit"
+              }
+            },
+            "display_url" : "pic.twitter.com\/xAfgaDsIuQ",
+            "type" : "photo",
+            "indices" : [
+              32,
+              55
+            ],
+            "media_url" : "http:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+            "url" : "https:\/\/t.co\/xAfgaDsIuQ"
+          }
+        ]
+      },
+      "retweeted" : false,
+      "text" : "تا حالا از موبایلت هدیه گرفتی؟! https:\/\/t.co\/xAfgaDsIuQ",
+      "created_at" : "Sun Nov 08 19:40:42 +0000 2020",
+      "in_reply_to_status_id_str" : null,
+      "in_reply_to_status_id" : null,
+      "in_reply_to_user_id_str" : null,
+      "id_str" : "1325523660510277632",
+      "coordinates" : null
+    },
+    "extended_entities" : {
+      "media" : [
+        {
+          "id" : 1325523658228559874,
+          "id_str" : "1325523658228559874",
+          "source_status_id" : 1325523660510277632,
+          "indices" : [
+            49,
+            72
+          ],
+          "url" : "https:\/\/t.co\/xAfgaDsIuQ",
+          "source_status_id_str" : "1325523660510277632",
+          "type" : "photo",
+          "media_url" : "http:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+          "media_url_https" : "https:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+          "display_url" : "pic.twitter.com\/xAfgaDsIuQ",
+          "source_user_id" : 938873920622653440,
+          "sizes" : {
+            "large" : {
+              "w" : 936,
+              "h" : 578,
+              "resize" : "fit"
+            },
+            "medium" : {
+              "w" : 936,
+              "h" : 578,
+              "resize" : "fit"
+            },
+            "thumb" : {
+              "w" : 150,
+              "h" : 150,
+              "resize" : "crop"
+            },
+            "small" : {
+              "w" : 680,
+              "h" : 420,
+              "resize" : "fit"
+            }
+          },
+          "source_user_id_str" : "938873920622653440",
+          "expanded_url" : "https:\/\/twitter.com\/mobillet_ir\/status\/1325523660510277632\/photo\/1"
+        }
+      ]
+    },
+    "favorite_count" : 0,
+    "in_reply_to_user_id" : null,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "retweet_count" : 7,
+    "is_quote_status" : false,
+    "in_reply_to_status_id" : null,
+    "lang" : "fa",
+    "entities" : {
+      "media" : [
+        {
+          "id" : 1325523658228559874,
+          "id_str" : "1325523658228559874",
+          "source_status_id" : 1325523660510277632,
+          "indices" : [
+            49,
+            72
+          ],
+          "url" : "https:\/\/t.co\/xAfgaDsIuQ",
+          "source_status_id_str" : "1325523660510277632",
+          "type" : "photo",
+          "media_url" : "http:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+          "media_url_https" : "https:\/\/pbs.twimg.com\/media\/EmU0voYW8AIaOcW.jpg",
+          "display_url" : "pic.twitter.com\/xAfgaDsIuQ",
+          "source_user_id" : 938873920622653440,
+          "sizes" : {
+            "large" : {
+              "w" : 936,
+              "h" : 578,
+              "resize" : "fit"
+            },
+            "medium" : {
+              "w" : 936,
+              "h" : 578,
+              "resize" : "fit"
+            },
+            "thumb" : {
+              "w" : 150,
+              "h" : 150,
+              "resize" : "crop"
+            },
+            "small" : {
+              "w" : 680,
+              "h" : 420,
+              "resize" : "fit"
+            }
+          },
+          "source_user_id_str" : "938873920622653440",
+          "expanded_url" : "https:\/\/twitter.com\/mobillet_ir\/status\/1325523660510277632\/photo\/1"
+        }
+      ],
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "938873920622653440",
+          "id" : 938873920622653440,
+          "screen_name" : "mobillet_ir",
+          "name" : "Mobillet موبایلت",
+          "indices" : [
+            3,
+            15
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "geo" : null,
+    "id" : 1325726321184534528,
+    "coordinates" : null
+  },
+  {
+    "in_reply_to_user_id" : 324165006,
+    "retweet_count" : 0,
+    "contributors" : null,
+    "truncated" : false,
+    "coordinates" : null,
+    "id" : 1306125458958880769,
+    "in_reply_to_user_id_str" : "324165006",
+    "retweeted" : false,
+    "lang" : "fa",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "in_reply_to_status_id_str" : "1304751945308045312",
+    "favorite_count" : 1,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "324165006",
+          "id" : 324165006,
+          "screen_name" : "Mohammad_z74",
+          "name" : "zm.z96",
+          "indices" : [
+            0,
+            13
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "in_reply_to_screen_name" : "Mohammad_z74",
+    "id_str" : "1306125458958880769",
+    "text" : "@Mohammad_z74 چه جالب منم خیلی تو یادگیری تنبل شدم دقیقا از همون کرونا به بعد",
+    "is_quote_status" : false,
+    "favorited" : false,
+    "geo" : null,
+    "in_reply_to_status_id" : 1304751945308045312,
+    "place" : null,
+    "created_at" : "Wed Sep 16 06:59:10 +0000 2020",
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>"
+  },
+  {
+    "in_reply_to_screen_name" : "GiilBlaas",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id" : 1279004782452191232,
+    "geo" : null,
+    "created_at" : "Fri Jul 03 10:51:17 +0000 2020",
+    "retweet_count" : 0,
+    "retweeted" : false,
+    "in_reply_to_status_id" : 1278955169624055808,
+    "favorite_count" : 1,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "in_reply_to_user_id_str" : "893357802155941888",
+    "in_reply_to_user_id" : 893357802155941888,
+    "id_str" : "1279004782452191232",
+    "favorited" : false,
+    "coordinates" : null,
+    "place" : null,
+    "contributors" : null,
+    "lang" : "und",
+    "truncated" : false,
+    "is_quote_status" : false,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "893357802155941888",
+          "id" : 893357802155941888,
+          "screen_name" : "GiilBlaas",
+          "name" : "ژیل به‌لاس™",
+          "indices" : [
+            0,
+            10
+          ]
+        },
+        {
+          "id_str" : "885835554776121344",
+          "id" : 885835554776121344,
+          "screen_name" : "azarijahromi",
+          "name" : "MJ Azari Jahromi",
+          "indices" : [
+            11,
+            24
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "in_reply_to_status_id_str" : "1278955169624055808",
+    "text" : "@GiilBlaas @azarijahromi"
+  },
+  {
+    "truncated" : false,
+    "favorite_count" : 0,
+    "id_str" : "1271259196370059271",
+    "id" : 1271259196370059271,
+    "in_reply_to_user_id_str" : null,
+    "favorited" : false,
+    "contributors" : null,
+    "source" : "<a href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\">Twitter Web App<\/a>",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "10228272",
+          "id" : 10228272,
+          "screen_name" : "YouTube",
+          "name" : "YouTube",
+          "indices" : [
+            61,
+            69
+          ]
+        }
+      ],
+      "urls" : [
+        {
+          "display_url" : "youtu.be\/4HX6R88QZB0",
+          "url" : "https:\/\/t.co\/KzWiiilxiq",
+          "indices" : [
+            33,
+            56
+          ],
+          "expanded_url" : "https:\/\/youtu.be\/4HX6R88QZB0"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "in_reply_to_user_id" : null,
+    "in_reply_to_status_id" : null,
+    "in_reply_to_screen_name" : null,
+    "is_quote_status" : false,
+    "created_at" : "Fri Jun 12 01:53:05 +0000 2020",
+    "retweeted" : false,
+    "place" : null,
+    "text" : "Original 2007 iPhone Unboxing!!! https:\/\/t.co\/KzWiiilxiq via @YouTube",
+    "lang" : "en",
+    "geo" : null,
+    "coordinates" : null,
+    "in_reply_to_status_id_str" : null,
+    "retweet_count" : 0,
+    "possibly_sensitive" : false,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    }
+  },
+  {
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/td0n8BG4A1",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1210774918280798210"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "retweeted" : false,
+    "favorited" : false,
+    "in_reply_to_status_id" : 1125626268857380864,
+    "lang" : "en",
+    "in_reply_to_status_id_str" : "1125626268857380864",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id" : 1210774918280798210,
+    "in_reply_to_user_id" : 64156203,
+    "in_reply_to_user_id_str" : "64156203",
+    "in_reply_to_screen_name" : "beehivemade",
+    "text" : "@guidedways When we could see dark mode in iQuran pro? Current colors are beautiful but for nights I need some dark… https:\/\/t.co\/td0n8BG4A1",
+    "contributors" : null,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "id_str" : "1210774918280798210",
+    "place" : null,
+    "geo" : null,
+    "truncated" : true,
+    "retweet_count" : 0,
+    "is_quote_status" : false,
+    "coordinates" : null,
+    "favorite_count" : 0,
+    "created_at" : "Sat Dec 28 04:10:10 +0000 2019"
+  },
+  {
+    "place" : null,
+    "text" : "RT @luckymarmot: Paw — The most advanced API tool for Mac (REST &amp; HTTP Client) https:\/\/t.co\/qMXLFUbxHf · We're making a crazy Black Friday…",
+    "lang" : "en",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "960567571",
+          "id" : 960567571,
+          "screen_name" : "luckymarmot",
+          "name" : "Paw",
+          "indices" : [
+            3,
+            15
+          ]
+        }
+      ],
+      "urls" : [
+        {
+          "display_url" : "paw.cloud",
+          "url" : "https:\/\/t.co\/qMXLFUbxHf",
+          "indices" : [
+            83,
+            106
+          ],
+          "expanded_url" : "https:\/\/paw.cloud\/"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "in_reply_to_status_id_str" : null,
+    "coordinates" : null,
+    "favorited" : false,
+    "geo" : null,
+    "in_reply_to_status_id" : null,
+    "in_reply_to_user_id_str" : null,
+    "retweeted" : false,
+    "contributors" : null,
+    "id_str" : "1200463144218480640",
+    "favorite_count" : 0,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "truncated" : false,
+    "in_reply_to_screen_name" : null,
+    "is_quote_status" : false,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id" : 1200463144218480640,
+    "in_reply_to_user_id" : null,
+    "retweeted_status" : {
+      "place" : null,
+      "contributors" : null,
+      "source" : "<a href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\">Twitter Web App<\/a>",
+      "truncated" : true,
+      "is_quote_status" : false,
+      "favorite_count" : 1140,
+      "possibly_sensitive" : false,
+      "lang" : "en",
+      "entities" : {
+        "symbols" : [
+
+        ],
+        "user_mentions" : [
+
+        ],
+        "urls" : [
+          {
+            "display_url" : "paw.cloud",
+            "url" : "https:\/\/t.co\/qMXLFUbxHf",
+            "indices" : [
+              66,
+              89
+            ],
+            "expanded_url" : "https:\/\/paw.cloud\/"
+          },
+          {
+            "display_url" : "twitter.com\/i\/web\/status\/1…",
+            "url" : "https:\/\/t.co\/JIHfCsXVBK",
+            "indices" : [
+              120,
+              143
+            ],
+            "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1200440962163650561"
+          }
+        ],
+        "hashtags" : [
+
+        ]
+      },
+      "in_reply_to_screen_name" : null,
+      "retweet_count" : 5045,
+      "favorited" : false,
+      "geo" : null,
+      "id" : 1200440962163650561,
+      "user" : {
+        "protected" : false,
+        "is_translator" : false,
+        "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/758669027166261249\/UKsGtXHO_normal.jpg",
+        "created_at" : "Tue Nov 20 14:19:54 +0000 2012",
+        "id" : 960567571,
+        "default_profile_image" : false,
+        "listed_count" : 167,
+        "profile_background_color" : "000000",
+        "follow_request_sent" : null,
+        "location" : "",
+        "entities" : {
+          "url" : {
+            "urls" : [
+              {
+                "display_url" : "paw.cloud",
+                "url" : "https:\/\/t.co\/hK6ScVfFzz",
+                "indices" : [
+                  0,
+                  23
+                ],
+                "expanded_url" : "https:\/\/paw.cloud"
+              }
+            ]
+          },
+          "description" : {
+            "urls" : [
+
+            ]
+          }
+        },
+        "url" : "https:\/\/t.co\/hK6ScVfFzz",
+        "description" : "We build Paw, the most delightful Mac app that makes it easy to test web APIs and lets you focus on developing the apps you dream about.",
+        "followers_count" : 10166,
+        "geo_enabled" : true,
+        "lang" : null,
+        "profile_text_color" : "000000",
+        "statuses_count" : 3749,
+        "following" : null,
+        "notifications" : null,
+        "profile_background_tile" : false,
+        "profile_use_background_image" : false,
+        "id_str" : "960567571",
+        "name" : "Paw",
+        "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/758669027166261249\/UKsGtXHO_normal.jpg",
+        "profile_sidebar_fill_color" : "000000",
+        "profile_sidebar_border_color" : "000000",
+        "contributors_enabled" : false,
+        "default_profile" : false,
+        "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/960567571\/1469715745",
+        "screen_name" : "luckymarmot",
+        "time_zone" : null,
+        "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_link_color" : "00AAFF",
+        "favourites_count" : 2728,
+        "is_translation_enabled" : false,
+        "translator_type" : "none",
+        "utc_offset" : null,
+        "friends_count" : 2038,
+        "verified" : true,
+        "has_extended_profile" : false
+      },
+      "in_reply_to_user_id" : null,
+      "retweeted" : false,
+      "text" : "Paw — The most advanced API tool for Mac (REST &amp; HTTP Client) https:\/\/t.co\/qMXLFUbxHf · We're making a crazy Black… https:\/\/t.co\/JIHfCsXVBK",
+      "created_at" : "Fri Nov 29 15:46:43 +0000 2019",
+      "in_reply_to_status_id_str" : null,
+      "in_reply_to_status_id" : null,
+      "in_reply_to_user_id_str" : null,
+      "id_str" : "1200440962163650561",
+      "coordinates" : null
+    },
+    "possibly_sensitive" : false,
+    "retweet_count" : 5045,
+    "created_at" : "Fri Nov 29 17:14:51 +0000 2019"
+  },
+  {
+    "in_reply_to_user_id" : 2335271234,
+    "id" : 1147811121971245056,
+    "contributors" : null,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "favorite_count" : 0,
+    "place" : null,
+    "geo" : null,
+    "is_quote_status" : false,
+    "truncated" : false,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "medium.com\/@ynzc\/getting-…",
+          "url" : "https:\/\/t.co\/hHrZv4ifjG",
+          "indices" : [
+            53,
+            76
+          ],
+          "expanded_url" : "https:\/\/medium.com\/@ynzc\/getting-started-with-tdd-in-swift-2fab3e07204b"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "retweet_count" : 0,
+    "in_reply_to_screen_name" : "ssamadgh",
+    "in_reply_to_status_id" : 1147810432473882624,
+    "in_reply_to_user_id_str" : "2335271234",
+    "retweeted" : false,
+    "id_str" : "1147811121971245056",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "favorited" : false,
+    "in_reply_to_status_id_str" : "1147810432473882624",
+    "coordinates" : null,
+    "created_at" : "Sun Jul 07 10:14:31 +0000 2019",
+    "possibly_sensitive" : false,
+    "lang" : "en",
+    "text" : "A really great article to start learning TDD in iOS\n\nhttps:\/\/t.co\/hHrZv4ifjG"
+  },
+  {
+    "id_str" : "1147810432473882624",
+    "retweeted" : false,
+    "favorite_count" : 0,
+    "is_quote_status" : false,
+    "favorited" : false,
+    "in_reply_to_user_id" : 2335271234,
+    "truncated" : false,
+    "coordinates" : null,
+    "place" : null,
+    "in_reply_to_user_id_str" : "2335271234",
+    "in_reply_to_status_id_str" : "1147809444727857152",
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "in_reply_to_screen_name" : "ssamadgh",
+    "in_reply_to_status_id" : 1147809444727857152,
+    "retweet_count" : 0,
+    "text" : "You only write code that you need.\nThis is also a good agile principle, i.e., to avoid bloat.\nhttps:\/\/t.co\/NfkDFA9Zb0",
+    "possibly_sensitive" : false,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id" : 1147810432473882624,
+    "contributors" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "quora.com\/Which-are-the-…",
+          "url" : "https:\/\/t.co\/NfkDFA9Zb0",
+          "indices" : [
+            94,
+            117
+          ],
+          "expanded_url" : "https:\/\/www.quora.com\/Which-are-the-most-important-advantages-of-test-driven-development"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "created_at" : "Sun Jul 07 10:11:47 +0000 2019",
+    "geo" : null,
+    "lang" : "en"
+  },
+  {
+    "text" : "Thinking about tests before you write code is very difficult.\nThis force you to exercise your brain 50 times more t… https:\/\/t.co\/A0Q91TWiVy",
+    "in_reply_to_user_id" : 2335271234,
+    "favorite_count" : 0,
+    "truncated" : true,
+    "id" : 1147809444727857152,
+    "in_reply_to_user_id_str" : "2335271234",
+    "in_reply_to_status_id" : 1147808221488435200,
+    "retweeted" : false,
+    "created_at" : "Sun Jul 07 10:07:51 +0000 2019",
+    "retweet_count" : 0,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "lang" : "en",
+    "possibly_sensitive" : false,
+    "coordinates" : null,
+    "contributors" : null,
+    "favorited" : false,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/A0Q91TWiVy",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1147809444727857152"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "geo" : null,
+    "is_quote_status" : false,
+    "place" : null,
+    "in_reply_to_screen_name" : "ssamadgh",
+    "id_str" : "1147809444727857152",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "in_reply_to_status_id_str" : "1147808221488435200"
+  },
+  {
+    "favorite_count" : 0,
+    "coordinates" : null,
+    "place" : null,
+    "lang" : "en",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/AukfG6FXba",
+          "indices" : [
+            116,
+            139
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1147808221488435200"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "retweeted" : false,
+    "in_reply_to_status_id_str" : "1147752900153810944",
+    "possibly_sensitive" : false,
+    "contributors" : null,
+    "is_quote_status" : false,
+    "text" : "It forces you to think about what can go wrong with your code.\nIf you do test last there is no compulsion to think… https:\/\/t.co\/AukfG6FXba",
+    "in_reply_to_user_id_str" : "2335271234",
+    "in_reply_to_status_id" : 1147752900153810944,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "geo" : null,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "in_reply_to_screen_name" : "ssamadgh",
+    "favorited" : false,
+    "truncated" : true,
+    "in_reply_to_user_id" : 2335271234,
+    "retweet_count" : 0,
+    "id" : 1147808221488435200,
+    "id_str" : "1147808221488435200",
+    "created_at" : "Sun Jul 07 10:02:59 +0000 2019"
+  },
+  {
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+        {
+          "indices" : [
+            81,
+            86
+          ],
+          "text" : "test"
+        },
+        {
+          "indices" : [
+            87,
+            94
+          ],
+          "text" : "driven"
+        },
+        {
+          "indices" : [
+            95,
+            107
+          ],
+          "text" : "development"
+        }
+      ]
+    },
+    "created_at" : "Sun Jul 07 06:23:10 +0000 2019",
+    "geo" : null,
+    "truncated" : false,
+    "in_reply_to_user_id_str" : null,
+    "contributors" : null,
+    "in_reply_to_user_id" : null,
+    "lang" : "en",
+    "retweeted" : false,
+    "favorited" : false,
+    "id_str" : "1147752900153810944",
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "in_reply_to_status_id" : null,
+    "in_reply_to_status_id_str" : null,
+    "text" : "TDD is as beautiful, fantastic and powerful in deep, as is silly at first glance #test #driven #development",
+    "in_reply_to_screen_name" : null,
+    "is_quote_status" : false,
+    "retweet_count" : 0,
+    "coordinates" : null,
+    "favorite_count" : 3,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id" : 1147752900153810944,
+    "place" : null
+  },
+  {
+    "created_at" : "Thu Jun 20 12:02:10 +0000 2019",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "geo" : null,
+    "coordinates" : null,
+    "favorite_count" : 1,
+    "text" : "@radioDaal این قسمت عالی بود، میشه گفت فصل جدید از رادیو دال رو شروع کرد. مرسی",
+    "id_str" : "1141677619299176448",
+    "in_reply_to_screen_name" : "radioDaal",
+    "in_reply_to_user_id_str" : "882691662241202179",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "882691662241202179",
+          "id" : 882691662241202179,
+          "screen_name" : "radioDaal",
+          "name" : "Radio Daal | رادیو دال",
+          "indices" : [
+            0,
+            10
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "is_quote_status" : false,
+    "truncated" : false,
+    "lang" : "fa",
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "contributors" : null,
+    "place" : null,
+    "in_reply_to_status_id_str" : "1141400181465919488",
+    "id" : 1141677619299176448,
+    "retweet_count" : 0,
+    "retweeted" : false,
+    "favorited" : false,
+    "in_reply_to_status_id" : 1141400181465919488,
+    "in_reply_to_user_id" : 882691662241202179
+  },
+  {
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "in_reply_to_screen_name" : "smmtavasoli",
+    "in_reply_to_user_id_str" : "826358770636820480",
+    "geo" : null,
+    "contributors" : null,
+    "truncated" : true,
+    "in_reply_to_status_id_str" : "1128594318321770496",
+    "is_quote_status" : false,
+    "place" : null,
+    "text" : "@smmtavasoli @mostafatajzade جایگاه مطالبه گر از حاکم، اگه نمیدونید علی علیه السلام این جایگاه را به همه ی مردم در… https:\/\/t.co\/tqvCVAWWEV",
+    "retweeted" : false,
+    "retweet_count" : 0,
+    "favorite_count" : 1,
+    "lang" : "fa",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id_str" : "1128971007459581952",
+    "in_reply_to_status_id" : 1128594318321770496,
+    "created_at" : "Thu May 16 10:30:38 +0000 2019",
+    "id" : 1128971007459581952,
+    "in_reply_to_user_id" : 826358770636820480,
+    "coordinates" : null,
+    "favorited" : false,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "826358770636820480",
+          "id" : 826358770636820480,
+          "screen_name" : "smmtavasoli",
+          "name" : "سیدمحمدمهدی توسلی",
+          "indices" : [
+            0,
+            12
+          ]
+        },
+        {
+          "id_str" : "831519910463434752",
+          "id" : 831519910463434752,
+          "screen_name" : "mostafatajzade",
+          "name" : "مصطفی تاجزاده",
+          "indices" : [
+            13,
+            28
+          ]
+        }
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/tqvCVAWWEV",
+          "indices" : [
+            116,
+            139
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1128971007459581952"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    }
+  },
+  {
+    "in_reply_to_user_id_str" : "324165006",
+    "truncated" : false,
+    "id_str" : "1128075046914875394",
+    "coordinates" : null,
+    "in_reply_to_screen_name" : "Mohammad_z74",
+    "is_quote_status" : false,
+    "text" : "@Mohammad_z74 تا اینجای سریال تنها چیزی که میشه به عوامل HBO گفت اینه که فصل هشت رو نمیساختید نمیگفتن چلاقید",
+    "created_at" : "Mon May 13 23:10:24 +0000 2019",
+    "in_reply_to_status_id_str" : "1127907512110526464",
+    "favorite_count" : 1,
+    "lang" : "fa",
+    "favorited" : false,
+    "retweet_count" : 0,
+    "place" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "324165006",
+          "id" : 324165006,
+          "screen_name" : "Mohammad_z74",
+          "name" : "zm.z96",
+          "indices" : [
+            0,
+            13
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "contributors" : null,
+    "id" : 1128075046914875394,
+    "retweeted" : false,
+    "in_reply_to_user_id" : 324165006,
+    "in_reply_to_status_id" : 1127907512110526464,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "geo" : null,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    }
+  },
+  {
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+        {
+          "id_str" : "882691662241202179",
+          "id" : 882691662241202179,
+          "screen_name" : "radioDaal",
+          "name" : "Radio Daal | رادیو دال",
+          "indices" : [
+            0,
+            10
+          ]
+        }
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "text" : "@radioDaal ای ول اتفاقا خیلی وقت بود میخواستم یه مسیج بهت بزنم بگه آرش جان با یه پناهنده هم مصاحبه کن از دید اونا هم به مهاجرت نگاه کنیم.",
+    "favorited" : false,
+    "in_reply_to_user_id" : 882691662241202179,
+    "lang" : "fa",
+    "in_reply_to_user_id_str" : "882691662241202179",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id_str" : "1119681119035764736",
+    "coordinates" : null,
+    "is_quote_status" : false,
+    "favorite_count" : 4,
+    "id" : 1119681119035764736,
+    "truncated" : false,
+    "created_at" : "Sat Apr 20 19:15:56 +0000 2019",
+    "in_reply_to_screen_name" : "radioDaal",
+    "in_reply_to_status_id_str" : "1119313287353700358",
+    "retweeted" : false,
+    "place" : null,
+    "contributors" : null,
+    "retweet_count" : 0,
+    "source" : "<a href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\">Twitter for iPhone<\/a>",
+    "in_reply_to_status_id" : 1119313287353700358,
+    "geo" : null
+  },
+  {
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "retweet_count" : 0,
+    "contributors" : null,
+    "in_reply_to_screen_name" : null,
+    "in_reply_to_status_id" : null,
+    "coordinates" : null,
+    "id_str" : "1099604004345131008",
+    "in_reply_to_user_id" : null,
+    "in_reply_to_user_id_str" : null,
+    "text" : "At the time you want to access the network, ask yourself:\nDo I need this now? Can I delay it? \nIf so, delay it and… https:\/\/t.co\/pr3ZOcYGNW",
+    "retweeted" : false,
+    "source" : "<a href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\">TweetDeck<\/a>",
+    "in_reply_to_status_id_str" : null,
+    "truncated" : true,
+    "geo" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/pr3ZOcYGNW",
+          "indices" : [
+            116,
+            139
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1099604004345131008"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "favorite_count" : 1,
+    "place" : null,
+    "is_quote_status" : false,
+    "created_at" : "Sun Feb 24 09:36:38 +0000 2019",
+    "lang" : "en",
+    "favorited" : false,
+    "id" : 1099604004345131008
+  },
+  {
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "favorited" : false,
+    "lang" : "en",
+    "source" : "<a href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\">TweetDeck<\/a>",
+    "in_reply_to_user_id_str" : null,
+    "retweeted" : false,
+    "in_reply_to_status_id" : null,
+    "place" : null,
+    "in_reply_to_status_id_str" : null,
+    "favorite_count" : 0,
+    "created_at" : "Sun Feb 24 09:34:42 +0000 2019",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/DmGZr7SRmd",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1099603517197770752"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "id_str" : "1099603517197770752",
+    "retweet_count" : 0,
+    "contributors" : null,
+    "in_reply_to_user_id" : null,
+    "coordinates" : null,
+    "geo" : null,
+    "text" : "Please, don't access the network unless:\n- The user is requesting you access the network right now\n- there's someth… https:\/\/t.co\/DmGZr7SRmd",
+    "in_reply_to_screen_name" : null,
+    "id" : 1099603517197770752,
+    "is_quote_status" : false,
+    "truncated" : true
+  },
+  {
+    "in_reply_to_screen_name" : null,
+    "lang" : "en",
+    "in_reply_to_status_id" : null,
+    "place" : null,
+    "geo" : null,
+    "favorite_count" : 1,
+    "id_str" : "1099561351247212545",
+    "retweet_count" : 0,
+    "in_reply_to_user_id" : null,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "contributors" : null,
+    "truncated" : true,
+    "in_reply_to_user_id_str" : null,
+    "retweeted" : false,
+    "in_reply_to_status_id_str" : null,
+    "favorited" : false,
+    "created_at" : "Sun Feb 24 06:47:09 +0000 2019",
+    "id" : 1099561351247212545,
+    "coordinates" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/C2cS4XdoZ8",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1099561351247212545"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "source" : "<a href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\">TweetDeck<\/a>",
+    "is_quote_status" : false,
+    "text" : "If responding to user action take too much longer than 100 ms your users start to feel it.\nSo your goal for any res… https:\/\/t.co\/C2cS4XdoZ8"
+  },
+  {
+    "id" : 1096723833774583809,
+    "geo" : null,
+    "retweet_count" : 0,
+    "retweeted" : false,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/Bzxll0PLuG",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096723833774583809"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "is_quote_status" : false,
+    "place" : null,
+    "truncated" : true,
+    "favorited" : false,
+    "in_reply_to_status_id" : 1096723821220921344,
+    "created_at" : "Sat Feb 16 10:51:52 +0000 2019",
+    "id_str" : "1096723833774583809",
+    "text" : "Do it Less\n\n- Avoid repetitive works\n- Use caches\n- Minimize timers usage\n\nWWDC 2014 - Writing Energy Efficient Cod… https:\/\/t.co\/Bzxll0PLuG",
+    "in_reply_to_user_id_str" : "2335271234",
+    "in_reply_to_screen_name" : "ssamadgh",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "lang" : "en",
+    "in_reply_to_user_id" : 2335271234,
+    "contributors" : null,
+    "coordinates" : null,
+    "in_reply_to_status_id_str" : "1096723821220921344",
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "favorite_count" : 0
+  },
+  {
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/MMET6FWFgU",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096723821220921344"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "place" : null,
+    "id_str" : "1096723821220921344",
+    "coordinates" : null,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "contributors" : null,
+    "in_reply_to_user_id_str" : "2335271234",
+    "geo" : null,
+    "created_at" : "Sat Feb 16 10:51:49 +0000 2019",
+    "in_reply_to_screen_name" : "ssamadgh",
+    "retweet_count" : 0,
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "text" : "Do it More Efficiently\n\n- Use Quality of Service Classes on multithread works\n\nWWDC 2014 - Writing Energy Efficient… https:\/\/t.co\/MMET6FWFgU",
+    "truncated" : true,
+    "favorited" : false,
+    "favorite_count" : 0,
+    "lang" : "en",
+    "possibly_sensitive" : false,
+    "in_reply_to_status_id" : 1096723804112515073,
+    "is_quote_status" : false,
+    "in_reply_to_status_id_str" : "1096723804112515073",
+    "id" : 1096723821220921344,
+    "in_reply_to_user_id" : 2335271234,
+    "retweeted" : false
+  },
+  {
+    "in_reply_to_user_id" : 2335271234,
+    "id" : 1096723804112515073,
+    "contributors" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+
+      ],
+      "hashtags" : [
+        {
+          "indices" : [
+            103,
+            119
+          ],
+          "text" : "energyefficient"
+        },
+        {
+          "indices" : [
+            120,
+            137
+          ],
+          "text" : "energyefficiency"
+        }
+      ]
+    },
+    "created_at" : "Sat Feb 16 10:51:45 +0000 2019",
+    "favorited" : false,
+    "id_str" : "1096723804112515073",
+    "in_reply_to_user_id_str" : "2335271234",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "coordinates" : null,
+    "retweet_count" : 0,
+    "is_quote_status" : false,
+    "favorite_count" : 0,
+    "truncated" : false,
+    "lang" : "en",
+    "in_reply_to_status_id" : 1096723792649428992,
+    "text" : "Do it at a Better Time\n- Use background scheduling methods\n\nWWDC 2014 - Writing Energy Efficient Code\n\n#energyefficient #energyefficiency",
+    "geo" : null,
+    "retweeted" : false,
+    "place" : null,
+    "in_reply_to_screen_name" : "ssamadgh",
+    "in_reply_to_status_id_str" : "1096723792649428992"
+  },
+  {
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "text" : "Do it Never\n\n- Avoid unnecessary work\n- Avoid updating UI until the user can see the results\n\nWWDC 2014 - Writing E… https:\/\/t.co\/M0hzD6olJo",
+    "favorited" : false,
+    "contributors" : null,
+    "retweeted" : false,
+    "truncated" : true,
+    "coordinates" : null,
+    "place" : null,
+    "created_at" : "Sat Feb 16 10:51:42 +0000 2019",
+    "retweet_count" : 0,
+    "in_reply_to_user_id" : 2335271234,
+    "in_reply_to_status_id" : 1096723783648530432,
+    "id_str" : "1096723792649428992",
+    "favorite_count" : 0,
+    "in_reply_to_user_id_str" : "2335271234",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "id" : 1096723792649428992,
+    "is_quote_status" : false,
+    "lang" : "en",
+    "geo" : null,
+    "in_reply_to_status_id_str" : "1096723783648530432",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/M0hzD6olJo",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096723792649428992"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "in_reply_to_screen_name" : "ssamadgh"
+  },
+  {
+    "in_reply_to_screen_name" : null,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "in_reply_to_status_id" : null,
+    "favorite_count" : 0,
+    "created_at" : "Sat Feb 16 10:51:40 +0000 2019",
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/px4Ttiagdf",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096723783648530432"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "id" : 1096723783648530432,
+    "in_reply_to_user_id" : null,
+    "truncated" : true,
+    "coordinates" : null,
+    "retweeted" : false,
+    "geo" : null,
+    "lang" : "en",
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "text" : "Improving your energy use\n- Do it never\n- Do it at a better time\n- Do it more efficiently\n- Do it less\n\nWWDC 2014 -… https:\/\/t.co\/px4Ttiagdf",
+    "in_reply_to_user_id_str" : null,
+    "place" : null,
+    "retweet_count" : 0,
+    "is_quote_status" : false,
+    "contributors" : null,
+    "in_reply_to_status_id_str" : null,
+    "id_str" : "1096723783648530432",
+    "favorited" : false
+  },
+  {
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/b2t9MIKy4F",
+          "indices" : [
+            116,
+            139
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096713187779579904"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "place" : null,
+    "id" : 1096713187779579904,
+    "id_str" : "1096713187779579904",
+    "text" : "Another way\n\nBy converting the single-threaded workload to multi-threaded:\n- Reduce fixed cost at the same dynamic… https:\/\/t.co\/b2t9MIKy4F",
+    "favorited" : false,
+    "in_reply_to_user_id" : 2335271234,
+    "possibly_sensitive" : false,
+    "contributors" : null,
+    "in_reply_to_user_id_str" : "2335271234",
+    "created_at" : "Sat Feb 16 10:09:34 +0000 2019",
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "coordinates" : null,
+    "lang" : "en",
+    "in_reply_to_status_id_str" : "1096660490925817856",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "is_quote_status" : false,
+    "truncated" : true,
+    "geo" : null,
+    "in_reply_to_status_id" : 1096660490925817856,
+    "in_reply_to_screen_name" : "ssamadgh",
+    "retweet_count" : 0,
+    "retweeted" : false,
+    "favorite_count" : 0
+  },
+  {
+    "in_reply_to_screen_name" : "ssamadgh",
+    "in_reply_to_status_id" : 1096617145218281472,
+    "in_reply_to_user_id" : 2335271234,
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "truncated" : true,
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "possibly_sensitive" : false,
+    "is_quote_status" : false,
+    "id" : 1096660490925817856,
+    "geo" : null,
+    "lang" : "en",
+    "contributors" : null,
+    "retweeted" : false,
+    "in_reply_to_user_id_str" : "2335271234",
+    "coordinates" : null,
+    "created_at" : "Sat Feb 16 06:40:10 +0000 2019",
+    "id_str" : "1096660490925817856",
+    "in_reply_to_status_id_str" : "1096617145218281472",
+    "favorite_count" : 0,
+    "text" : "An easy way to reduce fixed cost:\n\nAvoid small sporadic work units by aggregating them together.\nIt can dramaticall… https:\/\/t.co\/6UGkZ3hLuI",
+    "place" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/6UGkZ3hLuI",
+          "indices" : [
+            117,
+            140
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096660490925817856"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "retweet_count" : 0,
+    "favorited" : false
+  },
+  {
+    "in_reply_to_screen_name" : "ssamadgh",
+    "in_reply_to_status_id_str" : "1096611082528088069",
+    "contributors" : null,
+    "retweet_count" : 0,
+    "in_reply_to_status_id" : 1096611082528088069,
+    "geo" : null,
+    "favorite_count" : 0,
+    "id_str" : "1096617145218281472",
+    "in_reply_to_user_id" : 2335271234,
+    "coordinates" : null,
+    "entities" : {
+      "symbols" : [
+
+      ],
+      "user_mentions" : [
+
+      ],
+      "urls" : [
+        {
+          "display_url" : "twitter.com\/i\/web\/status\/1…",
+          "url" : "https:\/\/t.co\/Su5OmisepI",
+          "indices" : [
+            116,
+            139
+          ],
+          "expanded_url" : "https:\/\/twitter.com\/i\/web\/status\/1096617145218281472"
+        }
+      ],
+      "hashtags" : [
+
+      ]
+    },
+    "favorited" : false,
+    "is_quote_status" : false,
+    "id" : 1096617145218281472,
+    "possibly_sensitive" : false,
+    "truncated" : true,
+    "created_at" : "Sat Feb 16 03:47:56 +0000 2019",
+    "in_reply_to_user_id_str" : "2335271234",
+    "source" : "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "retweeted" : false,
+    "lang" : "en",
+    "user" : {
+      "protected" : false,
+      "is_translator" : false,
+      "profile_image_url" : "http:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "created_at" : "Sun Feb 09 15:24:53 +0000 2014",
+      "id" : 2335271234,
+      "default_profile_image" : false,
+      "listed_count" : 1,
+      "profile_background_color" : "000000",
+      "follow_request_sent" : null,
+      "location" : "",
+      "entities" : {
+        "url" : {
+          "urls" : [
+            {
+              "display_url" : "medium.com\/@ssamadgh",
+              "url" : "https:\/\/t.co\/kRsUAnJJJK",
+              "indices" : [
+                0,
+                23
+              ],
+              "expanded_url" : "https:\/\/medium.com\/@ssamadgh"
+            }
+          ]
+        },
+        "description" : {
+          "urls" : [
+
+          ]
+        }
+      },
+      "url" : "https:\/\/t.co\/kRsUAnJJJK",
+      "description" : "iOS Developer",
+      "followers_count" : 42,
+      "geo_enabled" : false,
+      "lang" : null,
+      "profile_text_color" : "000000",
+      "statuses_count" : 102,
+      "following" : null,
+      "notifications" : null,
+      "profile_background_tile" : false,
+      "profile_use_background_image" : false,
+      "id_str" : "2335271234",
+      "name" : "Seyed Samad Gholamzadeh",
+      "profile_image_url_https" : "https:\/\/pbs.twimg.com\/profile_images\/831555646378082308\/lcpmEl-0_normal.jpg",
+      "profile_sidebar_fill_color" : "000000",
+      "profile_sidebar_border_color" : "000000",
+      "contributors_enabled" : false,
+      "default_profile" : false,
+      "profile_banner_url" : "https:\/\/pbs.twimg.com\/profile_banners\/2335271234\/1550475603",
+      "screen_name" : "ssamadgh",
+      "time_zone" : null,
+      "profile_background_image_url" : "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https" : "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_link_color" : "0F1839",
+      "favourites_count" : 182,
+      "is_translation_enabled" : false,
+      "translator_type" : "none",
+      "utc_offset" : null,
+      "friends_count" : 371,
+      "verified" : false,
+      "has_extended_profile" : true
+    },
+    "text" : "Fixed Costs:\nThe cost that we pay just to have accomplished any kind of work.\n\nAll of the blue areas at the bottom… https:\/\/t.co\/Su5OmisepI",
+    "place" : null
+  }
+]

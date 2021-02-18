@@ -19,16 +19,12 @@ public struct SilentCondition<T: AOperationCondition>: AOperationCondition {
     let condition: T
     
     public var dependentOperation: AOperation?
-    
-	public static var key: String {
-        return "Silent<\(T.key)>"
-    }
-    
+        
 	public static var isMutuallyExclusive: Bool {
         return T.isMutuallyExclusive
     }
     
-    public init(condition: T) {
+    public init(_ condition: T) {
         self.condition = condition
     }
     

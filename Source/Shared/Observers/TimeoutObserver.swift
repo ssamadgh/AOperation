@@ -9,8 +9,13 @@ This file shows how to implement the AOperationObserver protocol.
 import Foundation
 
 extension TimeoutObserver {
-	struct ErrorInfo {
-		static let timeout = AOperationError.Info(rawValue: "Timeout")
+	
+	public struct Error: LocalizedError {
+		let timeout: TimeInterval
+		
+		public var errorDescription: String? {
+			"The Operation is timeout after \(timeout) seconds because of TimeoutObserver"
+		}
 	}
 }
 
@@ -26,7 +31,7 @@ struct TimeoutObserver: AOperationObserver {
     
     // MARK: Initialization
     
-    init(timeout: TimeInterval) {
+    init(_ timeout: TimeInterval) {
         self.timeout = timeout
     }
     
@@ -42,13 +47,9 @@ struct TimeoutObserver: AOperationObserver {
                 been canceled.
             */
             if !operation.isFinished && !operation.isCancelled {
-				let info: [AOperationError.Info : Any?] =
-				[
-					type(of: self).ErrorInfo.timeout : self.timeout
-				]
-				let error = AOperationError.executionFailed(with: info)
+				let error = AOperationError(Error(timeout: self.timeout))
 
-                operation.finishWithError(error)
+                operation.finish([error])
             }
         }
     }

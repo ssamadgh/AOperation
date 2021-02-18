@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Examples/TweetSeeker/TweetSeeker.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Examples/Earthquakes/Earthquakes.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AOperation.xcodeproj">
+   </FileRef>
+</Workspace>

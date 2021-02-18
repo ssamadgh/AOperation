@@ -59,14 +59,11 @@ public extension AOperationCondition {
     }
     
     func evaluateForOperation(_ operation: AOperation, completion: @escaping (OperationConditionResult) -> Void) {
-        if let error = self.dependentOperation?.finishedErrors?.first {
-			var info: [AOperationError.Info : Any?] = error.info ?? [:]
-			info[.key] = Self.key
-			let error = AOperationError.conditionFailed(with: info)
-            completion(.failed(error))
+        if let error = self.dependentOperation?.publishedErrors.first {
+            completion(.failure(error))
         }
         else {
-            completion(.satisfied)
+            completion(.success)
         }
         
     }
@@ -79,11 +76,11 @@ public extension AOperationCondition {
  failed with an error.
  */
 public enum OperationConditionResult: Equatable {
-    case satisfied
-    case failed(AOperationError)
+    case success
+    case failure(AOperationError)
     
     var error: AOperationError? {
-        if case .failed(let error) = self {
+        if case .failure(let error) = self {
             return error
         }
 
@@ -93,9 +90,9 @@ public enum OperationConditionResult: Equatable {
 
 public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> Bool {
     switch (lhs, rhs) {
-    case (.satisfied, .satisfied):
+    case (.success, .success):
         return true
-    case (.failed(let lError), .failed(let rError)) where lError == rError:
+    case (.failure(let lError), .failure(let rError)) where lError == rError:
         return true
     default:
         return false
@@ -115,6 +112,13 @@ struct OperationConditionEvaluator {
         for (index, condition) in conditions.enumerated() {
             conditionGroup.enter()
             condition.evaluateForOperation(operation) { result in
+				var result = result
+				if case .failure(var error) = result {
+					error.state = .condition
+					error.publisher = "\(type(of: condition))"
+					result = .failure(error)
+				}
+				
                 results[index] = result
                 conditionGroup.leave()
             }
@@ -123,15 +127,15 @@ struct OperationConditionEvaluator {
         // After all the conditions have evaluated, this block will execute.
         conditionGroup.notify(queue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default)) {
             // Aggregate the errors that occurred, in order.
-			var failures = results.compactMap { $0?.error }
+			let failures = results.compactMap { $0?.error }
 
             /*
              If any of the conditions caused this operation to be canceled,
              check for that.
              */
-            if operation.isCancelled {
-				failures.append(AOperationError.conditionFailed(with: nil))
-            }
+//            if operation.isCancelled {
+//				failures.append(AOperationError.conditionFailed(with: nil))
+//            }
 
             completion(failures)
         }

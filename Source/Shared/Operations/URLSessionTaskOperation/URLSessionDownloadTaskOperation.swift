@@ -7,43 +7,41 @@
 
 import Foundation
 
-public class URLSessionDownloadTaskOperation: URLSessionTaskOperation {
+/// A subclass of ResultableOperation that handles URLSessionDownloadTask request and result
+public class URLSessionDownloadTaskOperation: URLSessionTaskBaseOperation<(url: URL, response: URLResponse)>, RetryableOperation {
+	
+	public func new() -> Self {
+		URLSessionDownloadTaskOperation(request: request) as! Self
+	}
 	
 	init(request: URLRequest) {
 		super.init(kind: .download, for: request)
-		URLSessionTaskManager.shared.didFinishDownloadTask(withIdentifier: self.task.taskIdentifier) { (_, _, _) in
-			self.finishWithError(nil)
-		}
-	}
-    
-    /**
-     Calls the given closure when URLSessionTask did finish.
-     - Parameters:
-         - handler:
-             Given closure which called when task did finish
-             - data:
-             The data returned by the server.
-
-             - response:
-             An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
-
-             - error:
-             An error object that indicates why the request failed, or nil if the request was successful.
-                    
-             - finish:
-             You should call this inside closure in the place you want the operation being finished. Note that if you do not call this, the operation stays in execute state.
-     */
-	public func didFinish(_ handler: @escaping URLResponseOperationBlock) {
-		URLSessionTaskManager.shared.didFinishDownloadTask(withIdentifier: self.task.taskIdentifier) { (url, response, error) in
-			handler(url, response, error) { error in
-				self.finishWithError(error)
+		URLSessionTaskManager.shared.didFinishDownloadTask(withIdentifier: self.task.taskIdentifier) { [weak self] (url, response, error) in
+			guard let `self` = self else { return }
+			let result: Result<(url: URL, response: URLResponse), AOperationError>
+			
+			if let url = url, let response = response {
+				result = .success((url, response))
 			}
+			else {
+				if let error = error {
+					result = .failure(AOperationError(error))
+				}
+				else {
+					let error: URLError = URLError(URLError.Code.unknown)
+					result = .failure(AOperationError(error))
+				}
+			}
+			
+			self.finish(with: result)
 		}
 	}
-	
+    	
     /// Periodically informs about the download’s progress.
-	public func didChangeProgress(_ handler: @escaping ((Progress) -> Swift.Void)) {
+	@discardableResult
+	public func didChangeProgress(_ handler: @escaping ((Progress) -> Swift.Void)) -> Self {
 		URLSessionTaskManager.shared.didChangeProgressForTask(withIdentifier: self.task.taskIdentifier, progressHandler: handler)
+		return self
 	}
 
 }

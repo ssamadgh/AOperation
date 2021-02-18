@@ -23,6 +23,7 @@ public extension URLRequest {
 	
 }
 
+/// A class that wrapped URLSessionTaskManager and its functions
 class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
 	
 	enum TaskKind {
@@ -164,7 +165,7 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	}()
 	
 	
-	func transportTask(kind: TaskKind, for request: URLRequest) -> URLSessionTask? {
+	func transportTask(with kind: TaskKind, for request: URLRequest) -> URLSessionTask? {
 		
 		switch kind {
 		case .data:
