@@ -36,8 +36,8 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	
 	fileprivate let serialQueue = DispatchQueue(label: "Operations.URLSessionTaskManager", attributes: [])
 	
-	var downloadTaskFinisedDic: [Int : (URL?, URLResponse?, Error?) -> Swift.Void] = [:]
-	var dataTaskFinisedDic: [Int : (Data?, URLResponse?, Error?) -> Swift.Void] = [:]
+	var downloadTaskFinishedDic: [Int : (URL?, URLResponse?, Error?) -> Swift.Void] = [:]
+	var dataTaskFinishedDic: [Int : (Data?, URLResponse?, Error?) -> Swift.Void] = [:]
 	var taskProgressDic: [Int : (Progress) -> Swift.Void] = [:]
 	
 	func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -59,16 +59,16 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		let response = downloadTask.response
 		let error = downloadTask.error
 		
-		var downloadTaskFinised: ((URL?, URLResponse?, Error?) -> Void)?
+		var downloadTaskFinished: ((URL?, URLResponse?, Error?) -> Void)?
 		serialQueue.sync {
-			downloadTaskFinised = self.downloadTaskFinisedDic[downloadTask.taskIdentifier]
+			downloadTaskFinished = self.downloadTaskFinishedDic[downloadTask.taskIdentifier]
 		}
 		
-		downloadTaskFinised?(url, response, error)
+		downloadTaskFinished?(url, response, error)
 		
 		serialQueue.async {
 			self.taskProgressDic.removeValue(forKey: downloadTask.taskIdentifier)
-			self.downloadTaskFinisedDic.removeValue(forKey: downloadTask.taskIdentifier)
+			self.downloadTaskFinishedDic.removeValue(forKey: downloadTask.taskIdentifier)
 		}
 	}
 	
@@ -91,19 +91,19 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		let response = task.response
 		let error = error
 		
-		if let dataTaskFinised: ((Data?, URLResponse?, Error?) -> Void) = {
+		if let dataTaskFinished: ((Data?, URLResponse?, Error?) -> Void) = {
 			
-			var dataTaskFinised: ((Data?, URLResponse?, Error?) -> Void)?
+			var dataTaskFinished: ((Data?, URLResponse?, Error?) -> Void)?
 			serialQueue.sync {
-				dataTaskFinised = self.dataTaskFinisedDic[task.taskIdentifier]
+				dataTaskFinished = self.dataTaskFinishedDic[task.taskIdentifier]
 			}
-			return dataTaskFinised
+			return dataTaskFinished
 			}() {
 			
-			dataTaskFinised(nil, response, error)
+			dataTaskFinished(nil, response, error)
 			
 			serialQueue.async {
-				self.dataTaskFinisedDic.removeValue(forKey: task.taskIdentifier)
+				self.dataTaskFinishedDic.removeValue(forKey: task.taskIdentifier)
 				self.taskProgressDic.removeValue(forKey: task.taskIdentifier)
 			}
 			return
@@ -111,17 +111,17 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		
 		if let downloadTaskFinished: (URL?, URLResponse?, Error?) -> Void = {
 			
-			var downloadTaskFinised: ((URL?, URLResponse?, Error?) -> Void)?
+			var downloadTaskFinished: ((URL?, URLResponse?, Error?) -> Void)?
 			serialQueue.sync {
-				downloadTaskFinised = self.downloadTaskFinisedDic[task.taskIdentifier]
+				downloadTaskFinished = self.downloadTaskFinishedDic[task.taskIdentifier]
 			}
 			
-			return downloadTaskFinised
+			return downloadTaskFinished
 			
 			}() {
 			downloadTaskFinished(nil, response, error)
 			serialQueue.async {
-				self.dataTaskFinisedDic.removeValue(forKey: task.taskIdentifier)
+				self.dataTaskFinishedDic.removeValue(forKey: task.taskIdentifier)
 				self.taskProgressDic.removeValue(forKey: task.taskIdentifier)
 			}
 			return
@@ -134,18 +134,18 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 		let response = dataTask.response
 		let error = dataTask.error
 		
-		if let dataTaskFinised: ((Data?, URLResponse?, Error?) -> Void) = {
-			var dataTaskFinised: ((Data?, URLResponse?, Error?) -> Void)?
+		if let dataTaskFinished: ((Data?, URLResponse?, Error?) -> Void) = {
+			var dataTaskFinished: ((Data?, URLResponse?, Error?) -> Void)?
 			serialQueue.sync {
-			dataTaskFinised = self.dataTaskFinisedDic[dataTask.taskIdentifier]
+			dataTaskFinished = self.dataTaskFinishedDic[dataTask.taskIdentifier]
 			}
-			return dataTaskFinised
+			return dataTaskFinished
 			}() {
 			
-			dataTaskFinised(data, response, error)
+			dataTaskFinished(data, response, error)
 			
 			serialQueue.async {
-				self.dataTaskFinisedDic.removeValue(forKey: dataTask.taskIdentifier)
+				self.dataTaskFinishedDic.removeValue(forKey: dataTask.taskIdentifier)
 				self.taskProgressDic.removeValue(forKey: dataTask.taskIdentifier)
 			}
 		}
@@ -190,7 +190,7 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	
 	func didFinishDataTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Swift.Void)) {
 		serialQueue.async {
-			self.dataTaskFinisedDic[taskIdentifier] = completionHandler
+			self.dataTaskFinishedDic[taskIdentifier] = completionHandler
 		}
 	}
 	
@@ -200,7 +200,7 @@ class URLSessionTaskManager: NSObject, URLSessionDelegate, URLSessionDownloadDel
 	
 	func didFinishDownloadTask(withIdentifier taskIdentifier: Int, completionHandler: @escaping ((URL?, URLResponse?, Error?) -> Swift.Void)) {
 		serialQueue.async {
-			self.downloadTaskFinisedDic[taskIdentifier] = completionHandler
+			self.downloadTaskFinishedDic[taskIdentifier] = completionHandler
 		}
 	}
 	
