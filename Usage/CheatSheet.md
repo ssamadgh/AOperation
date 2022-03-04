@@ -149,10 +149,11 @@ A protocol that operations conform to support attempts to recreate a finished op
 
 **Implementation**
 
-```FetchUserInfoOperation: VoidOperation, RetryableOperation {
+```swift
+class FetchUserInfoOperation: VoidOperation, RetryableOperation {
 
 	func new() -> Self {
-		SampleOperation() as! Self
+		FetchUserInfoOperation() as! Self
 	}
 	
 	public override func execute() {
@@ -169,7 +170,7 @@ This protocl should be conformed if you want to use `retryOnFailure` method.
 
 ```swift
 FetchUserInfoOperation()
-.retryOnFailure({(numberOrRetries, error, retry) in
+.retryOnFailure({(numberOfRetries, error, retry) in
 	retry(true)
 }
 .didFinish { result
@@ -185,6 +186,7 @@ subscriber =
 		$searchedText
 			.compactMap({$0})
 			.deliver(to: SimpleMapOperation<String>(), on: queue)
+			.retry(2)
 			.receive(on: RunLoop.main)
 			.catch({_ in Just("Helllo")})
 			.sink(receiveValue: { (value) in
