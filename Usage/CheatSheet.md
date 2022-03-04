@@ -153,7 +153,7 @@ A protocol that operations conform to support attempts to recreate a finished op
 class FetchUserInfoOperation: VoidOperation, RetryableOperation {
 
 	func new() -> Self {
-		SampleOperation() as! Self
+		FetchUserInfoOperation() as! Self
 	}
 	
 	public override func execute() {
