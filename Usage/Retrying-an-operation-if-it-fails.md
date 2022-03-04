@@ -18,7 +18,7 @@ By adopting `RetryableOperation` to this operation we make it retryable.
 ```swift
 class FetchUserInfoOperation: ResultableOperation<UserInfo>, RetryableOperation {
 
-		public func new() -> Self {
+	public func new() -> Self {
 		FetchUserInfoOperation() as! Self
 	}
 
@@ -34,7 +34,7 @@ Use this feature in operation execution like below.
 
 ```swift
 FetchUserInfoOperation()
-.retryOnFailure({(numberOrRetries, error, retry) in
+.retryOnFailure({(numberOfRetries, error, retry) in
 	retry(true)
 }
 .didFinish { result
@@ -49,7 +49,7 @@ In another example we could manage `retryOnFailure` closure like below.
 
 ```swift
 FetchUserInfoOperation()
-.retryOnFailure({(numberOrRetries, error, retry) in
+.retryOnFailure({(numberOfRetries, error, retry) in
 	if (error.publishedError as? URLError).errorCode == URLError.Code.timedOut {
 		retry(true)
 	}
