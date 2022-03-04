@@ -23,7 +23,7 @@ class EarthquakesTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		LoadModelOperation()
-			.retryOnFailure({ [unowned self] (numberOrRetries, error, retry) in
+			.retryOnFailure({ [unowned self] (numberOfRetries, error, retry) in
 				let alert = AlertOperation()
 				
 				alert.title = "Unable to load database"
