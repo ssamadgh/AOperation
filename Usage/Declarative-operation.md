@@ -55,8 +55,8 @@ handle failure situations and retry the chain as number as you need:
 ```swift
 URLSessionTaskOperation.data(for: url)
 .delvier(to: JsonDecoderOperation<[Comments]>)
-.retryOnFailure { (numberOrRetries, error, retry) in
-	retry(numberOrRetries < 1)
+.retryOnFailure { (numberOfRetries, error, retry) in
+	retry(numberOfRetries < 1)
 }
 .didFinish { result in
     // Update UI
